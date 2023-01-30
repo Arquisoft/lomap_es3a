@@ -31,7 +31,7 @@ If you want to run it without docker. Compile and run the restapi:
 ```shell
 cd restapi
 npm install
-npm starta
+npm start
 ```
 
 Now the webapp:
