@@ -1,19 +1,77 @@
-[[section-architecture-constraints]]
-== Architecture Constraints
+[[section-architecture-constraints]] 
+== Architecture Constraints 
+ 
+ 
+[role="arc42help"] 
+**** 
 
+ 
 
-[role="arc42help"]
-****
-.Contents
-Any requirement that constrains software architects in their freedom of design and implementation decisions or decision about the development process. These constraints sometimes go beyond individual systems and are valid for whole organizations and companies.
+=== Table 1. Technical Constraints 
 
-.Motivation
-Architects should know exactly where they are free in their design decisions and where they must adhere to constraints.
-Constraints must always be dealt with; they may be negotiable, though.
+ 
+|=== 
 
-.Form
-Simple tables of constraints with explanations.
-If needed you can subdivide them into
-technical constraints, organizational and political constraints and
-conventions (e.g. programming or versioning guidelines, documentation or naming conventions)
-****
+|Constraint|Explanation 
+
+|SOLID|With SOLID we can allow people to store their data securely in decentralized data stores called Pods that are like secure personal web servers for data. This way, they can allow or reject the application to access the data or not. 
+
+|Docker|The application will be running in a Docker Host 
+
+|GitHub|We will use github to have a remote repository to develop the project, create and assign different tasks to team members, and perform version control. Github allows us communicating and organizing the project 
+
+|=== 
+ 
+=== Table 2. Organizational Constraints 
+ 
+[options="header",cols="2,7"] 
+|=== 
+|Constraint 
+|Explanation 
+ 
+|*Size of the team*  
+|The team is made of four people. At the beginning we were a group of five people but one of the members were kicked out of the group. 
+ 
+|*Testing* 
+|Different scenarios will be considered to test a correct behavior of the app. Some different techniques will be used to test the application with the higher-the-better coverage. 
+ 
+|*Meetings* 
+|We will discuss the organization of the to-do tasks in a meeting at each laboratory class. In case we need to arrange an extraordinary meeting, we meet using Discord using our free time. 
+ 
+|*Experience*  
+|Team members have low experience when working with the diverse technologies we are using. However, it is the first time we are creating a _real life_ project but we learnt a lot of the technologies used in this project. 
+ 
+|*Working as a team* 
+|It is the second time we have worked together making a big project, making this experience easier than we thought. 
+ 
+|*Coordination* 
+|A good coordination must be carried out by each component of the group to accomplish all the objectives proposed. 
+|=== 
+ 
+
+=== Table 3. Conventions 
+ 
+[options="header",cols="1,3"] 
+|=== 
+|Constraint 
+|Explanation 
+ 
+|_Language_ 
+|Any person must be able to interact with the application and successfully complete any task in it, for example, they should be able to search for certain locations near them and interact with other users as well. 
+ 
+|_Clean Code_ 
+|The code conforming the application must be well written and clean, so it is easier to understand and work with (_maintainability_ in mind). 
+ 
+|_Documentation_ 
+|The documentation must be created by following the https://arc42.org/[Arc42] method, so it is clear, simple and effective. 
+ 
+|_Accessibility_ 
+|The application must be easy to navigate through any user, so anyone interested in it can do it easily. Regardless of any disability. 
+ 
+|_Programming Language conventions_ 
+|We should follow the conventions of the programming languages we are using. Some of those are the https://jsdoc.app/[_JavaScript_] conventions. 
+ 
+|_SOLID_ 
+|The application must follow the https://github.com/solid/solid-spec[_Solid_] specifications. 
+|=== 
+**** 
