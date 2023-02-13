@@ -1,12 +1,12 @@
-# GOMap!
-<img src="https://user-images.githubusercontent.com/91057639/218328348-4e61e857-09fa-45d9-a409-c99d618f4072.png" width="1024" height="512">
+# GOMap!®
+<img src="https://user-images.githubusercontent.com/91057639/218590043-d4243147-e5c0-4f7b-8fed-12ed8d290490.png" width="1024" height="512">
 
 ## 🗺️ Descripción del proyecto:
 <p align="justify">
 Este proyecto se ha realizado en conjunto entre los desarrolladores previamente mostrados para la asignatura de Arquitectura del Software (ASW). 
 </p>
 <p align="justify">
-Aplicación GOMap! en la que se dispondrá de mapas donde el usuario podrá añadir marcadores y obtener más información sobre una ubicación en concreto.
+Aplicación GOMap!® en la que se dispondrá de mapas donde el usuario podrá añadir marcadores y obtener más información sobre una ubicación en concreto.
 </p>
 
 ## 🖥️ Desarrolladores del proyecto:
