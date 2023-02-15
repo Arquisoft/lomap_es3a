@@ -1,67 +1,60 @@
-[[section-concepts]]
-== Cross-cutting Concepts
+[[section-concepts]] 
 
+== Cross-cutting Concepts 
 
-[role="arc42help"]
-****
-.Content
-This section describes overall, principal regulations and solution ideas that are
-relevant in multiple parts (= cross-cutting) of your system.
-Such concepts are often related to multiple building blocks.
-They can include many different topics, such as
+[role="arc42help"] 
 
-* domain models
-* architecture patterns or design patterns
-* rules for using specific technology
-* principal, often technical decisions of overall decisions
-* implementation rules
+****  
 
-.Motivation
-Concepts form the basis for _conceptual integrity_ (consistency, homogeneity)
-of the architecture. Thus, they are an important contribution to achieve inner qualities of your system.
+=== Domain model 
+[plantuml, "DomainModel", png] 
+---- 
+object User{ 
+    webId : String 
+    role : String 
+    isVerified : boolean 
+} 
+ 
+object Marker{ 
+    code: String 
+    name: String 
+    description: String 
+    address: String 
+    reviews: Review[] 
+    image: String 
+    category: String 
+    date: Date 
+} 
+ 
+object Map{ 
+    code: String 
+    webId: String 
+    address: String 
+    markers: Marker[] 
+    date: Date 
+} 
+ 
+object Review{ 
+    webId: String 
+    markerCode: String 
+    rating: int 
+    comment: String 
+} 
+ 
+Order *--> User 
+Order o--> Product 
+Review *--> Product 
+Review *--> User 
+---- 
 
-Some of these concepts cannot be assigned to individual building blocks
-(e.g. security or safety). This is the place in the template that we provided for a
-cohesive specification of such concepts.
+=== Security 
+ 
+_Security_ is a very important concept in the context of a system. As we are managing information from users, it is important to ensure that the information is safe and that the system is not compromised. So, we decided to store in our system the minimum information necessary and obtain the other from the _PODs_. Also we decided to encrypt the users' passwords, if any. 
+ 
+Also, we added security in the _back-end_ to prevent unauthorized requests to the RestAPI, as well as for preventing the execution of malicious code. 
 
-.Form
-The form can be varied:
+=== Testability 
+ 
+In order to ensure the correct functioning of the system, we decided to implement _unit tests_ for most of the components and will also check the functionality of the whole app itself, so the user experience is at its best.  
 
-* concept papers with any kind of structure
-* cross-cutting model excerpts or scenarios using notations of the architecture views
-* sample implementations, especially for technical concepts
-* reference to typical usage of standard frameworks (e.g. using Hibernate for object/relational mapping)
-
-.Structure
-A potential (but not mandatory) structure for this section could be:
-
-* Domain concepts
-* User Experience concepts (UX)
-* Safety and security concepts
-* Architecture and design patterns
-* "Under-the-hood"
-* development concepts
-* operational concepts
-
-Note: it might be difficult to assign individual concepts to one specific topic
-on this list.
-
-image:08-Crosscutting-Concepts-Structure-EN.png["Possible topics for crosscutting concepts"]
-****
-
-
-=== Domain model
-
-image:UmlDiagram.png["Example UML Diagram"]
-
-
-
-=== _<Concept 2>_
-
-_<explanation>_
-
-...
-
-=== _<Concept n>_
-
-_<explanation>_
+We have decided to create a branch for it, named _testing_, so when we need to do tests, we use that branch. 
