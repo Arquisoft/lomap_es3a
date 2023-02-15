@@ -1,57 +1,154 @@
-[[section-runtime-view]]
-== Runtime View
+[[section-runtime-view]] 
 
+== Runtime View 
 
-[role="arc42help"]
-****
-.Contents
-The runtime view describes concrete behavior and interactions of the system’s building blocks in form of scenarios from the following areas:
+  
 
-* important use cases or features: how do building blocks execute them?
-* interactions at critical external interfaces: how do building blocks cooperate with users and neighboring systems?
-* operation and administration: launch, start-up, stop
-* error and exception scenarios
+=== Login 
 
-Remark: The main criterion for the choice of possible scenarios (sequences, workflows) is their *architectural relevance*. It is *not* important to describe a large number of scenarios. You should rather document a representative selection.
+For the login, the app shows the login view which asks the user for their Solid Identity Provider of choice. 
 
-.Motivation
-You should understand how (instances of) building blocks of your system perform their job and communicate at runtime.
-You will mainly capture scenarios in your documentation to communicate your architecture to stakeholders that are less willing or able to read and understand the static models (building block view, deployment view).
+Then the app does a login request to the REST API server, which redirects the user to the identity provider which handles the authentication. 
 
-.Form
-There are many notations for describing scenarios, e.g.
+Once the user successfully logs in, the identity provider gives the server the session information needed to interact with the user Pod, and the server sends the session ID to the web app, which can be used to identify the session in later REST API requests. Lastly, the web app shows the main view. 
 
-* numbered list of steps (in natural language)
-* activity diagrams or flow charts
-* sequence diagrams
-* BPMN or EPCs (event process chains)
-* state machines
-* ...
+[plantuml,"Sequence diagram - Login",png] 
 
-****
+---- 
 
-=== <Runtime Scenario 1>
+actor User as Israel 
 
+participant "Web App" as W 
 
-* _<insert runtime diagram or textual description of the scenario>_
-* _<insert description of the notable aspects of the interactions between the
-building block instances depicted in this diagram.>_
+participant "REST API Server" as R 
 
-It is possible to use a sequence diagram:
+participant "Solid Identity Provider" as P 
 
-[plantuml,"Sequence diagram",png]
-----
-actor Alice
-actor Bob
-database Pod as "Bob's Pod"
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
-Alice  --> Pod: Store route
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: another authentication Response
-----
-=== <Runtime Scenario 2>
+  
 
-=== ...
+activate W 
 
-=== <Runtime Scenario n>
+W -> W: Show Login View 
+
+U -> W: Chooses Solid Identity Provider 
+
+W -> R: Requests login 
+
+deactivate W 
+
+activate R 
+
+R -> P: Redirects to the provider login form 
+
+deactivate R 
+
+activate P 
+
+P --> U: Asks for credentials 
+
+activate U 
+
+U -> P: Logs in 
+
+deactivate U 
+
+P --> R: Provides session information 
+
+deactivate P 
+
+activate R 
+
+R --> W: Provides session ID 
+
+activate W 
+
+W -> W: Show Main View 
+
+----  
+
+=== List friends 
+
+ In this view he can do the CRUD operations: 
+
+The users enter the app and go to the friend's view. 
+
+The client receives the request and sends the server for the friends list. 
+
+The server asks the POD for the friends. 
+
+The POD return the list to the client 
+
+The client receives the list and shows it to the user. 
+
+ 
+
+[plantuml,"Sequence diagram - Nearby friends",png] 
+
+---- 
+
+actor User 
+participant Client 
+participant Server 
+database Pod as "Pod" 
+User -> Client: Request friend’s view 
+Client --> Server: Request friend’s list 
+Server --> Pod: Search for the list 
+Server <-- Pod: Return the list 
+Client <-- Server: Return the list of friends 
+User <- Client: Return the list view 
+
+---- 
+
+  
+
+=== Add Location 
+
+  
+
+Saved locations can later be viewed by the user and his friends through the web application. 
+
+The user can add a location to their map. 
+
+  
+
+[plantuml,"Sequence diagram - Saving Locations - mobileapp",png] 
+
+---- 
+
+actor User 
+participant Server 
+database Pod as "Pod" 
+ 
+User-> Server: User click the map to add a new marker 
+Server ->Pod: Ask locations JSON 
+Pod-> Server: Return locations JSON 
+Server -> Server: Add the new location 
+Server ->Pod: Sends the new JSON 
+Server ->User: Show the map with the new location. 
+
+----  
+
+=== Remove Location 
+
+Locations added to the map later be removed by the user through the application.  
+
+[plantuml,"Sequence diagram - Editing Saved Locations",png] 
+
+---- 
+
+actor User 
+participant Server 
+database Pod as "Pod" 
+ 
+User-> Server: User click the map in one mark location 
+
+Server -> Server: Using the location ID the app knows the JSON file 
+Server ->Pod: Ask locations JSON 
+Pod-> Server: Return locations JSON 
+Server -> Server: Remove certain location 
+Server ->Pod: Sends the new JSON 
+Server ->User: Show the map with the new location. 
+
+ 
+
+---- 
