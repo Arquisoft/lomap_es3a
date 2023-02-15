@@ -1,31 +1,52 @@
-[[section-glossary]]
-== Glossary
+[[section-glossary]] 
+== Glossary 
+ 
+[options="header", cols="1,1"] 
+|=== 
+|Term | Definition 
+ 
+|*API* 
+|Set of programming code that enables data transmission between one software product and another. 
+ 
+|*Acceptance tests* 
+|A quality assurance process that determines to what degree an application meets end users' approval. 
+ 
+|*Continuous Integration* 
+|Practice that consists on introducing integrations of a project automatically - very often - so bugs can be detected as fast as possible. 
+ 
+|*Decentralization* 
+|Process by which activities regarding planning and decision making are distributed or delegated away from a central, authoritative location or group. 
+ 
+|*MongoDB* 
+|A document database with a flexible schema. 
+ 
+|*POD* 
+|Secure personal web servers for storing data. 
+ 
+|*React.js* 
+|Open-source _JavaScript_ library that is used for building user interfaces. 
 
+|*Ruby* 
+|Ruby is an interpreted, high-level, general-purpose programming language which supports multiple programming paradigms 
 
-
-[role="arc42help"]
-****
-.Contents
-The most important domain and technical terms that your stakeholders use when discussing the system.
-
-You can also see the glossary as source for translations if you work in multi-language teams.
-
-.Motivation
-You should clearly define your terms, so that all stakeholders
-
-* have an identical understanding of these terms
-* do not use synonyms and homonyms
-
-.Form
-A table with columns <Term> and <Definition>.
-
-Potentially more columns in case you need translations.
-
-****
-
-[options="header"]
-|===
-| Term         | Definition
-| <Term-1>     | <definition-1>
-| <Term-2>     | <definition-2>
-|===
+|*Node* 
+|An asynchronous event-driven JavaScript runtime, Node.js is designed to build scalable network applications 
+ 
+|*RestAPI* 
+|Architectural style for an application program interface that uses _HTTP_ requests to access and use data. 
+ 
+|*SOLID specification* 
+|Proposed set of conventions and tools for building decentralized social applications. 
+ 
+|*TypeScript* 
+|A syntactical superset of _JavaScript_ which adds optional static typing to the language. 
+ 
+|*User* 
+|Someone who operates the application. 
+ 
+|*Unit testing* 
+|A software development process in which the smallest testable parts of an application are individually checked for proper operation. 
+ 
+|*webapp* 
+|A client-side and server-side software application in which the client runs or request in a web browser. 
+|=== 
