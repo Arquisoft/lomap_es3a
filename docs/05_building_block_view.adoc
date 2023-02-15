@@ -1,206 +1,273 @@
-[[section-building-block-view]]
+[[section-building-block-view]] 
 
+== Building block view 
 
-== Building Block View
+=== Level 1: Whitebox of the Overall System 
 
-[role="arc42help"]
-****
-.Content
-The building block view shows the static decomposition of the system into building blocks (modules, components, subsystems, classes,
-interfaces, packages, libraries, frameworks, layers, partitions, tiers, functions, macros, operations,
-datas structures, ...) as well as their dependencies (relationships, associations, ...)
+[plantuml, "level1", png] 
 
-This view is mandatory for every architecture documentation.
-In analogy to a house this is the _floor plan_.
+---- 
 
-.Motivation
-Maintain an overview of your source code by making its structure understandable through
-abstraction.
+Actor Israel 
 
-This allows you to communicate with your stakeholder on an abstract level without disclosing implementation details.
+Component GoMap 
 
-.Form
-The building block view is a hierarchical collection of black boxes and white boxes
-(see figure below) and their descriptions.
+Component pod as "Pod's service" 
 
-image:05_building_blocks-EN.png["Hierarchy of building blocks"]
+Israel -right-> GoMap: interacts with 
 
-*Level 1* is the white box description of the overall system together with black
-box descriptions of all contained building blocks.
+GoMap <-right-> Pod: gets data 
 
-*Level 2* zooms into some building blocks of level 1.
-Thus it contains the white box description of selected building blocks of level 1, together with black box descriptions of their internal building blocks.
+---- 
 
-*Level 3* zooms into selected building blocks of level 2, and so on.
-****
+  
 
-=== Whitebox Overall System
+Motivation:: 
 
-[role="arc42help"]
-****
-Here you describe the decomposition of the overall system using the following white box template. It contains
+_ GoMap _ application is the general structure of a system in which users will have the possibility to add markers to their favorite places and share them with their friends.  All the data that belongs to the user is stored safely in their _PODs_. 
 
- * an overview diagram
- * a motivation for the decomposition
- * black box descriptions of the contained building blocks. For these we offer you alternatives:
+Contained Building Blocks:: 
 
-   ** use _one_ table for a short and pragmatic overview of all contained building blocks and their interfaces
-   ** use a list of black box descriptions of the building blocks according to the black box template (see below).
-   Depending on your choice of tool this list could be sub-chapters (in text files), sub-pages (in a Wiki) or nested elements (in a modeling tool).
+[options="header",cols="1,3"] 
 
+|=== 
 
- * (optional:) important interfaces, that are not explained in the black box templates of a building block, but are very important for understanding the white box.
-Since there are so many ways to specify interfaces why do not provide a specific template for them.
- In the worst case you have to specify and describe syntax, semantics, protocols, error handling,
- restrictions, versions, qualities, necessary compatibilities and many things more.
-In the best case you will get away with examples or simple signatures.
+|Name| Description 
 
-****
+  
 
-_**<Overview Diagram>**_
+|*User*  
 
-Motivation::
+|Client of the application which will interact with it. 
 
-_<text explanation>_
+|* GoMap application*  
 
+|System developed to be used by the users. Through its information in the PODs will be taken.   
 
-Contained Building Blocks::
-_<Description of contained building block (black boxes)>_
+|*PODs service* 
 
-Important Interfaces::
-_<Description of important interfaces>_
+|Has the aim to access each user's personal POD. 
 
-[role="arc42help"]
-****
-Insert your explanations of black boxes from level 1:
+|=== 
 
-If you use tabular form you will only describe your black boxes with name and
-responsibility according to the following schema:
+=== Level 2 
 
-[cols="1,2" options="header"]
-|===
-| **Name** | **Responsibility**
-| _<black box 1>_ | _<Text>_
-| _<black box 2>_ | _<Text>_
-|===
+[plantuml, "level2", png] 
 
+---- 
 
+Actor Israel 
 
-If you use a list of black box descriptions then you fill in a separate black box template for every important building block .
-Its headline is the name of the black box.
-****
+Component GoMap { 
 
+    Component ui as "User Interface" 
 
-==== <Name black box 1>
+    Component da as "Data Access" 
 
-[role="arc42help"]
-****
-Here you describe <black box 1>
-according the the following black box template:
+    Database db as "MongoDB" 
 
-* Purpose/Responsibility
-* Interface(s), when they are not extracted as separate paragraphs. This interfaces may include qualities and performance characteristics.
-* (Optional) Quality-/Performance characteristics of the black box, e.g.availability, run time behavior, ....
-* (Optional) directory/file location
-* (Optional) Fulfilled requirements (if you need traceability to requirements).
-* (Optional) Open issues/problems/risks
+} 
 
-****
+Component pod as "Pod's service" 
 
-_<Purpose/Responsibility>_
+  
 
-_<Interface(s)>_
+Israel-right-> ui 
 
-_<(Optional) Quality/Performance Characteristics>_
+ui <-right-> da: data 
 
-_<(Optional) Directory/File Location>_
+da <--> db: data flow 
 
-_<(Optional) Fulfilled Requirements>_
+da <--> pod: get address 
 
-_<(optional) Open Issues/Problems/Risks>_
+---- 
 
+Motivation:: 
 
+Shows how the application will work internally in general terms. The client, through the user interface, will get the data requested by using the _DAL_ (_Data Access Layer_). 
 
+Contained Building Blocks:: 
 
-==== <Name black box 2>
+[options="header",cols="1,3"] 
 
-_<black box template>_
+|=== 
 
-==== <Name black box n>
+|Name| Description 
 
-_<black box template>_
+|*User Interface*  
 
+|The user will interact with this UI to request any information about the map. This means the user will be able to perform any task in our system through this. 
 
-==== <Name interface 1>
+|*Data Access* 
 
-...
+|The layer that will provide and request information from and to the _PODs_ and the _Database_. 
 
-==== <Name interface m>
+|*MongoDB*  
 
+|_Database_ used to store the minimum data as possible from the users. We especially use this database to store the id of the users in order to link their profile with the personal POD. 
 
+|=== 
 
-=== Level 2
+=== Level 3 
 
-[role="arc42help"]
-****
-Here you can specify the inner structure of (some) building blocks from level 1 as white boxes.
+[plantuml, "level3", png] 
 
-You have to decide which building blocks of your system are important enough to justify such a detailed description.
-Please prefer relevance over completeness. Specify important, surprising, risky, complex or volatile building blocks.
-Leave out normal, simple, boring or standardized parts of your system
-****
+---- 
 
-==== White Box _<building block 1>_
+Actor Israel 
 
-[role="arc42help"]
-****
-...describes the internal structure of _building block 1_.
-****
+  
 
-_<white box template>_
+Component Interface{ 
 
-==== White Box _<building block 2>_
+    Component vi as "Views"{ 
 
+       Component ho as "Home" 
 
-_<white box template>_
+       Component marker as "Marker" 
 
-...
+       Component mm as "Markers" 
 
-==== White Box _<building block m>_
+       Component map as "Map" 
 
+       Component lo as "Sign in" 
 
-_<white box template>_
+       Component re as "Sign up" 
 
+       Component out as "Log out"        
 
+       Component rw as "Review" 
 
-=== Level 3
+    }     
 
-[role="arc42help"]
-****
-Here you can specify the inner structure of (some) building blocks from level 2 as white boxes.
+} 
 
-When you need more detailed levels of your architecture please copy this
-part of arc42 for additional levels.
-****
+  
 
+Component DataAccess{ 
 
-==== White Box <_building block x.1_>
+       Component sol as "Solid" 
 
-[role="arc42help"]
-****
-Specifies the internal structure of _building block x.1_.
-****
+       Component res as "RestApi" 
 
+       Component le as "Locations Api" 
 
-_<white box template>_
+} 
 
+  
 
-==== White Box <_building block x.2_>
+Component pod as "Pod's service" 
 
-_<white box template>_
+Database db as "MongoDB" 
 
+Israel -right->Interface: interacts 
 
+  
 
-==== White Box <_building block y.1_>
+re -right-> sol 
 
-_<white box template>_
+rw -down-> sol 
+
+  
+
+re-right->res 
+
+map-right->res 
+
+lo-right->res 
+
+marker-right->res 
+
+my-right->res 
+
+   
+
+rw -down->le 
+
+  
+
+  
+
+sol <-down-> pod:acceses 
+
+res <-down-> db:data 
+
+---- 
+
+  
+
+Motivation:: 
+
+Detailed structure of the system. Focused on the components of the _User Interface_ and _Data Access_. 
+
+  
+
+Contained Building Blocks:: 
+
+[options="header",cols="1,3"] 
+
+|=== 
+
+|Name| Description 
+
+  
+
+|*Views*  
+
+|Sections of the application where the user is going to interact with the system. 
+
+  
+
+|*Home* 
+
+|Initial screen of the application. A welcome message is going to be displayed as well as the featured products. 
+
+  
+
+|*Marker* 
+
+|View information about a certain location in the map. Here the user will be able to add reviews and photos about that place. 
+
+  
+
+|*Markers* 
+
+|The user has a markers view, where he will see the markers that the user and his friends have previously created. 
+
+  
+
+|*Sign-in* 
+
+|Here the user will log-in into their personal account. In case they have created one previously. 
+
+  
+
+|*Sign-up* 
+
+|Allows the client to create a new account for the application. This process will take place only once for each user. 
+
+  
+
+|*Map* 
+
+|Here the user can find everything the app is designed to, from markers created by user to certain locations. 
+
+  
+
+|*Log-out* 
+
+|It logs the user out from the application. 
+
+  
+
+|*Review* 
+
+|At this point, the user will add a review about the restaurant, bar, shop, etc associated to the marker. 
+
+  
+
+|*RestAPI* 
+
+|The application resquest the _RestAPI_ for the information needed. Receiving a response from _MongoDB_. 
+
+|=== 
