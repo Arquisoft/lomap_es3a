@@ -41,9 +41,9 @@ object Review{
     comment: String 
 } 
  
-Order *--> User 
-Order o--> Product 
-Review *--> Product 
+Map *--> User 
+Map o--> Marker
+Review *--> Marker
 Review *--> User 
 ---- 
 
