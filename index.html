@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.18">
-<title></title>
+<title>LOMAP ES3A</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -438,7 +438,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1><span class="image"><img src="./images/FullLogo.png" alt="arc42"></span></h1>
+<h1><span class="image"><img src="./images/FullLogo.png" alt="arc42"></span> LOMAP ES3A</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
@@ -498,7 +498,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#section-design-decisions">9. Design Decisions</a></li>
-<li><a href="#section-quality-decisions">10. Quality Requirements</a>
+<li><a href="#section-quality-scenarios">10. Quality Requirement</a>
 <ul class="sectlevel2">
 <li><a href="#_quality_tree">10.1. Quality Tree</a></li>
 <li><a href="#_quality_scenarios">10.2. Quality Scenarios</a></li>
@@ -521,6 +521,27 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 	.arc42help {display:hidden;}
 }
 </style>
+<hr>
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This version of the template contains some help and explanations.
+It is used for familiarization with arc42 and the understanding of the concepts.
+For documentation of your own system you use better the <em>plain</em> version.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
@@ -528,7 +549,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="section-introduction-and-goals">1. Introduction and Goals</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>GOMap! is a project developed for the Software Architecture course of the University of Oviedo, based on the base project LoMap. This version will be developed by the team es3a, formed by:</p>
+<p>GOMap!® is a project developed for the Software Architecture course of the University of Oviedo, based on the base project LoMap. This version will be developed by the team es3a, formed by:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -539,7 +560,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Raúl Fernández España, <em>UO278036</em></p>
 </li>
 <li>
-<p>Omar Teixeira González, <em>UO281847</em></p>
+<p>Omar Teixeira González, _UO281847</p>
 </li>
 <li>
 <p>David Leszek Warzynski Abril, <em>UO278968</em></p>
@@ -547,7 +568,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 <div class="paragraph">
-<p>GOMap! is a software system where users can have personalized maps about places and local businesses in their city.</p>
+<p>GOMap!® is a software system where users can have custom maps about places and local businesses in their city.</p>
 </div>
 <div class="paragraph">
 <p>The app provides users with the possibility of:</p>
@@ -655,23 +676,23 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Students</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Carlos Díez Fernández, Omar Teixeira González, Raúl Fernández España, David Leszek Warzynski Abril</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The students are the main developers of the application. They will develop whole app and they will improve their coding and teamwork skills.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Carlos Díez Fernández, Omar Teixeira González, Raúl Fernández España, David Leszek Warzynski Abril.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The students are the main developers of the application. They will develop whole app and they will improve their coding and teamwork skills</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Users</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Users&gt;</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Anyone who uses the app</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The users will be the ones who use the app, they should find it practical, intuitive and easy to use.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Teachers</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">José Emilio Labra, Irene Cid and Pablo González González</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">They will supervise the students making sure they are taking the right path and helping if necessary</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">_&lt;They will supervise the students making sure they are taking the right path and helping if necessary.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Empathy</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Empathy, tech company</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">They are interested in the project, especially in how the team uses SOLID technology, since this is essential in their work area</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">_&lt;They are interested in the project, especially in how the team uses SOLID technology, since this is essential in their work area.</p></td>
 </tr>
 </tbody>
 </table>
@@ -689,13 +710,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <col style="width: 50%;">
 <col style="width: 50%;">
 </colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Constraint</th>
-<th class="tableblock halign-left valign-top">Explanation</th>
-</tr>
-</thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Constraint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Explanation</p></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SOLID</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">With SOLID we can allow people to store their data securely in decentralized data stores called Pods that are like secure personal web servers for data. This way, they can allow or reject the application to access the data or not.</p></td>
@@ -807,33 +826,31 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <col style="width: 33.3333%;">
 <col style="width: 33.3334%;">
 </colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Entity</th>
-<th class="tableblock halign-left valign-top">Inputs</th>
-<th class="tableblock halign-left valign-top">Outputs</th>
-</tr>
-</thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Entity</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Inputs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Outputs</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The user&#8217;s input will be the interface provided by the webapp</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The user will create the pod and store there their information and also, he can customize the map by adding places</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The user&#8217;s input will be the interface provided by the webapp.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The user will create the pod and store there their information and also, he can customize the map by adding places.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">POD</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The POD will receive petitions from WebApp to get information about the users of the app.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">It will provide users' information (places registered by users) needed by the webapp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">It will provide users' information (places registered by users) needed by the webapp.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Webapp</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The user will be able to add markers and to access the information about their markers</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The information that provides to the user logged like the added markers and their details</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The user will be able to add markers and to access the information about their markers.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The information that provides to the user logged like the added markers and their details.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Database</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The POD will have most of the information so we will not store it, but we will store other information</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">It will return the result of the queries received</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The POD will have most of the information so we will not store it, but we will store other information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">It will return the result of the queries received.</p></td>
 </tr>
 </tbody>
 </table>
@@ -841,9 +858,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_technical_context">3.2. Technical Context</h3>
 <div class="paragraph">
-<p>The main objective of the application is the private treatment of user data. We will achieve this objective by using PODs to keep user data private and decentralized
-In SOLID architecture we can define a POD as a Personal Online Data Store. The user can have there any information he/she wants and can be hosted anywhere.
-The application will be written in Typescript with React, Typescript being a language like JavaScript but with types and React a library to facilitate the creation of user interfaces.</p>
+<p>The main objective of the application is the private treatment of user data. We will achieve this objective by using PODs to keep user data private and decentralized.</p>
+</div>
+<div class="paragraph">
+<p>In SOLID architecture we can define a POD as a Personal Online Data Store. The user can have there any information he/she wants and can be hosted anywhere.</p>
+</div>
+<div class="paragraph">
+<p>The application will be written in Typescript with React, Typescript being a language like JavaScript but with types and React a library to facilitate the creation of user interfaces.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -857,19 +878,19 @@ The application will be written in Typescript with React, Typescript being a lan
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SOLID</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Architecture followed in the project that determines the structure of the data management. Most of the data is decentralized and stored in a secure way on PODs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Architecture followed in the project that determines the structure of the data management. Most of the data is decentralized and stored in a secure way on PODs.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Typescript</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Language used to build the application</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Language used to build the application.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">React</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Library to help the building of the user interfaces and to make frontend development easier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Library to help the building of the user interfaces and to make frontend development easier.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PODs</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Management of user data in a private and decentralized way according to the SOLID architecture</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Management of user data in a private and decentralized way according to the SOLID architecture.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1026,7 +1047,7 @@ The application will be written in Typescript with React, Typescript being a lan
 <td class="tableblock halign-left valign-top"><p class="tableblock">Client of the application which will interact with it.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">* GOMap!® application*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>GOMap!® application</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">System developed to be used by the users. Through its information in the PODs will be taken.</p></td>
 </tr>
 <tr>
@@ -1175,8 +1196,10 @@ The application will be written in Typescript with React, Typescript being a lan
 </div>
 <div class="sect2">
 <h3 id="_list_friends">6.2. List friends</h3>
-<div class="paragraph">
-<p>In this view he can do the CRUD operations:</p>
+<div class="literalblock">
+<div class="content">
+<pre>In this view he can do the CRUD operations:</pre>
+</div>
 </div>
 <div class="paragraph">
 <p>The users enter the app and go to the friend&#8217;s view.</p>
@@ -1234,7 +1257,7 @@ The application will be written in Typescript with React, Typescript being a lan
 <h3 id="_infrastructure_level_1">7.1. Infrastructure Level 1</h3>
 <div class="imageblock">
 <div class="content">
-<img src="./images/07_DeploymentView.png" alt="07 DeploymentView" width="648" height="703">
+<img src="./images/07_DeploymentView.png" alt="07 DeploymentView" width="560" height="703">
 </div>
 </div>
 <div class="dlist">
@@ -1370,13 +1393,13 @@ The application will be written in Typescript with React, Typescript being a lan
 </div>
 </div>
 <div class="sect1">
-<h2 id="section-quality-decisions">10. Quality Requirements</h2>
+<h2 id="section-quality-scenarios">10. Quality Requirement</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_quality_tree">10.1. Quality Tree</h3>
 <div class="imageblock">
 <div class="content">
-<img src="./images/Quality%20tree.png" alt="Quality tree" width="820" height="1233">
+<img src="./images/Quality%20tree.png" alt="Quality tree" width="821" height="1234">
 </div>
 </div>
 </div>
@@ -1395,20 +1418,25 @@ The application will be written in Typescript with React, Typescript being a lan
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 100%;">
 </colgroup>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Scenario</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User Request for Location Information</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Stimulus</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A user requests location information for a specific place on the map</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Response</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The system displays the requested location information within one second of the user&#8217;s request.</p></td>
 </tr>
 </tbody>
@@ -1424,20 +1452,25 @@ The application will be written in Typescript with React, Typescript being a lan
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 100%;">
 </colgroup>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Scenario</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Additional Functionality is Implemented</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Stimulus</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The system is updated to include additional functionality, such as the ability to filter markers by category</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Response</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The system adds the new functionality and displays the filtered results within five seconds of the user&#8217;s request.</p></td>
 </tr>
 </tbody>
@@ -1595,7 +1628,7 @@ Created by Dr. Peter Hruschka &amp; Dr. Gernot Starke.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-02-18 10:28:45 +0100
+Last updated 2023-02-18 11:41:37 +0100
 </div>
 </div>
 </body>
