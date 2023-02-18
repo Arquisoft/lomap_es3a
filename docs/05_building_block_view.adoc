@@ -20,7 +20,7 @@ GoMap <-right-> Pod: gets data
 
 ----   
 
-Motivation:: 
+Motivation::
 
 _GOMap!®_ application is the general structure of a system in which users will have the possibility to add markers to their favorite places and share them with their friends.  All the data that belongs to the user is stored safely in their _PODs_. 
 

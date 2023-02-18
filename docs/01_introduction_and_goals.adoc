@@ -67,12 +67,12 @@ It is also possible to obtain more information through the following link, which
 |Role/Name|Contact|Expectations 
 | _Students_ | Carlos Díez Fernández, Omar Teixeira González, Raúl Fernández España, David Leszek Warzynski Abril.
 | The students are the main developers of the application. They will develop whole app and they will improve their coding and teamwork skills 
-| _Users>_ | Anyone who uses the app 
+| _Users_ | Anyone who uses the app 
 | The users will be the ones who use the app, they should find it practical, intuitive and easy to use. 
 
 | _Teachers_ | José Emilio Labra, Irene Cid and Pablo González González 
-| _<They will supervise the students making sure they are taking the right path and helping if necessary. 
+| They will supervise the students making sure they are taking the right path and helping if necessary. 
 
 | _Empathy_ | Empathy, tech company 
-| _<They are interested in the project, especially in how the team uses SOLID technology, since this is essential in their work area. 
+| They are interested in the project, especially in how the team uses SOLID technology, since this is essential in their work area. 
 |=== 
