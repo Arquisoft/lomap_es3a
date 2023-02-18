@@ -2,10 +2,6 @@
 
 == Cross-cutting Concepts 
 
-[role="arc42help"] 
-
-****  
-
 === Domain model 
 [plantuml, "DomainModel", png] 
 ---- 

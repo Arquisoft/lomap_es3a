@@ -1,24 +1,20 @@
 [[section-architecture-constraints]] 
 == Architecture Constraints 
- 
- 
-[role="arc42help"] 
-**** 
-
- 
 
 === Table 1. Technical Constraints 
 
- 
 |=== 
 
 |Constraint|Explanation 
 
-|SOLID|With SOLID we can allow people to store their data securely in decentralized data stores called Pods that are like secure personal web servers for data. This way, they can allow or reject the application to access the data or not. 
+|SOLID
+|With SOLID we can allow people to store their data securely in decentralized data stores called Pods that are like secure personal web servers for data. This way, they can allow or reject the application to access the data or not. 
 
-|Docker|The application will be running in a Docker Host 
+|Docker
+|The application will be running in a Docker Host 
 
-|GitHub|We will use github to have a remote repository to develop the project, create and assign different tasks to team members, and perform version control. Github allows us communicating and organizing the project 
+|GitHub
+|We will use github to have a remote repository to develop the project, create and assign different tasks to team members, and perform version control. Github allows us communicating and organizing the project 
 
 |=== 
  
@@ -74,4 +70,3 @@
 |_SOLID_ 
 |The application must follow the https://github.com/solid/solid-spec[_Solid_] specifications. 
 |=== 
-**** 

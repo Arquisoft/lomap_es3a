@@ -40,34 +40,25 @@ We are using _PlantUML_ for creating the diagrams of the documentation.
  
 |=== 
  
-|Quality goal 
- 
-|Scenario 
- 
+|Quality goal  
+|Scenario  
 |Solution approach 
  
-|*Privacy and Security* 
- 
+|*Privacy and Security*  
 |The users will feel safe while using our app, knowing that their data will be treated safely and privately. 
  
 |We will use SOLID PODs in order to achieve this by managing the information that the user wants to share in his POD. We will aim to solve problems that may compromise the robustness and security of the application. 
  
-|*Usability* 
- 
-|The user must be able to perform any of the functions offered by the application without any trouble. 
- 
+|*Usability*  
+|The user must be able to perform any of the functions offered by the application without any trouble.  
 |The use of CSS and JS frameworks like React that are pre-configured with that in mind. Some techniques such as metaphors or conventions will be used. 
  
-|*Maintainability* 
- 
-|The architecture of the application must allow adding new functionalities or modifying the existing ones making as few changes as possible. 
- 
+|*Maintainability*  
+|The architecture of the application must allow adding new functionalities or modifying the existing ones making as few changes as possible.  
 |We will implement design patterns and follow code conventions in order to achieve a clean code. More in more, we will write code with tests in mind. 
  
-|*Performance* 
- 
-|The application must assure maximum speed responding to user interactions, minimizing loading times.
- 
+|*Performance*  
+|The application must assure maximum speed responding to user interactions, minimizing loading times. 
 |We will improve performance by using design patterns, applying design principles and using up-to-date technologies that offer good performance 
  
 |=== 
@@ -81,4 +72,3 @@ We have taken the following organizational decisions:app-name:
 * *Issues*: even if private chats are a good tool for solving quick doubts, anything apart from that will represent an issue in _Github_. This way, anyone can see what we discuss about. 
  
 * *GitHub Projects*: by means of this tool we will be able to plan the development process of the application. More in more, _Github_ has a built-in option for that purpose.
-

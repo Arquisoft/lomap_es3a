@@ -18,13 +18,11 @@ Israel -right-> GoMap: interacts with
 
 GoMap <-right-> Pod: gets data 
 
----- 
-
-  
+----   
 
 Motivation:: 
 
-_ GoMap _ application is the general structure of a system in which users will have the possibility to add markers to their favorite places and share them with their friends.  All the data that belongs to the user is stored safely in their _PODs_. 
+_GOMap!®_ application is the general structure of a system in which users will have the possibility to add markers to their favorite places and share them with their friends.  All the data that belongs to the user is stored safely in their _PODs_. 
 
 Contained Building Blocks:: 
 
@@ -32,20 +30,15 @@ Contained Building Blocks::
 
 |=== 
 
-|Name| Description 
-
-  
+|Name| Description  
 
 |*User*  
-
 |Client of the application which will interact with it. 
 
-|* GoMap application*  
-
+|*GOMap!® application*  
 |System developed to be used by the users. Through its information in the PODs will be taken.   
 
 |*PODs service* 
-
 |Has the aim to access each user's personal POD. 
 
 |=== 
@@ -95,15 +88,12 @@ Contained Building Blocks::
 |Name| Description 
 
 |*User Interface*  
-
 |The user will interact with this UI to request any information about the map. This means the user will be able to perform any task in our system through this. 
 
 |*Data Access* 
-
 |The layer that will provide and request information from and to the _PODs_ and the _Database_. 
 
 |*MongoDB*  
-
 |_Database_ used to store the minimum data as possible from the users. We especially use this database to store the id of the users in order to link their profile with the personal POD. 
 
 |=== 
@@ -114,9 +104,7 @@ Contained Building Blocks::
 
 ---- 
 
-Actor Israel 
-
-  
+Actor Israel   
 
 Component Interface{ 
 
@@ -140,9 +128,7 @@ Component Interface{
 
     }     
 
-} 
-
-  
+}   
 
 Component DataAccess{ 
 
@@ -152,9 +138,7 @@ Component DataAccess{
 
        Component le as "Locations Api" 
 
-} 
-
-  
+}   
 
 Component pod as "Pod's service" 
 
@@ -162,12 +146,10 @@ Database db as "MongoDB"
 
 Israel -right->Interface: interacts 
 
-  
 
 re -right-> sol 
 
 rw -down-> sol 
-
   
 
 re-right->res 
@@ -179,13 +161,9 @@ lo-right->res
 marker-right->res 
 
 my-right->res 
-
    
 
 rw -down->le 
-
-  
-
   
 
 sol <-down-> pod:acceses 
@@ -193,14 +171,12 @@ sol <-down-> pod:acceses
 res <-down-> db:data 
 
 ---- 
-
   
 
 Motivation:: 
 
 Detailed structure of the system. Focused on the components of the _User Interface_ and _Data Access_. 
 
-  
 
 Contained Building Blocks:: 
 
@@ -208,66 +184,36 @@ Contained Building Blocks::
 
 |=== 
 
-|Name| Description 
-
-  
+|Name| Description   
 
 |*Views*  
-
 |Sections of the application where the user is going to interact with the system. 
 
-  
-
 |*Home* 
-
 |Initial screen of the application. A welcome message is going to be displayed as well as the featured products. 
 
-  
-
 |*Marker* 
-
 |View information about a certain location in the map. Here the user will be able to add reviews and photos about that place. 
 
-  
-
 |*Markers* 
-
 |The user has a markers view, where he will see the markers that the user and his friends have previously created. 
 
-  
-
 |*Sign-in* 
-
 |Here the user will log-in into their personal account. In case they have created one previously. 
 
-  
-
 |*Sign-up* 
-
 |Allows the client to create a new account for the application. This process will take place only once for each user. 
 
-  
-
 |*Map* 
-
 |Here the user can find everything the app is designed to, from markers created by user to certain locations. 
 
-  
-
 |*Log-out* 
-
 |It logs the user out from the application. 
 
-  
-
 |*Review* 
-
 |At this point, the user will add a review about the restaurant, bar, shop, etc associated to the marker. 
 
-  
-
 |*RestAPI* 
-
 |The application resquest the _RestAPI_ for the information needed. Receiving a response from _MongoDB_. 
 
 |=== 

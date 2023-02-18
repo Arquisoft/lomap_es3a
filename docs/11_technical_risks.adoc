@@ -4,6 +4,7 @@
 [options="header"]
 |===
 |Issue|Solution
+
 |Because our app uses POD technology, we are susceptible to bugs and changes within the technology, which could cause users to lose information. Unfortunately, we cannot control or alter Solid's development.
 
 |We have to rely on Solid's complex interface, which may result in authentication issues due to the various ways Solid authenticates users. However, we have created our own interface that allows users to choose their provider of PODs and access them.

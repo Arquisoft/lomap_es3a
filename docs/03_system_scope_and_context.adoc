@@ -1,183 +1,51 @@
 [[section-system-scope-and-context]]  
 
-  
-
-== System Scope and Context  
-
-  
+== System Scope and Context    
 
 === Business Context  
 
-  
-
-****  
-
-  
-
 |===  
-
-  
 
 |Entity |Inputs | Outputs  
 
-  
-
-   
-
-  
-
 |User  
-
-  
-
-|The user's input will be the interface provided by the webapp  
-
-  
-
-|The user will create the pod and store there their information and also, he can customize the map by adding places   
-
-  
-
-   
-
-  
+|The user's input will be the interface provided by the webapp.
+|The user will create the pod and store there their information and also, he can customize the map by adding places.
 
 |POD  
-
-  
-
 |The POD will receive petitions from WebApp to get information about the users of the app.  
-
-  
-
-|It will provide users' information (places registered by users) needed by the webapp  
-
-  
-
-   
-
-  
+|It will provide users' information (places registered by users) needed by the webapp. 
 
 |Webapp  
-
-  
-
-|The user will be able to add markers and to access the information about their markers  
-
-  
-
-|The information that provides to the user logged like the added markers and their details  
-
-  
-
-   
-
-  
+|The user will be able to add markers and to access the information about their markers.
+|The information that provides to the user logged like the added markers and their details. 
 
 |Database  
+|The POD will have most of the information so we will not store it, but we will store other information.
+|It will return the result of the queries received.
 
-  
-
-|The POD will have most of the information so we will not store it, but we will store other information  
-
-  
-
-|It will return the result of the queries received 
-
-  
-
-   
-
-  
-
-|===  
-
-  
-
-****  
-
-  
+|===    
 
 === Technical Context  
 
-  
-
-****   
-
-  
-
-The main objective of the application is the private treatment of user data. We will achieve this objective by using PODs to keep user data private and decentralized 
-
-  
+The main objective of the application is the private treatment of user data. We will achieve this objective by using PODs to keep user data private and decentralized. 
 
 In SOLID architecture we can define a POD as a Personal Online Data Store. The user can have there any information he/she wants and can be hosted anywhere.  
 
-  
-
 The application will be written in Typescript with React, Typescript being a language like JavaScript but with types and React a library to facilitate the creation of user interfaces.  
-
-  
-
-|===  
-
-  
+|===    
 
 |Technical Interface| Description  
 
-  
-
-   
-
-  
-
 |SOLID  
-
-  
-
-|Architecture followed in the project that determines the structure of the data management. Most of the data is decentralized and stored in a secure way on PODs 
-
-  
-
-   
-
-  
+|Architecture followed in the project that determines the structure of the data management. Most of the data is decentralized and stored in a secure way on PODs.
 
 |Typescript  
-
-  
-
-|Language used to build the application  
-
-  
-
-   
-
-  
+|Language used to build the application.
 
 |React  
-
-  
-
-|Library to help the building of the user interfaces and to make frontend development easier 
-
-  
-
-  
+|Library to help the building of the user interfaces and to make frontend development easier.
 
 |PODs  
-
-  
-
-|Management of user data in a private and decentralized way according to the SOLID architecture  
-
-  
-
-|===  
-
-  
-
-   
-
-  
-
-**** 
+|Management of user data in a private and decentralized way according to the SOLID architecture.
+|=== 

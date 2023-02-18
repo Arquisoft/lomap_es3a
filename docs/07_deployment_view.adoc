@@ -11,8 +11,7 @@ node AzureServer{
     }
     node DockerContainer2 {
         component WebApp
-    }
-    
+    }    
 }
  
 node UserDevice {
@@ -29,8 +28,7 @@ Actor User
  
 cloud SOLID_POD
 cloud BingMaps
-cloud Geoapify
- 
+cloud Geoapify 
  
 RestAPI -u-> MongoDB : "access information"
 WebAppImage -d-> SOLID_POD : "access user data"
