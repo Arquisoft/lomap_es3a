@@ -26,7 +26,7 @@
 |Explanation 
  
 |*Size of the team*  
-|The team is made of four people. At the beginning we were a group of five people but one of the members were kicked out of the group. 
+|The team is made of four people. At the beginning we were a group of five people but one of the members was move out of the group, because the groups were restructured. 
  
 |*Testing* 
 |Different scenarios will be considered to test a correct behavior of the app. Some different techniques will be used to test the application with the higher-the-better coverage. 
