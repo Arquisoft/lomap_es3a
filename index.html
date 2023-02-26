@@ -5,6 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.18">
+<link rel="icon" type="image/png" href="./images/Symbol.png">
 <title>LOMAP ES3A</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -521,27 +522,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 	.arc42help {display:hidden;}
 }
 </style>
-<hr>
-<div class="sidebarblock arc42help">
-<div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>This version of the template contains some help and explanations.
-It is used for familiarization with arc42 and the understanding of the concepts.
-For documentation of your own system you use better the <em>plain</em> version.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
@@ -597,9 +577,6 @@ For documentation of your own system you use better the <em>plain</em> version.<
 <p>Users will be able to do lots of things through this app, from adding locations in different categories, such as shops, restaurants, monuments, etc&#8230;&#8203; To show locations in a map window or add review scores, comments or pictures about those locations.</p>
 </li>
 <li>
-<p>It will be possible to manage from the application the information that is accessible with other users, like their friends or groups of friends. This information should not be centralized and should be stored in each user’s pod.</p>
-</li>
-<li>
 <p>If it is considered necessary, the system could store other information in a centralized way for performance reasons, trying to respect the privacy of the users as much as possible.</p>
 </li>
 <li>
@@ -615,9 +592,9 @@ For documentation of your own system you use better the <em>plain</em> version.<
 <h3 id="_quality_goals">1.2. Quality Goals</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 20%;">
-<col style="width: 40%;">
-<col style="width: 40%;">
+<col style="width: 12.5%;">
+<col style="width: 25%;">
+<col style="width: 62.5%;">
 </colgroup>
 <thead>
 <tr>
@@ -628,28 +605,28 @@ For documentation of your own system you use better the <em>plain</em> version.<
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Privacy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>1</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Privacy</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The system must keep the privacy of the user. Following the characteristics of the SOLID project, the information stored in the database and displayed will always be authorized by the client. In the case of having to store information centrally, it will be done ensuring the user&#8217;s privacy.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Usability</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>2</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Usability</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The application must be intuitive and easy to use for the client, so that any user will be able to use it regardless of their knowledge.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Maintainability</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>3</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Maintainability</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The architecture of the application must allow adding new functionalities or modifying the existing ones making as few changes as possible.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Performance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>4</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Performance</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The application must assure maximum speed responding to user interactions, minimizing loading times.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Testability</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>5</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Testability</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Unit tests will be applied to the application to ensure the proper performance of the system.</p></td>
 </tr>
 </tbody>
@@ -659,9 +636,9 @@ For documentation of your own system you use better the <em>plain</em> version.<
 <h3 id="_stakeholders">1.3. Stakeholders</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 50%;">
-<col style="width: 33.3334%;">
+<col style="width: 12.5%;">
+<col style="width: 25%;">
+<col style="width: 62.5%;">
 </colgroup>
 <thead>
 <tr>
@@ -672,29 +649,29 @@ For documentation of your own system you use better the <em>plain</em> version.<
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Students (HappySw)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Students (HappySw)</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Carlos Díez Fernández, Raúl Fernández España, Omar Teixeira González and David Leszek Warzynski Abril</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The students are the main developers of the application. They are in charge of the whole development of the app, so they will improve their coding and teamwork skills.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Users</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Users</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Anyone who uses the app</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The users will be the ones who use the app, they should find it practical, intuitive and easy to use.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Teachers</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Teachers</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">José Emilio Labra, Pablo González, Irene Cid Rico and Cristian Augusto Alonso</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">They will supervise the students, making sure they are taking the right path and helping if necessary.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Empathy</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Empathy</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Tech Company</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">They are interested in the project, especially in how the team uses SOLID technology, since this is essential in their work area.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Brussels</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Brussels</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Council of Brussels</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">They are the ones most interested in the project, due to the fact that they ordered it, so their citizens could use the app</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">They are the ones most interested in the project, due to the fact that they ordered it, so their citizens could use the app.</p></td>
 </tr>
 </tbody>
 </table>
@@ -709,24 +686,26 @@ For documentation of your own system you use better the <em>plain</em> version.<
 <h3 id="_table_1_technical_constraints">2.1. Table 1. Technical Constraints</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 22.2222%;">
+<col style="width: 77.7778%;">
 </colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Constraint</th>
+<th class="tableblock halign-left valign-top">Explanation</th>
+</tr>
+</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Constraint</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Explanation</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SOLID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>SOLID</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">With SOLID we can allow people to store their data securely in decentralized data stores called Pods that are like secure personal web servers for data. This way, they can allow or reject the application to access the data or not.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Docker</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Docker</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The application will be running in a Docker Host</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">GitHub</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>GitHub</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">We will use github to have a remote repository to develop the project, create and assign different tasks to team members, and perform version control. Github allows us communicating and organizing the project</p></td>
 </tr>
 </tbody>
@@ -747,27 +726,31 @@ For documentation of your own system you use better the <em>plain</em> version.<
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Size of the team</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Size of the team</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The team is made of four people. At the beginning we were a group of five people but one of the members was move out of the group, because the groups were restructured.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Testing</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Testing</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Different scenarios will be considered to test a correct behavior of the app. Some different techniques will be used to test the application with the higher-the-better coverage.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Meetings</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">We will discuss the organization of the to-do tasks in a meeting at each laboratory class. In case we need to arrange an extraordinary meeting, we meet using Discord using our free time.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Meetings</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">We will discuss the organization of the to-do tasks in a meeting at each laboratory class. In case we need to arrange an extraordinary meeting, for this, we have created a specific Discord channel, divided in chats <em>(general, resources, tasks)</em>, so we can communicate easier, and also have voice meetings..</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Experience</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>GitHub Discussions</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">We are the first team using discussions, so we can leave a register of our conversations and thoughts about the project and the development of it.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Experience</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Team members have low experience when working with the diverse technologies we are using. However, it is the first time we are creating a <em>real life</em> project but we learnt a lot of the technologies used in this project.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Working as a team</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Working as a team</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">It is the second time we have worked together making a big project, making this experience easier than we thought.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Coordination</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Coordination</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A good coordination must be carried out by each component of the group to accomplish all the objectives proposed.</p></td>
 </tr>
 </tbody>
@@ -777,8 +760,8 @@ For documentation of your own system you use better the <em>plain</em> version.<
 <h3 id="_table_3_conventions">2.3. Table 3. Conventions</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
+<col style="width: 22.2222%;">
+<col style="width: 77.7778%;">
 </colgroup>
 <thead>
 <tr>
@@ -788,27 +771,27 @@ For documentation of your own system you use better the <em>plain</em> version.<
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Language</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Language</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Any person must be able to interact with the application and successfully complete any task in it, for example, they should be able to search for certain locations near them and interact with other users as well.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Clean Code</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Clean Code</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The code conforming the application must be well written and clean, so it is easier to understand and work with (<em>maintainability</em> in mind).</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Documentation</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Documentation</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The documentation must be created by following the <a href="https://arc42.org/">Arc42</a> method, so it is clear, simple and effective.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Accessibility</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Accessibility</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The application must be easy to navigate through any user, so anyone interested in it can do it easily. Regardless of any disability.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Programming Language conventions</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Programming Language conventions</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">We should follow the conventions of the programming languages we are using. Some of those are the <a href="https://jsdoc.app/"><em>JavaScript</em></a> conventions.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>SOLID</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>SOLID</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The application must follow the <a href="https://github.com/solid/solid-spec"><em>Solid</em></a> specifications.</p></td>
 </tr>
 </tbody>
@@ -824,33 +807,35 @@ For documentation of your own system you use better the <em>plain</em> version.<
 <h3 id="_business_context">3.1. Business Context</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 11.1111%;">
+<col style="width: 44.4444%;">
+<col style="width: 44.4445%;">
 </colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Entity</th>
+<th class="tableblock halign-left valign-top">Inputs</th>
+<th class="tableblock halign-left valign-top">Outputs</th>
+</tr>
+</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Entity</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Inputs</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Outputs</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>User</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The user&#8217;s input will be the interface provided by the webapp.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The user will create the pod and store there their information and also, he can customize the map by adding places.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">POD</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>POD</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The POD will receive petitions from WebApp to get information about the users of the app.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">It will provide users' information (places registered by users) needed by the webapp.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Webapp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>WebApp</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The user will be able to add markers and to access the information about their markers.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The information that provides to the user logged like the added markers and their details.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Database</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Database</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The POD will have most of the information so we will not store it, but we will store other information.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">It will return the result of the queries received.</p></td>
 </tr>
@@ -870,28 +855,30 @@ For documentation of your own system you use better the <em>plain</em> version.<
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 22.2222%;">
+<col style="width: 77.7778%;">
 </colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Technical Interface</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Technical Interface</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SOLID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>SOLID</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Architecture followed in the project that determines the structure of the data management. Most of the data is decentralized and stored in a secure way on PODs.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Typescript</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>TypeScript</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Language used to build the application.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">React</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>React</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Library to help the building of the user interfaces and to make frontend development easier.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">PODs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>PODs</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Management of user data in a private and decentralized way according to the SOLID architecture.</p></td>
 </tr>
 </tbody>
@@ -913,25 +900,25 @@ For documentation of your own system you use better the <em>plain</em> version.<
 <div class="ulist">
 <ul>
 <li>
-<p><strong>MongoDB</strong>: we chose to use <em>MongoDB</em> because it is open-source software, and it is a <em>NoSQL</em> database that gives us the possibility to work with a lot of different data without spending too much time modeling these elements. Also <em>Mongoose</em> for simplifying everything up.</p>
+<p><strong><em>MongoDB</em></strong>: we have chosen to use <em>MongoDB</em> because it is open-source software, and it is a <em>NoSQL</em> database that gives us the possibility to work with a lot of different data without spending too much time modeling these elements. Also <em>Mongoose</em> for simplifying everything up.</p>
 </li>
 <li>
-<p><strong>SOLID specification</strong>: using <em>PODs</em> the users can store information in a decentralized and private way.</p>
+<p><strong><em>SOLID Specification</em></strong>: using <em>PODs</em> the users can store information in a decentralized and private way.</p>
 </li>
 <li>
-<p><strong>React.js</strong>: is a <em>JavaScript</em> library for creating UIs for web applications that facilitates the creation of graphical interfaces</p>
+<p><strong><em>ReactJS</em></strong>: is a <em>JavaScript</em> library for creating UIs for web applications that facilitates the creation of graphical interfaces</p>
 </li>
 <li>
-<p><strong>TypeScript</strong>: TypeScript is a superset of JavaScript, meaning that it contains all the functionality of JavaScript but including types.</p>
+<p><strong><em>TypeScript</em></strong>: TypeScript is a superset of JavaScript, meaning that it contains all the functionality of JavaScript but including types.</p>
 </li>
 <li>
-<p><strong>GitHub</strong>: it allows us to have a remote repository to develop the project, create and assign different tasks to team members, and perform version control.</p>
+<p><strong><em>GitHub</em></strong>: it allows us to have a remote repository to develop the project, create and assign different tasks to team members, and perform version control.</p>
 </li>
 <li>
-<p><strong>Node.js</strong>: Node.js makes easy the use of asynchronous events. This technology is more focused on the management and creation of scalable network applications.</p>
+<p><strong><em>NodeJS</em></strong>: Node.js makes easy the use of asynchronous events. This technology is more focused on the management and creation of scalable network applications.</p>
 </li>
 <li>
-<p><strong>Docker</strong>: We will use it to launch the application.</p>
+<p><strong><em>Docker</em></strong>: We will use it to launch the application.</p>
 </li>
 </ul>
 </div>
@@ -942,13 +929,13 @@ For documentation of your own system you use better the <em>plain</em> version.<
 <div class="sect3">
 <h4 id="_ide">4.2.1. IDE</h4>
 <div class="paragraph">
-<p>Our choice is <em>IntelliJ IDEA</em> mainly because it is available for many platforms such as <em>Windows</em>, <em>MacOS</em> or <em>Linux</em> and via <em>plug-ins</em> it supports many programming languages and can be easily enhanced. <em>Git</em> is a built-in feature included for <em>version control</em>.</p>
+<p>Our choice is <strong><em>IntelliJ IDEA</em></strong> mainly because it is available for many platforms such as <em>Windows</em>, <em>MacOS</em> or <em>Linux</em> and via <em>plug-ins</em> it supports many programming languages and can be easily enhanced. <em>Git</em> is a built-in feature included for <em>version control</em>.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_diagramming_tools">4.2.2. Diagramming tools</h4>
 <div class="paragraph">
-<p>We are using <em>PlantUML</em> for creating the diagrams of the documentation.</p>
+<p>We are using <em>PlantUML</em> and <em>draw.io</em> for creating the diagrams of the documentation.</p>
 </div>
 </div>
 </div>
@@ -969,22 +956,22 @@ For documentation of your own system you use better the <em>plain</em> version.<
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Privacy and Security</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Privacy and Security</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The users will feel safe while using our app, knowing that their data will be treated safely and privately.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">We will use SOLID PODs in order to achieve this by managing the information that the user wants to share in his POD. We will aim to solve problems that may compromise the robustness and security of the application.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Usability</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Usability</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The user must be able to perform any of the functions offered by the application without any trouble.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The use of CSS and JS frameworks like React that are pre-configured with that in mind. Some techniques such as metaphors or conventions will be used.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Maintainability</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Maintainability</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The architecture of the application must allow adding new functionalities or modifying the existing ones making as few changes as possible.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">We will implement design patterns and follow code conventions in order to achieve a clean code. More in more, we will write code with tests in mind.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Performance</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Performance</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The application must assure maximum speed responding to user interactions, minimizing loading times.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">We will improve performance by using design patterns, applying design principles and using up-to-date technologies that offer good performance</p></td>
 </tr>
@@ -999,13 +986,13 @@ For documentation of your own system you use better the <em>plain</em> version.<
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Language</strong>: we will develop the whole project, including the code and documentation using English as main language.</p>
+<p><strong><em>Language</em></strong>: we will develop the whole project, including the code and documentation using English as main language.</p>
 </li>
 <li>
-<p><strong>Issues</strong>: even if private chats are a good tool for solving quick doubts, anything apart from that will represent an issue in <em>Github</em>. This way, anyone can see what we discuss about.</p>
+<p><strong><em>Issues</em></strong>: even if private chats are a good tool for solving quick doubts, anything apart from that will represent an issue in <em>Github</em>. This way, anyone can see what we discuss about.</p>
 </li>
 <li>
-<p><strong>GitHub Projects</strong>: by means of this tool we will be able to plan the development process of the application. More in more, <em>Github</em> has a built-in option for that purpose.</p>
+<p><strong><em>GitHub Projects</em></strong>: by means of this tool we will be able to plan the development process of the application. More in more, <em>Github</em> has a built-in option for that purpose.</p>
 </li>
 </ul>
 </div>
@@ -1023,15 +1010,14 @@ For documentation of your own system you use better the <em>plain</em> version.<
 <img src="./images/level1.png" alt="level1" width="522" height="87">
 </div>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Motivation</dt>
-<dd>
-<p><em>GOMap!®</em> application is the general structure of a system in which users will have the possibility to add markers to their favorite places and share them with their friends.  All the data that belongs to the user is stored safely in their <em>PODs</em>.</p>
-</dd>
-<dt class="hdlist1">Contained Building Blocks</dt>
-</dl>
+<div class="sect3">
+<h4 id="_motivation">5.1.1. Motivation</h4>
+<div class="paragraph">
+<p><strong><em>GOMap!®</em></strong> application is the general structure of a system in which users will have the possibility to add markers to their favorite places and share them with their friends.  All the data that belongs to the user is stored safely in their <em>PODs</em>.</p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_contained_building_blocks">5.1.2. Contained Building Blocks</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1045,19 +1031,20 @@ For documentation of your own system you use better the <em>plain</em> version.<
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>User</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>User</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Client of the application which will interact with it.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>GOMap!® application</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>GOMap!® application</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">System developed to be used by the users. Through its information in the PODs will be taken.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>PODs service</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>PODs service</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Has the aim to access each user&#8217;s personal POD.</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_level_2">5.2. Level 2</h3>
@@ -1066,15 +1053,14 @@ For documentation of your own system you use better the <em>plain</em> version.<
 <img src="./images/level2.png" alt="level2" width="545" height="252">
 </div>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Motivation</dt>
-<dd>
+<div class="sect3">
+<h4 id="_motivation_2">5.2.1. Motivation</h4>
+<div class="paragraph">
 <p>Shows how the application will work internally in general terms. The client, through the user interface, will get the data requested by using the <em>DAL</em> (<em>Data Access Layer</em>).</p>
-</dd>
-<dt class="hdlist1">Contained Building Blocks</dt>
-</dl>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_contained_building_blocks_2">5.2.2. Contained Building Blocks</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1102,6 +1088,7 @@ For documentation of your own system you use better the <em>plain</em> version.<
 </tbody>
 </table>
 </div>
+</div>
 <div class="sect2">
 <h3 id="_level_3">5.3. Level 3</h3>
 <div class="imageblock">
@@ -1109,19 +1096,18 @@ For documentation of your own system you use better the <em>plain</em> version.<
 <img src="./images/level3.png" alt="level3" width="1481" height="472">
 </div>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Motivation</dt>
-<dd>
+<div class="sect3">
+<h4 id="_motivation_3">5.3.1. Motivation</h4>
+<div class="paragraph">
 <p>Detailed structure of the system. Focused on the components of the <em>User Interface</em> and <em>Data Access</em>.</p>
-</dd>
-<dt class="hdlist1">Contained Building Blocks</dt>
-</dl>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_contained_building_blocks_3">5.3.2. Contained Building Blocks</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -1131,48 +1117,49 @@ For documentation of your own system you use better the <em>plain</em> version.<
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Views</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Views</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sections of the application where the user is going to interact with the system.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Home</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Home</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Initial screen of the application. A welcome message is going to be displayed as well as the featured products.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Marker</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Marker</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">View information about a certain location in the map. Here the user will be able to add reviews and photos about that place.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Markers</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Markers</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The user has a markers view, where he will see the markers that the user and his friends have previously created.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sign-in</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Sign-in</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Here the user will log-in into their personal account. In case they have created one previously.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sign-up</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Sign-up</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Allows the client to create a new account for the application. This process will take place only once for each user.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Map</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Here the user can find everything the app is designed to, from markers created by user to certain locations.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Map</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Here the user will find everything the app is designed to, from markers created by user to certain locations.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Log-out</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Log-out</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">It logs the user out from the application.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Review</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Review</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">At this point, the user will add a review about the restaurant, bar, shop, etc associated to the marker.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>RestAPI</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>RestAPI</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The application resquest the <em>RestAPI</em> for the information needed. Receiving a response from <em>MongoDB</em>.</p></td>
 </tr>
 </tbody>
 </table>
 <div style="page-break-after: always;"></div>
+</div>
 </div>
 </div>
 </div>
@@ -1259,26 +1246,27 @@ For documentation of your own system you use better the <em>plain</em> version.<
 <h3 id="_infrastructure_level_1">7.1. Infrastructure Level 1</h3>
 <div class="imageblock">
 <div class="content">
-<img src="./images/07_DeploymentView.png" alt="07 DeploymentView" width="560" height="703">
+<img src="./images/07_DeploymentView.png" alt="07 DeploymentView" width="648" height="703">
 </div>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Motivation</dt>
-<dd>
+<div class="sect3">
+<h4 id="_motivation_4">7.1.1. Motivation</h4>
+<div class="paragraph">
 <p>In the development stage the application will be running on each student&#8217;s machine. However, in the production stage the application will be running on a Docker environment hosted on <em>Azure</em>. Our objective is to know how to use docker correctly, which is the infrastructure on which our application will be running.</p>
-</dd>
-<dt class="hdlist1">Quality and/or performance features</dt>
-<dd>
-<p>The performance of the application depends on different user resources (internet connection, hardware, etc) as well as on the <em>Azure</em> servers device. For that reason, it is not in our hand to ensure these resources. Anyway we will make the required optimizations in order to maximize the performance and quality and we have used the best technologies at our disposal, trying to minimise waiting times for user requests. It should be noted that our main quality goals are privacy, usability and maintainability.</p>
-</dd>
-<dt class="hdlist1">Mapping of building blocks to infrastructure</dt>
-</dl>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_quality_andor_performance_features">7.1.2. Quality and/or performance features</h4>
+<div class="paragraph">
+<p>The performance of the application depends on different user resources (internet connection, hardware, etc) as well as on the <em>Azure</em> servers device. For that reason, it is not in our hand to ensure these resources. Anyway we will make the required optimizations in order to maximize the performance and quality and we have used the best technologies at our disposal, trying to minimise waiting times for user requests. It should be noted that our main quality goals are privacy, usability and maintainability.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_mapping_of_building_blocks_to_infrastructure">7.1.3. Mapping of building blocks to infrastructure</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 66.6667%;">
+<col style="width: 20%;">
+<col style="width: 80%;">
 </colgroup>
 <thead>
 <tr>
@@ -1288,28 +1276,29 @@ For documentation of your own system you use better the <em>plain</em> version.<
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>WebApp</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>WebApp</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The frontend of our application. It will be rendered by a web browser which will be executed ont the user&#8217;s device.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>RestAPI</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>RestAPI</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The back-end of our application. It will run on the Azure server.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>MongoDB</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>MongoDB</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Database chosen for the application</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>POD provider</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Solid PODs</em> will be provided by <em>Solid Community</em>. Will be in charge of providing the pods for the users</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>POD Provider</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>SOLID PODs</em> will be provided by <em>Solid Community</em>. Will be in charge of providing the pods for the users</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Client Device</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Client Device</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Device of the user (desktop, mobile). Must have internet connection.</p></td>
 </tr>
 </tbody>
 </table>
 <div style="page-break-after: always;"></div>
+</div>
 </div>
 </div>
 </div>
@@ -1327,7 +1316,7 @@ For documentation of your own system you use better the <em>plain</em> version.<
 <div class="sect2">
 <h3 id="_security">8.2. Security</h3>
 <div class="paragraph">
-<p><em>Security</em> is a very important concept in the context of a system. As we are managing information from users, it is important to ensure that the information is safe and that the system is not compromised. So, we decided to store in our system the minimum information necessary and obtain the other from the <em>PODs</em>. Also we decided to encrypt the users' passwords, if any.</p>
+<p><strong><em>Security</em></strong> is a very important concept in the context of a system. As we are managing information from users, it is important to ensure that the information is safe and that the system is not compromised. So, we decided to store in our system the minimum information necessary and obtain the other from the <em>PODs</em>. Also we decided to encrypt the users' passwords, if any.</p>
 </div>
 <div class="paragraph">
 <p>Also, we added security in the <em>back-end</em> to prevent unauthorized requests to the RestAPI, as well as for preventing the execution of malicious code.</p>
@@ -1339,7 +1328,7 @@ For documentation of your own system you use better the <em>plain</em> version.<
 <p>In order to ensure the correct functioning of the system, we decided to implement <em>unit tests</em> for most of the components and will also check the functionality of the whole app itself, so the user experience is at its best.</p>
 </div>
 <div class="paragraph">
-<p>We have decided to create a branch for it, named <em>testing</em>, so when we need to do tests, we use that branch.</p>
+<p>We have decided to create a branch for it, named <strong><em>testing</em></strong>, so when we need to do tests, we use that branch.</p>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
@@ -1348,7 +1337,7 @@ For documentation of your own system you use better the <em>plain</em> version.<
 <div class="sect1">
 <h2 id="section-design-decisions">9. Design Decisions</h2>
 <div class="sectionbody">
-<table class="tableblock frame-ends grid-all stretch">
+<table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 1. Architectural Decisions</caption>
 <colgroup>
 <col style="width: 12.5%;">
@@ -1358,7 +1347,7 @@ For documentation of your own system you use better the <em>plain</em> version.<
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-center valign-top">Aspect</th>
+<th class="tableblock halign-left valign-top">Aspect</th>
 <th class="tableblock halign-left valign-top">Description</th>
 <th class="tableblock halign-left valign-top">Choice</th>
 <th class="tableblock halign-left valign-top">Explanation</th>
@@ -1366,27 +1355,27 @@ For documentation of your own system you use better the <em>plain</em> version.<
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><em>Programming language</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Programming language</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The choice of programming language is crucial as it cannot be changed in the future without causing significant problems. Changing programming language once the project has started can be expensive and can result in project failure.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TypeScript</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>TypeScript</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">We chose TypeScript due to its abundance of documentation and libraries available. After researching SOLID, we found that the majority of information available was related to TypeScript and JavaScript, and TypeScript compiles to JavaScript, allowing us to utilize JavaScript libraries as well.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><em>Framework</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Framework</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Utilizing a framework can greatly reduce the time and effort dedicated to coding and design. The challenge lies in learning how to use the framework and understanding its capabilities.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Angular</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Angular</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">We chose Angular due to its high compatibility with the SOLID project, its alignment with agile methodologies, and its ease of developing graphical interfaces using a single window with dynamic fragments.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><em>Database</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Database</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The choice of database is important for storing data, and the decision must be made at the start of development to determine whether to use a database to store messages or to use the POD directly.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Use POD Directly</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Use POD Directly</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Storing messages in a database and then in the SOLID POD would result in unnecessary overhead as it performs the same operation twice, so we decided to write messages directly into the POD.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><em>Architectural model</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Architectural Model</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Several architectural models were considered to achieve principles such as single responsibility, open-closed principle, and dependency inversion principle.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MVC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>MVC</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">We decided to use MVC as we are familiar with them and they meet our needs.</p></td>
 </tr>
 </tbody>
@@ -1424,19 +1413,19 @@ For documentation of your own system you use better the <em>plain</em> version.<
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Scenario</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Scenario</em></strong></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User Request for Location Information</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Stimulus</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Stimulus</em></strong></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A user requests location information for a specific place on the map</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Response</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Response</em></strong></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The system displays the requested location information within one second of the user&#8217;s request.</p></td>
@@ -1458,19 +1447,19 @@ For documentation of your own system you use better the <em>plain</em> version.<
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Scenario</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Scenario</em></strong></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Additional Functionality is Implemented</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Stimulus</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Stimulus</em></strong></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The system is updated to include additional functionality, such as the ability to filter markers by category</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Response</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Response</em></strong></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The system adds the new functionality and displays the filtered results within five seconds of the user&#8217;s request.</p></td>
@@ -1505,14 +1494,14 @@ For documentation of your own system you use better the <em>plain</em> version.<
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Because our app uses POD technology, we are susceptible to bugs and changes within the technology, which could cause users to lose information. Unfortunately, we cannot control or alter Solid&#8217;s development.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">We have to rely on Solid&#8217;s complex interface, which may result in authentication issues due to the various ways Solid authenticates users. However, we have created our own interface that allows users to choose their provider of PODs and access them.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">We have to rely on SOLID&#8217;s complex interface, which may result in authentication issues due to the various ways Solid authenticates users. However, we have created our own interface that allows users to choose their provider of PODs and access them.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Like all applications on Solid, our app has the potential to cause unwanted changes, system corruption, or affect data being used by other applications, which may lead to malfunctions. While we can&#8217;t fully solve this inherent issue with the POD architecture, we can limit the data our app accesses to avoid damaging anything.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Due to the nature of PODs, privacy is also a concern since any app can read the data stored within them. Unfortunately, we haven&#8217;t found a solution for this issue since encrypting the data with a key would also be accessible to other applications.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Solid&#8217;s current implementation results in slower data gathering than desired, which is a known deficiency with no solution yet.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SOLID&#8217;s current implementation results in slower data gathering than desired, which is a known deficiency with no solution yet.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">There are only a limited number of RDF libraries available, and they can be challenging to use, which may result in messy code. However, new libraries may emerge in the future to address this deficiency.</p></td>
 </tr>
 <tr>
@@ -1544,63 +1533,71 @@ For documentation of your own system you use better the <em>plain</em> version.<
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>API</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Arc42</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Documentation template of the system&#8217;s architecture.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>API</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Set of programming code that enables data transmission between one software product and another.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Acceptance tests</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>GitHub</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Code hosting platform for version control and collaboration, the team is using this platform in the proccess of the projects development.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Acceptance Tests</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A quality assurance process that determines to what degree an application meets end users' approval.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Continuous Integration</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Continuous Integration</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Practice that consists on introducing integrations of a project automatically - very often - so bugs can be detected as fast as possible.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Decentralization</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Decentralization</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Process by which activities regarding planning and decision making are distributed or delegated away from a central, authoritative location or group.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>MongoDB</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>MongoDB</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A document database with a flexible schema.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>POD</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>POD</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Secure personal web servers for storing data.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>React.js</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>ReactJS</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Open-source <em>JavaScript</em> library that is used for building user interfaces.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Ruby</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Ruby</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Ruby is an interpreted, high-level, general-purpose programming language which supports multiple programming paradigms</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Node</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Node</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">An asynchronous event-driven JavaScript runtime, Node.js is designed to build scalable network applications</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>RestAPI</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>RestAPI</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Architectural style for an application program interface that uses <em>HTTP</em> requests to access and use data.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>SOLID specification</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>SOLID Specification</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Proposed set of conventions and tools for building decentralized social applications.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>TypeScript</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>TypeScript</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A syntactical superset of <em>JavaScript</em> which adds optional static typing to the language.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>User</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>User</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Someone who operates the application.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Unit testing</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Unit Testing</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A software development process in which the smallest testable parts of an application are individually checked for proper operation.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>webapp</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>WebApp</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A client-side and server-side software application in which the client runs or request in a web browser.</p></td>
 </tr>
 </tbody>
@@ -1630,7 +1627,7 @@ Created by Dr. Peter Hruschka &amp; Dr. Gernot Starke.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-02-18 12:02:15 +0100
+Last updated 2023-02-26 18:48:50 +0100
 </div>
 </div>
 </body>
