@@ -52,13 +52,13 @@ In order to make quality requirements more concrete and measurable, it is import
 Usage scenarios, also known as application or use case scenarios, describe how the system should react at runtime in response to a particular stimulus. These scenarios can also include descriptions of the system's efficiency or performance. An example of a usage scenario for the map service is:
 
 |===
-|Scenario 
+| *_Scenario_* 
 | User Request for Location Information
 
-|Stimulus 
+| *_Stimulus_*
 | A user requests location information for a specific place on the map
 
-|Response 
+| *_Response_*
 | The system displays the requested location information within one second of the user's request.
 |===
 
@@ -69,13 +69,13 @@ Other examples of usage scenarios for the map service could include a user addin
 Change scenarios describe modifications to the system or its environment that could impact its quality attributes. For example, if additional functionality is implemented or there is a change in quality requirements, the system may need to be modified. An example of a change scenario for the map service is:
 
 |===
-|Scenario 
+| *_Scenario_* 
 | Additional Functionality is Implemented
 
-|Stimulus 
+| *_Stimulus_* 
 | The system is updated to include additional functionality, such as the ability to filter markers by category
 
-|Response 
+| *_Response_* 
 | The system adds the new functionality and displays the filtered results within five seconds of the user's request.
 |===
 
