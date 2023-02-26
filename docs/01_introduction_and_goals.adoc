@@ -1,25 +1,23 @@
 [[section-introduction-and-goals]] 
 == Introduction and Goals 
 
-GOMap!® is a project developed for the Software Architecture course of the University of Oviedo, based on the base project LoMap. This version will be developed by the team es3a, formed by: 
+GOMap!® is a project developed for the University of Oviedo's Software Architecture course, based on the base project LoMap, it has been ordered by *_HappySw_*, a software development company who was hired by the Council of Brussels, so the citizens are able to use it. This version will be developed by es3a team, formed by: 
 
-* Carlos Díez Fernández, _UO284373_
+* Carlos Díez Fernández, mailto:UO284373@uniovi.es[_UO284373_].
 
-* Raúl Fernández España, _UO278036_
+* Raúl Fernández España, mailto:UO278036@uniovi.es[_UO278036_].
 
-* Omar Teixeira González, _UO281847
+* Omar Teixeira González, mailto:UO281847@uniovi.es[_UO281847_].
 
-* David Leszek Warzynski Abril, _UO278968_ 
- 
-GOMap!® is a software system where users can have custom maps about places and local businesses in their city. 
+* David Leszek Warzynski Abril, mailto:UO28968@uniovi.es[_UO278968_].
 
-The app provides users with the possibility of: 
+GOMap!® is a software system where users can have custom maps about places and local businesses, and also provides more functionalities, which are:
 
-* Add locations and show them in a map 
+* Add locations and show them in a map.
 
-* Add reviews, scores, comments, pictures, etc. 
+* Add reviews, scores, comments, pictures, etc...
 
-* Search filters like by category, friends,etc. 
+* Search filters like by category, friends,etc...
 
 * Show information about the places of your friends. 
 
@@ -35,7 +33,7 @@ The app provides users with the possibility of:
 
 * The system will also allow users to see places and information about those places taken from their friends, and see the map through various filters, such as category, friends, etc... 
 
-It is also possible to obtain more information through the following link, which contains a more specific description about the app itself. 
+It is also possible to obtain more information through the following https://arquisoft.github.io/course2223/labAssignmentDescription.html[link], which contains a more specific description about the app itself. 
  
 === Quality Goals 
 
@@ -65,14 +63,25 @@ It is also possible to obtain more information through the following link, which
 [options="header",cols="1,3,2"] 
 |=== 
 |Role/Name|Contact|Expectations 
-| _Students_ | Carlos Díez Fernández, Omar Teixeira González, Raúl Fernández España, David Leszek Warzynski Abril.
-| The students are the main developers of the application. They will develop whole app and they will improve their coding and teamwork skills 
-| _Users_ | Anyone who uses the app 
+
+| _Students (HappySw)_ 
+| Carlos Díez Fernández, Raúl Fernández España, Omar Teixeira González and David Leszek Warzynski Abril
+| The students are the main developers of the application. They are in charge of the whole development of the app, so they will improve their coding and teamwork skills.
+
+| _Users_ 
+| Anyone who uses the app 
 | The users will be the ones who use the app, they should find it practical, intuitive and easy to use. 
 
-| _Teachers_ | José Emilio Labra, Irene Cid and Pablo González González 
-| They will supervise the students making sure they are taking the right path and helping if necessary. 
+| _Teachers_ 
+| José Emilio Labra, Pablo González, Irene Cid Rico and Cristian Augusto Alonso
+| They will supervise the students, making sure they are taking the right path and helping if necessary. 
 
-| _Empathy_ | Empathy, tech company 
+| _Empathy_ 
+| Tech Company
 | They are interested in the project, especially in how the team uses SOLID technology, since this is essential in their work area. 
+
+| _Brussels_
+| Council of Brussels
+| They are the ones most interested in the project, due to the fact that they ordered it, so their citizens could use the app
+
 |=== 
