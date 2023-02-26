@@ -27,8 +27,6 @@ GOMap!® is a software system where users can have custom maps about places and 
 
 * Users will be able to do lots of things through this app, from adding locations in different categories, such as shops, restaurants, monuments, etc... To show locations in a map window or add review scores, comments or pictures about those locations. 
 
-* It will be possible to manage from the application the information that is accessible with other users, like their friends or groups of friends. This information should not be centralized and should be stored in each user’s pod.  
-
 * If it is considered necessary, the system could store other information in a centralized way for performance reasons, trying to respect the privacy of the users as much as possible. 
 
 * The system will also allow users to see places and information about those places taken from their friends, and see the map through various filters, such as category, friends, etc... 
@@ -37,51 +35,55 @@ It is also possible to obtain more information through the following https://arq
  
 === Quality Goals 
 
-[options="header",cols="1,2,2"] 
+[options="header",cols="1,2,5"] 
 
 |=== 
-|Priority |Quality Goal|Motivation 
+| Priority | Quality Goal | Motivation
 
-|1| Privacy 
+| *1*
+| *_Privacy_*
 | The system must keep the privacy of the user. Following the characteristics of the SOLID project, the information stored in the database and displayed will always be authorized by the client. In the case of having to store information centrally, it will be done ensuring the user's privacy. 
 
-|2| Usability 
+| *2*
+| *_Usability_*
 | The application must be intuitive and easy to use for the client, so that any user will be able to use it regardless of their knowledge.  
 
-|3| Maintainability
+| *3*
+| *_Maintainability_*
 | The architecture of the application must allow adding new functionalities or modifying the existing ones making as few changes as possible. 
 
-|4| Performance 
+| *4*
+| *_Performance_*
 | The application must assure maximum speed responding to user interactions, minimizing loading times. 
 
-|5| Testability 
+| *5*
+| *_Testability_*
 | Unit tests will be applied to the application to ensure the proper performance of the system. 
 |=== 
 
 === Stakeholders 
  
-[options="header",cols="1,3,2"] 
+[options="header",cols="1,2,5"] 
 |=== 
 |Role/Name|Contact|Expectations 
 
-| _Students (HappySw)_ 
+| *_Students (HappySw)_*
 | Carlos Díez Fernández, Raúl Fernández España, Omar Teixeira González and David Leszek Warzynski Abril
 | The students are the main developers of the application. They are in charge of the whole development of the app, so they will improve their coding and teamwork skills.
 
-| _Users_ 
+| *_Users_*
 | Anyone who uses the app 
 | The users will be the ones who use the app, they should find it practical, intuitive and easy to use. 
 
-| _Teachers_ 
+| *_Teachers_*
 | José Emilio Labra, Pablo González, Irene Cid Rico and Cristian Augusto Alonso
 | They will supervise the students, making sure they are taking the right path and helping if necessary. 
 
-| _Empathy_ 
+| *_Empathy_*
 | Tech Company
 | They are interested in the project, especially in how the team uses SOLID technology, since this is essential in their work area. 
 
-| _Brussels_
+| *_Brussels_*
 | Council of Brussels
-| They are the ones most interested in the project, due to the fact that they ordered it, so their citizens could use the app
-
+| They are the ones most interested in the project, due to the fact that they ordered it, so their citizens could use the app.
 |=== 
