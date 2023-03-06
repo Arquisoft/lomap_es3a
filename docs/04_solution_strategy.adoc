@@ -26,7 +26,8 @@ In order to develop the application and satisfy the constraints we decided to us
  
 ==== IDE 
  
-Our choice is *_IntelliJ IDEA_* mainly because it is available for many platforms such as _Windows_, _MacOS_ or _Linux_ and via _plug-ins_ it supports many programming languages and can be easily enhanced. _Git_ is a built-in feature included for _version control_.  
+Our choice is *_WebStorm_* mainly because it is available for many platforms such as _Windows_, _MacOS_ or _Linux_ and via _plug-ins_ it supports many programming languages and can be easily enhanced. _Git_ is a built-in feature included for _version control_.
+Firstly, we have chosen IntelliJ, also from JetBrains, but after knowing we would be installing plugins for its use, we decided to go for WebStorm.
  
 ==== Diagramming tools 
  
