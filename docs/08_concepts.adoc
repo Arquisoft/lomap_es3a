@@ -2,6 +2,19 @@
 
 == Cross-cutting Concepts 
 
+=== Prototype Designs
+
+==== Home View
+:imagesdir: ./images
+image::HomeView.png[Home View]
+
+==== Map View
+===== Main
+image::MapView.png[Map View]
+
+===== Options
+image::MapViewWithOptions.png[Map View with Options]
+
 === Domain model 
 [plantuml, "DomainModel", png] 
 ---- 
