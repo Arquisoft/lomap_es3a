@@ -1,0 +1,18 @@
+#home {
+    text-align: center;
+}
+
+#symbolsPanel {
+    display: inline-block;
+
+    background-color: #b2d3f1;
+    border-radius: 20px;
+    border-color: black;
+    border-style: solid;
+    margin: 10px;
+    padding: 10px;
+}
+
+.techButtons {
+    margin: 15px;
+}

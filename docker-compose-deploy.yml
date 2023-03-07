@@ -8,5 +8,5 @@ services:
     image: ghcr.io/arquisoft/lomap_es3a/webapp:latest
     ports:
       - "3000:3000"
-    depends_on: 
+    depends_on:
       - restapi

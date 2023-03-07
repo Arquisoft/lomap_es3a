@@ -1,6 +1,6 @@
 import {User} from './shared/shareddtypes';
 import {getUsers} from './api/api';
-import React, {useState, useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import ViewPaths from "./components/ViewPaths";
 
@@ -18,7 +18,7 @@ function App(): JSX.Element {
 
     return (
         <div>
-            <ViewPaths />
+            <ViewPaths/>
         </div>
     );
 }

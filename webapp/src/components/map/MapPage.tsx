@@ -4,8 +4,8 @@ import Map from "./Map";
 function MapPage() {
     return (
         <div>
-            <NavBar />
-            <Map />
+            <NavBar/>
+            <Map/>
         </div>
     )
 }

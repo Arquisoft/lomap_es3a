@@ -1,10 +1,10 @@
+import "../../css/navigation.css";
 import {NavItemType} from "../../shared/shareddtypes";
+import {NavLink} from "react-router-dom";
 
-function NavItem({href, text}: NavItemType) {
+function NavItem({to, text}: NavItemType) {
     return (
-        <div className="nav-item">
-            <a className="nav-link" href={href}>{text}</a>
-        </div>
+        <NavLink to={to}>{text}</NavLink>
     )
 }
 

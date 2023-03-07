@@ -1,0 +1,41 @@
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    background-color: #1c2a70;
+    border-style: solid;
+    border-color: white;
+    border-width: 5px;
+}
+
+nav a, nav input, #loginButton {
+    font-size: 30px;
+    text-decoration: none;
+    color: white;
+    margin-right: 70px;
+}
+
+nav a:hover {
+    color: #00d9fd;
+}
+
+.active {
+    font-weight: bold;
+    text-decoration-line: underline;
+}
+
+#loginButton {
+    background-color: #0064ff;
+    padding: 10px;
+    margin: 15px;
+    border-radius: 20px;
+}
+
+#loginButton {
+    margin-left: auto;
+}
+
+#loginButton:hover {
+    background-color: #00d9fd;
+}

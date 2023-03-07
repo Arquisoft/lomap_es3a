@@ -1,10 +1,12 @@
+import {MouseEventHandler} from "react";
+
 export type User = {
     name: string;
     email: string;
 }
 
 export type NavItemType = {
-    href: string;
+    to: string;
     text: string;
 }
 
