@@ -7,7 +7,9 @@ import NavItem from "./NavItem";
 function NavItems() {
     return (
         <div className="container-fluid">
-            <img src={Logo} alt="Logo LoMap" height={64} width={128}/>
+            <a href="/home">
+                <img src={Logo} alt="Logo LoMap" height={128} width={256}/>
+            </a>
 
             <div className="collapse navbar-collapse" id="navbarColor01">
                 <NavItem href={"/home"} text={"Home"}/>

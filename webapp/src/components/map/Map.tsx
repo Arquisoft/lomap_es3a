@@ -1,5 +1,5 @@
 import { MapContainer,Marker,Popup,TileLayer,useMap} from 'react-leaflet';
-import "../css/react-leaflet.css";
+import "../../css/react-leaflet.css";
 import 'leaflet/dist/leaflet.css';
 import markerIconPng from "leaflet/dist/images/marker-icon.png"
 import {Icon} from 'leaflet'
@@ -22,4 +22,4 @@ import {Icon} from 'leaflet'
   );
  }
 
- export default Map;
+ export default Map

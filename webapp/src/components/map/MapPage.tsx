@@ -1,11 +1,13 @@
 import NavBar from "../navigation/NavBar";
+import Map from "./Map";
 
-function Home() {
+function MapPage() {
     return (
         <div>
             <NavBar />
+            <Map />
         </div>
     )
 }
 
-export default Home
+export default MapPage
