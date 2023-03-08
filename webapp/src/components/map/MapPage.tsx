@@ -1,11 +1,11 @@
 import NavBar from "../navigation/NavBar";
-import Map from "./Map";
+import MapScreen from "./MapScreen";
 
 function MapPage() {
     return (
         <div>
             <NavBar/>
-            <Map/>
+            <MapScreen />
         </div>
     )
 }

@@ -2,6 +2,7 @@ import "../../css/navigation.css";
 import GOMapLogo from "../../img/symbols/SimpleSymbol.png";
 import NavItem from "./NavItem";
 import LogInButton from "./LogInButton";
+import RegisterMessage from "./RegisterMessage";
 
 function NavBar() {
     return (
@@ -13,7 +14,10 @@ function NavBar() {
             <NavItem to={"/map"} text={"Map"}/>
             <NavItem to={"/help"} text={"Help"}/>
             <NavItem to={"/about"} text={"About"}/>
-            <LogInButton />
+            <div id="loginPanel">
+                <LogInButton />
+                <RegisterMessage />
+            </div>
         </nav>
     )
 }

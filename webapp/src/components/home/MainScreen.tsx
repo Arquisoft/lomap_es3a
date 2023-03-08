@@ -28,7 +28,6 @@ function MainScreen() {
         <div>
             <div id="home">
                 <Symbols/>
-
             </div>
             <FooterInfo />
         </div>
