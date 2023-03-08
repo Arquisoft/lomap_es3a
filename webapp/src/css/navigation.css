@@ -1,0 +1,67 @@
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    background-color: #1c2a70;
+    border-style: solid;
+    border-color: white;
+    border-width: 5px;
+}
+
+nav a, nav input, #loginButton {
+    font-size: 30px;
+    text-decoration: none;
+    color: white;
+    margin-right: 70px;
+}
+
+nav a:hover {
+    color: #00d9fd;
+}
+
+.active {
+    font-weight: bold;
+    text-decoration-line: underline;
+}
+
+#loginPanel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-left: auto;
+    margin-bottom: -20px;
+}
+
+#loginButton {
+    background-color: #0063fd;
+    padding: 7px;
+    margin-right: 15px;
+    margin-bottom: 0px;
+    border-radius: 20px;
+
+    border-color: white;
+    border-style: solid;
+    border-width: 3px;
+    cursor: pointer;
+}
+
+p {
+    color: #669de3;
+    margin-top: 0px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+p:hover {
+    color: #00d9fd;
+}
+
+#loginButton:hover {
+    background-color: #00a6fb;
+}
+
+#loginButton:active{
+    background-color: #1c2a70;
+}
