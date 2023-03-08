@@ -16,7 +16,9 @@ Component pod as "Pod's service"
 
 Israel -right-> GoMap: interacts with 
 
-GoMap <-right-> Pod: gets data 
+GoMap -right-> pod: gets data
+
+pod -right..> GoMap
 
 ----   
 
@@ -63,11 +65,17 @@ Component pod as "Pod's service"
 
 Israel-right-> ui 
 
-ui <-right-> da: data 
+ui -right-> da: data 
 
-da <--> db: data flow 
+da -left..> ui
 
-da <--> pod: get address 
+da --> db: data flow 
+
+db -left..> da
+
+da --> pod: get address 
+
+pod -left..> da
 
 ---- 
 
