@@ -7,6 +7,8 @@ import GOMapSymbol from "../../img/symbols/GOMapSymbol.png";
 import NodeJSSymbol from "../../img/symbols/NodeJSSymbol.png";
 import MongoDBSymbol from "../../img/symbols/MongoDBSymbol.png";
 import WebStormSymbol from "../../img/symbols/WebStormSymbol.png";
+import City from "../../img/City.png";
+import FullLogo from "../../img/FullLogo.png";
 import FooterInfo from "../FooterInfo";
 
 function Symbols() {
@@ -25,8 +27,11 @@ function Symbols() {
 
 function MainScreen() {
     return (
-        <div>
-            <div id="home">
+        <div id="screen">
+            {/* Implementación momentánea */}
+            <img src={FullLogo} id={"logo"} alt="GOMap Logo"/>
+            <img src={City} id={"city"} alt="City" width={1024} height={512}/>
+            <div>
                 <Symbols/>
             </div>
             <FooterInfo />

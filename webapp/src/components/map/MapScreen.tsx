@@ -2,10 +2,12 @@ import "../../css/map.css"
 import Map from "./Map"
 import FooterInfo from "../FooterInfo";
 import OptionsButton from "./OptionsButton";
+import OptionsPanel from "./options/OptionsPanel";
 function MapScreen() {
     return (
         <div>
-            <OptionsButton />
+            {/*<OptionsButton />*/}
+            <OptionsPanel />
             <div id="screen">
                 <Map />
             </div>

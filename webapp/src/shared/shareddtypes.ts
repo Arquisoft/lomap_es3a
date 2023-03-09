@@ -15,3 +15,8 @@ export type TechButtonType = {
     img: string;
     text: string;
 }
+
+export type FilterType = {
+    title: string;
+    options: string[]
+}

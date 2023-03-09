@@ -1,4 +1,13 @@
-#home {
+#logo {
+    position: absolute;
+}
+
+#city {
+    border-radius: 30px;
+    margin-top: 20px;
+}
+
+#screen {
     text-align: center;
 }
 
