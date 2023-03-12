@@ -8,8 +8,9 @@ function MarkerPanel() {
 
     return (
         <div id="markersMenu">
-            <NamePlace title={"Enter the name of the place"}/>
-            <Filter title={"Select the category of the marker:"}
+            <h1>Add Marker</h1>
+            <NamePlace title={"Enter place's name:"}/>
+            <Filter title={"Marker's Category:"}
                     options={["Bar", "Shop", "Restaurant", "Cinema", "Landscape", "Monument"]}/>
             <Comments title={"Put a comment about this place"}/>
             <Score title={"Select the score you would give this place"}/>

@@ -12,7 +12,7 @@ h2 {
     margin: 10px;
 }
 
-select {
+select, option {
     font-size: 20px;
     font-weight: lighter;
     color: white;
@@ -48,7 +48,7 @@ select {
     justify-content: center;
 }
 
-#searchText {
+#searchText, #namePlace, #comment {
     font-size: 20px;
     font-weight: lighter;
     color: white;
@@ -147,20 +147,47 @@ select {
 }
 
 #markersMenu {
-    padding: 20px;
     position: fixed;
-    left: 75vw;
-    border-radius: 10px;
+    z-index: 1;
+
     color: white;
     font-size: 15px;
     font-weight: bold;
-    background-color: #0064ff;
-    border-color: black;
-    border-style: solid;
-    margin-left: 10px;
+    background-color: rgba(28, 42, 111, 0.8);
+    text-align: center;
+    margin-right: 10px;
     margin-top: 10px;
-    z-index: 1;
-    visibility: hidden;
+    border-radius: 30px;
+    border-color: black;
+    right: 0;
+
+    height: 50%;
+    width: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
 }
 
+#namePlace, #comment {
+    border-radius: 10px;
+    width: 80%;
+}
 
+#addPanel button {
+    font-weight: bold;
+    color: white;
+    background-color: #0063fd;
+    padding: 10px;
+    border-radius: 20px;
+    border-color: white;
+    border-style: solid;
+    border-width: 3px;
+    cursor: pointer;
+}
+
+#addPanel button:hover {
+    background-color: #00a6fb;
+}
+
+#addPanel button:active {
+    background-color: #007ffd;
+}

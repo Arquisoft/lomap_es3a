@@ -10,9 +10,28 @@ function LocationMarker() {
     const map = useMapEvents({
         click(e) {
             setPosition(e.latlng);
-            (document.getElementById("markersMenu") as HTMLDivElement).style.visibility = "visible";
+            const optionsMenu = document.getElementById("markersMenu");
+            if (optionsMenu !== null) {
+                const width = optionsMenu.style.width;
+                if (width.toString().length === 0) {
+                    optionsMenu.style.borderStyle = "solid"
+                    optionsMenu.style.width = "20%"
+                    optionsMenu.style.minWidth = "350px"
+                }
+            }
+            // (document.getElementById("markersMenu") as HTMLDivElement).style.visibility = "visible";
+        },
+        move(e) {
+            const optionsMenu = document.getElementById("markersMenu");
+            if (optionsMenu !== null) {
+                const width = optionsMenu.style.width;
+                if (width.toString().length !== 0) {
+                    optionsMenu.style.borderStyle = ""
+                    optionsMenu.style.width = ""
+                    optionsMenu.style.minWidth = "0px"
+                }
+            }
         }
-
     })
 
     return (
