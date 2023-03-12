@@ -40,6 +40,12 @@ nav a:active, #loginPanel p:active {
     margin-bottom: -35px;
 }
 
+#login-manage{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 #loginButton {
     color: white;
     background-color: #0063fd;
