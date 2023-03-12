@@ -1,0 +1,12 @@
+#info {
+    font-size: 20px;
+    font-weight: initial;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    text-decoration: none;
+}
+
+#link {
+    color: #000000;
+}

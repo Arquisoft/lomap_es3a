@@ -1,35 +1,26 @@
 import {User} from './shared/shareddtypes';
+import {getUsers} from './api/api';
+import React, {useEffect, useState} from 'react';
 import './App.css';
-import NavBar from './components/NavBar';
-import Map from './components/Map';
-import React, { useState, useEffect } from 'react';
-import  {getUsers} from './api/api';
-
+import ViewPaths from "./components/ViewPaths";
 
 function App(): JSX.Element {
 
-  const [users,setUsers] = useState<User[]>([]);
+    const [users, setUsers] = useState<User[]>([]);
 
-  const refreshUserList = async () => {
-    setUsers(await getUsers());
-  }
+    const refreshUserList = async () => {
+        setUsers(await getUsers());
+    }
 
-  useEffect(()=>{
-    refreshUserList();
-  },[]);
+    useEffect(() => {
+        refreshUserList();
+    }, []);
 
-  return (
-    <>
-      <div>
-        <header>
-          <NavBar />
-        </header>
-        <main>
-          <Map />
-        </main>
-      </div>
-    </>
-  );
+    return (
+        <div>
+            <ViewPaths/>
+        </div>
+    );
 }
 
 export default App;
