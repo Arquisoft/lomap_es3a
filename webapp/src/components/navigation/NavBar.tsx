@@ -37,7 +37,6 @@ function NavBar() {
     );
 
     return (
-        <SessionProvider sessionId="log-in-example">
             <nav>
                 <a href="/">
                     <img src={GOMapLogo} alt="GOMap Logo" height={128} width={256}/>
@@ -57,8 +56,7 @@ function NavBar() {
                     <RegisterMessage/>
                 </div>
             </nav>
-        </SessionProvider>
-    )
+    );
 }
 
 export default NavBar

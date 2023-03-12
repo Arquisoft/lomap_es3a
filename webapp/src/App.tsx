@@ -7,7 +7,7 @@ import ViewPaths from "./components/ViewPaths";
 function App(): JSX.Element {
 
     return (
-        <SessionProvider>
+        <SessionProvider session-id="login">
             <div>
                 <ViewPaths/>
             </div>

@@ -4,7 +4,7 @@ import {Button, TextField, FormGroup, Container} from "@material-ui/core";
 
 const LoginPage = () => {
     const [idp, setIdp] = useState("https://inrupt.net");
-    const [currentUrl, setCurrentUrl] = useState("https://localhost:3000/login");
+    const [currentUrl, setCurrentUrl] = useState("https://localhost:3000");
 
     useEffect(() => {
         setCurrentUrl(window.location.href);
@@ -21,7 +21,7 @@ const LoginPage = () => {
                     onChange={(e) => setIdp(e.target.value)}
                     InputProps={{
                         endAdornment: (
-                            <LoginButton oidcIssuer={idp} redirectUrl="http://localhost:3000">
+                            <LoginButton oidcIssuer={idp} redirectUrl="http://localhost:3000/map">
                                 <Button variant="contained" color="primary">
                                     Login
                                 </Button>

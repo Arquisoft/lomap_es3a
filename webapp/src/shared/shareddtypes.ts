@@ -39,10 +39,11 @@ export type ScoreType = {
 }
 
 export type ButtonAddPodType = {
-    idName:string;
-    idCategory:string;
-    idComment:string;
-    idScore:string;
+    idName: string;
+    idCategory: string;
+    idComment: string;
+    idScore: string;
+}
 
 export type SliderType = {
     title: string;
