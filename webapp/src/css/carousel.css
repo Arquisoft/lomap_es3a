@@ -1,22 +1,11 @@
+.carousel-inner {
+    margin-top: 20px;
+}
 
-.carousel-inner img {
-    max-height: 690px;
+.carousel-item img {
+    width: 65vw;
+    height: 50vh;
 
     border-radius: 20px;
     text-align: center;
-    aspect-ratio: auto;
-
 }
-.carousel-inner{
-    width: 97%;
-    text-align: center;
-    margin: auto;
-
-}
-h3 {
-    color: black;
-}
-p{
-    color: #08105a;
-}
-

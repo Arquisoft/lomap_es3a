@@ -1,23 +1,21 @@
-import { useSession } from "@inrupt/solid-ui-react";
-import {
-    saveFileInContainer,
-} from "@inrupt/solid-client";
+import {useSession} from "@inrupt/solid-ui-react";
+import {saveFileInContainer,} from "@inrupt/solid-client";
 import {ButtonAddPodType} from "../../shared/shareddtypes";
 import {Session} from "@inrupt/solid-client-authn-browser";
 import {Button} from "@mui/material";
 
 
-async function createMarker(nameFile:string, idName:string,idCategory:string,idComment:string,idScore:string) {
+async function createMarker(nameFile: string, idName: string, idCategory: string, idComment: string, idScore: string) {
     let name = (document.getElementById(idName) as HTMLInputElement).value
     let category = (document.getElementById(idCategory) as HTMLInputElement).value
     let comment = (document.getElementById(idComment) as HTMLInputElement).value
     let score = (document.getElementById(idScore) as HTMLInputElement).value
 
     let json = {
-        "name" : name,
-        "category" : category,
-        "comment" : comment,
-        "score" : score
+        "name": name,
+        "category": category,
+        "comment": comment,
+        "score": score
     }
 
 
@@ -25,17 +23,17 @@ async function createMarker(nameFile:string, idName:string,idCategory:string,idC
         type: "application/json",
     });
 
-    let file = new File([blob], nameFile, { type: blob.type });
+    let file = new File([blob], nameFile, {type: blob.type});
     return file;
 
 }
 
-async function createData(url:string, file:File, session:Session) {
+async function createData(url: string, file: File, session: Session) {
     try {
         let savedFile = await saveFileInContainer(
             url,
             file,
-            { slug: file.name, contentType: file.type, fetch: session.fetch }
+            {slug: file.name, contentType: file.type, fetch: session.fetch}
         );
     } catch (error) {
         console.log(error);
@@ -43,20 +41,18 @@ async function createData(url:string, file:File, session:Session) {
 }
 
 
+function ButtonAddPod({idName, idCategory, idComment, idScore}: ButtonAddPodType) {
+    const {session} = useSession();
+    const {webId} = session.info;
+    let webIdStore = webId?.slice(0, -15) + "public/"
 
 
-function ButtonAddPod({idName,idCategory,idComment,idScore}:ButtonAddPodType){
-    const { session } = useSession();
-    const { webId } = session.info;
-    let webIdStore = webId?.slice(0,-15)+"public/"
-
-
-    return(
+    return (
         <div>
             <Button variant="contained" color="primary"
-                    onClick={() =>{
+                    onClick={() => {
                         createMarker("marker.json", idName, idCategory, idComment, idScore).then(file => createData(webIdStore, file, session));
-                        (document.getElementById("markersMenu") as HTMLDivElement).style.visibility="hidden";
+                        (document.getElementById("markersMenu") as HTMLDivElement).style.visibility = "hidden";
                     }}>
                 AddMarker
             </Button>
@@ -64,4 +60,5 @@ function ButtonAddPod({idName,idCategory,idComment,idScore}:ButtonAddPodType){
 
     )
 }
+
 export default ButtonAddPod;

@@ -1,5 +1,8 @@
 import "../../css/home.css"
 import TechButton from "./TechButton";
+import FooterInfo from "../FooterInfo";
+import DocumentationButton from "./DocumentationButton";
+import ImgCarousel from "./Carousel";
 import ReactSymbol from "../../img/symbols/ReactSymbol.png";
 import SOLIDProjectSymbol from "../../img/symbols/SOLIDProjectSymbol.png";
 import TypeScriptSymbol from "../../img/symbols/TypeScriptSymbol.png";
@@ -7,11 +10,8 @@ import OpenStreetMap from "../../img/symbols/Openstreetmap_logo.png";
 import NodeJSSymbol from "../../img/symbols/NodeJSSymbol.png";
 import MongoDBSymbol from "../../img/symbols/MongoDBSymbol.png";
 import WebStormSymbol from "../../img/symbols/WebStormSymbol.png";
-import City from "../../img/City.png";
-import FullLogo from "../../img/FullLogo.png";
-import FooterInfo from "../FooterInfo";
-import DocumentationButton from "./DocumentationButton";
 import Bootstrap from "../../img/symbols/Bootstrap_logo.png";
+import React from "react";
 
 function Symbols() {
     return (
@@ -33,7 +33,7 @@ function MainScreen() {
     return (
         <div id="screen">
             <div>
-                {/* Implementación momentánea */}
+                <ImgCarousel/>
                 <div id="documentation">
                     <p>GOMap!® is an application where users can have custom maps about places and local business <br/>in
                         their city like shops, bars, restaurants, monuments, cinemas...</p>

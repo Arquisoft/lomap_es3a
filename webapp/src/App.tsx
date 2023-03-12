@@ -1,5 +1,5 @@
 import {SessionProvider, useSession} from "@inrupt/solid-ui-react";
-import React, { useState} from 'react';
+import React from 'react';
 import './App.css';
 import ViewPaths from "./components/ViewPaths";
 
