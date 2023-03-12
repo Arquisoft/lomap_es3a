@@ -1,26 +1,71 @@
+h1 {
+    font-family: "Bauhaus 93", serif;
+    font-size: 40px;
+    color: #92b5f5;
+    padding: 10px;
+    margin: 0;
+}
+
+h2 {
+    font-family: "Corbel Light", serif;
+    font-size: 35px;
+    margin: 10px;
+}
+
+select {
+    font-size: 20px;
+    font-weight: lighter;
+    color: white;
+    background-color: rgba(15, 94, 197, 0.8);
+    padding: 5px;
+    border-radius: 10px;
+    width: 80%;
+}
+
+#slider {
+    margin-right: 5px;
+    width: 60%;
+    background: linear-gradient(to right, #00d9fd 0%, #017dfa 50%, #007ffd 50%, #1c2a6f 100%);
+    border: solid 2px #ffffff;
+    border-radius: 8px;
+    height: 10px;
+    -webkit-appearance: none;
+}
+
+#value {
+    font-size: 20px;
+    font-weight: lighter;
+    color: white;
+    background-color: rgba(15, 94, 197, 0.8);
+    margin-left: 5px;
+    padding: 5px;
+    border-radius: 10px;
+    width: 20%;
+}
+
 #screen {
     position: relative;
     z-index: 0;
 }
 
-#optionsButton, #optionsMenu {
-    padding: 10px;
+#optionsButton {
+    padding: 5px;
     position: fixed;
+    z-index: 2;
 
-    border-radius: 10px;
     color: white;
-    font-size: 15px;
+    font-size: 25px;
     font-weight: bold;
     background-color: #0064ff;
+    border-radius: 20px;
     border-color: black;
     border-style: solid;
-}
 
-#optionsButton {
-    margin-left: 20px;
-    margin-top: 20px;
-    z-index: 2;
+    top: 170px;
+    left: 20px;
     cursor: pointer;
+    transition: background 250ms ease-in-out,
+    transform 150ms ease;
 }
 
 #optionsButton:hover {
@@ -32,15 +77,37 @@
 }
 
 #optionsMenu {
+    display:table-cell;
+    position: fixed;
+    z-index: 1;
+
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: rgba(28, 42, 111, 0.8);
+    text-align: center;
     margin-left: 10px;
     margin-top: 10px;
-    z-index: 1;
+    border-radius: 30px;
+    border-color: black;
+
+    height: 45%;
+    width: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+#developers {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
 }
 
 #developers p{
     color: white;
     text-align: center;
-    margin: -10px;
+    margin: 0;
 }
 
 .member {

@@ -25,3 +25,11 @@ export type DocumentationButtonType = {
     href: string;
     text: string;
 }
+
+export type SliderType = {
+    title: string;
+
+    min: number;
+
+    max: number;
+}
