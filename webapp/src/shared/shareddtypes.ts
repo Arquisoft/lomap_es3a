@@ -1,5 +1,3 @@
-import {MouseEventHandler} from "react";
-
 export type User = {
     name: string;
     email: string;
@@ -27,22 +25,23 @@ export type DocumentationButtonType = {
 }
 
 export type NamePlaceType = {
-    title:string;
+    title: string;
 }
 
 export type CommentType = {
-    title:string;
+    title: string;
 }
 
 export type ScoreType = {
-    title:string;
+    title: string;
 }
 
 export type ButtonAddPodType = {
-    idName:string;
-    idCategory:string;
-    idComment:string;
-    idScore:string;
+    idName: string;
+    idCategory: string;
+    idComment: string;
+    idScore: string;
+}
 
 export type SliderType = {
     title: string;

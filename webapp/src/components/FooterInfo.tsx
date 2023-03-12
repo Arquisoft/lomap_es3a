@@ -1,4 +1,5 @@
 import "../css/footer.css";
+
 function FooterInfo() {
     return (
         <footer id="info">
@@ -6,4 +7,5 @@ function FooterInfo() {
         </footer>
     )
 }
+
 export default FooterInfo
