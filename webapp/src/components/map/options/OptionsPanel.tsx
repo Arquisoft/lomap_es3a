@@ -10,20 +10,20 @@ function OptionsPanel() {
         if (optionsMenu !== null) {
             const width = optionsMenu.style.width;
             if (width.toString().length === 0) {
-                optionsMenu.style.borderStyle="solid";
-                optionsMenu.style.width = "20%";
-                optionsMenu.style.minWidth = "350px";
-                const optionsButton = document.getElementById("optionsButton");
+                optionsMenu.style.borderStyle="solid"
+                optionsMenu.style.width = "20%"
+                optionsMenu.style.minWidth = "350px"
+                const optionsButton = document.getElementById("optionsButton")
                 if (optionsButton !== null) {
-                    optionsButton.style.transform = "scaleX(-1)";
+                    optionsButton.style.transform = "scaleX(-1)"
                 }
             } else {
-                optionsMenu.style.borderStyle="";
-                optionsMenu.style.width = "";
-                optionsMenu.style.minWidth = "0px";
-                const optionsButton = document.getElementById("optionsButton");
+                optionsMenu.style.borderStyle=""
+                optionsMenu.style.width = ""
+                optionsMenu.style.minWidth = "0px"
+                const optionsButton = document.getElementById("optionsButton")
                 if (optionsButton !== null) {
-                    optionsButton.style.transform = "scaleX(1)";
+                    optionsButton.style.transform = "scaleX(1)"
                 }
             }
         }

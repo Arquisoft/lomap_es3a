@@ -4,7 +4,7 @@ import 'leaflet/dist/leaflet.css';
 import LocationMarker from "./LocationMarker";
 
 function Map() {
-    const position = {lat: 43.364864, lng: -5.862134}
+    const position = {lat: 43.3548057, lng: -5.8534646}
 
     return (
         <MapContainer center={position} zoom={13} scrollWheelZoom={true} zoomControl={false} >

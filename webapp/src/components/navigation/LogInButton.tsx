@@ -8,9 +8,7 @@ function LogInButton() {
 
 
     return (
-        <div>
-            <Button id="loginButton" onClick={() => navigate('/login')} value="Log in">Sign Up</Button>
-        </div>
+        <Button id="loginButton" onClick={() => navigate('/login')} value="Log in">Log in</Button>
     )
 }
 
