@@ -43,4 +43,9 @@ export type ButtonAddPodType = {
     idCategory:string;
     idComment:string;
     idScore:string;
+
+export type SliderType = {
+    title: string;
+    min: number;
+    max: number;
 }

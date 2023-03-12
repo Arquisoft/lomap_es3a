@@ -1,6 +1,7 @@
 nav {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     align-items: center;
 
     background-color: #1c2a70;
@@ -9,15 +10,19 @@ nav {
     border-width: 5px;
 }
 
-nav a, nav input, #loginButton {
+nav a, nav input {
     font-size: 30px;
     text-decoration: none;
     color: rgba(148, 148, 148, 0.61);
     margin-right: 70px;
 }
 
-nav a:hover {
-    color: #00d9fd;
+nav a:hover, #loginPanel p:hover {
+    color: #ffffff;
+}
+
+nav a:active, #loginPanel p:active {
+    color: #007ffd;
 }
 
 .active {
@@ -48,19 +53,12 @@ nav a:hover {
     cursor: pointer;
 }
 
-p {
+#loginPanel p {
     color: #669de3;
     margin-top: 0px;
     padding: 10px;
+    text-align: center;
     cursor: pointer;
-}
-
-p:hover {
-    color: #00d9fd;
-}
-
-p:active {
-
 }
 
 #loginButton:hover {
@@ -68,5 +66,5 @@ p:active {
 }
 
 #loginButton:active{
-    background-color: #1c2a70;
+    background-color: #007ffd;
 }
