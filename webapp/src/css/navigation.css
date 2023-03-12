@@ -1,8 +1,8 @@
 nav {
     display: flex;
     flex-direction: row;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 
     background-color: #1c2a70;
     border-style: solid;
@@ -10,18 +10,18 @@ nav {
     border-width: 5px;
 }
 
-nav a, nav input {
-    font-size: 25px;
+nav a {
+    font-size: 30px;
     text-decoration: none;
     color: rgba(148, 148, 148, 0.61);
     margin-right: 70px;
 }
 
-nav a:hover, #loginPanel p:hover {
+nav a:hover, #login-manage a:hover {
     color: #ffffff;
 }
 
-nav a:active, #loginPanel p:active {
+nav a:active, #login-manage a:active {
     color: #007ffd;
 }
 
@@ -31,27 +31,26 @@ nav a:active, #loginPanel p:active {
     text-decoration-line: underline;
 }
 
-#loginPanel {
+#login-manage {
     display: flex;
     flex-direction: column;
     align-items: center;
-
     margin-left: auto;
-    margin-bottom: -35px;
 }
 
-#login-manage{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+#login-manage a {
+    font-size: 15px;
+    color: #669de3;
+    padding: 10px;
+    margin-top: -5px;
+    margin-right: 0;
 }
 
-#loginButton {
+div[role="button"] button {
+    font-weight: bold;
     color: white;
     background-color: #0063fd;
-    padding: 7px;
-    margin-right: 15px;
-    margin-bottom: 0px;
+    padding: 10px;
     border-radius: 20px;
     border-color: white;
     border-style: solid;
@@ -59,18 +58,33 @@ nav a:active, #loginPanel p:active {
     cursor: pointer;
 }
 
-#loginPanel p {
-    color: #669de3;
-    margin-top: 0px;
-    padding: 10px;
-    text-align: center;
-    cursor: pointer;
-}
-
-#loginButton:hover {
+div[role="button"] button:hover {
     background-color: #00a6fb;
 }
 
-#loginButton:active{
+div[role="button"] button:active {
     background-color: #007ffd;
+}
+
+.card {
+    width: 50%;
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.card-text {
+    font-size: 15px;
+    color: white;
+    background-color: #0063fd;
+    text-align: center;
+    border-radius: 10px;
+    border-color: white;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.card-text:hover {
+    color: white;
+    border-color: black;
 }

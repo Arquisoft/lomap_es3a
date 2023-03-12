@@ -103,7 +103,7 @@ creation of Virtual Machines.
 </p>
 
 - To add more open ports, press in "Add inbound security route". Then, fill in the information to open ports 3000 and
-  5000.
+    5000.
 
 <p align="center">   
    <img width="500" alt="Download private key" src="https://user-images.githubusercontent.com/10683040/155284067-e8a85c53-3171-4e40-b773-3d33e05b1159.png">

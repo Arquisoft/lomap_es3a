@@ -99,12 +99,12 @@ select {
     background-color: #00a7fd;
 }
 
-#optionsButton:active{
+#optionsButton:active {
     background-color: #1c2a70;
 }
 
 #optionsMenu {
-    display:table-cell;
+    display: table-cell;
     position: fixed;
     z-index: 1;
 
@@ -131,19 +131,24 @@ select {
     text-align: center;
 }
 
-#developers p{
+#developers p {
     color: white;
     text-align: center;
     margin: 0;
+}
+
+#developers p a:hover {
+    color: white;
 }
 
 .member {
     color: rgba(255, 255, 255, 0.75);
     text-decoration: underline;
 }
+
 #markersMenu {
     padding: 20px;
-    position: fixed ;
+    position: fixed;
     left: 75vw;
     border-radius: 10px;
     color: white;
