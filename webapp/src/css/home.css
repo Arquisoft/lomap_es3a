@@ -1,4 +1,13 @@
-#home {
+#logo {
+    position: absolute;
+}
+
+#city {
+    border-radius: 30px;
+    margin-top: 20px;
+}
+
+#screen {
     text-align: center;
 }
 
@@ -15,4 +24,33 @@
 
 .techButtons {
     margin: 15px;
+}
+
+.documentButton {
+    display: inline-block;
+    color: white;
+    background-color: #0063fd;
+    border-radius: 30px;
+    border-color: black;
+    border-style: solid;
+    border-width: 3px;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 1em;
+    font-size: 25px;
+    padding: 0.2em 0.5em 0.2em 1em;
+}
+
+#documentation>p{
+    margin-top: 1em;
+    color: black;
+    padding: 0px;
+    cursor: auto;
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+p:hover{
+    color: black;
 }

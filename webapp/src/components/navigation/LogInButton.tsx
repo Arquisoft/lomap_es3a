@@ -7,7 +7,9 @@ function LogInButton() {
     }
 
     return (
-        <input type="button" id="loginButton" onClick={handleOnClick} value="Log in"/>
+        <div>
+            <input type="button" id="loginButton" onClick={handleOnClick} value="Log in"/>
+        </div>
     )
 }
 
