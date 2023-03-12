@@ -3,11 +3,13 @@ import Map from "./Map"
 import FooterInfo from "../FooterInfo";
 import OptionsButton from "./OptionsButton";
 import OptionsPanel from "./options/OptionsPanel";
+import MarkerPanel from "./MarkerPanel";
 function MapScreen() {
     return (
         <div>
             {/*<OptionsButton />*/}
             <OptionsPanel />
+            <MarkerPanel/>
             <div id="screen">
                 <Map />
             </div>
