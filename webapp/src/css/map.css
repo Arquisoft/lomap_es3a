@@ -19,7 +19,7 @@ select {
     background-color: rgba(15, 94, 197, 0.8);
     padding: 5px;
     border-radius: 10px;
-    width: 80%;
+    width: 85%;
 }
 
 #slider {
@@ -41,6 +41,33 @@ select {
     padding: 5px;
     border-radius: 10px;
     width: 20%;
+}
+
+#searchPanel {
+    display: flex;
+    justify-content: center;
+}
+
+#searchText {
+    font-size: 20px;
+    font-weight: lighter;
+    color: white;
+    background-color: rgba(15, 94, 197, 0.8);
+    padding: 5px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    width: 65%;
+}
+
+#searchButton {
+    font-size: 20px;
+    font-weight: lighter;
+    color: white;
+    background-color: rgba(15, 94, 197, 0.8);
+    padding: 5px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 15%;
 }
 
 #screen {
