@@ -137,6 +137,10 @@ select {
     margin: 0;
 }
 
+#developers p a:hover {
+    color: white;
+}
+
 .member {
     color: rgba(255, 255, 255, 0.75);
     text-decoration: underline;

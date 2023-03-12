@@ -2,6 +2,7 @@ nav {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
 
     background-color: #1c2a70;
     border-style: solid;
@@ -16,11 +17,11 @@ nav a {
     margin-right: 70px;
 }
 
-nav a:hover, #loginPanel a:hover {
+nav a:hover, #login-manage a:hover {
     color: #ffffff;
 }
 
-nav a:active, #loginPanel a:active {
+nav a:active, #login-manage a:active {
     color: #007ffd;
 }
 
@@ -30,15 +31,22 @@ nav a:active, #loginPanel a:active {
     text-decoration-line: underline;
 }
 
-#loginPanel {
+#login-manage {
     display: flex;
     flex-direction: column;
     align-items: center;
-
     margin-left: auto;
 }
 
-#loginButton {
+#login-manage a {
+    font-size: 15px;
+    color: #669de3;
+    padding: 10px;
+    margin-top: -5px;
+    margin-right: 0;
+}
+
+div[role="button"] button {
     font-weight: bold;
     color: white;
     background-color: #0063fd;
@@ -50,17 +58,33 @@ nav a:active, #loginPanel a:active {
     cursor: pointer;
 }
 
-#loginPanel a {
-    text-align: center;
-    font-size: 15px;
-    color: #669de3;
-    padding: 10px;
-}
-
-#loginButton:hover {
+div[role="button"] button:hover {
     background-color: #00a6fb;
 }
 
-#loginButton:active {
+div[role="button"] button:active {
     background-color: #007ffd;
+}
+
+.card {
+    width: 50%;
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.card-text {
+    font-size: 15px;
+    color: white;
+    background-color: #0063fd;
+    text-align: center;
+    border-radius: 10px;
+    border-color: white;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.card-text:hover {
+    color: white;
+    border-color: black;
 }
