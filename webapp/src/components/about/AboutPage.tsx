@@ -3,7 +3,6 @@ import NavBar from "../navigation/NavBar";
 function AboutPage() {
     return (
         <div>
-            <NavBar />
 
         </div>
     )

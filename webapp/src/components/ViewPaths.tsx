@@ -4,11 +4,12 @@ import MapPage from "./map/MapPage";
 import HomePage from "./home/HomePage";
 import HelpPage from "./help/HelpPage";
 import AboutPage from "./about/AboutPage";
-import LoginPage from "./login/LoginPage";
+import NavBar from "./navigation/NavBar";
 
 function ViewPaths() {
     return (
         <Router>
+            <NavBar/>
             <Routes>
                 <Route
                     path='/'
@@ -32,12 +33,6 @@ function ViewPaths() {
                     path='/about'
                     element={
                         <AboutPage/>
-                    }
-                />
-                <Route
-                    path='/login'
-                    element={
-                        <LoginPage/>
                     }
                 />
             </Routes>
