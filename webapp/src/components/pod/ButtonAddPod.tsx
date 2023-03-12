@@ -48,14 +48,16 @@ async function createData(url:string, file:File, session:Session) {
 function ButtonAddPod({idName,idCategory,idComment,idScore}:ButtonAddPodType){
     const { session } = useSession();
     const { webId } = session.info;
+    let webIdStore = webId?.slice(0,-15)+"public/"
+
 
     return(
         <div>
-            <Button
-                onClick={() =>{
-                    createMarker("marker.json", idName, idCategory, idComment, idScore).then(file => createData("https://uo284373.inrupt.net/public/", file, session));
-                    (document.getElementById("markersMenu") as HTMLDivElement).style.visibility="hidden";
-                }}>
+            <Button variant="contained" color="primary"
+                    onClick={() =>{
+                        createMarker("marker.json", idName, idCategory, idComment, idScore).then(file => createData(webIdStore, file, session));
+                        (document.getElementById("markersMenu") as HTMLDivElement).style.visibility="hidden";
+                    }}>
                 AddMarker
             </Button>
         </div>
