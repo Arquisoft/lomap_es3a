@@ -4,7 +4,7 @@ function Filter({title, options}: FilterType) {
     return (
         <div>
             <h2>{title}</h2>
-            <select>
+            <select id="category">
                 {options.map((option, index) => (
                     <option key={index} value={option}>{option}</option>
                 ))}

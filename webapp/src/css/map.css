@@ -141,3 +141,21 @@ select {
     color: rgba(255, 255, 255, 0.75);
     text-decoration: underline;
 }
+#markersMenu {
+    padding: 20px;
+    position: fixed ;
+    left: 75vw;
+    border-radius: 10px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #0064ff;
+    border-color: black;
+    border-style: solid;
+    margin-left: 10px;
+    margin-top: 10px;
+    z-index: 1;
+    visibility: hidden;
+}
+
+
