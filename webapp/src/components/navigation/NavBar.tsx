@@ -1,22 +1,23 @@
 import "../../css/navigation.css";
 import GOMapLogo from "../../img/symbols/SimpleSymbol.png";
 import NavItem from "./NavItem";
-import LogInButton from "./LogInButton";
+import {LoginButton} from "@inrupt/solid-ui-react";
 import RegisterMessage from "./RegisterMessage";
-import {CombinedDataProvider, LogoutButton, SessionProvider, useSession, Text} from "@inrupt/solid-ui-react";
+import {CombinedDataProvider, LogoutButton, useSession, Text} from "@inrupt/solid-ui-react";
 import {FOAF} from "@inrupt/lit-generated-vocab-common";
+import { Nav, NavDropdown} from "react-bootstrap";
+import {Button} from "@mui/material";
 import {useState} from "react";
-import {Card, Nav, NavDropdown} from "react-bootstrap";
 
 function NavBar() {
-    //We use this state variable
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-    //With this we can control the login status for solid
     const {session} = useSession();
     let {webId} = session.info;
     if (webId == undefined)
         webId = "";
+
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
 
     //We have logged in
     session.onLogin(() => {
@@ -51,7 +52,14 @@ function NavBar() {
                             <Nav><NavDropdown title={dropdownTitle} className="nav-item mr-3" id=".sixth-step">
                             </NavDropdown>
                             </Nav>}
-                        {(!isLoggedIn) ? <LogInButton/> : <LogoutButton></LogoutButton>}
+                        {(!isLoggedIn) ? <LoginButton  oidcIssuer="https://inrupt.net" redirectUrl="http://localhost:3000/map" >
+                            <Button variant="contained" color="primary">
+                                Login
+                            </Button>
+                        </LoginButton> : <LogoutButton>
+                            <Button variant="contained" color="error">
+                            Logout
+                        </Button></LogoutButton>}
                     </div>
                     <RegisterMessage/>
                 </div>
