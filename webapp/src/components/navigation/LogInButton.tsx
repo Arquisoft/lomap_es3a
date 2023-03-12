@@ -1,14 +1,15 @@
 import "../../css/login.css"
+import {useNavigate} from "react-router-dom";
+import Button from "@mui/material/Button";
 
 function LogInButton() {
 
-    function handleOnClick() {
-        console.log("Log In pulsado")
-    }
+    const navigate = useNavigate();
+
 
     return (
         <div>
-            <input type="button" id="loginButton" onClick={handleOnClick} value="Log in"/>
+            <Button id="loginButton" onClick={() => navigate('/login')} value="Log in">Sign Up</Button>
         </div>
     )
 }

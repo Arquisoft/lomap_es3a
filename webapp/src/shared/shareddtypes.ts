@@ -20,3 +20,33 @@ export type FilterType = {
     title: string;
     options: string[]
 }
+
+export type DocumentationButtonType = {
+    href: string;
+    text: string;
+}
+
+export type NamePlaceType = {
+    title:string;
+}
+
+export type CommentType = {
+    title:string;
+}
+
+export type ScoreType = {
+    title:string;
+}
+
+export type ButtonAddPodType = {
+    idName: string;
+    idCategory: string;
+    idComment: string;
+    idScore: string;
+}
+
+export type SliderType = {
+    title: string;
+    min: number;
+    max: number;
+}
