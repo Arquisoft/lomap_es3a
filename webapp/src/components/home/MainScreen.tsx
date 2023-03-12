@@ -32,10 +32,10 @@ function Symbols() {
 function MainScreen() {
     return (
         <div id="screen">
+            <div>
             {/* Implementación momentánea */}
             <img src={FullLogo} id={"logo"} alt="GOMap Logo"/>
             <img src={City} id={"city"} alt="City" width={1024} height={512}/>
-
             <div id="documentation">
                 <p>GOMap!® is an application where users can have custom maps about places and local business <br/>in their city like shops, bars, restaurants, monuments, cinemas...</p>
                 <p>Also the application allows users to interact with their friends by viewing the places they have saved.</p>
