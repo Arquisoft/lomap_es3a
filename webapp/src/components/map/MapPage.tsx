@@ -4,7 +4,6 @@ import MapScreen from "./MapScreen";
 function MapPage() {
     return (
         <div>
-            <NavBar/>
             <MapScreen />
         </div>
     )

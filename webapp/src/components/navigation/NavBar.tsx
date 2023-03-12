@@ -5,7 +5,7 @@ import {LoginButton} from "@inrupt/solid-ui-react";
 import RegisterMessage from "./RegisterMessage";
 import {CombinedDataProvider, LogoutButton, useSession, Text} from "@inrupt/solid-ui-react";
 import {FOAF} from "@inrupt/lit-generated-vocab-common";
-import { Nav, NavDropdown} from "react-bootstrap";
+import {Card, Nav, NavDropdown} from "react-bootstrap";
 import {Button} from "@mui/material";
 import {useState} from "react";
 
@@ -49,9 +49,7 @@ function NavBar() {
                 <div id="loginPanel">
                     <div id="login-manage">
                         {(!isLoggedIn) ? null :
-                            <Nav><NavDropdown title={dropdownTitle} className="nav-item mr-3" id=".sixth-step">
-                            </NavDropdown>
-                            </Nav>}
+                            <Card><Card.Text>{dropdownTitle}</Card.Text></Card>}
                         {(!isLoggedIn) ? <LoginButton  oidcIssuer="https://inrupt.net" redirectUrl="http://localhost:3000/map" >
                             <Button variant="contained" color="primary">
                                 Login

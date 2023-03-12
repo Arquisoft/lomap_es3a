@@ -26,7 +26,6 @@ const items = [
 function HomePage() {
     return (
         <div>
-            <NavBar/>
             <Carousel/>
             <MainScreen/>
         </div>

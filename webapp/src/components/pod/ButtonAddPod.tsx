@@ -4,7 +4,7 @@ import {
 } from "@inrupt/solid-client";
 import {ButtonAddPodType} from "../../shared/shareddtypes";
 import {Session} from "@inrupt/solid-client-authn-browser";
-import {Button} from "@material-ui/core";
+import {Button} from "@mui/material";
 
 
 async function createMarker(nameFile:string, idName:string,idCategory:string,idComment:string,idScore:string) {

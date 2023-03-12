@@ -2,7 +2,6 @@ import { Carousel } from 'react-bootstrap';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../css/carousel.css';
-import CityImage from "../../img/City.png";
 import WallpaperImage from "../../img/Wallpaper.png";
 export default function MyCarousel() {
     return (
