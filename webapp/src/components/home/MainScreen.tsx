@@ -28,9 +28,6 @@ function Symbols() {
 function MainScreen() {
     return (
         <div id="screen">
-            {/* Implementación momentánea */}
-            <img src={FullLogo} id={"logo"} alt="GOMap Logo"/>
-            <img src={City} id={"city"} alt="City" width={1024} height={512}/>
             <div>
                 <Symbols/>
             </div>
