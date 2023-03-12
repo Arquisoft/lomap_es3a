@@ -1,6 +1,6 @@
 function RegisterMessage() {
     return (
-        <p>Haven't signed yed? Register now!</p>
+        <a href="https://inrupt.net/register">Haven't signed yed? Register now! </a>
     )
 }
 

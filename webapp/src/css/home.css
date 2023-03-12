@@ -18,7 +18,7 @@
     border-radius: 20px;
     border-color: black;
     border-style: solid;
-    margin: 10px;
+    margin-bottom: 10px;
     padding: 10px;
 }
 
@@ -61,4 +61,13 @@
 
 p:hover{
     color: black;
+}
+
+#symbolsPanel>p{
+    color: black;
+    padding: 0px;
+    cursor: auto;
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
 }
