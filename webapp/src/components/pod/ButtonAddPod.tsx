@@ -48,13 +48,13 @@ function ButtonAddPod({idName, idCategory, idComment, idScore}: ButtonAddPodType
 
 
     return (
-        <div>
+        <div id="addPanel">
             <Button variant="contained" color="primary"
                     onClick={() => {
                         createMarker("marker.json", idName, idCategory, idComment, idScore).then(file => createData(webIdStore, file, session));
                         (document.getElementById("markersMenu") as HTMLDivElement).style.visibility = "hidden";
                     }}>
-                AddMarker
+                Add Marker
             </Button>
         </div>
 
