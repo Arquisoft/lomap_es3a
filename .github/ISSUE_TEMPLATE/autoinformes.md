@@ -31,7 +31,7 @@ Se han realizado ****** issues en el momento de redacción del informe.
 
 ### 🔗 Enlaces a _issues_:
 <ol type="1">
-       <li>#4.</li> 
+       <li>#.</li> 
        
 </ol>
 
