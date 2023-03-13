@@ -45,18 +45,20 @@ function NavBar() {
             <NavItem to={"/help"} text={"Help"}/>
             <NavItem to={"/about"} text={"About"}/>
             <div id="login-manage">
-                {(!isLoggedIn) ? null :
+                {(!isLoggedIn) ? "" :
                     <Card><Card.Text>{dropdownTitle}</Card.Text></Card>}
                 {(!isLoggedIn) ?
                     <LoginButton oidcIssuer="https://inrupt.net" redirectUrl="http://localhost:3000/map">
-                        <Button variant="contained" color="primary">
+                        <Button variant="contained" color="primary"  id="login">
                             Login
                         </Button>
                     </LoginButton> : <LogoutButton>
-                        <Button variant="contained" color="error">
+                        <Button variant="contained" color="error" id="logout">
                             Logout
                         </Button></LogoutButton>}
-                <a href="https://inrupt.net/register">Haven't signed yed? Register now!</a>
+                {(isLoggedIn) ? "" :
+                    <a href="https://inrupt.net/register">Haven't signed yed? Register now!</a>
+                }
             </div>
         </nav>
     );

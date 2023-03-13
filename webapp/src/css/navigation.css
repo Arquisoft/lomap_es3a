@@ -46,10 +46,9 @@ nav a:active, #login-manage a:active {
     margin-right: 0;
 }
 
-div[role="button"] button {
+#login, #logout {
     font-weight: bold;
     color: white;
-    background-color: #0063fd;
     padding: 10px;
     border-radius: 20px;
     border-color: white;
@@ -58,11 +57,19 @@ div[role="button"] button {
     cursor: pointer;
 }
 
-div[role="button"] button:hover {
+#login {
+    background-color: #0063fd;
+}
+
+#logout {
+    background-color: #8f8d8d;
+}
+
+#login:hover, #logout:hover {
     background-color: #00a6fb;
 }
 
-div[role="button"] button:active {
+#login:active, #logout:active {
     background-color: #007ffd;
 }
 
