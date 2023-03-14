@@ -1,4 +1,4 @@
-# Contributing to GOMap!®ç
+# Contributing to GOMap!®
 <p align="justify">
 GOMap! welcomes contributions and corrections. Before contributing, please make sure you have read the guidelines below. If you decide to contribute anything, please follow the steps below. If you're new to <em>git</em> and/or <em>GitHub</em>, we suggest you go through <a href="https://guides.github.com/introduction/flow/">the GitHub Guides</a>.
 </p>
