@@ -33,6 +33,7 @@ function MainScreen() {
     return (
         <div id="screen">
             <div>
+
                 <ImgCarousel/>
                 <div id="documentation">
                     <p>GOMap!® is an application where users can have custom maps about places and local business <br/>in
