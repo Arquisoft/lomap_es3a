@@ -41,3 +41,9 @@ A estos marcadores se les podrá añadir diferentes características, como imág
    <li>Presione <a href="https://arquisoft.github.io/lomap_es3a/">aquí</a> para acceder a la <strong><em>documentación del proyecto</em></strong>.</li>   
    <li>Presione <a href="https://github.com/Arquisoft/lomap_es3a/discussions">aquí</a> para acceder a las <strong><em>discusiones del proyecto</em></strong>.</li>
 </ol>
+
+<footer align="left">
+   <a href="https://arquisoft.github.io/">
+      ©Arquisoft - UNIOVI
+   </a>
+</footer>
