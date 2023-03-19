@@ -1,8 +1,16 @@
 # GOMap!®
 
-[![CI for LOMAP ES3A](https://github.com/Arquisoft/lomap_es3a/actions/workflows/lomap_es3a.yml/badge.svg)](https://github.com/Arquisoft/lomap_es3a/actions/workflows/lomap_es3a.yml)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Arquisoft_lomap_es3a&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Arquisoft_lomap_es3a)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Arquisoft_lomap_es3a&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Arquisoft_lomap_es3a)
+<p align="center">
+   <a href="https://github.com/Arquisoft/lomap_es3a/actions/workflows/lomap_es3a.yml">
+      <img alt="CI for LOMAP ES3A" src="https://github.com/Arquisoft/lomap_es3a/actions/workflows/lomap_es3a.yml/badge.svg">
+   </a>
+   <a href="https://sonarcloud.io/summary/new_code?id=Arquisoft_lomap_es3a">
+      <img alt="Quality Gate Status" src="https://sonarcloud.io/api/project_badges/measure?project=Arquisoft_lomap_es3a&metric=alert_status">
+   </a>
+   <a href="https://sonarcloud.io/summary/new_code?id=Arquisoft_lomap_es3a">
+      <img alt="Coverage" src="https://sonarcloud.io/api/project_badges/measure?project=Arquisoft_lomap_es3a&metric=coverage">
+   </a>
+</p>
 
 <img src="https://user-images.githubusercontent.com/91057639/218590043-d4243147-e5c0-4f7b-8fed-12ed8d290490.png" width="1024" height="512">
 
