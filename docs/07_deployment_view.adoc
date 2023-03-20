@@ -11,8 +11,7 @@ node AzureServer{
     }
     node DockerContainer2 {
         component WebApp
-    }
-    
+    }    
 }
  
 node UserDevice {
@@ -29,8 +28,7 @@ Actor User
  
 cloud SOLID_POD
 cloud BingMaps
-cloud Geoapify
- 
+cloud Geoapify 
  
 RestAPI -u-> MongoDB : "access information"
 WebAppImage -d-> SOLID_POD : "access user data"
@@ -41,29 +39,30 @@ WebApp -d-> WebAppImage : 'shows on user device'
 WebAppImage <-l- User
 ----
  
-Motivation::
+==== Motivation
 In the development stage the application will be running on each student's machine. However, in the production stage the application will be running on a Docker environment hosted on _Azure_. Our objective is to know how to use docker correctly, which is the infrastructure on which our application will be running.
  
-Quality and/or performance features::
+==== Quality and/or performance features
 The performance of the application depends on different user resources (internet connection, hardware, etc) as well as on the _Azure_ servers device. For that reason, it is not in our hand to ensure these resources. Anyway we will make the required optimizations in order to maximize the performance and quality and we have used the best technologies at our disposal, trying to minimise waiting times for user requests. It should be noted that our main quality goals are privacy, usability and maintainability.
  
-Mapping of building blocks to infrastructure::
-[options="header",cols="1,2"]
+==== Mapping of building blocks to infrastructure
+
+[options="header",cols="1,4"]
 |===
-|Element|Description
+| Element | Description
  
-|*WebApp*
-|The frontend of our application. It will be rendered by a web browser which will be executed ont the user's device.
+| *_WebApp_*
+| The frontend of our application. It will be rendered by a web browser which will be executed ont the user's device.
  
-|*RestAPI*
-|The back-end of our application. It will run on the Azure server.
+| *_RestAPI_*
+| The back-end of our application. It will run on the Azure server.
  
-|*MongoDB*
-|Database chosen for the application
+| *_MongoDB_*
+| Database chosen for the application
  
-|*POD provider*
-|_Solid PODs_ will be provided by _Solid Community_. Will be in charge of providing the pods for the users
+| *_POD Provider_*
+| _SOLID PODs_ will be provided by _Solid Community_. Will be in charge of providing the pods for the users
  
-|*Client Device*
-|Device of the user (desktop, mobile). Must have internet connection.
+| *_Client Device_*
+| Device of the user (desktop, mobile). Must have internet connection.
 |===

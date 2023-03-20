@@ -3,24 +3,20 @@
 
 [options="header"]
 |===
-|Issue|Solution
-|Because our app uses POD technology, we are susceptible to bugs and changes within the technology, which could cause users to lose information. Unfortunately, we cannot control or alter Solid's development.
+| Issue | Solution
 
-|We have to rely on Solid's complex interface, which may result in authentication issues due to the various ways Solid authenticates users. However, we have created our own interface that allows users to choose their provider of PODs and access them.
+| Because our app uses POD technology, we are susceptible to bugs and changes within the technology, which could cause users to lose information. Unfortunately, we cannot control or alter Solid's development.
+| We have to rely on SOLID's complex interface, which may result in authentication issues due to the various ways Solid authenticates users. However, we have created our own interface that allows users to choose their provider of PODs and access them.
 
-|Like all applications on Solid, our app has the potential to cause unwanted changes, system corruption, or affect data being used by other applications, which may lead to malfunctions. While we can't fully solve this inherent issue with the POD architecture, we can limit the data our app accesses to avoid damaging anything.
+| Like all applications on Solid, our app has the potential to cause unwanted changes, system corruption, or affect data being used by other applications, which may lead to malfunctions. While we can't fully solve this inherent issue with the POD architecture, we can limit the data our app accesses to avoid damaging anything.
+| Due to the nature of PODs, privacy is also a concern since any app can read the data stored within them. Unfortunately, we haven't found a solution for this issue since encrypting the data with a key would also be accessible to other applications.
 
-|Due to the nature of PODs, privacy is also a concern since any app can read the data stored within them. Unfortunately, we haven't found a solution for this issue since encrypting the data with a key would also be accessible to other applications.
+| SOLID's current implementation results in slower data gathering than desired, which is a known deficiency with no solution yet.
+| There are only a limited number of RDF libraries available, and they can be challenging to use, which may result in messy code. However, new libraries may emerge in the future to address this deficiency.
 
-|Solid's current implementation results in slower data gathering than desired, which is a known deficiency with no solution yet.
+| If a user takes down their POD, any other users who had conversations with that user would lose half the conversation as information is decentralized and stored in each POD.
+| If a POD becomes temporarily inaccessible due to server issues or faulty connections, users can only see their part of the conversation with the affected POD's user.
 
-|There are only a limited number of RDF libraries available, and they can be challenging to use, which may result in messy code. However, new libraries may emerge in the future to address this deficiency.
-
-|If a user takes down their POD, any other users who had conversations with that user would lose half the conversation as information is decentralized and stored in each POD.
-
-|If a POD becomes temporarily inaccessible due to server issues or faulty connections, users can only see their part of the conversation with the affected POD's user.
-
-|As communication is done via REST API, they could be intercepted and modified as there is no verification system in place for PODs, which is a current error with Solid.
-
-|Using the SOLID methodology can lead to technical debts and other problems associated with decentralized data management. However, implementing a thorough testing process and staying up-to-date with the latest SOLID developments may help mitigate these issues.
+| As communication is done via REST API, they could be intercepted and modified as there is no verification system in place for PODs, which is a current error with Solid.
+| Using the SOLID methodology can lead to technical debts and other problems associated with decentralized data management. However, implementing a thorough testing process and staying up-to-date with the latest SOLID developments may help mitigate these issues.
 |===

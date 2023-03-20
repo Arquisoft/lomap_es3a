@@ -4,7 +4,7 @@
 
 === Level 1: Whitebox of the Overall System 
 
-[plantuml, "level1", png] 
+[plantuml, "level1", png]
 
 ---- 
 
@@ -16,38 +16,31 @@ Component pod as "Pod's service"
 
 Israel -right-> GoMap: interacts with 
 
-GoMap <-right-> Pod: gets data 
+GoMap -right-> pod: gets data
 
----- 
+pod -right..> GoMap
 
-  
+----   
 
-Motivation:: 
+==== Motivation
 
-_ GoMap _ application is the general structure of a system in which users will have the possibility to add markers to their favorite places and share them with their friends.  All the data that belongs to the user is stored safely in their _PODs_. 
+*_GOMap!®_* application is the general structure of a system in which users will have the possibility to add markers to their favorite places and share them with their friends.  All the data that belongs to the user is stored safely in their _PODs_. 
 
-Contained Building Blocks:: 
+==== Contained Building Blocks
 
 [options="header",cols="1,3"] 
-
 |=== 
 
-|Name| Description 
+| Name | Description
 
-  
+| *_User_*
+| Client of the application which will interact with it. 
 
-|*User*  
+| *_GOMap!® application_*  
+| System developed to be used by the users. Through its information in the PODs will be taken.   
 
-|Client of the application which will interact with it. 
-
-|* GoMap application*  
-
-|System developed to be used by the users. Through its information in the PODs will be taken.   
-
-|*PODs service* 
-
-|Has the aim to access each user's personal POD. 
-
+| *_PODs service_* 
+| Has the aim to access each user's personal POD. 
 |=== 
 
 === Level 2 
@@ -70,40 +63,39 @@ Component GoMap {
 
 Component pod as "Pod's service" 
 
-  
-
 Israel-right-> ui 
 
-ui <-right-> da: data 
+ui -right-> da: data 
 
-da <--> db: data flow 
+da -left..> ui
 
-da <--> pod: get address 
+da --> db: data flow 
+
+db -left..> da
+
+da --> pod: get address 
+
+pod -left..> da
 
 ---- 
 
-Motivation:: 
+==== Motivation
 
 Shows how the application will work internally in general terms. The client, through the user interface, will get the data requested by using the _DAL_ (_Data Access Layer_). 
 
-Contained Building Blocks:: 
+==== Contained Building Blocks
 
 [options="header",cols="1,3"] 
-
 |=== 
-
-|Name| Description 
+| Name| Description 
 
 |*User Interface*  
-
 |The user will interact with this UI to request any information about the map. This means the user will be able to perform any task in our system through this. 
 
 |*Data Access* 
-
 |The layer that will provide and request information from and to the _PODs_ and the _Database_. 
 
 |*MongoDB*  
-
 |_Database_ used to store the minimum data as possible from the users. We especially use this database to store the id of the users in order to link their profile with the personal POD. 
 
 |=== 
@@ -114,9 +106,7 @@ Contained Building Blocks::
 
 ---- 
 
-Actor Israel 
-
-  
+Actor Israel   
 
 Component Interface{ 
 
@@ -140,9 +130,7 @@ Component Interface{
 
     }     
 
-} 
-
-  
+}   
 
 Component DataAccess{ 
 
@@ -152,9 +140,7 @@ Component DataAccess{
 
        Component le as "Locations Api" 
 
-} 
-
-  
+}   
 
 Component pod as "Pod's service" 
 
@@ -162,12 +148,10 @@ Database db as "MongoDB"
 
 Israel -right->Interface: interacts 
 
-  
 
 re -right-> sol 
 
 rw -down-> sol 
-
   
 
 re-right->res 
@@ -179,13 +163,9 @@ lo-right->res
 marker-right->res 
 
 my-right->res 
-
    
 
 rw -down->le 
-
-  
-
   
 
 sol <-down-> pod:acceses 
@@ -193,81 +173,46 @@ sol <-down-> pod:acceses
 res <-down-> db:data 
 
 ---- 
-
   
 
-Motivation:: 
+==== Motivation
 
 Detailed structure of the system. Focused on the components of the _User Interface_ and _Data Access_. 
 
-  
+==== Contained Building Blocks
 
-Contained Building Blocks:: 
-
-[options="header",cols="1,3"] 
-
+[options="header",cols="1,5"]
 |=== 
 
-|Name| Description 
+| Name | Description   
 
-  
+| *_Views_*  
+| Sections of the application where the user is going to interact with the system. 
 
-|*Views*  
+| *_Home_* 
+| Initial screen of the application. A welcome message is going to be displayed as well as the featured products. 
 
-|Sections of the application where the user is going to interact with the system. 
+| *_Marker_* 
+| View information about a certain location in the map. Here the user will be able to add reviews and photos about that place. 
 
-  
+| *_Markers_* 
+| The user has a markers view, where he will see the markers that the user and his friends have previously created. 
 
-|*Home* 
+| *_Sign-in_* 
+| Here the user will log-in into their personal account. In case they have created one previously. 
 
-|Initial screen of the application. A welcome message is going to be displayed as well as the featured products. 
+| *_Sign-up_* 
+| Allows the client to create a new account for the application. This process will take place only once for each user. 
 
-  
+| *_Map_* 
+| Here the user will find everything the app is designed to, from markers created by user to certain locations. 
 
-|*Marker* 
+| *_Log-out_* 
+| It logs the user out from the application. 
 
-|View information about a certain location in the map. Here the user will be able to add reviews and photos about that place. 
+| *_Review_* 
+| At this point, the user will add a review about the restaurant, bar, shop, etc associated to the marker. 
 
-  
-
-|*Markers* 
-
-|The user has a markers view, where he will see the markers that the user and his friends have previously created. 
-
-  
-
-|*Sign-in* 
-
-|Here the user will log-in into their personal account. In case they have created one previously. 
-
-  
-
-|*Sign-up* 
-
-|Allows the client to create a new account for the application. This process will take place only once for each user. 
-
-  
-
-|*Map* 
-
-|Here the user can find everything the app is designed to, from markers created by user to certain locations. 
-
-  
-
-|*Log-out* 
-
-|It logs the user out from the application. 
-
-  
-
-|*Review* 
-
-|At this point, the user will add a review about the restaurant, bar, shop, etc associated to the marker. 
-
-  
-
-|*RestAPI* 
-
-|The application resquest the _RestAPI_ for the information needed. Receiving a response from _MongoDB_. 
-
+| *_RestAPI_* 
+| The application resquest the _RestAPI_ for the information needed. Receiving a response from _MongoDB_. 
 |=== 

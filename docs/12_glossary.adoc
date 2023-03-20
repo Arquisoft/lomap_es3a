@@ -3,50 +3,56 @@
  
 [options="header", cols="1,1"] 
 |=== 
-|Term | Definition 
+| Term | Definition 
  
-|*API* 
-|Set of programming code that enables data transmission between one software product and another. 
- 
-|*Acceptance tests* 
-|A quality assurance process that determines to what degree an application meets end users' approval. 
- 
-|*Continuous Integration* 
-|Practice that consists on introducing integrations of a project automatically - very often - so bugs can be detected as fast as possible. 
- 
-|*Decentralization* 
-|Process by which activities regarding planning and decision making are distributed or delegated away from a central, authoritative location or group. 
- 
-|*MongoDB* 
-|A document database with a flexible schema. 
- 
-|*POD* 
-|Secure personal web servers for storing data. 
- 
-|*React.js* 
-|Open-source _JavaScript_ library that is used for building user interfaces. 
+| *_Arc42_*
+| Documentation template of the system's architecture.
 
-|*Ruby* 
-|Ruby is an interpreted, high-level, general-purpose programming language which supports multiple programming paradigms 
+| *_API_* 
+| Set of programming code that enables data transmission between one software product and another. 
+ 
+| *_GitHub_* 
+| Code hosting platform for version control and collaboration, the team is using this platform in the proccess of the projects development.
 
-|*Node* 
-|An asynchronous event-driven JavaScript runtime, Node.js is designed to build scalable network applications 
+| *_Acceptance Tests_* 
+| A quality assurance process that determines to what degree an application meets end users' approval. 
  
-|*RestAPI* 
-|Architectural style for an application program interface that uses _HTTP_ requests to access and use data. 
+| *_Continuous Integration_* 
+| Practice that consists on introducing integrations of a project automatically - very often - so bugs can be detected as fast as possible. 
  
-|*SOLID specification* 
+| *_Decentralization_* 
+| Process by which activities regarding planning and decision making are distributed or delegated away from a central, authoritative location or group. 
+ 
+| *_MongoDB_* 
+| A document database with a flexible schema. 
+ 
+| *_POD_* 
+| Secure personal web servers for storing data. 
+ 
+| *_ReactJS_* 
+| Open-source _JavaScript_ library that is used for building user interfaces. 
+
+| *_Ruby_* 
+| Ruby is an interpreted, high-level, general-purpose programming language which supports multiple programming paradigms 
+
+| *_Node_* 
+| An asynchronous event-driven JavaScript runtime, Node.js is designed to build scalable network applications 
+ 
+| *_RestAPI_* 
+| Architectural style for an application program interface that uses _HTTP_ requests to access and use data. 
+ 
+| *_SOLID Specification_* 
 |Proposed set of conventions and tools for building decentralized social applications. 
  
-|*TypeScript* 
-|A syntactical superset of _JavaScript_ which adds optional static typing to the language. 
+| *_TypeScript_* 
+| A syntactical superset of _JavaScript_ which adds optional static typing to the language. 
  
-|*User* 
-|Someone who operates the application. 
+| *_User_* 
+| Someone who operates the application. 
  
-|*Unit testing* 
-|A software development process in which the smallest testable parts of an application are individually checked for proper operation. 
+| *_Unit Testing_* 
+| A software development process in which the smallest testable parts of an application are individually checked for proper operation. 
  
-|*webapp* 
-|A client-side and server-side software application in which the client runs or request in a web browser. 
+| *WebApp* 
+| A client-side and server-side software application in which the client runs or request in a web browser. 
 |=== 

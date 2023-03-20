@@ -1,0 +1,11 @@
+.carousel-inner {
+    margin-top: 20px;
+}
+
+.carousel-item img {
+    width: 65vw;
+    height: 50vh;
+
+    border-radius: 20px;
+    text-align: center;
+}

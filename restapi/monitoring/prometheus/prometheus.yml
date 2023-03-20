@@ -3,4 +3,4 @@ global:
 scrape_configs:
   - job_name: "example-nodejs-app"
     static_configs:
-      - targets: ["restapi:5000"]
+      - targets: [ "restapi:5000" ]

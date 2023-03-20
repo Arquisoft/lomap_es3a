@@ -1,0 +1,80 @@
+.notification {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    padding: 1rem;
+    width: 400px;
+}
+
+.notification-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    width: 32px;
+    margin-right: 12px;
+    background-color: #f2f2f2;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.notification-icon img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.notification-icon i {
+    font-size: 18px;
+    color: #333;
+    margin-right: 8px;
+}
+.notification-icon i.fa-bell {
+    color: #f8a51f;
+}
+.notification-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.notification-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.notification-message {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #666;
+}
+
+.notification-time {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+.close-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.close-btn i {
+    font-size: 1.2rem;
+    color: #999;
+}
+
+.close-btn:hover i {
+    color: #333;
+}

@@ -2,9 +2,18 @@
 
 == Cross-cutting Concepts 
 
-[role="arc42help"] 
+=== Prototype Designs
 
-****  
+==== Home View
+:imagesdir: ./images
+image::HomeView.png[Home View]
+
+==== Map View
+===== Main
+image::MapView.png[Map View]
+
+===== Options
+image::MapViewWithOptions.png[Map View with Options]
 
 === Domain model 
 [plantuml, "DomainModel", png] 
@@ -49,7 +58,7 @@ Review *--> User
 
 === Security 
  
-_Security_ is a very important concept in the context of a system. As we are managing information from users, it is important to ensure that the information is safe and that the system is not compromised. So, we decided to store in our system the minimum information necessary and obtain the other from the _PODs_. Also we decided to encrypt the users' passwords, if any. 
+*_Security_* is a very important concept in the context of a system. As we are managing information from users, it is important to ensure that the information is safe and that the system is not compromised. So, we decided to store in our system the minimum information necessary and obtain the other from the _PODs_. Also we decided to encrypt the users' passwords, if any. 
  
 Also, we added security in the _back-end_ to prevent unauthorized requests to the RestAPI, as well as for preventing the execution of malicious code. 
 
@@ -57,4 +66,4 @@ Also, we added security in the _back-end_ to prevent unauthorized requests to th
  
 In order to ensure the correct functioning of the system, we decided to implement _unit tests_ for most of the components and will also check the functionality of the whole app itself, so the user experience is at its best.  
 
-We have decided to create a branch for it, named _testing_, so when we need to do tests, we use that branch. 
+We have decided to create a branch for it, named *_testing_*, so when we need to do tests, we use that branch.

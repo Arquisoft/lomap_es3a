@@ -8,77 +8,61 @@
  
 In order to develop the application and satisfy the constraints we decided to use the following technologies: 
  
-* *MongoDB*: we chose to use _MongoDB_ because it is open-source software, and it is a _NoSQL_ database that gives us the possibility to work with a lot of different data without spending too much time modeling these elements. Also _Mongoose_ for simplifying everything up. 
+* *_MongoDB_*: we have chosen to use _MongoDB_ because it is open-source software, and it is a _NoSQL_ database that gives us the possibility to work with a lot of different data without spending too much time modeling these elements. Also _Mongoose_ for simplifying everything up. 
  
-* *SOLID specification*: using _PODs_ the users can store information in a decentralized and private way. 
+* *_SOLID Specification_*: using _PODs_ the users can store information in a decentralized and private way. 
  
-* *React.js*: is a _JavaScript_ library for creating UIs for web applications that facilitates the creation of graphical interfaces 
+* *_ReactJS_*: is a _JavaScript_ library for creating UIs for web applications that facilitates the creation of graphical interfaces 
  
-* *TypeScript*: TypeScript is a superset of JavaScript, meaning that it contains all the functionality of JavaScript but including types. 
+* *_TypeScript_*: TypeScript is a superset of JavaScript, meaning that it contains all the functionality of JavaScript but including types. 
  
-* *GitHub*: it allows us to have a remote repository to develop the project, create and assign different tasks to team members, and perform version control.
+* *_GitHub_*: it allows us to have a remote repository to develop the project, create and assign different tasks to team members, and perform version control.
  
-* *Node.js*: Node.js makes easy the use of asynchronous events. This technology is more focused on the management and creation of scalable network applications.
+* *_NodeJS_*: Node.js makes easy the use of asynchronous events. This technology is more focused on the management and creation of scalable network applications.
  
-* *Docker*: We will use it to launch the application.
+* *_Docker_*: We will use it to launch the application.
  
 === Top-level Decomposition 
  
 ==== IDE 
  
-Our choice is _IntelliJ IDEA_ mainly because it is available for many platforms such as _Windows_, _MacOS_ or _Linux_ and via _plug-ins_ it supports many programming languages and can be easily enhanced. _Git_ is a built-in feature included for _version control_.  
- 
-  
+Our choice is *_WebStorm_* mainly because it is available for many platforms such as _Windows_, _MacOS_ or _Linux_ and via _plug-ins_ it supports many programming languages and can be easily enhanced. _Git_ is a built-in feature included for _version control_.
+Firstly, we have chosen IntelliJ, also from JetBrains, but after knowing we would be installing plugins for its use, we decided to go for WebStorm.
  
 ==== Diagramming tools 
  
-We are using _PlantUML_ for creating the diagrams of the documentation. 
+We are using _PlantUML_ and _draw.io_ for creating the diagrams of the documentation. 
  
 === Approaches to achieve top quality goals 
  
-[options="header",cols="1,3,3"] 
- 
+[options="header",cols="1,3,3"]  
 |=== 
  
-|Quality goal 
+| Quality goal | Scenario | Solution approach 
  
-|Scenario 
+| *_Privacy and Security_*  
+| The users will feel safe while using our app, knowing that their data will be treated safely and privately.  
+| We will use SOLID PODs in order to achieve this by managing the information that the user wants to share in his POD. We will aim to solve problems that may compromise the robustness and security of the application. 
  
-|Solution approach 
+| *_Usability_*  
+| The user must be able to perform any of the functions offered by the application without any trouble.  
+| The use of CSS and JS frameworks like React that are pre-configured with that in mind. Some techniques such as metaphors or conventions will be used. 
  
-|*Privacy and Security* 
+| *_Maintainability_*  
+| The architecture of the application must allow adding new functionalities or modifying the existing ones making as few changes as possible.  
+| We will implement design patterns and follow code conventions in order to achieve a clean code. More in more, we will write code with tests in mind. 
  
-|The users will feel safe while using our app, knowing that their data will be treated safely and privately. 
- 
-|We will use SOLID PODs in order to achieve this by managing the information that the user wants to share in his POD. We will aim to solve problems that may compromise the robustness and security of the application. 
- 
-|*Usability* 
- 
-|The user must be able to perform any of the functions offered by the application without any trouble. 
- 
-|The use of CSS and JS frameworks like React that are pre-configured with that in mind. Some techniques such as metaphors or conventions will be used. 
- 
-|*Maintainability* 
- 
-|The architecture of the application must allow adding new functionalities or modifying the existing ones making as few changes as possible. 
- 
-|We will implement design patterns and follow code conventions in order to achieve a clean code. More in more, we will write code with tests in mind. 
- 
-|*Performance* 
- 
-|The application must assure maximum speed responding to user interactions, minimizing loading times.
- 
-|We will improve performance by using design patterns, applying design principles and using up-to-date technologies that offer good performance 
- 
+| *_Performance_*  
+| The application must assure maximum speed responding to user interactions, minimizing loading times. 
+| We will improve performance by using design patterns, applying design principles and using up-to-date technologies that offer good performance  
 |=== 
  
 === Organizational decisions 
  
 We have taken the following organizational decisions:app-name: 
  
-* *Language*: we will develop the whole project, including the code and documentation using English as main language. 
+* *_Language_*: we will develop the whole project, including the code and documentation using English as main language. 
  
-* *Issues*: even if private chats are a good tool for solving quick doubts, anything apart from that will represent an issue in _Github_. This way, anyone can see what we discuss about. 
+* *_Issues_*: even if private chats are a good tool for solving quick doubts, anything apart from that will represent an issue in _Github_. This way, anyone can see what we discuss about. 
  
-* *GitHub Projects*: by means of this tool we will be able to plan the development process of the application. More in more, _Github_ has a built-in option for that purpose.
-
+* *_GitHub Projects_*: by means of this tool we will be able to plan the development process of the application. More in more, _Github_ has a built-in option for that purpose.

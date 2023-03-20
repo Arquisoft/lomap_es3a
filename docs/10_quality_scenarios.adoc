@@ -1,33 +1,82 @@
-= Quality Tree
+[[section-quality-scenarios]]
+== Quality Requirement
 
-image::QUALITY.png
+=== Quality Tree
 
-= Quality Scenarios
+[plantuml, "Quality tree", png]
+----
+left to right direction
+(Software Product Quality) as (SPQ)
+(Functional Suitability) as (FS)
+(Reliability) as (R)
+(Performance Efficiency) as (PE)
+(Operability / Usability) as (OU)
+(Security) as (S)
+(Compatibility) as (C)
+(Maintainability) as (M)
+(Transferability) as (T)
+(Appropiateness\nAccuraty\nCompliance) as (AAC)
+(Availability\nFault Tolerance\nRecoverability\nCompliance) as (AFRC)
+(Time-behaviour\nResource-utilisation\nCompliance) as (TRC)
+(Appropiateness-recogniseability\nLearnability\nEase-of-use\nHelpfulness\nAttractiveness\nTechnical-accesibility\nCompliace) as (ALEHATC)
+(Confidentiality\nIntegrity\nNon-repudiation\nAccountability\nAuthencity\nCompliance) as (CINAAC)
+(Replaceability\nCoexistence\nInteroperability\nCompilance) as (RCIC)
+(Modularity\nReusability\nAnalyzability\nChangeability\nModification stability\nTestability\nCompilance) as (MRACMTC)
+(Portability\nAdaptability\nInstallabillity\nCompilance) as (PAIC)
+SPQ --> FS
+FS --> AAC
+SPQ --> R
+R --> AFRC
+SPQ --> PE
+PE --> TRC
+SPQ --> OU
+OU --> ALEHATC
+SPQ --> S
+S --> CINAAC
+SPQ --> C
+C --> RCIC
+SPQ --> M
+M --> MRACMTC
+SPQ --> T
+T --> PAIC
+----
 
-== Introduction
+=== Quality Scenarios
+
+==== Introduction
 
 In order to make quality requirements more concrete and measurable, it is important to describe them using quality scenarios. Quality scenarios describe the expected behavior of the system when a specific stimulus is received. In the case of a service which is a map where users can mark locations and share information with friends, there are two important types of scenarios for architects to consider.
 
-== Usage Scenarios
+==== Usage Scenarios
 
 Usage scenarios, also known as application or use case scenarios, describe how the system should react at runtime in response to a particular stimulus. These scenarios can also include descriptions of the system's efficiency or performance. An example of a usage scenario for the map service is:
 
 |===
-|Scenario | User Request for Location Information
-|Stimulus | A user requests location information for a specific place on the map
-|Response | The system displays the requested location information within one second of the user's request.
+| *_Scenario_* 
+| User Request for Location Information
+
+| *_Stimulus_*
+| A user requests location information for a specific place on the map
+
+| *_Response_*
+| The system displays the requested location information within one second of the user's request.
 |===
 
 Other examples of usage scenarios for the map service could include a user adding a marker to the map or a user searching for a specific location.
 
-== Change Scenarios
+==== Change Scenarios
 
 Change scenarios describe modifications to the system or its environment that could impact its quality attributes. For example, if additional functionality is implemented or there is a change in quality requirements, the system may need to be modified. An example of a change scenario for the map service is:
 
 |===
-|Scenario | Additional Functionality is Implemented
-|Stimulus | The system is updated to include additional functionality, such as the ability to filter markers by category
-|Response | The system adds the new functionality and displays the filtered results within five seconds of the user's request.
+| *_Scenario_* 
+| Additional Functionality is Implemented
+
+| *_Stimulus_* 
+| The system is updated to include additional functionality, such as the ability to filter markers by category
+
+| *_Response_* 
+| The system adds the new functionality and displays the filtered results within five seconds of the user's request.
 |===
 
 Other examples of change scenarios for the map service could include a requirement for improved performance due to increased traffic or changes to the user interface.

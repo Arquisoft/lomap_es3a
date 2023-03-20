@@ -4,20 +4,28 @@
 
 .Architectural Decisions 
 
-[width="100%",cols="^1e,3,1,3",frame="topbot",options="header"] 
+[options="header", cols="1,3,1,3"] 
 
-|====================== 
-
+|===
 | Aspect | Description | Choice | Explanation 
 
-| Programming language | The choice of programming language is crucial as it cannot be changed in the future without causing significant problems. Changing programming language once the project has started can be expensive and can result in project failure. | TypeScript | We chose TypeScript due to its abundance of documentation and libraries available. After researching SOLID, we found that the majority of information available was related to TypeScript and JavaScript, and TypeScript compiles to JavaScript, allowing us to utilize JavaScript libraries as well. 
+| *_Programming language_* 
+| The choice of programming language is crucial as it cannot be changed in the future without causing significant problems. Changing programming language once the project has started can be expensive and can result in project failure. 
+| *_TypeScript_* 
+| We chose TypeScript due to its abundance of documentation and libraries available. After researching SOLID, we found that the majority of information available was related to TypeScript and JavaScript, and TypeScript compiles to JavaScript, allowing us to utilize JavaScript libraries as well. 
 
-| Framework | Utilizing a framework can greatly reduce the time and effort dedicated to coding and design. The challenge lies in learning how to use the framework and understanding its capabilities. | Angular | We chose Angular due to its high compatibility with the SOLID project, its alignment with agile methodologies, and its ease of developing graphical interfaces using a single window with dynamic fragments. 
+| *_Framework_* 
+| Utilizing a framework can greatly reduce the time and effort dedicated to coding and design. The challenge lies in learning how to use the framework and understanding its capabilities. 
+| *_React_*
+| We chose React due to its high compatibility with the SOLID project, its alignment with agile methodologies, and its ease of developing graphical interfaces using a single window with dynamic fragments. 
 
-| Database | The choice of database is important for storing data, and the decision must be made at the start of development to determine whether to use a database to store messages or to use the POD directly. | Use POD Directly | Storing messages in a database and then in the SOLID POD would result in unnecessary overhead as it performs the same operation twice, so we decided to write messages directly into the POD. 
+| *_Database_*
+| The choice of database is important for storing data, and the decision must be made at the start of development to determine whether to use a database to store messages or to use the POD directly. 
+| *_MongoDB_*
+| We'll be using due to the fact of it being a NoSQL language, so we have recently learnt it from other subjects, another reason is that after investigating the projects of other years and talking to several of its developers, we came to the conclusion that it can be a great option to consider, which we took advantage of.
 
-  
-
-| Architectural model | Several architectural models were considered to achieve principles such as single responsibility, open-closed principle, and dependency inversion principle. | MVC | We decided to use MVC as we are familiar with them and they meet our needs. 
-
-|====================== 
+| *_Architectural Model_* 
+| Several architectural models were considered to achieve principles such as single responsibility, open-closed principle, and dependency inversion principle. 
+| *_MVC_*
+| We decided to use MVC as we are familiar with them and they meet our needs.
+|===

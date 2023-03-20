@@ -2,8 +2,6 @@
 
 == Runtime View 
 
-  
-
 === Login 
 
 For the login, the app shows the login view which asks the user for their Solid Identity Provider of choice. 
@@ -23,7 +21,6 @@ participant "Web App" as W
 participant "REST API Server" as R 
 
 participant "Solid Identity Provider" as P 
-
   
 
 activate W 
@@ -81,7 +78,6 @@ The POD return the list to the client
 The client receives the list and shows it to the user. 
 
  
-
 [plantuml,"Sequence diagram - Nearby friends",png] 
 
 ---- 
@@ -97,19 +93,13 @@ Server <-- Pod: Return the list
 Client <-- Server: Return the list of friends 
 User <- Client: Return the list view 
 
----- 
+----   
 
-  
-
-=== Add Location 
-
-  
+=== Add Location   
 
 Saved locations can later be viewed by the user and his friends through the web application. 
 
-The user can add a location to their map. 
-
-  
+The user can add a location to their map.   
 
 [plantuml,"Sequence diagram - Saving Locations - mobileapp",png] 
 
@@ -148,7 +138,5 @@ Pod-> Server: Return locations JSON
 Server -> Server: Remove certain location 
 Server ->Pod: Sends the new JSON 
 Server ->User: Show the map with the new location. 
-
- 
 
 ---- 
