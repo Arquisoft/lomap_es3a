@@ -16,7 +16,7 @@ function MarkerPanel() {
                     options={["Bar", "Shop", "Restaurant", "Cinema", "Landscape", "Monument"]}/>
             <Comments title={"Put a comment about this place"}/>
             <Score title={"Select the score you would give this place"}/>
-            <ButtonAddPod idName={"namePlace"} idCategory={"category"} idComment={"comment"} idScore={"score"}/>
+            <ButtonAddPod idName={"namePlace"} idCategory={"category"} idComment={"comment"} idScore={"score"} idLatitude={"latitude"} idLongitude={"longitude"}/>
         </div>
     )
 
