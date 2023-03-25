@@ -48,7 +48,7 @@ select, option {
     justify-content: center;
 }
 
-#searchText, #namePlace, #comment {
+#searchText, #namePlace, #comment,#latitude,#longitude {
     font-size: 20px;
     font-weight: lighter;
     color: white;
@@ -161,13 +161,13 @@ select, option {
     border-color: black;
     right: 0;
 
-    height: 50%;
+    height: auto;
     width: 0;
     overflow-x: hidden;
     transition: 0.5s;
 }
 
-#namePlace, #comment {
+#namePlace, #comment ,#longitude,#latitude{
     border-radius: 10px;
     width: 80%;
 }

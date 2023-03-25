@@ -10,6 +10,8 @@ function LocationMarker() {
     const map = useMapEvents({
         click(e) {
             setPosition(e.latlng);
+            (document.getElementById("latitude") as HTMLInputElement).value = position.lat.toString();
+            (document.getElementById("longitude") as HTMLInputElement).value = position.lng.toString();
             const optionsMenu = document.getElementById("markersMenu");
             if (optionsMenu !== null) {
                 const width = optionsMenu.style.width;
