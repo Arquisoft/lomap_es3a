@@ -56,7 +56,15 @@ function ButtonAddPod({idName, idCategory, idComment, idScore,idLatitude,idLongi
             <Button variant="contained" color="primary"
                     onClick={() => {
                         createMarker("marker.json", idName, idCategory, idComment, idScore,idLatitude,idLongitude).then(file => createData(webIdStore, file, session));
-                        (document.getElementById("markersMenu") as HTMLDivElement).style.visibility = "hidden";
+                        let optionsMenu = document.getElementById("markersMenu");
+                        if (optionsMenu !== null) {
+                            const width = optionsMenu.style.width;
+                            if (width.toString().length !== 0) {
+                                optionsMenu.style.borderStyle = ""
+                                optionsMenu.style.width = ""
+                                optionsMenu.style.minWidth = "0px"
+                            }
+                        }
                     }}>
                 Add Marker
             </Button>
