@@ -10,6 +10,7 @@ function LocationMarker() {
     const map = useMapEvents({
         click(e) {
             setPosition(e.latlng);
+
             const optionsMenu = document.getElementById("markersMenu");
             if (optionsMenu !== null) {
                 const width = optionsMenu.style.width;
@@ -32,8 +33,9 @@ function LocationMarker() {
                 }
             }
         }
-    })
-
+    });
+    (document.getElementById("latitude") as HTMLInputElement).value = position.lat.toString();
+    (document.getElementById("longitude") as HTMLInputElement).value = position.lng.toString();
     return (
         <Marker position={position} icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})}>
             <Popup>

@@ -41,6 +41,8 @@ export type ButtonAddPodType = {
     idCategory: string;
     idComment: string;
     idScore: string;
+    idLatitude: string;
+    idLongitude: string;
 }
 
 export type SliderType = {
