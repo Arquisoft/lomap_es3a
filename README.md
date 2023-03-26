@@ -47,6 +47,11 @@
             </a>
       </ol>
     </li>
+    <li>
+      <a href="#📑-instrucciones-de-despliegue">
+         Instrucciones de despliegue.
+      </a>
+    </li>
   </ol>
 </details>
 
@@ -83,6 +88,55 @@ La lista completa de las tecnologías empleadas, junto con sus decisiones arquit
    <li><a href="https://www.mongodb.com/">MongoDB</a>.</li>
    <li><a href="https://www.openstreetmap.org/">OpenStreetMap</a>.</li>
 </ul>
+
+## 📑 Instrucciones de despliegue:
+<p align="justify">
+   En primer lugar, se debe instalar Node (puede hacerse a través del enlace en la <a href="🛠-pila-de-tecnologías">pila de tecnologías</a>). En caso de que ya esté instalado, debe asegurarse que se tiene la última versión del mismo.
+</p>
+<p align="justify">
+   Para ejecutar el proyecto, será necesario clonarlo primero, por lo que es necesario tener git (accede a través del siguiente <a href="https://git-scm.com/downloads">enlace</a>), y posteriormente, clonar este respositorio en un directorio local, ya sea descargándo el repositoio en formato <em>.zip</em> o de la siguiente manera:
+</p>
+<ol>
+   <li>Dirigirse al directorio local donde clonar el repositorio.</li>
+   <li>Abrir la consola o símbolo del sistema.</li>
+   <li>Escribir el siguiente código:</li>
+</ol>
+
+```shell
+   git clone https://github.com/Arquisoft/lomap_es3a.git
+```
+<p align="justify">
+   Una vez hecho esto, puede lanzarse de dos maneras, usando docker, o lanzando la aplicación en 2 partes.
+</p>
+<p align="justify">
+   En caso de que se decida emplear docker, se debe situar en la raiz del directorio del proyecto y ejecutar la siguiente orden mediante consola:
+</p>
+
+```shell
+docker-compose up --build
+```
+
+<p align="justify">
+   Esto creará dos imágenes docker en tu sistema y lanzará la base de datos de MongoDB, también se lanzarán varias métricas donde se registrará el uso de la aplicación, sin embargo, para acceder a la aplicación, basta con ir al siguiente <a href="http://localhost:3000">enlace</a>.
+</p>
+
+<p align="justify">
+   En caso de que se quiera lanzar sin emplear docker, se debe compilar el proyecto y posteriormente, a través de la raíz del directorio, ejecutar las siguientes órdenes en consola:
+</p>
+
+```shell
+# Lanzar la restapi
+cd restapi
+npm install
+npm start
+
+cd ..
+
+# Lanzar la webapp
+cd webapp
+npm install
+npm start
+```
 
 <footer align="left">
    <a href="https://arquisoft.github.io/">
