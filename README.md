@@ -142,4 +142,5 @@ npm start
    <a href="https://arquisoft.github.io/">
       ©Arquisoft - UNIOVI
    </a>
+   <img src="designs/footer.svg">
 </footer>
