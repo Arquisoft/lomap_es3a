@@ -5,17 +5,21 @@ import {Session} from "@inrupt/solid-client-authn-browser";
 import {Button} from "@mui/material";
 
 
-async function createMarker(nameFile: string, idName: string, idCategory: string, idComment: string, idScore: string) {
+async function createMarker(nameFile: string, idName: string, idCategory: string, idComment: string, idScore: string,idLatitude:string,idLongitude:string) {
     let name = (document.getElementById(idName) as HTMLInputElement).value
     let category = (document.getElementById(idCategory) as HTMLInputElement).value
     let comment = (document.getElementById(idComment) as HTMLInputElement).value
     let score = (document.getElementById(idScore) as HTMLInputElement).value
+    let latitude = (document.getElementById(idLatitude) as HTMLInputElement).value
+    let longitude = (document.getElementById(idLongitude) as HTMLInputElement).value
 
     let json = {
         "name": name,
         "category": category,
         "comment": comment,
-        "score": score
+        "score": score,
+        "latitude": latitude,
+        "longitude": longitude
     }
 
 
@@ -41,18 +45,26 @@ async function createData(url: string, file: File, session: Session) {
 }
 
 
-function ButtonAddPod({idName, idCategory, idComment, idScore}: ButtonAddPodType) {
+function ButtonAddPod({idName, idCategory, idComment, idScore,idLatitude,idLongitude}: ButtonAddPodType) {
     const {session} = useSession();
     const {webId} = session.info;
-    let webIdStore = webId?.slice(0, -15) + "public/"
+    let webIdStore = webId?.slice(0, -15) + "private/"
 
 
     return (
         <div id="addPanel">
             <Button variant="contained" color="primary"
                     onClick={() => {
-                        createMarker("marker.json", idName, idCategory, idComment, idScore).then(file => createData(webIdStore, file, session));
-                        (document.getElementById("markersMenu") as HTMLDivElement).style.visibility = "hidden";
+                        createMarker("marker.json", idName, idCategory, idComment, idScore,idLatitude,idLongitude).then(file => createData(webIdStore, file, session));
+                        let optionsMenu = document.getElementById("markersMenu");
+                        if (optionsMenu !== null) {
+                            const width = optionsMenu.style.width;
+                            if (width.toString().length !== 0) {
+                                optionsMenu.style.borderStyle = ""
+                                optionsMenu.style.width = ""
+                                optionsMenu.style.minWidth = "0px"
+                            }
+                        }
                     }}>
                 Add Marker
             </Button>
