@@ -40,6 +40,7 @@ function MarkersPOD() {
     let webIdStore = webId?.slice(0, -15) + 'private/marker.json';
     const [points, setPoints] = useState<Point[]>([]);
 
+
     readFileFromPod(webIdStore,session).then(points => {
         if(points !== undefined){
             setPoints(points)
