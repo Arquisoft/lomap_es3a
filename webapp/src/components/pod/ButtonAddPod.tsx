@@ -115,10 +115,10 @@ function ButtonAddPod({
             </Button>
             {showNotification && (
                 <Notification
-                    title="Welcome to GOMap!"
-                    message="Thanks for using our website!"
+                    title="Marker"
+                    message="You added you marker correctly!"
                     time="Just Now"
-                    icon="https://ejemplo.com/imagen.png"
+                    icon="https://www.lineex.es/wp-content/uploads/2016/06/map-map-marker-icon.png"
                 />
             )}
         </div>

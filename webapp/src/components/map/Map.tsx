@@ -3,6 +3,8 @@ import "../../css/react-leaflet.css";
 import 'leaflet/dist/leaflet.css';
 import LocationMarker from "./LocationMarker";
 import MarkersPOD from "../pod/MarkersPOD";
+import Notification from "./Notification";
+import React from "react";
 
 function Map() {
     const position = {lat: 43.3548057, lng: -5.8534646}
@@ -14,6 +16,7 @@ function Map() {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             <LocationMarker/>
+
             <MarkersPOD/>
         </MapContainer>
     );
