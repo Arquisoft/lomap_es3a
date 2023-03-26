@@ -44,8 +44,6 @@
   </ol>
 </details>
 
-<br>
-
 ## 🖥️ Desarrolladores del proyecto:
 
 |       Desarrolladores        |        UOs         |                                                       Perfiles de GitHub                                                       |
