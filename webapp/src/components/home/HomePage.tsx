@@ -11,7 +11,6 @@ function HomePage() {
                 time="Just Now"
                 icon="https://ejemplo.com/imagen.png"
             />
-
         </div>
     )
 }
