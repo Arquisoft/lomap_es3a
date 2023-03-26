@@ -14,6 +14,20 @@
 
 <img src="https://user-images.githubusercontent.com/91057639/218590043-d4243147-e5c0-4f7b-8fed-12ed8d290490.png" width="1024" height="512">
 
+<nav align="center">
+   <a href="https://arquisoft.github.io/lomap_es3a/">
+      Documentación
+   </a>
+   ·
+   <a href="https://github.com/Arquisoft/lomap_es3a/discussions">
+      Discusiones
+   </a>
+   ·
+   <a href="https://github.com/Arquisoft/lomap_es3a/wiki">
+      Wiki
+   </a>
+</nav>
+
 <details>
   <summary>Tabla de contenidos</summary>
   <ol>
@@ -27,10 +41,6 @@
          Descripción del proyecto.
       </a>
     </li>
-    <li>
-      <a href="#🔗-enlaces-importantes">
-         Enlaces importantes.
-      </a>
   </ol>
 </details>
 
@@ -55,12 +65,7 @@ En GOMap!® los usuarios podrán iniciar sesión y desde ahí interactuar con el
 A estos marcadores se les podrá añadir diferentes características, como imágenes o descripción sobre el mismo, pero no acaba ahí, ya que la verdadera interacción se produce en el momento en el que se pueden añadir reviews/opiniones sobre un marcador creado por otro usuario.
 </p>
 
-## 🔗 Enlaces importantes:
 
-<ol>
-   <li>Presione <a href="https://arquisoft.github.io/lomap_es3a/">aquí</a> para acceder a la <strong><em>documentación del proyecto</em></strong>.</li>   
-   <li>Presione <a href="https://github.com/Arquisoft/lomap_es3a/discussions">aquí</a> para acceder a las <strong><em>discusiones del proyecto</em></strong>.</li>
-</ol>
 
 <footer align="left">
    <a href="https://arquisoft.github.io/">
