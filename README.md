@@ -40,6 +40,12 @@
       <a href="#🗺️-descripción-del-proyecto">
          Descripción del proyecto.
       </a>
+      <ol>
+         <li>
+            <a href="#🛠-pila-de-tecnologías">
+               Pila de tecnologías.
+            </a>
+      </ol>
     </li>
   </ol>
 </details>
@@ -65,7 +71,18 @@ En GOMap!® los usuarios podrán iniciar sesión y desde ahí interactuar con el
 A estos marcadores se les podrá añadir diferentes características, como imágenes o descripción sobre el mismo, pero no acaba ahí, ya que la verdadera interacción se produce en el momento en el que se pueden añadir reviews/opiniones sobre un marcador creado por otro usuario.
 </p>
 
-
+### 🛠 Pila de tecnologías:
+<p align="justify">
+La lista completa de las tecnologías empleadas, junto con sus decisiones arquitectónicas (ADR), se encuentra en el siguiente <a href="https://github.com/Arquisoft/lomap_es3a/wiki/Decisiones-Arquitectonicas">enlace</a>.
+</p>
+<ul>
+   <li><a href="https://legacy.reactjs.org/">React</a>.</li>
+   <li><a href="https://nodejs.org/en">NodeJS</a>.</li>
+   <li><a href="https://www.typescriptlang.org/">TypeScript</a>.</li>
+   <li><a href="https://solidproject.org/">SOLID</a>.</li>
+   <li><a href="https://www.mongodb.com/">MongoDB</a>.</li>
+   <li><a href="https://www.openstreetmap.org/">OpenStreetMap</a>.</li>
+</ul>
 
 <footer align="left">
    <a href="https://arquisoft.github.io/">
