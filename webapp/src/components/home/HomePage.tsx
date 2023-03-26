@@ -6,9 +6,9 @@ function HomePage() {
         <div>
             <MainScreen/>
             <Notification
-                title="¡Bienvenido a mi sitio web!"
-                message="Gracias por visitar mi sitio web. ¡Espero que encuentre lo que busca!"
-                time="hace unos momentos"
+                title="Welcome to GOMap!"
+                message="Thanks for using our website!"
+                time="Just Now"
                 icon="https://ejemplo.com/imagen.png"
             />
 
