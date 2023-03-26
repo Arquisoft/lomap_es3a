@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fffab244-483c-4868-ab28-0ebb24c4f06b" name="Changes" comment="20/03/2023 - David - Creado test para DeveloperTeam.">
+      <change beforePath="$PROJECT_DIR$/.idea/lomap_es3a.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/lomap_es3a.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/App.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/App.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/components/EmailForm.test.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/components/map/options/OptionsPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/map/options/OptionsPanel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/components/navigation/NavBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/navigation/NavBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/components/navigation/NavItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/navigation/NavItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/css/map.css" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/css/map.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/css/navigation.css" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/css/navigation.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +37,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2MQAGA23vpC2iBE1EprumW9RpSn" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -52,7 +58,7 @@
     "nodejs.jest.jest_package": "C:/Users/David Warzynski/WebstormProjects/lomap_es3a/webapp/node_modules/react-scripts",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2022.3.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "ts.external.directory.path": "F:\\Ingenieria Informatica\\Tercero\\Segundo_Semestre\\Arquitectura del Software\\Practicas\\Proyecto\\lomap_es3a\\webapp\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>

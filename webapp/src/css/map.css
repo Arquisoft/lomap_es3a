@@ -88,7 +88,6 @@ select, option {
     border-color: black;
     border-style: solid;
 
-    top: 170px;
     left: 20px;
     cursor: pointer;
     transition: background 250ms ease-in-out,
