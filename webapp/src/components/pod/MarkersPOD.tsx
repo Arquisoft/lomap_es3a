@@ -18,15 +18,15 @@ async function readFileFromPod(fileURL: string, session: Session) {
         let fileContent = await file.text()
         let fileJSON = JSON.parse(fileContent)
         let markers = []
-
-        let latitude = Number(fileJSON.latitude);
-        let longitude = Number(fileJSON.longitude);
-        let name = fileJSON.name;
-        let category = fileJSON.category;
-        let score = fileJSON.score;
-        let comment = fileJSON.comment;
-        markers.push(new Point(Date.now(),latitude,longitude,name,category,comment,score))
-
+        for (let i = 0; i < fileJSON.length; i++) {
+            let latitude = Number(fileJSON[i].latitude);
+            let longitude = Number(fileJSON[i].longitude);
+            let name = fileJSON[i].name;
+            let category = fileJSON[i].category;
+            let score = fileJSON[i].score;
+            let comment = fileJSON[i].comment;
+            markers.push(new Point(Date.now(), latitude, longitude, name, category, comment, score))
+        }
         return markers
     } catch (err) {
         console.log(err);
@@ -35,22 +35,24 @@ async function readFileFromPod(fileURL: string, session: Session) {
 
 
 function MarkersPOD() {
-    const { session } = useSession();
-    const { webId } = session.info;
-    let webIdStore = webId?.slice(0, -15) + 'private/marker.json';
+    const {session} = useSession();
+    const {webId} = session.info;
+    let webIdStore = webId?.slice(0, -15) + 'private/locations.json';
     const [points, setPoints] = useState<Point[]>([]);
+    if (webId !== undefined)
+        readFileFromPod(webIdStore, session).then(points => {
+                if (points !== undefined) {
+                    setPoints(points)
+                }
+            }
+        )
 
-    readFileFromPod(webIdStore,session).then(points => {
-        if(points !== undefined){
-            setPoints(points)
-        }}
-    )
-
-    return(
+    return (
         <div>
             {
                 points.map((item) => (
-                    <Marker key={item.id} position={{lat:item.latitude,lng:item.longitude}} icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})}>
+                    <Marker key={item.id} position={{lat: item.latitude, lng: item.longitude}}
+                            icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})}>
                         <Popup>
                             Name: {item.name}
                             Latitude: {item.latitude}
@@ -65,8 +67,6 @@ function MarkersPOD() {
             }
         </div>
     )
-
-
 
 
 }
