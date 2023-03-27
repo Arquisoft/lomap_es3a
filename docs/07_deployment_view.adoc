@@ -24,7 +24,7 @@ database MongoDBAtlas{
     component MongoDB
 }
  
-Actor Israel
+Actor User
  
 node SOLID_POD
 node OpenStreetMap
@@ -34,7 +34,7 @@ WebAppImage -d-> SOLID_POD : "access user data"
 WebAppImage -d-> OpenStreetMap : "provides maps and route image"
 RestAPI -l-> WebApp : "supply data"
 WebApp -d-> WebAppImage : 'shows on user device'
-WebAppImage <-l- Israel
+WebAppImage <-l- User
 ----
  
 ==== Motivation
