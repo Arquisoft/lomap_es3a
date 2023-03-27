@@ -4,6 +4,6 @@ import App from './App';
 
 test('renders learn react link', () => {
     render(<App/>);
-    const linkElement = screen.getByText(/Source code/i);
+    const linkElement = screen.getByText("GOMap!");
     expect(linkElement).toBeInTheDocument();
 });
