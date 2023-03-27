@@ -32,7 +32,7 @@ function OptionsPanel() {
     return (
         <div id="optionsMenu">
             <h1>Options Menu</h1>
-            <input type="button" id="optionsButton" value="☰" onClick={displayMenu}/>
+            <input type="button" id="optionsButton" value="⚙️" onClick={displayMenu}/>
             <Search/>
             <Filter title={"Category"} options={["Bars", "Restaurants", "Shops", "Supermarkets", "Cinemas"]}/>
             <Slider title={"Marks"} min={0} max={5}/>

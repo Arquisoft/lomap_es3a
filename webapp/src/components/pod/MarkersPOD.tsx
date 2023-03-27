@@ -41,11 +41,21 @@ function MarkersPOD() {
     const [points, setPoints] = useState<Point[]>([]);
 
 
-    readFileFromPod(webIdStore,session).then(points => {
-        if(points !== undefined){
-            setPoints(points)
-        }}
-    )
+    // readFileFromPod(webIdStore,session).then(points => {
+    //     if(points !== undefined){
+    //         setPoints(points)
+    //     }}
+    // )
+
+    useEffect(() => {
+        async function fetchPoints() {
+            const newPoints = await readFileFromPod(webIdStore, session);
+            if (newPoints) {
+                setPoints(newPoints);
+            }
+        }
+        fetchPoints();
+    }, [webIdStore, session]);
 
     return(
         <div>

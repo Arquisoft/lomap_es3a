@@ -88,7 +88,6 @@ select, option {
     border-color: black;
     border-style: solid;
 
-    top: 170px;
     left: 20px;
     cursor: pointer;
     transition: background 250ms ease-in-out,
@@ -165,6 +164,13 @@ select, option {
     width: 0;
     overflow-x: hidden;
     transition: 0.5s;
+}
+
+#rating{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #namePlace, #comment ,#longitude,#latitude{
