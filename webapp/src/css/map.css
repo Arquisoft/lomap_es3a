@@ -166,6 +166,13 @@ select, option {
     transition: 0.5s;
 }
 
+#rating{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 #namePlace, #comment ,#longitude,#latitude{
     border-radius: 10px;
     width: 80%;

@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fffab244-483c-4868-ab28-0ebb24c4f06b" name="Changes" comment="20/03/2023 - David - Creado test para DeveloperTeam.">
-      <change beforePath="$PROJECT_DIR$/.idea/lomap_es3a.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/lomap_es3a.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/components/map/options/OptionsPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/map/options/OptionsPanel.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/components/navigation/NavBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/navigation/NavBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/components/navigation/NavItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/navigation/NavItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/components/map/MarkerPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/map/MarkerPanel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/components/map/options/Score.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/map/options/Score.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webapp/src/css/map.css" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/css/map.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/css/navigation.css" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/css/navigation.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +19,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -44,24 +42,10 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Git.Branch.Popup.ShowAllRemotes": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/David Warzynski/WebstormProjects/lomap_es3a/webapp/src/components/login",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs.jest.jest_package": "C:/Users/David Warzynski/WebstormProjects/lomap_es3a/webapp/node_modules/react-scripts",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "F:\\Ingenieria Informatica\\Tercero\\Segundo_Semestre\\Arquitectura del Software\\Practicas\\Proyecto\\lomap_es3a\\webapp\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="ts.external.directory.path" value="C:\Users\uo278036\WebstormProjects\lomap_es3a\webapp\node_modules\typescript\lib" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\David Warzynski\WebstormProjects\lomap_es3a\webapp\src\components\login" />
@@ -149,6 +133,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="12/03/2023 - David - Añadido LogIn y visualización del usuario." />
