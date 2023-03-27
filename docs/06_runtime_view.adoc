@@ -84,13 +84,13 @@ The client receives the list and shows it to the user.
 
 actor User 
 participant Client 
-participant Server 
+participant "Web App" as W  
 database Pod as "Pod" 
 User -> Client: Request friend’s view 
-Client --> Server: Request friend’s list 
-Server --> Pod: Search for the list 
-Server <-- Pod: Return the list 
-Client <-- Server: Return the list of friends 
+Client --> W: Request friend’s list 
+W --> Pod: Search for the list 
+W <-- Pod: Return the list 
+Client <-- W: Return the list of friends 
 User <- Client: Return the list view 
 
 ----   
@@ -106,15 +106,15 @@ The user can add a location to their map.
 ---- 
 
 actor User 
-participant Server 
+participant "Web App" as W  
 database Pod as "Pod" 
  
-User-> Server: User click the map to add a new marker 
-Server ->Pod: Ask locations JSON 
-Pod-> Server: Return locations JSON 
-Server -> Server: Add the new location 
-Server ->Pod: Sends the new JSON 
-Server ->User: Show the map with the new location. 
+User-> W: User click the map to add a new marker 
+W ->Pod: Ask locations JSON 
+Pod-> W: Return locations JSON 
+W -> W: Add the new location 
+W ->Pod: Sends the new JSON 
+W ->User: Show the map with the new location. 
 
 ----  
 
@@ -127,16 +127,16 @@ Locations added to the map later be removed by the user through the application.
 ---- 
 
 actor User 
-participant Server 
+participant "Web App" as W   
 database Pod as "Pod" 
  
-User-> Server: User click the map in one mark location 
+User-> W: User click the map in one mark location 
 
-Server -> Server: Using the location ID the app knows the JSON file 
-Server ->Pod: Ask locations JSON 
-Pod-> Server: Return locations JSON 
-Server -> Server: Remove certain location 
-Server ->Pod: Sends the new JSON 
-Server ->User: Show the map with the new location. 
+W -> W: Using the location ID the app knows the JSON file 
+W ->Pod: Ask locations JSON 
+Pod-> W: Return locations JSON 
+W -> W: Remove certain location 
+W ->Pod: Sends the new JSON 
+W ->User: Show the map with the new location. 
 
 ---- 

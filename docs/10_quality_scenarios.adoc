@@ -5,40 +5,17 @@
 
 [plantuml, "Quality tree", png]
 ----
-left to right direction
 (Software Product Quality) as (SPQ)
-(Functional Suitability) as (FS)
-(Reliability) as (R)
-(Performance Efficiency) as (PE)
-(Operability / Usability) as (OU)
-(Security) as (S)
-(Compatibility) as (C)
+(Privacy) as (PR)
+(Usability) as (U)
 (Maintainability) as (M)
-(Transferability) as (T)
-(Appropiateness\nAccuraty\nCompliance) as (AAC)
-(Availability\nFault Tolerance\nRecoverability\nCompliance) as (AFRC)
-(Time-behaviour\nResource-utilisation\nCompliance) as (TRC)
-(Appropiateness-recogniseability\nLearnability\nEase-of-use\nHelpfulness\nAttractiveness\nTechnical-accesibility\nCompliace) as (ALEHATC)
-(Confidentiality\nIntegrity\nNon-repudiation\nAccountability\nAuthencity\nCompliance) as (CINAAC)
-(Replaceability\nCoexistence\nInteroperability\nCompilance) as (RCIC)
-(Modularity\nReusability\nAnalyzability\nChangeability\nModification stability\nTestability\nCompilance) as (MRACMTC)
-(Portability\nAdaptability\nInstallabillity\nCompilance) as (PAIC)
-SPQ --> FS
-FS --> AAC
-SPQ --> R
-R --> AFRC
-SPQ --> PE
-PE --> TRC
-SPQ --> OU
-OU --> ALEHATC
-SPQ --> S
-S --> CINAAC
-SPQ --> C
-C --> RCIC
+(Performance) as (PE)
+(Testability) as (T)
+SPQ --> PR
+SPQ --> U
 SPQ --> M
-M --> MRACMTC
+SPQ --> PE
 SPQ --> T
-T --> PAIC
 ----
 
 === Quality Scenarios
