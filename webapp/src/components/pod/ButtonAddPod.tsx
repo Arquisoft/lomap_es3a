@@ -24,7 +24,7 @@ function ButtonAddPod({
                       }: ButtonAddPodType) {
     const {session} = useSession();
     const {webId} = session.info;
-    let webIdStore = webId?.slice(0, -15) + "private/";
+    let webIdStore = webId?.slice(0, -15) + "private/locations.json";
 
     const createMarker = async (
         nameFile: string,
@@ -97,7 +97,6 @@ function ButtonAddPod({
                 file,
                 {contentType: file.type, fetch: session.fetch}
             );
-            console.log("Marcador añadido");
         } catch (error) {
             console.log(error);
         }

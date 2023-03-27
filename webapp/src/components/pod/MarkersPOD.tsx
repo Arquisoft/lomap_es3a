@@ -41,7 +41,7 @@ function MarkersPOD() {
 
     useEffect(() => {
         async function fetchPoints() {
-            const newPoints = await readFileFromPod(webIdStore, session);
+            const newPoints = webId !== undefined ? await readFileFromPod(webIdStore, session) : undefined;
             if (newPoints) {
                 setPoints(newPoints);
             }
