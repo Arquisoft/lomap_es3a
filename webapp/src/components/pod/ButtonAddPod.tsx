@@ -79,6 +79,14 @@ function ButtonAddPod({
         }
     };
 
+    const handleOpenNotification = () => {
+        setShowNotification(true);
+    };
+
+    const handleCloseNotification = () => {
+        setShowNotification(false);
+    };
+
     const [showNotification, setShowNotification] = useState(false);
 
     const createNotification = () => {
@@ -112,6 +120,7 @@ function ButtonAddPod({
     };
 
     return (
+
         <div id="addPanel">
             <Button variant="contained" color="primary" onClick={handleClick}>
                 Add Marker
@@ -122,6 +131,7 @@ function ButtonAddPod({
                     message="You added you marker correctly!"
                     time="Just Now"
                     icon="https://www.lineex.es/wp-content/uploads/2016/06/map-map-marker-icon.png"
+                    onClose={handleCloseNotification}
                 />
             )}
         </div>
