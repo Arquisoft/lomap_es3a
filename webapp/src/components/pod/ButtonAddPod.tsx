@@ -112,7 +112,7 @@ function ButtonAddPod({
         }, 4000); // hide notification after 5 seconds
     };
 
-    const handleClick = () => {
+    const handleClick = async () => {
          createMarker(
             "locations.json",
             idName,
@@ -123,8 +123,12 @@ function ButtonAddPod({
             idLongitude,
             webIdStore
         )
-            .then(  (file) => createData(webIdStore, file, session))
-            .then(createNotification);
+            .then(  (file) =>  createData(webIdStore, file, session))
+            .then(createNotification)
+             .then( ()=>{ console.log("Renderizando mapa");
+                 ReactDOM.render(<Map/>, document.getElementById('screen'));
+                console.log("Hecho")});
+
         let optionsMenu = document.getElementById("markersMenu");
         if (optionsMenu !== null) {
             const width = optionsMenu.style.width;
@@ -134,7 +138,6 @@ function ButtonAddPod({
                 optionsMenu.style.minWidth = "0px";
             }
         }
-        ReactDOM.render(<Map />, document.getElementById('screen'));
     };
 
     return (

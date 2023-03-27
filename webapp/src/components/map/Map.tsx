@@ -8,7 +8,6 @@ import React from "react";
 
 function Map() {
     const position = {lat: 43.3548057, lng: -5.8534646}
-
     return (
         <MapContainer center={position} zoom={13} scrollWheelZoom={true} zoomControl={false}>
             <TileLayer
@@ -16,7 +15,6 @@ function Map() {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             <LocationMarker/>
-
             <MarkersPOD/>
         </MapContainer>
     );

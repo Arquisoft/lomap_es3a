@@ -5,6 +5,7 @@ import {Marker, Popup} from "react-leaflet";
 import markerIconPng from "leaflet/dist/images/marker-icon.png"
 import {useSession} from "@inrupt/solid-ui-react";
 import {Point} from "./Point";
+import {v4 as uuidv4} from 'uuid';
 import {useEffect, useState} from "react";
 
 
@@ -24,7 +25,7 @@ async function readFileFromPod(fileURL: string, session: Session) {
             let category = fileJSON[i].category;
             let score = fileJSON[i].score;
             let comment = fileJSON[i].comment;
-            markers.push(new Point(Date.now(), latitude, longitude, name, category, comment, score))
+            markers.push(new Point(uuidv4(), latitude, longitude, name, category, comment, score))
         }
         return markers
     } catch (err) {
@@ -55,11 +56,11 @@ function MarkersPOD() {
                 points.map((item) => (
                     <Marker key={item.id} position={{lat:item.latitude,lng:item.longitude}} icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})}>
                         <Popup>
-                            Name: {item.name}
-                            Latitude: {item.latitude}
-                            Longitude: {item.longitude}
-                            Comment: {item.comment}
-                            Category: {item.category}
+                            Name: {item.name} <br/>
+                            Latitude: {item.latitude} <br/>
+                            Longitude: {item.longitude} <br/>
+                            Comment: {item.comment} <br/>
+                            Category: {item.category} <br/>
                             Score: {item.score}
                         </Popup>
                     </Marker>
