@@ -1,9 +1,11 @@
 import {useSession} from "@inrupt/solid-ui-react";
 import {getFile, overwriteFile} from "@inrupt/solid-client";
 import {Button} from "@mui/material";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Session} from "@inrupt/solid-client-authn-browser";
 import Notification from "../map/Notification";
+import ReactDOM from 'react-dom';
+import Map from "../map/Map";
 
 interface ButtonAddPodType {
     idName: string;
@@ -60,7 +62,7 @@ function ButtonAddPod({
             longitude: longitude,
         };
 
-        return readFileFromPod(fileURL, session).then(file => {
+        return  await readFileFromPod(fileURL, session).then(file => {
                 if (file === "") {
                     const blob = new Blob([JSON.stringify(json, null, 2)], {
                         type: "application/json",
@@ -111,7 +113,7 @@ function ButtonAddPod({
     };
 
     const handleClick = () => {
-        createMarker(
+         createMarker(
             "locations.json",
             idName,
             idCategory,
@@ -121,7 +123,7 @@ function ButtonAddPod({
             idLongitude,
             webIdStore
         )
-            .then((file) => createData(webIdStore, file, session))
+            .then(  (file) => createData(webIdStore, file, session))
             .then(createNotification);
         let optionsMenu = document.getElementById("markersMenu");
         if (optionsMenu !== null) {
@@ -132,6 +134,7 @@ function ButtonAddPod({
                 optionsMenu.style.minWidth = "0px";
             }
         }
+        ReactDOM.render(<Map />, document.getElementById('screen'));
     };
 
     return (

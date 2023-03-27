@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="fffab244-483c-4868-ab28-0ebb24c4f06b" name="Changes" comment="27/03/2023 - David - Arreglada creación de marcadores">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webapp/src/components/pod/ButtonAddPod.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/pod/ButtonAddPod.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webapp/src/components/pod/MarkersPOD.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/pod/MarkersPOD.tsx" afterDir="false" />
     </list>

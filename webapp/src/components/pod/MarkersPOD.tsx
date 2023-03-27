@@ -64,14 +64,9 @@ function MarkersPOD() {
                         </Popup>
                     </Marker>
                 ))
-
             }
         </div>
     )
-
-
-
-
 }
 
 export default MarkersPOD;
