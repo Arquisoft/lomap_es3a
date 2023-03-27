@@ -14,7 +14,7 @@ Once the user successfully logs in, the identity provider gives the server the s
 
 ---- 
 
-actor User as Israel 
+actor User as User 
 
 participant "Web App" as W 
 

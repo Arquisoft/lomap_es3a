@@ -8,13 +8,13 @@
 
 ---- 
 
-Actor Israel 
+Actor User 
 
 Component GoMap 
 
 Component pod as "Pod's service" 
 
-Israel -right-> GoMap: interacts with 
+User -right-> GoMap: interacts with 
 
 GoMap -right-> pod: gets data
 
@@ -49,7 +49,7 @@ pod -right..> GoMap
 
 ---- 
 
-Actor Israel 
+Actor User 
 
 Component GoMap { 
 
@@ -63,7 +63,7 @@ Component GoMap {
 
 Component pod as "Pod's service" 
 
-Israel-right-> ui 
+User-right-> ui 
 
 ui -right-> da: data 
 
@@ -106,7 +106,7 @@ Shows how the application will work internally in general terms. The client, thr
 
 ---- 
 
-Actor Israel   
+Actor User   
 
 Component Interface{ 
 
@@ -146,7 +146,7 @@ Component pod as "Pod's service"
 
 Database db as "MongoDB" 
 
-Israel -right->Interface: interacts 
+User -right->Interface: interacts 
 
 
 re -right-> sol 
