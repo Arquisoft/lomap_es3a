@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fffab244-483c-4868-ab28-0ebb24c4f06b" name="Changes" comment="27/03/2023 - David - Arreglada creación de marcadores">
+    <list default="true" id="fffab244-483c-4868-ab28-0ebb24c4f06b" name="Changes" comment="27/03/2023 - David - Añadido identificador único para los marcadores">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webapp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webapp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webapp/src/components/map/Map.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/map/Map.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/components/map/MapScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/map/MapScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webapp/src/components/pod/ButtonAddPod.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/pod/ButtonAddPod.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/components/pod/MarkersPOD.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/pod/MarkersPOD.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/components/pod/Point.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/pod/Point.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +140,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679902448730</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="27/03/2023 - David - Añadido identificador único para los marcadores">
+      <created>1679935461074</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1679935461074</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,6 +172,7 @@
     <MESSAGE value="12/03/2023 - David - Corregida sesión en las ventanas." />
     <MESSAGE value="20/03/2023 - David - Creado test para DeveloperTeam." />
     <MESSAGE value="27/03/2023 - David - Arreglada creación de marcadores" />
-    <option name="LAST_COMMIT_MESSAGE" value="27/03/2023 - David - Arreglada creación de marcadores" />
+    <MESSAGE value="27/03/2023 - David - Añadido identificador único para los marcadores" />
+    <option name="LAST_COMMIT_MESSAGE" value="27/03/2023 - David - Añadido identificador único para los marcadores" />
   </component>
 </project>

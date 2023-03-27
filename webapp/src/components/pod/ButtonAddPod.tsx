@@ -4,9 +4,8 @@ import {Button} from "@mui/material";
 import React, {useEffect, useState} from "react";
 import {Session} from "@inrupt/solid-client-authn-browser";
 import Notification from "../map/Notification";
-import ReactDOM from 'react-dom';
+import ReactDOM from "react-dom/client";
 import Map from "../map/Map";
-
 interface ButtonAddPodType {
     idName: string;
     idCategory: string;
@@ -125,9 +124,13 @@ function ButtonAddPod({
         )
             .then(  (file) =>  createData(webIdStore, file, session))
             .then(createNotification)
-             .then( ()=>{ console.log("Renderizando mapa");
-                 ReactDOM.render(<Map/>, document.getElementById('screen'));
-                console.log("Hecho")});
+             .then( ()=> {
+                 const root = ReactDOM.createRoot(document.getElementById("screen") as HTMLElement);
+                root.render(<Map
+                    lat={ Number((document.getElementById(idLatitude) as HTMLInputElement).value)}
+                    lng={Number((document.getElementById(idLongitude) as HTMLInputElement).value)
+                }/>);
+             });
 
         let optionsMenu = document.getElementById("markersMenu");
         if (optionsMenu !== null) {

@@ -6,8 +6,8 @@ import MarkersPOD from "../pod/MarkersPOD";
 import Notification from "./Notification";
 import React from "react";
 
-function Map() {
-    const position = {lat: 43.3548057, lng: -5.8534646}
+function Map(props: { lat: number; lng:number; }) {
+    const position ={lat: props.lat, lng:props.lng}
     return (
         <MapContainer center={position} zoom={13} scrollWheelZoom={true} zoomControl={false}>
             <TileLayer

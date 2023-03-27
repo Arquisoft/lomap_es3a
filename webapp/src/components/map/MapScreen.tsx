@@ -10,7 +10,7 @@ function MapScreen() {
             <OptionsPanel/>
             <MarkerPanel/>
             <div id="screen">
-                <Map/>
+                <Map lat={43.3548057} lng={-5.8534646}/>
             </div>
             <FooterInfo/>
         </div>
