@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fffab244-483c-4868-ab28-0ebb24c4f06b" name="Changes" comment="20/03/2023 - David - Creado test para DeveloperTeam.">
+    <list default="true" id="fffab244-483c-4868-ab28-0ebb24c4f06b" name="Changes" comment="26/03/2023 - David - Unificados ficheros marcadores">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/App.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/App.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/components/EmailForm.test.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/App.test.tsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="UO278968-Develpment" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -44,6 +43,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "dart.analysis.tool.window.visible": "false",
     "last_opened_file_path": "C:/Users/David Warzynski/WebstormProjects/lomap_es3a/webapp/src/components/login",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -52,7 +52,7 @@
     "nodejs.jest.jest_package": "C:/Users/David Warzynski/WebstormProjects/lomap_es3a/webapp/node_modules/react-scripts",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2022.3.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "ts.external.directory.path": "C:\\Users\\David Warzynski\\WebstormProjects\\lomap_es3a\\webapp\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
