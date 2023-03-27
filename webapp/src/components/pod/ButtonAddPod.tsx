@@ -106,6 +106,9 @@ function ButtonAddPod({
     const [showNotification, setShowNotification] = useState(false);
     const createNotification = () => {
         setShowNotification(true);
+        setTimeout(() => {
+            setShowNotification(false);
+        }, 4000); // hide notification after 5 seconds
     };
 
     const handleClick = () => {
