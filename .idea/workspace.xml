@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fffab244-483c-4868-ab28-0ebb24c4f06b" name="Changes" comment="20/03/2023 - David - Creado test para DeveloperTeam.">
-      <change beforePath="$PROJECT_DIR$/.idea/lomap_es3a.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/lomap_es3a.iml" afterDir="false" />
+    <list default="true" id="fffab244-483c-4868-ab28-0ebb24c4f06b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/components/map/options/OptionsPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/map/options/OptionsPanel.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/components/navigation/NavBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/navigation/NavBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/components/navigation/NavItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/navigation/NavItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/css/map.css" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/css/map.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/css/navigation.css" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/css/navigation.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/components/pod/ButtonAddPod.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/pod/ButtonAddPod.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +45,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "dart.analysis.tool.window.visible": "false",
     "last_opened_file_path": "C:/Users/David Warzynski/WebstormProjects/lomap_es3a/webapp/src/components/login",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -58,7 +54,7 @@
     "nodejs.jest.jest_package": "C:/Users/David Warzynski/WebstormProjects/lomap_es3a/webapp/node_modules/react-scripts",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "F:\\Ingenieria Informatica\\Tercero\\Segundo_Semestre\\Arquitectura del Software\\Practicas\\Proyecto\\lomap_es3a\\webapp\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "C:\\Users\\David Warzynski\\WebstormProjects\\lomap_es3a\\webapp\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>

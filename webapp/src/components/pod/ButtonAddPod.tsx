@@ -1,8 +1,8 @@
-import { useSession } from "@inrupt/solid-ui-react";
-import { getFile, overwriteFile } from "@inrupt/solid-client";
-import { Button } from "@mui/material";
-import React, { useState } from "react";
-import { Session } from "@inrupt/solid-client-authn-browser";
+import {useSession} from "@inrupt/solid-ui-react";
+import {getFile, overwriteFile} from "@inrupt/solid-client";
+import {Button} from "@mui/material";
+import React, {useState} from "react";
+import {Session} from "@inrupt/solid-client-authn-browser";
 import Notification from "../map/Notification";
 
 interface ButtonAddPodType {
@@ -22,8 +22,8 @@ function ButtonAddPod({
                           idLatitude,
                           idLongitude,
                       }: ButtonAddPodType) {
-    const { session } = useSession();
-    const { webId } = session.info;
+    const {session} = useSession();
+    const {webId} = session.info;
     let webIdStore = webId?.slice(0, -15) + "private/";
 
     const createMarker = async (
@@ -59,6 +59,7 @@ function ButtonAddPod({
             latitude: latitude,
             longitude: longitude,
         };
+
         return readFileFromPod(fileURL, session).then(file => {
                 if (file === "") {
                     const blob = new Blob([JSON.stringify(json, null, 2)], {
@@ -77,7 +78,7 @@ function ButtonAddPod({
         );
     };
 
-    const readFileFromPod = async (fileURL: string, session: Session) =>{
+    const readFileFromPod = async (fileURL: string, session: Session) => {
         try {
             const file = await getFile(
                 fileURL,
@@ -88,7 +89,6 @@ function ButtonAddPod({
             return "";
         }
     }
-}
 
     const createData = async (url: string, file: File, session: Session) => {
         try {
@@ -103,15 +103,7 @@ function ButtonAddPod({
         }
     };
 
-const [showNotification, setShowNotification] = useState(false);
-const createNotification = () => {
-    setShowNotification(true);
-};
-
-function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLongitude}: ButtonAddPodType) {
-    const {session} = useSession();
-    const {webId} = session.info;
-    let webIdStore = webId?.slice(0, -15) + "private/locations.json";
+    const [showNotification, setShowNotification] = useState(false);
     const createNotification = () => {
         setShowNotification(true);
     };
