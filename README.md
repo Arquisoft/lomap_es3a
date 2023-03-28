@@ -143,9 +143,9 @@ npm install
 npm start
 ```
 
-<footer align="left">
-   <a href="https://arquisoft.github.io/">
-      ©Arquisoft - UNIOVI
-   </a>
-   <img src="designs/footer.svg">
+<footer>
+   <p>
+        <a href="https://arquisoft.github.io/">©Arquisoft - UNIOVI</a> <img align="center" width="100" height="100" src="designs/binocularsV2.gif">
+   </p>
+  <img src="designs/footer.svg">
 </footer>
