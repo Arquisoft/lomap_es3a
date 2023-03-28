@@ -26,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="testing" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -117,7 +117,21 @@
       <option name="project" value="LOCAL" />
       <updated>1679303536312</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="27/03/2023 - David - Arreglada creación de marcadores">
+      <created>1679902448730</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1679902448730</updated>
+    </task>
+    <task id="LOCAL-00009" summary="27/03/2023 - David - Añadido identificador único para los marcadores">
+      <created>1679935461074</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1679935461074</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -142,6 +156,8 @@
     <MESSAGE value="12/03/2023 - David - Unificado login en el nav." />
     <MESSAGE value="12/03/2023 - David - Corregida sesión en las ventanas." />
     <MESSAGE value="20/03/2023 - David - Creado test para DeveloperTeam." />
-    <option name="LAST_COMMIT_MESSAGE" value="20/03/2023 - David - Creado test para DeveloperTeam." />
+    <MESSAGE value="27/03/2023 - David - Arreglada creación de marcadores" />
+    <MESSAGE value="27/03/2023 - David - Añadido identificador único para los marcadores" />
+    <option name="LAST_COMMIT_MESSAGE" value="27/03/2023 - David - Añadido identificador único para los marcadores" />
   </component>
 </project>
