@@ -17,7 +17,7 @@ function MarkerPanel() {
             <Filter title={"Marker's Category:"}
                     options={["Bar", "Shop", "Restaurant", "Cinema", "Landscape", "Monument"]}/>
             <Comments title={"Put a comment about this place"}/>
-            <Score title={"Select the score you would give this place"}/>
+            <Score />
             <ButtonAddPod idName={"namePlace"} idCategory={"category"} idComment={"comment"} idScore={"score"} idLatitude={"latitude"} idLongitude={"longitude"}/>
 
 

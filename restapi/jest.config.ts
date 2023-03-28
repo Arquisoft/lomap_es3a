@@ -1,5 +1,5 @@
 export default {
-    rootDir: './../',
+    rootDir: './',
     transform: {
         "^.+\\.tsx?$": "ts-jest"
     },

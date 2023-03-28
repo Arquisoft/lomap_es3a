@@ -7,6 +7,7 @@ interface NotificationProps {
     message: string;
     time: string;
     icon: string;
+    onClose: () => void;
 }
 
 interface NotificationState {
@@ -37,6 +38,7 @@ class Notification extends Component<NotificationProps, NotificationState> {
     }
 
     handleClose() {
+        this.props.onClose();
         this.setState({ isOpen: false });
     }
 
