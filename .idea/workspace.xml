@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fffab244-483c-4868-ab28-0ebb24c4f06b" name="Changes" comment="30/03/2023 - Omar - Prueba de covertura y tests 2">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/lomap_es3a.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/lomap_es3a.yml" afterDir="false" />
+    <list default="true" id="fffab244-483c-4868-ab28-0ebb24c4f06b" name="Changes" comment="30/03/2023 - Omar - Corregido bug de covertura">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,12 +39,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;F:\\Ingenieria Informatica\\Tercero\\Segundo_Semestre\\Arquitectura del Software\\Practicas\\Proyecto\\lomap_es3a\\webapp\\node_modules\\typescript\\lib&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "ts.external.directory.path": "F:\\Ingenieria Informatica\\Tercero\\Segundo_Semestre\\Arquitectura del Software\\Practicas\\Proyecto\\lomap_es3a\\webapp\\node_modules\\typescript\\lib"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\David Warzynski\WebstormProjects\lomap_es3a\webapp\src\components\login" />
@@ -135,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680200074660</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="30/03/2023 - Omar - Corregido bug de covertura">
+      <created>1680204521306</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1680204521306</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,6 +169,7 @@
     <MESSAGE value="20/03/2023 - David - Creado test para DeveloperTeam." />
     <MESSAGE value="30/03/2023 - Omar - Prueba de covertura y tests" />
     <MESSAGE value="30/03/2023 - Omar - Prueba de covertura y tests 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="30/03/2023 - Omar - Prueba de covertura y tests 2" />
+    <MESSAGE value="30/03/2023 - Omar - Corregido bug de covertura" />
+    <option name="LAST_COMMIT_MESSAGE" value="30/03/2023 - Omar - Corregido bug de covertura" />
   </component>
 </project>
