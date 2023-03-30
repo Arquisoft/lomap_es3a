@@ -1,5 +1,5 @@
 import "../../css/map.css"
-import Map from "./Map"
+import MapView from "./MapView"
 import FooterInfo from "../FooterInfo";
 import OptionsPanel from "./options/OptionsPanel";
 import MarkerPanel from "./MarkerPanel";
@@ -10,7 +10,7 @@ function MapScreen() {
             <OptionsPanel/>
             <MarkerPanel/>
             <div id="screen">
-                <Map/>
+                <MapView/>
             </div>
             <FooterInfo/>
         </div>

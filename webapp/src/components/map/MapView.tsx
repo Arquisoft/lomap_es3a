@@ -5,7 +5,7 @@ import LocationMarker from "./LocationMarker";
 import MarkersPOD from "../pod/MarkersPOD";
 import React from "react";
 
-function Map() {
+function MapView() {
     const position = {lat: 43.3548057, lng: -5.8534646}
 
     return (
@@ -21,4 +21,4 @@ function Map() {
     );
 }
 
-export default Map
+export default MapView
