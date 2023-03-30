@@ -1,8 +1,8 @@
-import { useSession } from "@inrupt/solid-ui-react";
-import { saveFileInContainer } from "@inrupt/solid-client";
-import { Button } from "@mui/material";
-import React, { useState } from "react";
-import { Session } from "@inrupt/solid-client-authn-browser";
+import {useSession} from "@inrupt/solid-ui-react";
+import {saveFileInContainer} from "@inrupt/solid-client";
+import {Button} from "@mui/material";
+import React, {useState} from "react";
+import {Session} from "@inrupt/solid-client-authn-browser";
 import Notification from "../map/Notification";
 
 interface ButtonAddPodType {
@@ -22,8 +22,8 @@ function ButtonAddPod({
                           idLatitude,
                           idLongitude,
                       }: ButtonAddPodType) {
-    const { session } = useSession();
-    const { webId } = session.info;
+    const {session} = useSession();
+    const {webId} = session.info;
     let webIdStore = webId?.slice(0, -15) + "private/";
 
     const createMarker = async (
@@ -63,7 +63,7 @@ function ButtonAddPod({
             type: "application/json",
         });
 
-        let file = new File([blob], nameFile, { type: blob.type });
+        let file = new File([blob], nameFile, {type: blob.type});
         return file;
     };
 

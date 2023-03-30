@@ -6,9 +6,23 @@
   <component name="ChangeListManager">
     <list default="true" id="fffab244-483c-4868-ab28-0ebb24c4f06b" name="Changes" comment="20/03/2023 - David - Creado test para DeveloperTeam.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/components/home/HomePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/home/HomePage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/components/map/LocationMarker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/map/LocationMarker.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/components/map/Map.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/map/Map.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/components/map/MapPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/map/MapPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webapp/src/components/map/MarkerPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/map/MarkerPanel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/components/map/Notification.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/map/Notification.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/components/map/options/Coordinates.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/map/options/Coordinates.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/components/map/options/DeveloperTeam.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/map/options/DeveloperTeam.test.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webapp/src/components/map/options/Score.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/map/options/Score.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/components/navigation/LanguageMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/navigation/LanguageMenu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/components/navigation/NavBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/navigation/NavBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/components/pod/ButtonAddPod.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/pod/ButtonAddPod.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/components/pod/MarkersPOD.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/pod/MarkersPOD.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/components/pod/Point.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/pod/Point.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webapp/src/css/map.css" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/css/map.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/css/notificacion.css" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/css/notificacion.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +40,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -42,10 +56,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="ts.external.directory.path" value="C:\Users\uo278036\WebstormProjects\lomap_es3a\webapp\node_modules\typescript\lib" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "node.js.selected.package.tslint": "(autodetect)",
+    "ts.external.directory.path": "F:\\Ingenieria Informatica\\Tercero\\Segundo_Semestre\\Arquitectura del Software\\Practicas\\Proyecto\\lomap_es3a\\webapp\\node_modules\\typescript\\lib"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\David Warzynski\WebstormProjects\lomap_es3a\webapp\src\components\login" />
@@ -133,7 +149,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="12/03/2023 - David - Añadido LogIn y visualización del usuario." />

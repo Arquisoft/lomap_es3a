@@ -54,7 +54,7 @@ function NavBar() {
                         <NavItem to={"/help"} text={"Help"}/>
                         <NavItem to={"/about"} text={"About"}/>
                     </ul>
-                    <LanguageMenu />
+                    <LanguageMenu/>
                     <div className="d-flex">
                         <div id="login-manage">
                             {(!isLoggedIn) ? "" :
