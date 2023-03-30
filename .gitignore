@@ -24,7 +24,7 @@ yarn-debug.log*
 yarn-error.log*
 
 #IDEA Files
-.idea
+.idea/workspace.xml
 
 #documentation build does not go into master
 docs/build
