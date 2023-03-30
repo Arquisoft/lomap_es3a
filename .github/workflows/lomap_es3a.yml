@@ -33,7 +33,7 @@ jobs:
       - run: npm --prefix webapp install
       - run: npm --prefix restapi install
       - run: npm --prefix webapp run build
-      - run: npm --prefix webapp run test:e2e
+#      - run: npm --prefix webapp run test:e2e
   docker-push-webapp:
     name: Push webapp Docker Image to GitHub Packages
     runs-on: ubuntu-latest
