@@ -14,7 +14,7 @@ function NavBar() {
 
     let {webId} = session.info;
 
-    if (webId == undefined)
+    if (webId === undefined)
         webId = "";
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);

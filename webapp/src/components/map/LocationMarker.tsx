@@ -7,7 +7,7 @@ import React, {useState} from "react";
 
 function LocationMarker() {
     const [position, setPosition] = useState({lat: 43.364864, lng: -5.862134})
-    const map = useMapEvents({
+    useMapEvents({
         click(e) {
             setPosition(e.latlng);
 

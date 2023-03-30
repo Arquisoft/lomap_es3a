@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import "../../css/notificacion.css";
-import GOMapSymbol from "../../img/symbols/GOMapSymbol.png";
+import "../css/notificacion.css";
+import GOMapSymbol from "../img/symbols/GOMapSymbol.png";
 
 interface NotificationProps {
     title: string;
@@ -55,7 +55,7 @@ class Notification extends Component<NotificationProps, NotificationState> {
         return (
             <div className="notification">
                 <div className="notification-icon">
-                    <img src={GOMapSymbol} alt="icon"/>
+                    <img src={iconUrl} alt="icon"/>
                 </div>
                 <div className="notification-content">
                     <div className="notification-title">{title}</div>

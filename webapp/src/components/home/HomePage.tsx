@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import MainScreen from "./MainScreen";
-import Notification from "../map/Notification";
+import Notification from "../Notification";
 
 function HomePage() {
     const [showWelcomeNotification, setShowWelcomeNotification] = useState(false);

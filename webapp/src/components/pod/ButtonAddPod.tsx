@@ -3,7 +3,7 @@ import {saveFileInContainer} from "@inrupt/solid-client";
 import {Button} from "@mui/material";
 import React, {useState} from "react";
 import {Session} from "@inrupt/solid-client-authn-browser";
-import Notification from "../map/Notification";
+import Notification from "../Notification";
 
 interface ButtonAddPodType {
     idName: string;
@@ -69,7 +69,7 @@ function ButtonAddPod({
 
     const createData = async (url: string, file: File, session: Session) => {
         try {
-            let savedFile = await saveFileInContainer(url, file, {
+            await saveFileInContainer(url, file, {
                 slug: file.name,
                 contentType: file.type,
                 fetch: session.fetch,
@@ -79,9 +79,9 @@ function ButtonAddPod({
         }
     };
 
-    const handleOpenNotification = () => {
-        setShowNotification(true);
-    };
+    // const handleOpenNotification = () => {
+    //     setShowNotification(true);
+    // };
 
     const handleCloseNotification = () => {
         setShowNotification(false);
