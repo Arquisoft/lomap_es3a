@@ -15,10 +15,10 @@ function LanguageMenu() {
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-                <Dropdown.Item onClick={() => handleLanguageChange('en')} active={selectedLanguage === 'en'} >
+                <Dropdown.Item onClick={() => handleLanguageChange('en')} active={selectedLanguage === 'en'}>
                     Inglés
                 </Dropdown.Item>
-                <Dropdown.Item onClick={() => handleLanguageChange('es')} active={selectedLanguage === 'es'} >
+                <Dropdown.Item onClick={() => handleLanguageChange('es')} active={selectedLanguage === 'es'}>
                     Español
                 </Dropdown.Item>
             </Dropdown.Menu>

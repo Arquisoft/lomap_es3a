@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import "../../css/notificacion.css";
 import GOMapSymbol from "../../img/symbols/GOMapSymbol.png";
 
@@ -39,14 +39,14 @@ class Notification extends Component<NotificationProps, NotificationState> {
 
     handleClose() {
         this.props.onClose();
-        this.setState({ isOpen: false });
+        this.setState({isOpen: false});
     }
 
     render() {
-        const { title, message, time, icon } = this.props;
+        const {title, message, time, icon} = this.props;
         const iconUrl = icon === "GOMapSymbol" ? GOMapSymbol : icon;
 
-        const { isOpen } = this.state;
+        const {isOpen} = this.state;
 
         if (!isOpen) {
             return null;
@@ -55,7 +55,7 @@ class Notification extends Component<NotificationProps, NotificationState> {
         return (
             <div className="notification">
                 <div className="notification-icon">
-                    <img src={GOMapSymbol} alt="icon" />
+                    <img src={GOMapSymbol} alt="icon"/>
                 </div>
                 <div className="notification-content">
                     <div className="notification-title">{title}</div>

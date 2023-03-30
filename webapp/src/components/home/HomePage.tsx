@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {useEffect, useState} from "react";
 import MainScreen from "./MainScreen";
 import Notification from "../map/Notification";
 
@@ -19,7 +19,7 @@ function HomePage() {
 
     return (
         <div>
-            <MainScreen />
+            <MainScreen/>
             {showWelcomeNotification && (
                 <Notification
                     title="Welcome to GOMap!"

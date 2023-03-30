@@ -1,4 +1,4 @@
-function Coordinates(){
+function Coordinates() {
     return (
         <div>
             <h2>Latitud</h2>
@@ -8,4 +8,5 @@ function Coordinates(){
         </div>
     )
 }
+
 export default Coordinates

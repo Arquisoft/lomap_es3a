@@ -3,7 +3,6 @@ import "../../css/react-leaflet.css";
 import 'leaflet/dist/leaflet.css';
 import LocationMarker from "./LocationMarker";
 import MarkersPOD from "../pod/MarkersPOD";
-import Notification from "./Notification";
 import React from "react";
 
 function Map() {

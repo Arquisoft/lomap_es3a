@@ -4,7 +4,6 @@ import 'leaflet/dist/leaflet.css';
 import markerIconPng from "leaflet/dist/images/marker-icon.png"
 import {Icon} from 'leaflet'
 import React, {useState} from "react";
-import Notification from "./Notification";
 
 function LocationMarker() {
     const [position, setPosition] = useState({lat: 43.364864, lng: -5.862134})

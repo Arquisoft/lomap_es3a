@@ -6,7 +6,6 @@ import markerIconPng from "leaflet/dist/images/marker-icon.png"
 import {useSession} from "@inrupt/solid-ui-react";
 import {Point} from "./Point";
 import {useEffect, useState} from "react";
-import {forEach} from "react-bootstrap/ElementChildren";
 
 
 async function readFileFromPod(fileURL: string, session: Session) {
@@ -25,7 +24,7 @@ async function readFileFromPod(fileURL: string, session: Session) {
         let category = fileJSON.category;
         let score = fileJSON.score;
         let comment = fileJSON.comment;
-        markers.push(new Point(Date.now(),latitude,longitude,name,category,comment,score))
+        markers.push(new Point(Date.now(), latitude, longitude, name, category, comment, score))
 
         return markers
     } catch (err) {
@@ -35,8 +34,8 @@ async function readFileFromPod(fileURL: string, session: Session) {
 
 
 function MarkersPOD() {
-    const { session } = useSession();
-    const { webId } = session.info;
+    const {session} = useSession();
+    const {webId} = session.info;
     let webIdStore = webId?.slice(0, -15) + 'private/marker.json';
     const [points, setPoints] = useState<Point[]>([]);
 
@@ -54,14 +53,16 @@ function MarkersPOD() {
                 setPoints(newPoints);
             }
         }
+
         fetchPoints();
     }, [webIdStore, session]);
 
-    return(
+    return (
         <div>
             {
                 points.map((item) => (
-                    <Marker key={item.id} position={{lat:item.latitude,lng:item.longitude}} icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})}>
+                    <Marker key={item.id} position={{lat: item.latitude, lng: item.longitude}}
+                            icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})}>
                         <Popup>
                             Name: {item.name}
                             Latitude: {item.latitude}
@@ -76,8 +77,6 @@ function MarkersPOD() {
             }
         </div>
     )
-
-
 
 
 }
