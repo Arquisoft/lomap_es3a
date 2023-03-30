@@ -17,7 +17,6 @@ jobs:
     - run: npm --prefix webapp ci
     - run: npm --prefix restapi ci
     - run: npm --prefix webapp test --coverage --watchAll
-    - run: npm --prefix restapi test --coverage --watchAll
     - name: Analyze with SonarCloud
       uses: sonarsource/sonarcloud-github-action@master
       env:
