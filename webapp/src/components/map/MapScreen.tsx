@@ -6,7 +6,7 @@ import MarkerPanel from "./MarkerPanel";
 
 function MapScreen() {
     return (
-        <div>
+        <div id="map">
             <OptionsPanel/>
             <MarkerPanel/>
             <div id="screen">

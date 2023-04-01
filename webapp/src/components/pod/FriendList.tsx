@@ -1,6 +1,7 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useSession} from "@inrupt/solid-ui-react";
 import {findPersonData, PersonData} from "./FriendsPOD";
+
 
 function FriendList(){
     const { session } = useSession();
@@ -22,21 +23,24 @@ function FriendList(){
                 personData.friends.map((friend) => findPersonData(friend))
             );
             setFriendList(names);
+
         }
         fetchFriends();
 
-    }, [session])
+
+    }, [webId,session])
 
     return(
-        <div id="friends">
+        <div id="friends" >
             <h2>Friends</h2>
             <div id="friendsList">
                 {
                     friends.map(friend => (
-                        <div id={friend.webId}>
-                            <input type="button">{friend.name}</input>
+                        <div key={friend.webId}>
+                            <button>{friend.name}</button>
                         </div>
                     ))
+
                 }
             </div>
         </div>

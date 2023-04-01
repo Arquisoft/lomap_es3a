@@ -8,6 +8,9 @@ import {
 } from '@inrupt/solid-client'
 import { foaf, vcard, owl, rdfs } from 'rdf-namespaces'
 import { RateLimiter } from 'limiter'
+import ReactDOM from "react-dom/client";
+import OptionsPanel from "../map/options/OptionsPanel";
+import React from "react";
 
 export interface PersonData {
     webId: IriString
@@ -85,11 +88,12 @@ export const findPersonData = async (webId: IriString): Promise<PersonData> => {
                         getTerm(person, foaf.name)?.value ??
                         getTerm(person, vcard.fn)?.value ??
                         ''
+                console.log("ho")
             }
             return data
         }, data)
         return data
     }
 
-    return data
+    return data;
 }
