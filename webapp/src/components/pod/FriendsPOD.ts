@@ -88,7 +88,7 @@ export const findPersonData = async (webId: IriString): Promise<PersonData> => {
                         getTerm(person, foaf.name)?.value ??
                         getTerm(person, vcard.fn)?.value ??
                         ''
-                console.log("hol")
+                console.log("h")
             }
             return data
         }, data)
