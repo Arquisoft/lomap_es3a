@@ -19,6 +19,11 @@ function FriendList(){
                 }
             }
         }
+
+        loadPersonData()
+    }, [webId,session])
+
+    useEffect(() => {
         async function fetchFriends() {
             if (personData.friends.length > 0) {
                 const names = await Promise.all(
@@ -27,12 +32,8 @@ function FriendList(){
                 setFriendList(names);
             }
         }
-
-        loadPersonData()
-        fetchFriends();
-
-
-    }, [webId,session,personData.friends])
+        fetchFriends()
+    }, [personData.friends, session])
 
     function getMarkers(id:string){
         (document.getElementById(id) as HTMLImageElement).src = botonVerde;
