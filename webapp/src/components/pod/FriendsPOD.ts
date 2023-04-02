@@ -8,9 +8,8 @@ import {
 } from '@inrupt/solid-client'
 import { foaf, vcard, owl, rdfs } from 'rdf-namespaces'
 import { RateLimiter } from 'limiter'
-import ReactDOM from "react-dom/client";
-import OptionsPanel from "../map/options/OptionsPanel";
-import React from "react";
+import {Session} from "@inrupt/solid-client-authn-browser";
+
 
 export interface PersonData {
     webId: IriString
@@ -18,32 +17,13 @@ export interface PersonData {
     friends: IriString[]
 }
 
-const limiter = new RateLimiter({ tokensPerInterval: 1, interval: 50 })
 
-
-const fetchWithTimeout: (timeout: number) => typeof fetch =
-    (timeout: number) => async (resource, options) => {
-        const controller = new AbortController()
-        const id = setTimeout(() => controller.abort(), timeout)
-
-        const response = await fetch(resource, {
-            ...options,
-            signal: controller.signal,
-        })
-        clearTimeout(id)
-
-        return response
-    }
-
-const limitedFetch: typeof fetch = async (...props) => {
-    await limiter.removeTokens(1)
-    return await fetchWithTimeout(8000)(...props)
-}
 
 
 
 const findFullPersonProfile = async (
     webId: IriString,
+    session:Session,
     visited = new Set<IriString>(),
     response: SolidDataset[] = [],
     fail = true,
@@ -51,7 +31,7 @@ const findFullPersonProfile = async (
 ): Promise<SolidDataset[]> => {
     try {
         visited.add(iri)
-        const dataset = await getSolidDataset(iri, { fetch: limitedFetch })
+        const dataset = await getSolidDataset(iri, { fetch: session.fetch})
         const person = getThing(dataset, webId)
         if (person) {
             response.push(dataset)
@@ -61,7 +41,7 @@ const findFullPersonProfile = async (
             for (const uri of [...same, ...see]) {
                 console.log('extending', uri)
                 if (!visited.has(uri))
-                    await findFullPersonProfile(webId, visited, response, false, uri)
+                    await findFullPersonProfile(webId,session, visited, response, false, uri)
             }
         }
     } catch (e) {
@@ -72,10 +52,10 @@ const findFullPersonProfile = async (
 
 
 
-export const findPersonData = async (webId: IriString): Promise<PersonData> => {
+export const findPersonData = async (session: Session,webId: IriString): Promise<PersonData> => {
     const data: PersonData = { webId: webId, name: '', friends: [] }
     if (webId) {
-        const dataset = await findFullPersonProfile(webId)
+        const dataset = await findFullPersonProfile(webId,session)
         dataset.reduce((data, d) => {
             const person = getThing(d, webId)
             if (person) {
@@ -88,7 +68,7 @@ export const findPersonData = async (webId: IriString): Promise<PersonData> => {
                         getTerm(person, foaf.name)?.value ??
                         getTerm(person, vcard.fn)?.value ??
                         ''
-                console.log("h")
+                console.log("hlo")
             }
             return data
         }, data)

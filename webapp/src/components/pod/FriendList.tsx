@@ -12,24 +12,27 @@ function FriendList(){
 
     useEffect(() => {
         async function loadPersonData() {
-            const data = webId !== undefined ? await findPersonData(webId) : undefined
-            if(data){
-                setPersonData(data)
+            if (webId !== undefined) {
+                const data = await findPersonData(session,webId)
+                if(data){
+                    setPersonData(data)
+                }
             }
         }
-        loadPersonData()
-
         async function fetchFriends() {
-            const names = await Promise.all(
-                personData.friends.map((friend) => findPersonData(friend))
-            );
-            setFriendList(names);
-
+            if (personData.friends.length > 0) {
+                const names = await Promise.all(
+                    personData.friends.map((friend) => findPersonData(session,friend))
+                );
+                setFriendList(names);
+            }
         }
+
+        loadPersonData()
         fetchFriends();
 
 
-    }, [webId,session])
+    }, [webId,session,personData.friends])
 
     function getMarkers(id:string){
         (document.getElementById(id) as HTMLImageElement).src = botonVerde;
