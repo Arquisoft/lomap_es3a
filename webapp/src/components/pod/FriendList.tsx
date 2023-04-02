@@ -3,6 +3,10 @@ import {useSession} from "@inrupt/solid-ui-react";
 import {findPersonData, PersonData} from "./FriendsPOD";
 import botonRojo from "../../img/botonRojo.png";
 import botonVerde from "../../img/botonVerde.png";
+import {Session} from "@inrupt/solid-client-authn-browser";
+import * as solid from '@inrupt/solid-client';
+import {SessionInfo} from "@inrupt/solid-ui-react/dist/src/hooks/useSession";
+
 
 function FriendList(){
     const { session } = useSession();
@@ -37,6 +41,31 @@ function FriendList(){
 
     function getMarkers(id:string){
         (document.getElementById(id) as HTMLImageElement).src = botonVerde;
+
+    }
+
+    async function friendsAclPermission(webId:string,session:Session) {
+        let url = webId.replace("profile/card#me","");
+        let urlContainer = url+"private/locations.json";
+
+        try {
+            let file = await solid.getFile(
+                url,
+                { fetch: session.fetch }
+            );
+
+            let resourceAcl = solid.createAcl(file);
+
+            const updatedAcl = solid.setAgentResourceAccess(
+                resourceAcl,
+                personData.friends[1],
+                { read: true, append: false, write: false, control: false }
+            );
+
+            await solid.saveAclFor(file, updatedAcl, { fetch: session.fetch });
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     return(

@@ -7,7 +7,6 @@ import {
     SolidDataset,
 } from '@inrupt/solid-client'
 import { foaf, vcard, owl, rdfs } from 'rdf-namespaces'
-import { RateLimiter } from 'limiter'
 import {Session} from "@inrupt/solid-client-authn-browser";
 
 
@@ -16,10 +15,6 @@ export interface PersonData {
     name: string
     friends: IriString[]
 }
-
-
-
-
 
 const findFullPersonProfile = async (
     webId: IriString,
