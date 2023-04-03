@@ -44,29 +44,29 @@ function FriendList(){
 
     }
 
-    async function friendsAclPermission(webId:string,session:Session) {
-        let url = webId.replace("profile/card#me","");
-        let urlContainer = url+"private/locations.json";
-
-        try {
-            let file = await solid.getFile(
-                url,
-                { fetch: session.fetch }
-            );
-
-            let resourceAcl = solid.createAcl(file);
-
-            const updatedAcl = solid.setAgentResourceAccess(
-                resourceAcl,
-                personData.friends[1],
-                { read: true, append: false, write: false, control: false }
-            );
-
-            await solid.saveAclFor(file, updatedAcl, { fetch: session.fetch });
-        } catch (error) {
-            console.log(error);
-        }
-    }
+    // async function friendsAclPermission(webId:string,session:Session) {
+    //     let url = webId.replace("profile/card#me","");
+    //     let urlContainer = url+"private/locations.json";
+    //
+    //     try {
+    //         let file = await solid.getFile(
+    //             url,
+    //             { fetch: session.fetch }
+    //         );
+    //
+    //         let resourceAcl = solid.createAcl(file);
+    //
+    //         const updatedAcl = solid.setAgentResourceAccess(
+    //             resourceAcl,
+    //             personData.friends[1],
+    //             { read: true, append: false, write: false, control: false }
+    //         );
+    //
+    //         await solid.saveAclFor(file, updatedAcl, { fetch: session.fetch });
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
 
     return(
         <div id="friends" >
