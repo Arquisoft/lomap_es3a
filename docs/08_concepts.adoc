@@ -22,7 +22,7 @@ image::MapViewAddMarker.png[Map View Add Marker]
 image::MapViewShowMarker.png[Map View Show Marker]
 
 === Domain model 
-[plantuml, "DomainModel", png] 
+[plantuml, "domainmodel", png] 
 ---- 
 object User{ 
     webId : String 

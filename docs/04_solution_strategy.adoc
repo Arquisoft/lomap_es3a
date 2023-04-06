@@ -8,8 +8,6 @@
  
 In order to develop the application and satisfy the constraints we decided to use the following technologies: 
  
-* *_MongoDB_*: we have chosen to use _MongoDB_ because it is open-source software, and it is a _NoSQL_ database that gives us the possibility to work with a lot of different data without spending too much time modeling these elements. Also _Mongoose_ for simplifying everything up. 
- 
 * *_SOLID Specification_*: using _PODs_ the users can store information in a decentralized and private way. 
  
 * *_ReactJS_*: is a _JavaScript_ library for creating UIs for web applications that facilitates the creation of graphical interfaces 
@@ -27,7 +25,7 @@ In order to develop the application and satisfy the constraints we decided to us
 ==== IDE 
  
 Our choice is *_WebStorm_* mainly because it is available for many platforms such as _Windows_, _MacOS_ or _Linux_ and via _plug-ins_ it supports many programming languages and can be easily enhanced. _Git_ is a built-in feature included for _version control_.
-Firstly, we have chosen IntelliJ, also from JetBrains, but after knowing we would be installing plugins for its use, we decided to go for WebStorm.
+Firstly, we had chosen _IntelliJ_, also from JetBrains, but after knowing we would be installing plugins for its use, we decided to go for WebStorm.
  
 ==== Diagramming tools 
  
