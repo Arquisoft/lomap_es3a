@@ -50,9 +50,9 @@ We are using _PlantUML_ and _draw.io_ for creating the diagrams of the documenta
 | The architecture of the application must allow adding new functionalities or modifying the existing ones making as few changes as possible.  
 | We will implement design patterns and follow code conventions in order to achieve a clean code. More in more, we will write code with tests in mind. 
  
-| *_Performance_*  
-| The application must assure maximum speed responding to user interactions, minimizing loading times. 
-| We will improve performance by using design patterns, applying design principles and using up-to-date technologies that offer good performance  
+| *_Escalability_*  
+| The application must follow a correct design, so that changes are easy to implement throughout the life of the project.
+| We will create separate components, one for each functionality, in order to not repeat much code and its easier to know how the app is distributed.
 |=== 
  
 === Organizational decisions 

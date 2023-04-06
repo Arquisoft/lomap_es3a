@@ -53,8 +53,8 @@ It is also possible to obtain more information through the following https://arq
 | The architecture of the application must allow adding new functionalities or modifying the existing ones making as few changes as possible. 
 
 | *4*
-| *_Performance_*
-| The application must assure maximum speed responding to user interactions, minimizing loading times. 
+| *_Escalability_*
+| The application must be adaptable and responsive with respect to performance as the number of users of the application increases.
 
 | *5*
 | *_Testability_*
