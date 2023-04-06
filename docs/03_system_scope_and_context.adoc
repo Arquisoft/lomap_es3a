@@ -40,6 +40,36 @@ component "OpenStreetMaps" as Map
 
 === Technical Context  
 
+[plantuml, "technicalcontext", png]
+----
+Actor User as user
+
+node device as "Device" {
+    component pc as "PC"
+    component mobile as "Mobile"
+    component tablet as "Tablet"
+    component more as "More..."
+}
+
+component browser as "Web Browser"
+
+node cloud as "AzureCloud"{    
+    node webapp as "WebApp" {
+        component views as "Views"
+        component api as "OpenStreetMap"
+    }
+}
+
+database POD
+
+user -down..> webapp: interacts
+user -right-> device: uses
+device -down-> browser: connects to
+browser -left-> cloud: requests (HTTPS)
+webapp <-down-> POD: accesses
+views -right-> api: gets services from
+----
+
 The main objective of the application is the private treatment of user data. We will achieve this objective by using PODs to keep user data private and decentralized. 
 
 In SOLID architecture we can define a POD as a Personal Online Data Store. The user can have there any information he/she wants and can be hosted anywhere.  
