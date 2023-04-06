@@ -608,7 +608,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>1</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Privacy</em></strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The system must keep the privacy of the user. Following the characteristics of the SOLID project, the information stored in the database and displayed will always be authorized by the client. In the case of having to store information centrally, it will be done ensuring the user&#8217;s privacy.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The system must keep the privacy of the user. Following the characteristics of the SOLID project, all user information will be stored in him/her POD, so it won&#8217;t have any vulnerability caused by having data stored in a database.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>2</strong></p></td>
@@ -808,7 +808,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_business_context">3.1. Business Context</h3>
 <div class="imageblock">
 <div class="content">
-<img src="./images/ContextDiagramComponent.png" alt="ContextDiagramComponent" width="528" height="476">
+<img src="./images/businesscontext.png" alt="businesscontext" width="339" height="465">
 </div>
 </div>
 <table class="tableblock frame-all grid-all stretch">
@@ -839,16 +839,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>WebApp</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The user will be able to add markers and to access the information about their markers.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The information that provides to the user logged like the added markers and their details.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>RestApi</em></strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">From the app, the api will receive requests to get information stored in the database and the database will return the result of performing queries.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The api will send queries to the database and convert the response received in order to send back the information in a proper way for the WebApp.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Database</em></strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The POD will have most of the information so we will not store it, but we will store other information.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">It will return the result of the queries received.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>OpenStreetMaps</em></strong></p></td>
@@ -916,9 +906,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist">
 <ul>
 <li>
-<p><strong><em>MongoDB</em></strong>: we have chosen to use <em>MongoDB</em> because it is open-source software, and it is a <em>NoSQL</em> database that gives us the possibility to work with a lot of different data without spending too much time modeling these elements. Also <em>Mongoose</em> for simplifying everything up.</p>
-</li>
-<li>
 <p><strong><em>SOLID Specification</em></strong>: using <em>PODs</em> the users can store information in a decentralized and private way.</p>
 </li>
 <li>
@@ -946,7 +933,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h4 id="_ide">4.2.1. IDE</h4>
 <div class="paragraph">
 <p>Our choice is <strong><em>WebStorm</em></strong> mainly because it is available for many platforms such as <em>Windows</em>, <em>MacOS</em> or <em>Linux</em> and via <em>plug-ins</em> it supports many programming languages and can be easily enhanced. <em>Git</em> is a built-in feature included for <em>version control</em>.
-Firstly, we have chosen IntelliJ, also from JetBrains, but after knowing we would be installing plugins for its use, we decided to go for WebStorm.</p>
+Firstly, we had chosen <em>IntelliJ</em>, also from JetBrains, but after knowing we would be installing plugins for its use, we decided to go for WebStorm.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1024,7 +1011,7 @@ Firstly, we have chosen IntelliJ, also from JetBrains, but after knowing we woul
 <h3 id="_level_1_whitebox_of_the_overall_system">5.1. Level 1: Whitebox of the Overall System</h3>
 <div class="imageblock">
 <div class="content">
-<img src="./images/level1.png" alt="level1" width="454" height="87">
+<img src="./images/level1.png" alt="level1" width="457" height="87">
 </div>
 </div>
 <div class="sect3">
@@ -1096,11 +1083,7 @@ Firstly, we have chosen IntelliJ, also from JetBrains, but after knowing we woul
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Data Access</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The layer that will provide and request information from and to the <em>PODs</em> and the <em>Database</em>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>MongoDB</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Database</em> used to store the minimum data as possible from the users. We especially use this database to store the id of the users in order to link their profile with the personal POD.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The layer that will provide and request information from and to the <em>PODs</em>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1196,35 +1179,37 @@ Firstly, we have chosen IntelliJ, also from JetBrains, but after knowing we woul
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="./images/Sequence%20diagram%20-%20Login.png" alt="Sequence diagram   Login" width="618" height="482">
+<img src="./images/sequencediagram-login.png" alt="sequencediagram login" width="592" height="508">
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_list_friends">6.2. List friends</h3>
-<div class="literalblock">
-<div class="content">
-<pre>In this view he can do the CRUD operations:</pre>
-</div>
-</div>
 <div class="paragraph">
+<p>In this view he can do the CRUD operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
 <p>The users enter the app and go to the friend&#8217;s view.</p>
-</div>
-<div class="paragraph">
+</li>
+<li>
 <p>The client receives the request and sends the server for the friends list.</p>
-</div>
-<div class="paragraph">
+</li>
+<li>
 <p>The server asks the POD for the friends.</p>
-</div>
-<div class="paragraph">
-<p>The POD return the list to the client</p>
-</div>
-<div class="paragraph">
+</li>
+<li>
+<p>The POD return the list to the client.</p>
+</li>
+<li>
 <p>The client receives the list and shows it to the user.</p>
+</li>
+</ul>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="./images/Sequence%20diagram%20-%20Nearby%20friends.png" alt="Sequence diagram   Nearby friends" width="488" height="365">
+<img src="./images/sequencediagram-nearbyfriends.png" alt="sequencediagram nearbyfriends" width="488" height="365">
 </div>
 </div>
 </div>
@@ -1238,7 +1223,7 @@ Firstly, we have chosen IntelliJ, also from JetBrains, but after knowing we woul
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="./images/Sequence%20diagram%20-%20Saving%20Locations%20-%20mobileapp.png" alt="Sequence diagram   Saving Locations   mobileapp" width="467" height="378">
+<img src="./images/sequencediagram-savinglocations.png" alt="sequencediagram savinglocations" width="467" height="378">
 </div>
 </div>
 </div>
@@ -1249,7 +1234,7 @@ Firstly, we have chosen IntelliJ, also from JetBrains, but after knowing we woul
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="./images/Sequence%20diagram%20-%20Editing%20Saved%20Locations.png" alt="Sequence diagram   Editing Saved Locations" width="612" height="422">
+<img src="./images/sequencediagram-editingsavedlocations.png" alt="sequencediagram editingsavedlocations" width="612" height="422">
 </div>
 </div>
 <div style="page-break-after: always;"></div>
@@ -1263,7 +1248,7 @@ Firstly, we have chosen IntelliJ, also from JetBrains, but after knowing we woul
 <h3 id="_infrastructure_level_1">7.1. Infrastructure Level 1</h3>
 <div class="imageblock">
 <div class="content">
-<img src="./images/07_DeploymentView.png" alt="07 DeploymentView" width="512" height="704">
+<img src="./images/infrastructure-level1.png" alt="infrastructure level1" width="396" height="539">
 </div>
 </div>
 <div class="sect3">
@@ -1295,14 +1280,6 @@ Firstly, we have chosen IntelliJ, also from JetBrains, but after knowing we woul
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>WebApp</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The frontend of our application. It will be rendered by a web browser which will be executed ont the user&#8217;s device.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>RestAPI</em></strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The back-end of our application. It will run on the Azure server.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>MongoDB</em></strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Database chosen for the application</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>POD Provider</em></strong></p></td>
@@ -1372,7 +1349,7 @@ Firstly, we have chosen IntelliJ, also from JetBrains, but after knowing we woul
 <h3 id="_domain_model">8.2. Domain model</h3>
 <div class="imageblock">
 <div class="content">
-<img src="./images/DomainModel.png" alt="DomainModel" width="311" height="361">
+<img src="./images/domainmodel.png" alt="domainmodel" width="311" height="361">
 </div>
 </div>
 </div>
@@ -1428,12 +1405,6 @@ Firstly, we have chosen IntelliJ, also from JetBrains, but after knowing we woul
 <td class="tableblock halign-left valign-top"><p class="tableblock">Utilizing a framework can greatly reduce the time and effort dedicated to coding and design. The challenge lies in learning how to use the framework and understanding its capabilities.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>React</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">We chose React due to its high compatibility with the SOLID project, its alignment with agile methodologies, and its ease of developing graphical interfaces using a single window with dynamic fragments.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Database</em></strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The choice of database is important for storing data, and the decision must be made at the start of development to determine whether to use a database to store messages or to use the POD directly.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>MongoDB</em></strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">We&#8217;ll be using due to the fact of it being a NoSQL language, so we have recently learnt it from other subjects, another reason is that after investigating the projects of other years and talking to several of its developers, we came to the conclusion that it can be a great option to consider, which we took advantage of.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Architectural Model</em></strong></p></td>
@@ -1571,10 +1542,6 @@ Firstly, we have chosen IntelliJ, also from JetBrains, but after knowing we woul
 <td class="tableblock halign-left valign-top"><p class="tableblock">If a user takes down their POD, any other users who had conversations with that user would lose half the conversation as information is decentralized and stored in each POD.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">If a POD becomes temporarily inaccessible due to server issues or faulty connections, users can only see their part of the conversation with the affected POD&#8217;s user.</p></td>
 </tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">As communication is done via REST API, they could be intercepted and modified as there is no verification system in place for PODs, which is a current error with Solid.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Using the SOLID methodology can lead to technical debts and other problems associated with decentralized data management. However, implementing a thorough testing process and staying up-to-date with the latest SOLID developments may help mitigate these issues.</p></td>
-</tr>
 </tbody>
 </table>
 <div style="page-break-after: always;"></div>
@@ -1620,10 +1587,6 @@ Firstly, we have chosen IntelliJ, also from JetBrains, but after knowing we woul
 <td class="tableblock halign-left valign-top"><p class="tableblock">Process by which activities regarding planning and decision making are distributed or delegated away from a central, authoritative location or group.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>MongoDB</em></strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A document database with a flexible schema.</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>POD</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Secure personal web servers for storing data.</p></td>
 </tr>
@@ -1638,10 +1601,6 @@ Firstly, we have chosen IntelliJ, also from JetBrains, but after knowing we woul
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Node</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">An asynchronous event-driven JavaScript runtime, Node.js is designed to build scalable network applications</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>RestAPI</em></strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Architectural style for an application program interface that uses <em>HTTP</em> requests to access and use data.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>SOLID Specification</em></strong></p></td>
