@@ -622,8 +622,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>4</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Performance</em></strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The application must assure maximum speed responding to user interactions, minimizing loading times.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Escalability</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The application must be adaptable and responsive with respect to performance as the number of users of the application increases.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>5</strong></p></td>
@@ -975,9 +975,9 @@ Firstly, we had chosen <em>IntelliJ</em>, also from JetBrains, but after knowing
 <td class="tableblock halign-left valign-top"><p class="tableblock">We will implement design patterns and follow code conventions in order to achieve a clean code. More in more, we will write code with tests in mind.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Performance</em></strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The application must assure maximum speed responding to user interactions, minimizing loading times.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">We will improve performance by using design patterns, applying design principles and using up-to-date technologies that offer good performance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Escalability</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The application must follow a correct design, so that changes are easy to implement throughout the life of the project.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">We will create separate components, one for each functionality, in order to not repeat much code and its easier to know how the app is distributed.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1440,7 +1440,7 @@ Firstly, we had chosen <em>IntelliJ</em>, also from JetBrains, but after knowing
 <h3 id="_quality_tree">10.1. Quality Tree</h3>
 <div class="imageblock">
 <div class="content">
-<img src="./images/Quality%20tree.png" alt="Quality tree" width="728" height="148">
+<img src="./images/qualitytree.png" alt="qualitytree" width="715" height="148">
 </div>
 </div>
 </div>
@@ -1457,33 +1457,53 @@ Firstly, we had chosen <em>IntelliJ</em>, also from JetBrains, but after knowing
 <div class="paragraph">
 <p>Usage scenarios, also known as application or use case scenarios, describe how the system should react at runtime in response to a particular stimulus. These scenarios can also include descriptions of the system&#8217;s efficiency or performance. An example of a usage scenario for the map service is:</p>
 </div>
+<div class="sect4">
+<h5 id="_privacy">Privacy</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 100%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong><em>Scenario</em></strong></th>
+<th class="tableblock halign-left valign-top"><strong><em>Stimulus</em></strong></th>
+<th class="tableblock halign-left valign-top"><strong><em>Response</em></strong></th>
+</tr>
+</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Scenario</em></strong></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">User Request for Location Information</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Stimulus</em></strong></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A user requests location information for a specific place on the map</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Response</em></strong></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The system displays the requested location information within one second of the user&#8217;s request.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User logs into the app and adds personal information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A user adds information that he only wants to be shown to himself.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The system adds that info into the private area of the user&#8217;s POD (so no one can see it).</p></td>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>Other examples of usage scenarios for the map service could include a user adding a marker to the map or a user searching for a specific location.</p>
+</div>
+<div class="sect4">
+<h5 id="_usability">Usability</h5>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong><em>Scenario</em></strong></th>
+<th class="tableblock halign-left valign-top"><strong><em>Stimulus</em></strong></th>
+<th class="tableblock halign-left valign-top"><strong><em>Response</em></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User finds the application easy to use, so his experience with the app is faster.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A user is satisfied with how the app is designed.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The system is correctly designed for a large number of users.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect3">
@@ -1491,38 +1511,79 @@ Firstly, we had chosen <em>IntelliJ</em>, also from JetBrains, but after knowing
 <div class="paragraph">
 <p>Change scenarios describe modifications to the system or its environment that could impact its quality attributes. For example, if additional functionality is implemented or there is a change in quality requirements, the system may need to be modified. An example of a change scenario for the map service is:</p>
 </div>
+<div class="sect4">
+<h5 id="_maintainability">Maintainability</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 100%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong><em>Scenario</em></strong></th>
+<th class="tableblock halign-left valign-top"><strong><em>Stimulus</em></strong></th>
+<th class="tableblock halign-left valign-top"><strong><em>Response</em></strong></th>
+</tr>
+</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Scenario</em></strong></p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Additional Functionality is Implemented</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Stimulus</em></strong></p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The system is updated to include additional functionality, such as the ability to filter markers by category</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Response</em></strong></p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The system adds the new functionality and displays the filtered results within five seconds of the user&#8217;s request.</p></td>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>Other examples of change scenarios for the map service could include a requirement for improved performance due to increased traffic or changes to the user interface.</p>
 </div>
-<div class="paragraph">
-<p>By describing quality requirements in terms of specific scenarios, architects can more easily evaluate whether these requirements are being met and make informed decisions about how to improve the system.</p>
+<div class="sect4">
+<h5 id="_escalability">Escalability</h5>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong><em>Scenario</em></strong></th>
+<th class="tableblock halign-left valign-top"><strong><em>Stimulus</em></strong></th>
+<th class="tableblock halign-left valign-top"><strong><em>Response</em></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">While the app is being used by users, something needs to be changed/upgraded.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The system is correctly designed, so its easier to add that modification.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The modification is implemented fast without problems, the users can now see that change and there hasn&#8217;t been any difficulties.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
+<div class="sect4">
+<h5 id="_testability_2">Testability</h5>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong><em>Scenario</em></strong></th>
+<th class="tableblock halign-left valign-top"><strong><em>Stimulus</em></strong></th>
+<th class="tableblock halign-left valign-top"><strong><em>Response</em></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A functionality is not working properly.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tests are required to check the correct implementation.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The developers implement tests, in order to detect why the app was failing, so that funcionality is fixed as soon as possible.</p></td>
+</tr>
+</tbody>
+</table>
 <div style="page-break-after: always;"></div>
+</div>
 </div>
 </div>
 </div>
