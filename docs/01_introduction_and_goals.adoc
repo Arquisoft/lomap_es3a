@@ -42,7 +42,7 @@ It is also possible to obtain more information through the following https://arq
 
 | *1*
 | *_Privacy_*
-| The system must keep the privacy of the user. Following the characteristics of the SOLID project, the information stored in the database and displayed will always be authorized by the client. In the case of having to store information centrally, it will be done ensuring the user's privacy. 
+| The system must keep the privacy of the user. Following the characteristics of the SOLID project, all user information will be stored in him/her POD, so it won't have any vulnerability caused by having data stored in a database.
 
 | *2*
 | *_Usability_*

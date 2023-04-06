@@ -10,78 +10,47 @@ Then the app does a login request to the REST API server, which redirects the us
 
 Once the user successfully logs in, the identity provider gives the server the session information needed to interact with the user Pod, and the server sends the session ID to the web app, which can be used to identify the session in later REST API requests. Lastly, the web app shows the main view. 
 
-[plantuml,"Sequence diagram - Login",png] 
+[plantuml,"sequencediagram-login",png] 
 
 ---- 
-
-actor User as User 
-
+actor User as U
 participant "Web App" as W 
-
-participant "REST API Server" as R 
-
-participant "Solid Identity Provider" as P 
-  
-
+participant "SOLID Identity Provider" as P 
 activate W 
-
 W -> W: Show Login View 
-
 U -> W: Chooses Solid Identity Provider 
-
-W -> R: Requests login 
-
+W -> P: Requests login 
 deactivate W 
-
-activate R 
-
-R -> P: Redirects to the provider login form 
-
-deactivate R 
-
 activate P 
-
+P -> P: Redirects to the provider login form 
 P --> U: Asks for credentials 
-
+deactivate P
 activate U 
-
 U -> P: Logs in 
-
 deactivate U 
-
-P --> R: Provides session information 
-
-deactivate P 
-
-activate R 
-
-R --> W: Provides session ID 
-
+activate P
+P --> P: Provides session information 
+P --> W: Provides session ID 
+deactivate P
 activate W 
-
-W -> W: Show Main View 
-
+W -> W: Show Main View
+deactivate P
 ----  
 
 === List friends 
 
- In this view he can do the CRUD operations: 
+In this view he can do the CRUD operations: 
 
-The users enter the app and go to the friend's view. 
-
-The client receives the request and sends the server for the friends list. 
-
-The server asks the POD for the friends. 
-
-The POD return the list to the client 
-
-The client receives the list and shows it to the user. 
+* The users enter the app and go to the friend's view. 
+* The client receives the request and sends the server for the friends list. 
+* The server asks the POD for the friends. 
+* The POD return the list to the client.
+* The client receives the list and shows it to the user. 
 
  
-[plantuml,"Sequence diagram - Nearby friends",png] 
+[plantuml,"sequencediagram-nearbyfriends",png] 
 
 ---- 
-
 actor User 
 participant Client 
 participant "Web App" as W  
@@ -92,7 +61,6 @@ W --> Pod: Search for the list
 W <-- Pod: Return the list 
 Client <-- W: Return the list of friends 
 User <- Client: Return the list view 
-
 ----   
 
 === Add Location   
@@ -101,42 +69,35 @@ Saved locations can later be viewed by the user and his friends through the web 
 
 The user can add a location to their map.   
 
-[plantuml,"Sequence diagram - Saving Locations - mobileapp",png] 
+[plantuml,"sequencediagram-savinglocations",png] 
 
 ---- 
-
 actor User 
 participant "Web App" as W  
-database Pod as "Pod" 
- 
+database Pod as "Pod"  
 User-> W: User click the map to add a new marker 
 W ->Pod: Ask locations JSON 
 Pod-> W: Return locations JSON 
 W -> W: Add the new location 
 W ->Pod: Sends the new JSON 
 W ->User: Show the map with the new location. 
-
 ----  
 
 === Remove Location 
 
 Locations added to the map later be removed by the user through the application.  
 
-[plantuml,"Sequence diagram - Editing Saved Locations",png] 
+[plantuml,"sequencediagram-editingsavedlocations",png] 
 
 ---- 
-
 actor User 
 participant "Web App" as W   
-database Pod as "Pod" 
- 
+database Pod as "Pod"  
 User-> W: User click the map in one mark location 
-
 W -> W: Using the location ID the app knows the JSON file 
 W ->Pod: Ask locations JSON 
 Pod-> W: Return locations JSON 
 W -> W: Remove certain location 
 W ->Pod: Sends the new JSON 
 W ->User: Show the map with the new location. 
-
 ---- 

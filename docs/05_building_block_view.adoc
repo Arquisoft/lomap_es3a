@@ -7,19 +7,12 @@
 [plantuml, "level1", png]
 
 ---- 
-
 Actor User 
-
-Component GoMap 
-
+Component GOMap
 Component pod as "Pod's service" 
-
-User -right-> GoMap: interacts with 
-
-GoMap -right-> pod: gets data
-
-pod -right..> GoMap
-
+User -right-> GOMap: interacts with 
+GOMap -right-> pod: gets data
+pod -right..> GOMap
 ----   
 
 ==== Motivation
@@ -41,6 +34,7 @@ pod -right..> GoMap
 
 | *_PODs service_* 
 | Has the aim to access each user's personal POD. 
+
 |=== 
 
 === Level 2 
@@ -48,35 +42,21 @@ pod -right..> GoMap
 [plantuml, "level2", png] 
 
 ---- 
-
 Actor User 
-
-Component GoMap { 
-
+Component GOMap { 
     Component ui as "User Interface" 
-
     Component da as "Data Access" 
-
     Database db as "MongoDB" 
-
 } 
 
 Component pod as "Pod's service" 
-
 User-right-> ui 
-
 ui -right-> da: data 
-
 da -left..> ui
-
 da --> db: data flow 
-
 db -left..> da
-
 da --> pod: get address 
-
 pod -left..> da
-
 ---- 
 
 ==== Motivation
@@ -93,10 +73,7 @@ Shows how the application will work internally in general terms. The client, thr
 |The user will interact with this UI to request any information about the map. This means the user will be able to perform any task in our system through this. 
 
 |*Data Access* 
-|The layer that will provide and request information from and to the _PODs_ and the _Database_. 
-
-|*MongoDB*  
-|_Database_ used to store the minimum data as possible from the users. We especially use this database to store the id of the users in order to link their profile with the personal POD. 
+|The layer that will provide and request information from and to the _PODs_. 
 
 |=== 
 
@@ -105,73 +82,39 @@ Shows how the application will work internally in general terms. The client, thr
 [plantuml, "level3", png] 
 
 ---- 
-
 Actor User   
-
 Component Interface{ 
-
     Component vi as "Views"{ 
-
-       Component ho as "Home" 
-
+       Component ho as "Home"
        Component marker as "Marker" 
-
        Component mm as "Markers" 
-
        Component map as "Map" 
-
        Component lo as "Sign in" 
-
        Component re as "Sign up" 
-
-       Component out as "Log out"        
-
+       Component out as "Log out"
        Component rw as "Review" 
-
     }     
-
 }   
 
 Component DataAccess{ 
-
        Component sol as "Solid" 
-
        Component res as "RestApi" 
-
        Component le as "Locations Api" 
-
 }   
 
 Component pod as "Pod's service" 
-
 Database db as "MongoDB" 
-
 User -right->Interface: interacts 
-
-
 re -right-> sol 
-
-rw -down-> sol 
-  
-
+rw -down-> sol   
 re-right->res 
-
-map-right->res 
-
+map-right->res
 lo-right->res 
-
 marker-right->res 
-
-my-right->res 
-   
-
+my-right->res    
 rw -down->le 
-  
-
 sol <-down-> pod:acceses 
-
 res <-down-> db:data 
-
 ---- 
   
 
