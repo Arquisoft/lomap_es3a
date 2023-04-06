@@ -15,6 +15,12 @@ image::MapView.png[Map View]
 ===== Options
 image::MapViewWithOptions.png[Map View with Options]
 
+===== Add Marker
+image::MapViewAddMarker.png[Map View Add Marker]
+
+===== Show Marker
+image::MapViewShowMarker.png[Map View Show Marker]
+
 === Domain model 
 [plantuml, "DomainModel", png] 
 ---- 
