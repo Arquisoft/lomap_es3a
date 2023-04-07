@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="fffab244-483c-4868-ab28-0ebb24c4f06b" name="Changes" comment="20/03/2023 - David - Creado test para DeveloperTeam.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/components/navigation/NavBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/navigation/NavBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/components/map/MarkerPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/map/MarkerPanel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/components/map/options/Score.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/map/options/Score.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/css/map.css" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/css/map.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +50,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "F:\\Ingenieria Informatica\\Tercero\\Segundo_Semestre\\Arquitectura del Software\\Practicas\\Proyecto\\lomap_es3a\\webapp\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "C:\\Users\\Aladino España\\WebstormProjects\\lomap_es3a\\webapp\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
