@@ -57,8 +57,7 @@ participant "Web App" as W
 database Pod as "Pod" 
 User -> Client: Request friend’s view 
 Client --> W: Request friend’s list 
-W --> Pod: Search for the list 
-W <-- Pod: Return the list 
+W <--> Pod: Search for the list : friendsList
 Client <-- W: Return the list of friends 
 User <- Client: Return the list view 
 ----   
@@ -76,8 +75,7 @@ actor User
 participant "Web App" as W  
 database Pod as "Pod"  
 User-> W: User click the map to add a new marker 
-W ->Pod: Ask locations JSON 
-Pod-> W: Return locations JSON 
+W <--> Pod: Ask locations JSON : locations
 W -> W: Add the new location 
 W ->Pod: Sends the new JSON 
 W ->User: Show the map with the new location. 
@@ -95,8 +93,7 @@ participant "Web App" as W
 database Pod as "Pod"  
 User-> W: User click the map in one mark location 
 W -> W: Using the location ID the app knows the JSON file 
-W ->Pod: Ask locations JSON 
-Pod-> W: Return locations JSON 
+W <-->Pod: Ask locations JSON : locations
 W -> W: Remove certain location 
 W ->Pod: Sends the new JSON 
 W ->User: Show the map with the new location. 
