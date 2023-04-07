@@ -4,6 +4,8 @@ import {Button} from "@mui/material";
 import React, {useState} from "react";
 import {Session} from "@inrupt/solid-client-authn-browser";
 import Notification from "../Notification";
+import {useTranslation} from "react-i18next";
+import Icon from "../../img/symbols/GOMapSymbol.png";
 
 interface ButtonAddPodType {
     idName: string;
@@ -119,18 +121,20 @@ function ButtonAddPod({
         }
     };
 
+    const { t } = useTranslation();
+
     return (
 
         <div id="addPanel">
             <Button variant="contained" color="primary" onClick={handleClick}>
-                Add Marker
+                {t("confirm")}
             </Button>
             {showNotification && (
                 <Notification
-                    title="Marker"
-                    message="You added you marker correctly!"
-                    time="Just Now"
-                    icon="https://www.lineex.es/wp-content/uploads/2016/06/map-map-marker-icon.png"
+                    title={t("notification_marker_added")}
+                    message={t("notification_message_marker")}
+                    time={t("notification_time")}
+                    icon={Icon}
                     onClose={handleCloseNotification}
                 />
             )}

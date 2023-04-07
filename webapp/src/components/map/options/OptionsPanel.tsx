@@ -2,8 +2,12 @@ import DeveloperTeam from "./DeveloperTeam";
 import Filter from "./Filter";
 import Slider from "./Slider";
 import Search from "./Search";
+import {useTranslation} from "react-i18next";
+import React from "react";
 
 function OptionsPanel() {
+
+    const { t } = useTranslation();
 
     function displayMenu() {
         const optionsMenu = document.getElementById("optionsMenu");
@@ -29,14 +33,29 @@ function OptionsPanel() {
         }
     }
 
+    const categories = {
+        bars: t('bars'),
+        restaurants: t('restaurants'),
+        shops: t('shops'),
+        supermarkets: t('supermarkets'),
+        hotels: t('hotels'),
+        cinemas: t('cinemas'),
+        academic_institution: t('academic_institution'),
+        public_institution: t('public_institution'),
+        sports_club: t('sports_club'),
+        museum: t('museum'),
+        parks: t('parks'),
+        others: t('others'),
+    };
+
     return (
         <div id="optionsMenu">
             <h1>Options Menu</h1>
-            <input type="button" id="optionsButton" value="⚙️" onClick={displayMenu}/>
-            <Search/>
-            <Filter title={"Category"} options={["Bars", "Restaurants", "Shops", "Supermarkets", "Cinemas"]}/>
-            <Slider title={"Marks"} min={0} max={5}/>
-            <DeveloperTeam/>
+            <input type="button" id="optionsButton" value="☰️" onClick={displayMenu}/>
+            <Search title={t("search")}/>
+            <Filter title={t("category")}
+                    options={Object.values(Object.entries(categories).map(([value, label]) => label))}/>
+            <Slider title={t("mark")} min={0} max={5}/>
         </div>
     )
 }

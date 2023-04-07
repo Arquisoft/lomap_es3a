@@ -1,6 +1,5 @@
 import "../../css/map.css"
 import MapView from "./MapView"
-import FooterInfo from "../FooterInfo";
 import OptionsPanel from "./options/OptionsPanel";
 import MarkerPanel from "./MarkerPanel";
 
