@@ -12,7 +12,6 @@ function MapScreen() {
             <div id="screen">
                 <MapView/>
             </div>
-            <FooterInfo/>
         </div>
     )
 }
