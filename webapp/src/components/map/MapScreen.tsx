@@ -1,18 +1,17 @@
 import "../../css/map.css"
-import Map from "./Map"
+import MapView from "./MapView"
 import FooterInfo from "../FooterInfo";
 import OptionsPanel from "./options/OptionsPanel";
 import MarkerPanel from "./MarkerPanel";
 
 function MapScreen() {
     return (
-        <div>
+        <div id="map">
             <OptionsPanel/>
             <MarkerPanel/>
             <div id="screen">
-                <Map lat={43.3548057} lng={-5.8534646}/>
+                <MapView/>
             </div>
-            <FooterInfo/>
         </div>
     )
 }

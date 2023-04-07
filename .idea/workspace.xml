@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fffab244-483c-4868-ab28-0ebb24c4f06b" name="Changes" comment="20/03/2023 - David - Creado test para DeveloperTeam.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/components/map/MarkerPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/map/MarkerPanel.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/components/map/options/Score.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/map/options/Score.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/css/map.css" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/css/map.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/components/pod/ButtonAddPod.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/pod/ButtonAddPod.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="testing" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -42,13 +40,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="ts.external.directory.path" value="C:\Users\uo278036\WebstormProjects\lomap_es3a\webapp\node_modules\typescript\lib" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Users\\Aladino España\\WebstormProjects\\lomap_es3a\\webapp\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\David Warzynski\WebstormProjects\lomap_es3a\webapp\src\components\login" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Ingenieria Informatica\Tercero\Segundo_Semestre\Arquitectura del Software\Practicas\Proyecto\lomap_es3a\webapp\src\components" />
+      <recent name="F:\Ingenieria Informatica\Tercero\Segundo_Semestre\Arquitectura del Software\Practicas\Proyecto\lomap_es3a\webapp\src" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -67,6 +77,8 @@
       <workItem from="1678909241097" duration="107000" />
       <workItem from="1678909359197" duration="1169000" />
       <workItem from="1679299498634" duration="2118000" />
+      <workItem from="1680685882394" duration="1296000" />
+      <workItem from="1680829730064" duration="608000" />
     </task>
     <task id="LOCAL-00001" summary="12/03/2023 - David - Añadido LogIn y visualización del usuario.">
       <created>1678646791002</created>
@@ -117,21 +129,28 @@
       <option name="project" value="LOCAL" />
       <updated>1679303536312</updated>
     </task>
-    <task id="LOCAL-00008" summary="27/03/2023 - David - Arreglada creación de marcadores">
-      <created>1679902448730</created>
+    <task id="LOCAL-00008" summary="30/03/2023 - Omar - Prueba de covertura y tests">
+      <created>1680198696599</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1679902448730</updated>
+      <updated>1680198696599</updated>
     </task>
-    <task id="LOCAL-00009" summary="27/03/2023 - David - Añadido identificador único para los marcadores">
-      <created>1679935461074</created>
+    <task id="LOCAL-00009" summary="30/03/2023 - Omar - Prueba de covertura y tests 2">
+      <created>1680200074660</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1679935461074</updated>
+      <updated>1680200074660</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="30/03/2023 - Omar - Corregido bug de covertura">
+      <created>1680204521306</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1680204521306</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,7 +166,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="12/03/2023 - David - Añadido LogIn y visualización del usuario." />
@@ -156,8 +174,9 @@
     <MESSAGE value="12/03/2023 - David - Unificado login en el nav." />
     <MESSAGE value="12/03/2023 - David - Corregida sesión en las ventanas." />
     <MESSAGE value="20/03/2023 - David - Creado test para DeveloperTeam." />
-    <MESSAGE value="27/03/2023 - David - Arreglada creación de marcadores" />
-    <MESSAGE value="27/03/2023 - David - Añadido identificador único para los marcadores" />
-    <option name="LAST_COMMIT_MESSAGE" value="27/03/2023 - David - Añadido identificador único para los marcadores" />
+    <MESSAGE value="30/03/2023 - Omar - Prueba de covertura y tests" />
+    <MESSAGE value="30/03/2023 - Omar - Prueba de covertura y tests 2" />
+    <MESSAGE value="30/03/2023 - Omar - Corregido bug de covertura" />
+    <option name="LAST_COMMIT_MESSAGE" value="30/03/2023 - Omar - Corregido bug de covertura" />
   </component>
 </project>
