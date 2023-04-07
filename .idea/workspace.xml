@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fffab244-483c-4868-ab28-0ebb24c4f06b" name="Changes" comment="20/03/2023 - David - Creado test para DeveloperTeam.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/components/map/MarkerPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/map/MarkerPanel.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/components/map/options/Score.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/map/options/Score.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/css/map.css" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/css/map.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/components/pod/ButtonAddPod.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/pod/ButtonAddPod.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
