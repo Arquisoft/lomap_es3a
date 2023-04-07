@@ -168,12 +168,12 @@ i18n
                     asturian: "Asturianu",
                     login: "Se connecter",
                     logout: "Se déconnecter",
-                    register: "Pas encore inscrit ? Inscrivez-vous maintenant !",
+                    register: "Pas encore inscrit ? Inscrivez-vous maintenant!",
 
                     // Notification
                     notification_welcome: "Bienvenue sur GOMap!®",
-                    notification_message_home: "Merci d'utiliser notre site Web !",
-                    notification_time: "À l'instant !",
+                    notification_message_home: "Merci d'utiliser notre site Web!",
+                    notification_time: "À l'instant!",
 
                     notification_marker_added: "Nouveau marqueur!",
                     notification_message_marker: "Votre marqueur a été ajouté correctement!",
