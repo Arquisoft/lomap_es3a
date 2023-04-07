@@ -1,12 +1,11 @@
 import {useSession} from "@inrupt/solid-ui-react";
-import {saveFileInContainer} from "@inrupt/solid-client";
+import {getFile, overwriteFile} from "@inrupt/solid-client";
 import {Button} from "@mui/material";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Session} from "@inrupt/solid-client-authn-browser";
 import Notification from "../Notification";
-import {useTranslation} from "react-i18next";
-import Icon from "../../img/symbols/GOMapSymbol.png";
-
+import ReactDOM from "react-dom/client";
+import MapView from "../map/MapView";
 interface ButtonAddPodType {
     idName: string;
     idCategory: string;
@@ -15,7 +14,7 @@ interface ButtonAddPodType {
     idLatitude: string;
     idLongitude: string;
 }
-
+// Componente para añadir marcadores al POD
 function ButtonAddPod({
                           idName,
                           idCategory,
@@ -26,7 +25,7 @@ function ButtonAddPod({
                       }: ButtonAddPodType) {
     const {session} = useSession();
     const {webId} = session.info;
-    let webIdStore = webId?.slice(0, -15) + "private/";
+    let webIdStore = webId?.slice(0, -15) + "private/locations.json";
 
     const createMarker = async (
         nameFile: string,
@@ -35,7 +34,8 @@ function ButtonAddPod({
         idComment: string,
         idScore: string,
         idLatitude: string,
-        idLongitude: string
+        idLongitude: string,
+        fileURL: string
     ) => {
         let name = (document.getElementById(idName) as HTMLInputElement).value;
         let category = (document.getElementById(
@@ -61,36 +61,57 @@ function ButtonAddPod({
             longitude: longitude,
         };
 
-        const blob = new Blob([JSON.stringify(json, null, 2)], {
-            type: "application/json",
-        });
-
-        let file = new File([blob], nameFile, {type: blob.type});
-        return file;
+        return  await readFileFromPod(fileURL, session).then(file => {
+                if (file === "") {
+                    const blob = new Blob([JSON.stringify(json, null, 2)], {
+                        type: "application/json",
+                    });
+                    return new File([blob], nameFile, {type: blob.type});
+                } else {
+                    let fileContent = Array.from(JSON.parse(file));
+                    fileContent.push(json);
+                    const blob = new Blob([JSON.stringify(fileContent, null, 2)], {
+                        type: "application/json",
+                    });
+                    return new File([blob], nameFile, {type: blob.type});
+                }
+            }
+        );
     };
+
+    const readFileFromPod = async (fileURL: string, session: Session) => {
+        try {
+            const file = await getFile(
+                fileURL,
+                {fetch: session.fetch}
+            );
+            return file.text();
+        } catch (err) {
+            return "";
+        }
+    }
 
     const createData = async (url: string, file: File, session: Session) => {
         try {
-            await saveFileInContainer(url, file, {
-                slug: file.name,
-                contentType: file.type,
-                fetch: session.fetch,
-            });
+            let savedFile = await overwriteFile(
+                url,
+                file,
+                {contentType: file.type, fetch: session.fetch}
+            );
         } catch (error) {
             console.log(error);
         }
     };
 
-    // const handleOpenNotification = () => {
-    //     setShowNotification(true);
-    // };
+    const handleOpenNotification = () => {
+        setShowNotification(true);
+    };
 
     const handleCloseNotification = () => {
         setShowNotification(false);
     };
 
     const [showNotification, setShowNotification] = useState(false);
-
     const createNotification = () => {
         setShowNotification(true);
         setTimeout(() => {
@@ -98,18 +119,27 @@ function ButtonAddPod({
         }, 4000); // hide notification after 5 seconds
     };
 
-    const handleClick = () => {
-        createMarker(
-            "marker.json",
+    const handleClick = async () => {
+         createMarker(
+            "locations.json",
             idName,
             idCategory,
             idComment,
             idScore,
             idLatitude,
-            idLongitude
+            idLongitude,
+            webIdStore
         )
-            .then((file) => createData(webIdStore, file, session))
-            .then(createNotification);
+            .then(  (file) =>  createData(webIdStore, file, session))
+            .then(createNotification)
+             .then( ()=> {
+                 const root = ReactDOM.createRoot(document.getElementById("screen") as HTMLElement);
+                root.render(<MapView
+                    lat={ Number((document.getElementById(idLatitude) as HTMLInputElement).value)}
+                    lng={Number((document.getElementById(idLongitude) as HTMLInputElement).value)
+                }/>);
+             });
+
         let optionsMenu = document.getElementById("markersMenu");
         if (optionsMenu !== null) {
             const width = optionsMenu.style.width;
@@ -121,20 +151,18 @@ function ButtonAddPod({
         }
     };
 
-    const { t } = useTranslation();
-
     return (
 
         <div id="addPanel">
             <Button variant="contained" color="primary" onClick={handleClick}>
-                {t("confirm")}
+                Add Marker
             </Button>
             {showNotification && (
                 <Notification
-                    title={t("notification_marker_added")}
-                    message={t("notification_message_marker")}
-                    time={t("notification_time")}
-                    icon={Icon}
+                    title="Marker"
+                    message="You added you marker correctly!"
+                    time="Just Now"
+                    icon="https://www.lineex.es/wp-content/uploads/2016/06/map-map-marker-icon.png"
                     onClose={handleCloseNotification}
                 />
             )}
