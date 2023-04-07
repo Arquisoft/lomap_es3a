@@ -48,7 +48,7 @@ select, option {
     justify-content: center;
 }
 
-#searchText, #namePlace, #comment,#latitude,#longitude {
+#searchText, #namePlace, #comment, #latitude, #longitude {
     font-size: 20px;
     font-weight: lighter;
     color: white;
@@ -166,14 +166,7 @@ select, option {
     transition: 0.5s;
 }
 
-#rating{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#namePlace, #comment ,#longitude,#latitude{
+#namePlace, #comment, #longitude, #latitude {
     border-radius: 10px;
     width: 80%;
 }

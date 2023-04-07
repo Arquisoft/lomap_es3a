@@ -4,7 +4,6 @@ import NamePlace from "./options/NamePlace";
 import Comments from "./options/Comments";
 import Score from "./options/Score";
 import Coordinates from "./options/Coordinates";
-import Notification from "./Notification";
 import React from "react";
 
 function MarkerPanel() {
@@ -17,8 +16,9 @@ function MarkerPanel() {
             <Filter title={"Marker's Category:"}
                     options={["Bar", "Shop", "Restaurant", "Cinema", "Landscape", "Monument"]}/>
             <Comments title={"Put a comment about this place"}/>
-            <Score />
-            <ButtonAddPod idName={"namePlace"} idCategory={"category"} idComment={"comment"} idScore={"score"} idLatitude={"latitude"} idLongitude={"longitude"}/>
+            <Score title={"Select the score you would give this place"}/>
+            <ButtonAddPod idName={"namePlace"} idCategory={"category"} idComment={"comment"} idScore={"score"}
+                          idLatitude={"latitude"} idLongitude={"longitude"}/>
 
 
         </div>

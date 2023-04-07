@@ -14,7 +14,7 @@ function NavBar() {
 
     let {webId} = session.info;
 
-    if (webId == undefined)
+    if (webId === undefined)
         webId = "";
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -53,8 +53,9 @@ function NavBar() {
                         <NavItem to={"/map"} text={"Map"}/>
                         <NavItem to={"/help"} text={"Help"}/>
                         <NavItem to={"/about"} text={"About"}/>
+
                     </ul>
-                    <LanguageMenu />
+                    <LanguageMenu/>
                     <div className="d-flex">
                         <div id="login-manage">
                             {(!isLoggedIn) ? "" :

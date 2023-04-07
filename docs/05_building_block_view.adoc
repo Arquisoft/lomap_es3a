@@ -7,19 +7,12 @@
 [plantuml, "level1", png]
 
 ---- 
-
-Actor Israel 
-
-Component GoMap 
-
+Actor User 
+Component GOMap
 Component pod as "Pod's service" 
-
-Israel -right-> GoMap: interacts with 
-
-GoMap -right-> pod: gets data
-
-pod -right..> GoMap
-
+User -right-> GOMap: interacts with 
+GOMap -right-> pod: gets data
+pod -right..> GOMap
 ----   
 
 ==== Motivation
@@ -41,6 +34,7 @@ pod -right..> GoMap
 
 | *_PODs service_* 
 | Has the aim to access each user's personal POD. 
+
 |=== 
 
 === Level 2 
@@ -48,35 +42,21 @@ pod -right..> GoMap
 [plantuml, "level2", png] 
 
 ---- 
-
-Actor Israel 
-
-Component GoMap { 
-
+Actor User 
+Component GOMap { 
     Component ui as "User Interface" 
-
     Component da as "Data Access" 
-
     Database db as "MongoDB" 
-
 } 
 
 Component pod as "Pod's service" 
-
-Israel-right-> ui 
-
+User-right-> ui 
 ui -right-> da: data 
-
 da -left..> ui
-
 da --> db: data flow 
-
 db -left..> da
-
 da --> pod: get address 
-
 pod -left..> da
-
 ---- 
 
 ==== Motivation
@@ -93,10 +73,7 @@ Shows how the application will work internally in general terms. The client, thr
 |The user will interact with this UI to request any information about the map. This means the user will be able to perform any task in our system through this. 
 
 |*Data Access* 
-|The layer that will provide and request information from and to the _PODs_ and the _Database_. 
-
-|*MongoDB*  
-|_Database_ used to store the minimum data as possible from the users. We especially use this database to store the id of the users in order to link their profile with the personal POD. 
+|The layer that will provide and request information from and to the _PODs_. 
 
 |=== 
 
@@ -105,73 +82,47 @@ Shows how the application will work internally in general terms. The client, thr
 [plantuml, "level3", png] 
 
 ---- 
-
-Actor Israel   
-
-Component Interface{ 
-
-    Component vi as "Views"{ 
-
-       Component ho as "Home" 
-
-       Component marker as "Marker" 
-
-       Component mm as "Markers" 
-
-       Component map as "Map" 
-
-       Component lo as "Sign in" 
-
-       Component re as "Sign up" 
-
-       Component out as "Log out"        
-
-       Component rw as "Review" 
-
-    }     
-
-}   
+Actor User
+Component Webapp { 
+    Component session as "User session" {
+        Component singup as "Sign up"
+        Component login as "Log in" 
+        Component logout as "Log out"
+    }
+    Component home as "Home"
+    Component help as "Help"
+    Component about as "About"
+    Component map as "Map" {
+        Component markers as "Markers" {
+            Component marker as "Marker" {
+                Component media as "Media"
+                Component data as "Data"
+                Component review as "Review" {
+                    Component mark as "Mark"
+                    Component comment as "Comment"
+                }
+            }
+        }
+        Component options as "Options" {
+            Component filters as "Map filters"
+        }
+    }
+}
 
 Component DataAccess{ 
-
-       Component sol as "Solid" 
-
-       Component res as "RestApi" 
-
-       Component le as "Locations Api" 
-
-}   
+    Component solid as "SOLID"
+    Component provider as "Session provider"
+}
 
 Component pod as "Pod's service" 
+Component mapapi as "OpenStreetMap"
 
-Database db as "MongoDB" 
-
-Israel -right->Interface: interacts 
-
-
-re -right-> sol 
-
-rw -down-> sol 
-  
-
-re-right->res 
-
-map-right->res 
-
-lo-right->res 
-
-marker-right->res 
-
-my-right->res 
-   
-
-rw -down->le 
-  
-
-sol <-down-> pod:acceses 
-
-res <-down-> db:data 
-
+User -down-> Webapp: interacts 
+User -right-> pod: reads and writes data
+session <-up-> provider: acceses user session
+map -up-> mapapi: gets service
+markers -up-> DataAccess: gets data
+solid <-up-> pod:acceses
 ---- 
   
 
@@ -186,11 +137,20 @@ Detailed structure of the system. Focused on the components of the _User Interfa
 
 | Name | Description   
 
-| *_Views_*  
+| *_Webapp_*  
 | Sections of the application where the user is going to interact with the system. 
 
 | *_Home_* 
 | Initial screen of the application. A welcome message is going to be displayed as well as the featured products. 
+
+| *_Help_*
+| Offers help to the user, so when he's blocked, he is able to sort out any possible problems.
+
+| *_About_*
+| Adds info about the development of the project, abaout the developers, copyright issues, etc...
+
+| *_Map_* 
+| Here the user will find everything the app is designed to, from markers created by user to certain locations. 
 
 | *_Marker_* 
 | View information about a certain location in the map. Here the user will be able to add reviews and photos about that place. 
@@ -198,14 +158,14 @@ Detailed structure of the system. Focused on the components of the _User Interfa
 | *_Markers_* 
 | The user has a markers view, where he will see the markers that the user and his friends have previously created. 
 
-| *_Sign-in_* 
-| Here the user will log-in into their personal account. In case they have created one previously. 
+| *_User session_*
+| Everything related to user session, by the session provider, such as Inrupt.
 
 | *_Sign-up_* 
 | Allows the client to create a new account for the application. This process will take place only once for each user. 
 
-| *_Map_* 
-| Here the user will find everything the app is designed to, from markers created by user to certain locations. 
+| *_Log-in_* 
+| Here the user will log-in into their personal account. In case they have created one previously. 
 
 | *_Log-out_* 
 | It logs the user out from the application. 
@@ -213,6 +173,10 @@ Detailed structure of the system. Focused on the components of the _User Interfa
 | *_Review_* 
 | At this point, the user will add a review about the restaurant, bar, shop, etc associated to the marker. 
 
-| *_RestAPI_* 
-| The application resquest the _RestAPI_ for the information needed. Receiving a response from _MongoDB_. 
+| *_Mark_*
+| Mark the user gives to the place when adding a review.
+
+| *_Comment_*
+| Comment the user adds to the place when adding a review.
+
 |=== 

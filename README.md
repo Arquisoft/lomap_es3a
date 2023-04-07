@@ -56,6 +56,7 @@
 </details>
 
 ## 🖥️ Desarrolladores del proyecto:
+<img align="right" width="200" height="200" src="designs/measuring_oil.gif">
 
 |       Desarrolladores        |        UOs         |                                                       Perfiles de GitHub                                                       |
 |:----------------------------:|:------------------:|:------------------------------------------------------------------------------------------------------------------------------:|
@@ -63,6 +64,7 @@
 |    Raúl Fernández España     | UO278036@uniovi.es |   <a href="https://github.com/UO278036"><img alt="Raúl" src="https://img.shields.io/badge/UO278036-Raúl Fernández-blue"></a>   |
 |    Omar Teixeira González    | UO281847@uniovi.es |    <a href="https://github.com/Omitg24"><img alt="Omar" src="https://img.shields.io/badge/UO281847-Omar Teixeira-red"></a>     |
 | David Leszek Warzynski Abril | UO278968@uniovi.es | <a href="https://github.com/UO278968"><img alt="David" src="https://img.shields.io/badge/UO278968-David Warzynski-purple"></a> |
+
 
 ## 🗺️ Descripción del proyecto:
 
@@ -80,6 +82,7 @@ A estos marcadores se les podrá añadir diferentes características, como imág
 <p align="justify">
 La lista completa de las tecnologías empleadas, junto con sus decisiones arquitectónicas (ADR), se encuentra en el siguiente <a href="https://github.com/Arquisoft/lomap_es3a/wiki/Decisiones-Arquitectonicas">enlace</a>.
 </p>
+<img align="right" width="200" height="200" src="designs/code.gif">
 <ul>
    <li><a href="https://legacy.reactjs.org/">React</a>.</li>
    <li><a href="https://nodejs.org/en">NodeJS</a>.</li>
@@ -90,12 +93,14 @@ La lista completa de las tecnologías empleadas, junto con sus decisiones arquit
 </ul>
 
 ## 📑 Instrucciones de despliegue:
+
 <p align="justify">
    En primer lugar, se debe instalar Node (puede hacerse a través del enlace en la <a href="🛠-pila-de-tecnologías">pila de tecnologías</a>). En caso de que ya esté instalado, debe asegurarse que se tiene la última versión del mismo.
 </p>
 <p align="justify">
    Para ejecutar el proyecto, será necesario clonarlo primero, por lo que es necesario tener git (accede a través del siguiente <a href="https://git-scm.com/downloads">enlace</a>), y posteriormente, clonar este respositorio en un directorio local, ya sea descargándo el repositoio en formato <em>.zip</em> o de la siguiente manera:
 </p>
+<img align="right" width="150" height="150" src="designs/customer-service.gif">
 <ol>
    <li>Dirigirse al directorio local donde clonar el repositorio.</li>
    <li>Abrir la consola o símbolo del sistema.</li>
@@ -138,9 +143,9 @@ npm install
 npm start
 ```
 
-<footer align="left">
-   <a href="https://arquisoft.github.io/">
-      ©Arquisoft - UNIOVI
-   </a>
-   <img src="designs/footer.svg">
+<footer>
+   <p>
+        <a href="https://arquisoft.github.io/">©Arquisoft - UNIOVI</a> <img align="center" width="100" height="100" src="designs/binocularsV2.gif">
+   </p>
+  <img src="designs/footer.svg">
 </footer>
