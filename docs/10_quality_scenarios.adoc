@@ -3,18 +3,18 @@
 
 === Quality Tree
 
-[plantuml, "Quality tree", png]
+[plantuml, "qualitytree", png]
 ----
 (Software Product Quality) as (SPQ)
-(Privacy) as (PR)
+(Privacy) as (P)
 (Usability) as (U)
 (Maintainability) as (M)
-(Performance) as (PE)
+(Escalability) as (E)
 (Testability) as (T)
-SPQ --> PR
+SPQ --> P
 SPQ --> U
 SPQ --> M
-SPQ --> PE
+SPQ --> E
 SPQ --> T
 ----
 
@@ -28,34 +28,67 @@ In order to make quality requirements more concrete and measurable, it is import
 
 Usage scenarios, also known as application or use case scenarios, describe how the system should react at runtime in response to a particular stimulus. These scenarios can also include descriptions of the system's efficiency or performance. An example of a usage scenario for the map service is:
 
+
+===== Privacy
+
 |===
-| *_Scenario_* 
-| User Request for Location Information
+| *_Scenario_* | *_Stimulus_* | *_Response_*
+ 
+| User logs into the app and adds personal information.
 
-| *_Stimulus_*
-| A user requests location information for a specific place on the map
+| A user adds information that he only wants to be shown to himself.
 
-| *_Response_*
-| The system displays the requested location information within one second of the user's request.
+| The system adds that info into the private area of the user's POD (so no one can see it).
 |===
 
-Other examples of usage scenarios for the map service could include a user adding a marker to the map or a user searching for a specific location.
+===== Usability
+
+|===
+| *_Scenario_* | *_Stimulus_* | *_Response_*
+ 
+| User finds the application easy to use, so his experience with the app is faster.
+
+| A user is satisfied with how the app is designed.
+
+| The system is correctly designed for a large number of users.
+|===
 
 ==== Change Scenarios
 
 Change scenarios describe modifications to the system or its environment that could impact its quality attributes. For example, if additional functionality is implemented or there is a change in quality requirements, the system may need to be modified. An example of a change scenario for the map service is:
 
+===== Maintainability
+
 |===
-| *_Scenario_* 
+| *_Scenario_* | *_Stimulus_* | *_Response_*
+
 | Additional Functionality is Implemented
 
-| *_Stimulus_* 
 | The system is updated to include additional functionality, such as the ability to filter markers by category
 
-| *_Response_* 
 | The system adds the new functionality and displays the filtered results within five seconds of the user's request.
 |===
 
-Other examples of change scenarios for the map service could include a requirement for improved performance due to increased traffic or changes to the user interface.
+===== Escalability
 
-By describing quality requirements in terms of specific scenarios, architects can more easily evaluate whether these requirements are being met and make informed decisions about how to improve the system.
+|===
+| *_Scenario_* | *_Stimulus_* | *_Response_*
+ 
+| While the app is being used by users, something needs to be changed/upgraded.
+
+| The system is correctly designed, so its easier to add that modification.
+
+| The modification is implemented fast without problems, the users can now see that change and there hasn't been any difficulties.
+|===
+
+===== Testability
+
+|===
+| *_Scenario_* | *_Stimulus_* | *_Response_*
+ 
+| A functionality is not working properly.
+
+| Tests are required to check the correct implementation.
+
+| The developers implement tests, in order to detect why the app was failing, so that funcionality is fixed as soon as possible.
+|===
