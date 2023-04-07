@@ -56,7 +56,6 @@ function OptionsPanel() {
             <Filter title={t("category")}
                     options={Object.values(Object.entries(categories).map(([value, label]) => label))}/>
             <FriendList/>
-            <DeveloperTeam/>
         </div>
     )
 }

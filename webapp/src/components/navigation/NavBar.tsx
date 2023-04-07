@@ -20,6 +20,13 @@ function NavBar() {
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+    const [isNavExpanded, setIsNavExpanded] = useState(false);
+
+    function handleNavToggle() {
+        setIsNavExpanded(!isNavExpanded);
+    }
+
+
     //We have logged in
     session.onLogin(() => {
         setIsLoggedIn(true)
@@ -41,16 +48,19 @@ function NavBar() {
     const { t } = useTranslation();
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark">
+        <nav className={`navbar navbar-expand-lg navbar-dark ${isNavExpanded ? 'nav-expanded' : ''}`}>
             <div className="container-fluid">
                 <a className="navbar-brand" href="/">
                     <img src={GOMapLogo} alt="GOMap Logo" height={128} width={256}/>
                 </a>
-                <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
-                        className="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+                <button
+                    className="navbar-toggler"
+                    type="button"
+                    onClick={handleNavToggle}
+                >
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <div className="collapse navbar-collapse" id="navbarNav">
+                <div className={`collapse navbar-collapse ${isNavExpanded ? 'show' : ''}`}>
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <NavItem to={"/"} text={t("home")}/>
                         <NavItem to={"/map"} text={t("map")}/>

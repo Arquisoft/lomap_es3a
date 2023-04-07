@@ -15,7 +15,6 @@ function MapView(props: { lat: number; lng:number; }) {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             <LocationMarker/>
-
             <MarkersPOD/>
         </MapContainer>
     );
