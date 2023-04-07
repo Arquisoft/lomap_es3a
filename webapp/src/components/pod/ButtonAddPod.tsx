@@ -3,9 +3,9 @@ import {getFile, overwriteFile} from "@inrupt/solid-client";
 import {Button} from "@mui/material";
 import React, {useEffect, useState} from "react";
 import {Session} from "@inrupt/solid-client-authn-browser";
-import Notification from "../map/Notification";
+import Notification from "../Notification";
 import ReactDOM from "react-dom/client";
-import Map from "../map/Map";
+import MapView from "../map/MapView";
 interface ButtonAddPodType {
     idName: string;
     idCategory: string;
@@ -134,7 +134,7 @@ function ButtonAddPod({
             .then(createNotification)
              .then( ()=> {
                  const root = ReactDOM.createRoot(document.getElementById("screen") as HTMLElement);
-                root.render(<Map
+                root.render(<MapView
                     lat={ Number((document.getElementById(idLatitude) as HTMLInputElement).value)}
                     lng={Number((document.getElementById(idLongitude) as HTMLInputElement).value)
                 }/>);
