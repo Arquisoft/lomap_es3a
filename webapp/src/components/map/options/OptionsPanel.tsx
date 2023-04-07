@@ -2,6 +2,7 @@ import DeveloperTeam from "./DeveloperTeam";
 import Filter from "./Filter";
 import Slider from "./Slider";
 import Search from "./Search";
+import FriendList from "../../pod/FriendList";
 
 function OptionsPanel() {
 
@@ -36,6 +37,7 @@ function OptionsPanel() {
             <Search/>
             <Filter title={"Category"} options={["Bars", "Restaurants", "Shops", "Supermarkets", "Cinemas"]}/>
             <Slider title={"Marks"} min={0} max={5}/>
+            <FriendList/>
             <DeveloperTeam/>
         </div>
     )
