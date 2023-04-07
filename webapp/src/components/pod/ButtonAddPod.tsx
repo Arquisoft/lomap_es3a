@@ -14,7 +14,7 @@ interface ButtonAddPodType {
     idLatitude: string;
     idLongitude: string;
 }
-
+// Componente para añadir marcadores al POD
 function ButtonAddPod({
                           idName,
                           idCategory,
