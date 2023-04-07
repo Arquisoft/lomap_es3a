@@ -6,9 +6,9 @@ export class Point {
     comment: string
     score: number
 
-    id: number
+    id: string
 
-    constructor(id: number, latitude: number, longitude: number, name: string, category: string, comment: string, score: number) {
+    constructor(id: string, latitude: number, longitude: number, name: string, category: string, comment: string, score: number) {
         this.id = id;
         this.latitude = latitude;
         this.longitude = longitude;
