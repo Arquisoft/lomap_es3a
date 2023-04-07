@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from "react";
-import MainScreen from "./MainScreen";
+import HomeScreen from "./HomeScreen";
 import Notification from "../Notification";
+import Icon from "../../img/symbols/GOMapSymbol.png";
+import {useTranslation} from 'react-i18next';
 
 function HomePage() {
     const [showWelcomeNotification, setShowWelcomeNotification] = useState(false);
@@ -17,15 +19,17 @@ function HomePage() {
         setShowWelcomeNotification(false);
     };
 
+    const { t } = useTranslation();
+
     return (
         <div>
-            <MainScreen/>
+            <HomeScreen/>
             {showWelcomeNotification && (
                 <Notification
-                    title="Welcome to GOMap!"
-                    message="Thanks for using our website!"
-                    time="Just Now"
-                    icon="https://ejemplo.com/imagen.png"
+                    title={t("notification_welcome")}
+                    message={t("notification_message_home")}
+                    time={t("notification_time")}
+                    icon={Icon}
                     onClose={handleDismissWelcomeNotification}
                 />
             )}
