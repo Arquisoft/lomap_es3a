@@ -134,7 +134,8 @@ function ButtonAddPod({
             idScore,
             idLatitude,
             idLongitude,
-            webIdStore
+            webIdStore,
+
         )
             .then(  (file) =>  createData(webIdStore, file, session))
             .then(createNotification)
