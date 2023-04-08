@@ -1,9 +1,14 @@
 import "../css/footer.css";
+import {useTranslation} from 'react-i18next';
 
 function FooterInfo() {
+    const { t } = useTranslation();
+
     return (
         <footer id="info">
-            <p><a id="link" href="https://arquisoft.github.io/">© Arquisoft - UNIOVI</a></p>
+            <a id="link" href="https://arquisoft.github.io/">
+                {t("footer")}
+            </a>
         </footer>
     )
 }

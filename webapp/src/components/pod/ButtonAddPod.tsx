@@ -6,6 +6,9 @@ import {Session} from "@inrupt/solid-client-authn-browser";
 import Notification from "../Notification";
 import ReactDOM from "react-dom/client";
 import MapView from "../map/MapView";
+import Icon from "../../img/symbols/GOMapSymbol.png";
+import {useTranslation} from "react-i18next";
+
 interface ButtonAddPodType {
     idName: string;
     idCategory: string;
@@ -14,6 +17,7 @@ interface ButtonAddPodType {
     idLatitude: string;
     idLongitude: string;
 }
+
 // Componente para añadir marcadores al POD
 function ButtonAddPod({
                           idName,
@@ -26,6 +30,8 @@ function ButtonAddPod({
     const {session} = useSession();
     const {webId} = session.info;
     let webIdStore = webId?.slice(0, -15) + "private/locations.json";
+
+    const { t } = useTranslation();
 
     const createMarker = async (
         nameFile: string,
@@ -44,7 +50,7 @@ function ButtonAddPod({
         let comment = (document.getElementById(
             idComment
         ) as HTMLInputElement).value;
-        let score = (document.getElementById(idScore) as HTMLInputElement).value;
+        let score = (document.getElementById(idScore) as HTMLDivElement).innerText;
         let latitude = (document.getElementById(
             idLatitude
         ) as HTMLInputElement).value;
@@ -155,14 +161,14 @@ function ButtonAddPod({
 
         <div id="addPanel">
             <Button variant="contained" color="primary" onClick={handleClick}>
-                Add Marker
+                {t("confirm")}
             </Button>
             {showNotification && (
                 <Notification
-                    title="Marker"
-                    message="You added you marker correctly!"
-                    time="Just Now"
-                    icon="https://www.lineex.es/wp-content/uploads/2016/06/map-map-marker-icon.png"
+                    title={t("notification_marker_added")}
+                    message={t("notification_message_marker")}
+                    time={t("notification_time")}
+                    icon={Icon}
                     onClose={handleCloseNotification}
                 />
             )}
