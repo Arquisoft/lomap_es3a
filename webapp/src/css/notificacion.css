@@ -33,9 +33,11 @@
     color: #333;
     margin-right: 8px;
 }
+
 .notification-icon i.fa-bell {
     color: #f8a51f;
 }
+
 .notification-content {
     display: flex;
     flex-direction: column;

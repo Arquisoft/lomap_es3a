@@ -3,11 +3,11 @@ import "../../css/react-leaflet.css";
 import 'leaflet/dist/leaflet.css';
 import LocationMarker from "./LocationMarker";
 import MarkersPOD from "../pod/MarkersPOD";
-import Notification from "./Notification";
 import React from "react";
 
-function Map(props: { lat: number; lng:number; }) {
+function MapView(props: { lat: number; lng:number; }) {
     const position ={lat: props.lat, lng:props.lng}
+
     return (
         <MapContainer center={position} zoom={13} scrollWheelZoom={true} zoomControl={false}>
             <TileLayer
@@ -20,4 +20,4 @@ function Map(props: { lat: number; lng:number; }) {
     );
 }
 
-export default Map
+export default MapView

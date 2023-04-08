@@ -14,9 +14,12 @@ export type TechButtonType = {
     text: string;
 }
 
+export type SearchType = {
+    title: string;
+}
+
 export type FilterType = {
     title: string;
-    options: string[]
 }
 
 export type DocumentationButtonType = {

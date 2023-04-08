@@ -26,6 +26,11 @@
     }
 }
 
+
 body {
-    background-color: #c2c2c2 !important;
+    background-image: url("img/background.svg") !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
 }

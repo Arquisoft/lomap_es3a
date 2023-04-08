@@ -8,40 +8,44 @@ import SOLIDProjectSymbol from "../../img/symbols/SOLIDProjectSymbol.png";
 import TypeScriptSymbol from "../../img/symbols/TypeScriptSymbol.png";
 import OpenStreetMap from "../../img/symbols/Openstreetmap_logo.png";
 import NodeJSSymbol from "../../img/symbols/NodeJSSymbol.png";
-import MongoDBSymbol from "../../img/symbols/MongoDBSymbol.png";
 import WebStormSymbol from "../../img/symbols/WebStormSymbol.png";
 import Bootstrap from "../../img/symbols/Bootstrap_logo.png";
 import React from "react";
+import {useTranslation} from 'react-i18next';
 
 function Symbols() {
+    const { t } = useTranslation();
+
     return (
         <div id="symbolsPanel">
-            <p>Used technologies:</p>
+            <h2>{t("tech_stack")}</h2>
             <TechButton href={"https://reactjs.org/"} img={ReactSymbol} text={"React Symbol"}/>
             <TechButton href={"https://solidproject.org/"} img={SOLIDProjectSymbol} text={"SOLID Project Symbol"}/>
             <TechButton href={"https://www.typescriptlang.org/"} img={TypeScriptSymbol} text={"TypeScript Symbol"}/>
             <TechButton href={"https://www.openstreetmap.org/"} img={OpenStreetMap} text={"OpenStreetMaps Symbol"}/>
             <TechButton href={"https://nodejs.org/en/"} img={NodeJSSymbol} text={"NodeJS Symbol"}/>
-            <TechButton href={"https://www.mongodb.com/"} img={MongoDBSymbol} text={"MongoDB Symbol"}/>
             <TechButton href={"https://www.jetbrains.com/webstorm/"} img={WebStormSymbol} text={"WebStorm Symbol"}/>
             <TechButton href={"https://getbootstrap.com/"} img={Bootstrap} text={"Bootstrap Symbol"}/>
         </div>
     )
 }
 
-function MainScreen() {
+function HomeScreen() {
+    const { t } = useTranslation();
+
     return (
         <div id="screen">
             <div>
-
                 <ImgCarousel/>
                 <div id="documentation">
-                    <p>GOMap!® is an application where users can have custom maps about places and local business <br/>in
-                        their city like shops, bars, restaurants, monuments, cinemas...</p>
-                    <p>Also the application allows users to interact with their friends by viewing the places they have
-                        saved.</p>
+                    <p>
+                        {t("home_info1")}
+                    </p>
+                    <p>
+                        {t("home_info2")}
+                    </p>
                     <DocumentationButton href={"https://arquisoft.github.io/lomap_es3a/"}
-                                         text={"See our documentation 🔗"}/>
+                                         text={t("docs_button")}/>
                 </div>
                 <div id="usedTechnologies">
                     <Symbols/>
@@ -52,4 +56,4 @@ function MainScreen() {
     )
 }
 
-export default MainScreen
+export default HomeScreen
