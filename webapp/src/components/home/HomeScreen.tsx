@@ -18,7 +18,7 @@ function Symbols() {
 
     return (
         <div id="symbolsPanel">
-            <p>{t("tech_stack")}</p>
+            <h2>{t("tech_stack")}</h2>
             <TechButton href={"https://reactjs.org/"} img={ReactSymbol} text={"React Symbol"}/>
             <TechButton href={"https://solidproject.org/"} img={SOLIDProjectSymbol} text={"SOLID Project Symbol"}/>
             <TechButton href={"https://www.typescriptlang.org/"} img={TypeScriptSymbol} text={"TypeScript Symbol"}/>

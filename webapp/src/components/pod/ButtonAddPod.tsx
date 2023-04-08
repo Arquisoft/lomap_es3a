@@ -31,6 +31,8 @@ function ButtonAddPod({
     const {webId} = session.info;
     let webIdStore = webId?.slice(0, -15) + "private/locations.json";
 
+    const { t } = useTranslation();
+
     const createMarker = async (
         nameFile: string,
         idName: string,
@@ -48,7 +50,7 @@ function ButtonAddPod({
         let comment = (document.getElementById(
             idComment
         ) as HTMLInputElement).value;
-        let score = (document.getElementById(idScore) as HTMLInputElement).value;
+        let score = (document.getElementById(idScore) as HTMLDivElement).innerText;
         let latitude = (document.getElementById(
             idLatitude
         ) as HTMLInputElement).value;
@@ -154,8 +156,6 @@ function ButtonAddPod({
             }
         }
     };
-
-    const { t } = useTranslation();
 
     return (
 
