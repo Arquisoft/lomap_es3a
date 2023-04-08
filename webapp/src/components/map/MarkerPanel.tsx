@@ -21,7 +21,7 @@ function MarkerPanel() {
     return (
         <div id="markersMenu">
             <h1>{t("add_marker")}</h1>
-            <a href="#" className="cross" onClick={closeMenu}>&times;</a>
+            <input type="button" className="cross" onClick={closeMenu} value="&times;"/>
             <form>
                 <NamePlace title={t("places_name")}/>
                 <Coordinates/>
