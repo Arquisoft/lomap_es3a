@@ -26,17 +26,27 @@ function MarkerPanel() {
         others: t('others'),
     };
 
+    function closeMenu() {
+        const markersMenu = document.getElementById("markersMenu");
+        if (markersMenu !== null) {
+            markersMenu.style.width = "0";
+        }
+    }
+
     return (
         <div id="markersMenu">
             <h1>{t("add_marker")}</h1>
-            <NamePlace title={t("places_name")}/>
-            <Coordinates/>
-            <Filter title={t("category")}
-                    />
-            <Score title={t("mark")}/>
-            <Comments title={t("comment")}/>
-            <ButtonAddPod idName={"namePlace"} idCategory={"category"} idComment={"comment"} idScore={"score"}
-                          idLatitude={"latitude"} idLongitude={"longitude"}/>
+            <a href="javascript:void(0)" className="cross" onClick={closeMenu}>&times;</a>
+            <form>
+                <NamePlace title={t("places_name")}/>
+                <Coordinates/>
+                <Filter title={t("category")}
+                        />
+                <Score title={t("mark")}/>
+                <Comments title={t("comment")}/>
+                <ButtonAddPod idName={"namePlace"} idCategory={"category"} idComment={"comment"} idScore={"score"}
+                              idLatitude={"latitude"} idLongitude={"longitude"}/>
+            </form>
         </div>
     )
 

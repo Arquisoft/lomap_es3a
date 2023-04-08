@@ -85,7 +85,7 @@ select, option {
     color: white;
     font-size: 15px;
     font-weight: bold;
-    background-color: rgba(28, 42, 111, 0.8);
+    background-color: rgba(35, 34, 105, 0.8);
     text-align: center;
 
     height: 90vh;
@@ -107,7 +107,7 @@ select, option {
     transition: 0.3s;
 }
 
-#optionsMenu #cross {
+.cross {
     position: absolute;
     top: 0;
     right: 25px;
@@ -142,28 +142,34 @@ select, option {
 }
 
 #markersMenu {
-    position: fixed;
-    z-index: 1;
-
     color: white;
     font-size: 15px;
     font-weight: bold;
-    background-color: rgba(28, 42, 111, 0.8);
+    background-color: rgba(35, 34, 105, 0.8);
     text-align: center;
-    margin-right: 10px;
-    margin-top: 10px;
-    border-radius: 30px;
-    border-color: black;
-    right: 0;
 
-    height: auto;
+    height: 90vh;
     width: 0;
+    right: 0;
+    position: absolute;
+    z-index: 1;
+
     overflow-x: hidden;
+    padding-top: 60px;
     transition: 0.5s;
 }
 
+#markersMenu a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #ffffff;
+    display: block;
+    transition: 0.3s;
+}
+
 #namePlace, #comment, #longitude, #latitude {
-    border-radius: 10px;
+    border-radius: 5px;
     width: 80%;
 }
 
@@ -172,9 +178,6 @@ select, option {
     color: white;
     background-color: #0063fd;
     padding: 10px;
-    border-radius: 20px;
-    border-color: white;
-    border-style: solid;
     border-width: 3px;
     cursor: pointer;
     margin-bottom: 1em;
@@ -194,7 +197,7 @@ select, option {
     color: white;
     background-color: #0063fd;
     padding: 5px;
-    border-radius: 20px;
+    border-radius: 5px;
     border-color: white;
     border-style: solid;
     border-width: 3px;

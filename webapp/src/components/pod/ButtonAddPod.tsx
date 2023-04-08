@@ -31,6 +31,8 @@ function ButtonAddPod({
     const {webId} = session.info;
     let webIdStore = webId?.slice(0, -15) + "private/locations.json";
 
+    const { t } = useTranslation();
+
     const createMarker = async (
         nameFile: string,
         idName: string,
@@ -154,8 +156,6 @@ function ButtonAddPod({
             }
         }
     };
-
-    const { t } = useTranslation();
 
     return (
 
