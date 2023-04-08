@@ -48,7 +48,7 @@ select, option {
     justify-content: center;
 }
 
-#searchText, #namePlace, #comment {
+#searchText, #namePlace, #comment, #latitude, #longitude {
     font-size: 20px;
     font-weight: lighter;
     color: white;
@@ -71,8 +71,11 @@ select, option {
 }
 
 #screen {
+    height: 90vh;
+    width: 100vw;
     position: relative;
     z-index: 0;
+    overflow: hidden; /* Agrega esta propiedad */
 }
 
 #optionsButton {
@@ -83,12 +86,11 @@ select, option {
     color: white;
     font-size: 25px;
     font-weight: bold;
-    background-color: #0064ff;
-    border-radius: 20px;
+    background-color: #232269;
+    border-radius: 5px;
     border-color: black;
     border-style: solid;
 
-    top: 170px;
     left: 20px;
     cursor: pointer;
     transition: background 250ms ease-in-out,
@@ -118,7 +120,7 @@ select, option {
     border-radius: 30px;
     border-color: black;
 
-    height: 45%;
+    height: auto;
     width: 0;
     overflow-x: hidden;
     transition: 0.5s;
@@ -161,13 +163,13 @@ select, option {
     border-color: black;
     right: 0;
 
-    height: 50%;
+    height: auto;
     width: 0;
     overflow-x: hidden;
     transition: 0.5s;
 }
 
-#namePlace, #comment {
+#namePlace, #comment, #longitude, #latitude {
     border-radius: 10px;
     width: 80%;
 }
@@ -182,12 +184,27 @@ select, option {
     border-style: solid;
     border-width: 3px;
     cursor: pointer;
+    margin-bottom: 1em;
+    margin-top: 1em;
 }
 
-#addPanel button:hover {
+#addPanel button:hover,#friends button:hover {
     background-color: #00a6fb;
 }
 
 #addPanel button:active {
     background-color: #007ffd;
+}
+
+#friends button {
+    font-weight: bold;
+    color: white;
+    background-color: #0063fd;
+    padding: 5px;
+    border-radius: 20px;
+    border-color: white;
+    border-style: solid;
+    border-width: 3px;
+    cursor: pointer;
+    margin-bottom: 0.3em;
 }

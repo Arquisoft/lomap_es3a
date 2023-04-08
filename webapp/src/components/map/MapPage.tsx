@@ -1,4 +1,5 @@
 import MapScreen from "./MapScreen";
+import React from "react";
 
 function MapPage() {
     return (

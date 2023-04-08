@@ -4,19 +4,13 @@
 
 === Business Context
 
-[plantuml, "ContextDiagramComponent", png]
+[plantuml, "businesscontext", png]
 ----
-database "Database" as Db
 database "User's POD" as Pod
 component "WebApp" as WApp
-component "RestApi" as RApi
 component "OpenStreetMaps" as Map
 :User: --> [Pod]: Creates
 :User: --> [WApp]: Interacts
-[Db] --> [RApi]: Queries' result
-[RApi] --> [Db]: Perform queries
-[RApi] --> [WApp]: DB information
-[WApp] --> [RApi]: Make requests
 [WApp] --> [Pod]: Request permissions
 [Pod] --> [WApp]: User's information
 [WApp] --> [Map]: Show markers
@@ -38,14 +32,6 @@ component "OpenStreetMaps" as Map
 | The user will be able to add markers and to access the information about their markers.
 | The information that provides to the user logged like the added markers and their details.
 
-| *_RestApi_*
-| From the app, the api will receive requests to get information stored in the database and the database will return the result of performing queries.
-| The api will send queries to the database and convert the response received in order to send back the information in a proper way for the WebApp.
-
-| *_Database_*
-| The POD will have most of the information so we will not store it, but we will store other information.
-| It will return the result of the queries received.
-
 | *_OpenStreetMaps_*
 | It allows us to create markers with different information about places.
 | It allows us to view in the map the different markers created by users
@@ -53,6 +39,36 @@ component "OpenStreetMaps" as Map
 |===    
 
 === Technical Context  
+
+[plantuml, "technicalcontext", png]
+----
+Actor User as user
+
+node device as "Device" {
+    component pc as "PC"
+    component mobile as "Mobile"
+    component tablet as "Tablet"
+    component more as "More..."
+}
+
+component browser as "Web Browser"
+
+node cloud as "AzureCloud"{    
+    node webapp as "WebApp" {
+        component views as "Views"
+        component api as "OpenStreetMap"
+    }
+}
+
+database POD
+
+user -down..> webapp: interacts
+user -right-> device: uses
+device -down-> browser: connects to
+browser -left-> cloud: requests (HTTPS)
+webapp <-down-> POD: accesses
+views -right-> api: gets services from
+----
 
 The main objective of the application is the private treatment of user data. We will achieve this objective by using PODs to keep user data private and decentralized. 
 

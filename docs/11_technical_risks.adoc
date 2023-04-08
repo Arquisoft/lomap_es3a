@@ -16,7 +16,4 @@
 
 | If a user takes down their POD, any other users who had conversations with that user would lose half the conversation as information is decentralized and stored in each POD.
 | If a POD becomes temporarily inaccessible due to server issues or faulty connections, users can only see their part of the conversation with the affected POD's user.
-
-| As communication is done via REST API, they could be intercepted and modified as there is no verification system in place for PODs, which is a current error with Solid.
-| Using the SOLID methodology can lead to technical debts and other problems associated with decentralized data management. However, implementing a thorough testing process and staying up-to-date with the latest SOLID developments may help mitigate these issues.
 |===

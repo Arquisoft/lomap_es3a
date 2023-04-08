@@ -22,10 +22,7 @@
  
 | *_Decentralization_* 
 | Process by which activities regarding planning and decision making are distributed or delegated away from a central, authoritative location or group. 
- 
-| *_MongoDB_* 
-| A document database with a flexible schema. 
- 
+  
 | *_POD_* 
 | Secure personal web servers for storing data. 
  
@@ -37,10 +34,7 @@
 
 | *_Node_* 
 | An asynchronous event-driven JavaScript runtime, Node.js is designed to build scalable network applications 
- 
-| *_RestAPI_* 
-| Architectural style for an application program interface that uses _HTTP_ requests to access and use data. 
- 
+  
 | *_SOLID Specification_* 
 |Proposed set of conventions and tools for building decentralized social applications. 
  

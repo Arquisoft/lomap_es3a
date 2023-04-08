@@ -1,19 +1,40 @@
-import MainScreen from "./MainScreen";
-import React from "react";
-import Notification from '../map/Notification';
+import React, {useEffect, useState} from "react";
+import HomeScreen from "./HomeScreen";
+import Notification from "../Notification";
+import Icon from "../../img/symbols/GOMapSymbol.png";
+import {useTranslation} from 'react-i18next';
+
 function HomePage() {
+    const [showWelcomeNotification, setShowWelcomeNotification] = useState(false);
+
+    useEffect(() => {
+        const notificationShown = localStorage.getItem("notificationShown");
+        if (!notificationShown) {
+            setShowWelcomeNotification(true);
+            localStorage.setItem("notificationShown", "true");
+        }
+    }, []);
+
+    const handleDismissWelcomeNotification = () => {
+        setShowWelcomeNotification(false);
+    };
+
+    const { t } = useTranslation();
+
     return (
         <div>
-            <MainScreen/>
-            <Notification
-                title="¡Bienvenido a mi sitio web!"
-                message="Gracias por visitar mi sitio web. ¡Espero que encuentre lo que busca!"
-                time="hace unos momentos"
-                icon="https://ejemplo.com/imagen.png"
-            />
-
+            <HomeScreen/>
+            {showWelcomeNotification && (
+                <Notification
+                    title={t("notification_welcome")}
+                    message={t("notification_message_home")}
+                    time={t("notification_time")}
+                    icon={Icon}
+                    onClose={handleDismissWelcomeNotification}
+                />
+            )}
         </div>
-    )
+    );
 }
 
-export default HomePage
+export default HomePage;

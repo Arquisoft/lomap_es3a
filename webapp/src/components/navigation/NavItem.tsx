@@ -4,7 +4,9 @@ import {NavLink} from "react-router-dom";
 
 function NavItem({to, text}: NavItemType) {
     return (
-        <NavLink to={to} accessKey={text.toString()[0]}>{text}</NavLink>
+        <li className="nav-item">
+            <NavLink className="nav-link" to={to}>{text}</NavLink>
+        </li>
     )
 }
 

@@ -1,24 +1,54 @@
 nav {
+    width: 100vw;
+    height: 10vh;
+    background-color: #23226a;
+}
+
+.nav-link {
+    font-size: 30px !important;
+    text-decoration: none;
+    color: rgba(148, 148, 148, 0.61);
+    margin-right: 2vw;
+
+}
+
+.dropdown-toggle {
+    font-size: 30px !important;
+    text-decoration: none;
+    color: white !important;
+    background-color: #232269 !important;
+    border-style: none;
+}
+
+.dropdown-menu {
+    background-color: #23226a;
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+}
+
+.dropdown-item {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-
-    background-color: #1c2a70;
-    border-style: solid;
-    border-color: white;
-    border-width: 5px;
-}
-
-nav a {
-    font-size: 30px;
+    font-size: 20px !important;
     text-decoration: none;
     color: rgba(148, 148, 148, 0.61);
-    margin-right: 70px;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background-color: #23226a;
+    color: white;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+    background-color: #23226a;
+    color: white;
 }
 
 nav a:hover, #login-manage a:hover {
-    color: #ffffff;
+    color: #ffffff !important;
 }
 
 nav a:active, #login-manage a:active {
@@ -26,35 +56,33 @@ nav a:active, #login-manage a:active {
 }
 
 .active {
-    color: white;
+    color: white !important;
     font-weight: bold;
-    text-decoration-line: underline;
 }
 
 #login-manage {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: auto;
 }
 
 #login-manage a {
     font-size: 15px;
-    color: #669de3;
+    color: #c5dff1;
     padding: 10px;
     margin-top: -5px;
     margin-right: 0;
+    text-align: center;
 }
 
 #login, #logout {
     font-weight: bold;
     color: white;
     padding: 10px;
-    border-radius: 20px;
     border-color: white;
-    border-style: solid;
     border-width: 3px;
     cursor: pointer;
+    margin-top: 10px;
 }
 
 #login {
@@ -62,7 +90,7 @@ nav a:active, #login-manage a:active {
 }
 
 #logout {
-    background-color: #8f8d8d;
+    background-color: #a10000;
 }
 
 #login:hover, #logout:hover {
@@ -74,7 +102,7 @@ nav a:active, #login-manage a:active {
 }
 
 .card {
-    width: 50%;
+    width: 75%;
     border-radius: 10px;
     margin-top: 5px;
     margin-bottom: 5px;

@@ -3,12 +3,9 @@
  
 === Infrastructure Level 1
  
-[plantuml, "07_DeploymentView", png]
+[plantuml, "infrastructure-level1", png]
 ----
-node AzureServer{
-    node DockerContainer1 {
-        component RestAPI
-    }
+node AzureServer{    
     node DockerContainer2 {
         component WebApp
     }    
@@ -20,22 +17,14 @@ node UserDevice {
     }
 }
  
-database MongoDBAtlas{
-    component MongoDB
-}
- 
 Actor User
  
-cloud SOLID_POD
-cloud BingMaps
-cloud Geoapify 
+node SOLID_POD
+node OpenStreetMap
  
-RestAPI -u-> MongoDB : "access information"
 WebAppImage -d-> SOLID_POD : "access user data"
-WebAppImage -d-> BingMaps : "provides maps and route image"
-WebAppImage -d-> Geoapify : "get near places"
-RestAPI -l-> WebApp : "supply data"
-WebApp -d-> WebAppImage : 'shows on user device'
+WebAppImage -d-> OpenStreetMap : "provides maps and route image"
+WebApp -d-> WebAppImage : "shows on user device"
 WebAppImage <-l- User
 ----
  
@@ -53,13 +42,7 @@ The performance of the application depends on different user resources (internet
  
 | *_WebApp_*
 | The frontend of our application. It will be rendered by a web browser which will be executed ont the user's device.
- 
-| *_RestAPI_*
-| The back-end of our application. It will run on the Azure server.
- 
-| *_MongoDB_*
-| Database chosen for the application
- 
+
 | *_POD Provider_*
 | _SOLID PODs_ will be provided by _Solid Community_. Will be in charge of providing the pods for the users
  
