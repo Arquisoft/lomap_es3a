@@ -2,7 +2,7 @@
 name: AutoInformes
 about: Plantilla para la realización de los AutoInformes de cada entrega.
 title: "[E_] - AutoInforme de _ ()"
-labels: autoreview, information
+labels: ''
 assignees: ''
 
 ---
