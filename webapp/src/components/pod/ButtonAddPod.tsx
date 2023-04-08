@@ -50,7 +50,7 @@ function ButtonAddPod({
         let comment = (document.getElementById(
             idComment
         ) as HTMLInputElement).value;
-        let score = (document.getElementById(idScore) as HTMLInputElement).value;
+        let score = (document.getElementById(idScore) as HTMLDivElement).innerText;
         let latitude = (document.getElementById(
             idLatitude
         ) as HTMLInputElement).value;
