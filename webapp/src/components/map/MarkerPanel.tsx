@@ -32,7 +32,7 @@ function MarkerPanel() {
             <NamePlace title={t("places_name")}/>
             <Coordinates/>
             <Filter title={t("category")}
-                    options={Object.values(Object.entries(categories).map(([value, label]) => label))}/>
+                    />
             <Score title={t("mark")}/>
             <Comments title={t("comment")}/>
             <ButtonAddPod idName={"namePlace"} idCategory={"category"} idComment={"comment"} idScore={"score"}

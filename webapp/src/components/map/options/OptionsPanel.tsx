@@ -1,61 +1,57 @@
-import DeveloperTeam from "./DeveloperTeam";
 import Filter from "./Filter";
-import Slider from "./Slider";
 import Search from "./Search";
 import FriendList from "../../pod/FriendList";
 import {useTranslation} from "react-i18next";
 
 function OptionsPanel() {
 
+    const {t} = useTranslation();
+
+    /* Set the width of the side navigation to 250px */
     function displayMenu() {
         const optionsMenu = document.getElementById("optionsMenu");
         if (optionsMenu !== null) {
-            const width = optionsMenu.style.width;
-            if (width.toString().length === 0) {
-                optionsMenu.style.borderStyle = "solid"
-                optionsMenu.style.width = "20%"
-                optionsMenu.style.minWidth = "350px"
-                const optionsButton = document.getElementById("optionsButton")
-                if (optionsButton !== null) {
-                    optionsButton.style.transform = "scaleX(-1)"
-                }
-            } else {
-                optionsMenu.style.borderStyle = ""
-                optionsMenu.style.width = ""
-                optionsMenu.style.minWidth = "0px"
-                const optionsButton = document.getElementById("optionsButton")
-                if (optionsButton !== null) {
-                    optionsButton.style.transform = "scaleX(1)"
-                }
-            }
+            optionsMenu.style.width = "300px";
+        }
+        const optionsButton = document.getElementById("optionsButton");
+        if (optionsButton !== null) {
+            optionsButton.style.transition = "opacity 0.6s"; // Agrega transición de 0.6 segundos a la propiedad "opacity"
+            optionsButton.style.opacity = "0"; // Establece la propiedad "opacity" en "0" para que el elemento se desvanezca gradualmente
+            setTimeout(function() {
+                optionsButton.style.display = "none"; // Establece la propiedad "display" en "none" después de que la transición haya terminado
+            }, 600); // Espera 0.6 segundos (el mismo tiempo que la duración de la transición) antes de ocultar el elemento
+        }
+
+    }
+
+    /* Set the width of the side navigation to 0 */
+    function closeMenu() {
+        const optionsMenu = document.getElementById("optionsMenu");
+        if (optionsMenu !== null) {
+            optionsMenu.style.width = "0";
+        }
+        const optionsButton = document.getElementById("optionsButton");
+        if (optionsButton !== null) {
+            optionsButton.style.display = "block"; // Establece la propiedad "display" en "block" antes de mostrar el elemento
+            setTimeout(function() {
+                optionsButton.style.opacity = "1"; // Establece la propiedad "opacity" en "1" para que el elemento aparezca gradualmente
+            }, 10); // Espera 10 milisegundos antes de mostrar el elemento, para dar tiempo a que se establezca la propiedad "display"
         }
     }
 
-    const { t } = useTranslation();
-
-    const categories = {
-        bars: t('bars'),
-        restaurants: t('restaurants'),
-        shops: t('shops'),
-        supermarkets: t('supermarkets'),
-        hotels: t('hotels'),
-        cinemas: t('cinemas'),
-        academic_institution: t('academic_institution'),
-        public_institution: t('public_institution'),
-        sports_club: t('sports_club'),
-        museum: t('museum'),
-        parks: t('parks'),
-        others: t('others'),
-    };
 
     return (
-        <div id="optionsMenu">
-            <h1>Options Menu</h1>
+        <div>
             <input type="button" id="optionsButton" value="☰️" onClick={displayMenu}/>
-            <Search title={t("search")}/>
-            <Filter title={t("category")}
-                    options={Object.values(Object.entries(categories).map(([value, label]) => label))}/>
-            <FriendList/>
+            <div id="optionsMenu">
+                <h1>Options Menu</h1>
+                <a href="javascript:void(0)" id="cross" onClick={closeMenu}>&times;</a>
+                <Search title={t("search")}/>
+                <Filter
+                    title={t("category")}
+                />
+                <FriendList/>
+            </div>
         </div>
     )
 }

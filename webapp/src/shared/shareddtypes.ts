@@ -20,7 +20,6 @@ export type SearchType = {
 
 export type FilterType = {
     title: string;
-    options: string[]
 }
 
 export type DocumentationButtonType = {
