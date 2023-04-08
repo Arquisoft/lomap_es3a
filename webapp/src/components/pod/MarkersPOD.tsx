@@ -48,7 +48,7 @@ function MarkersPOD() {
             }
         }
         fetchPoints();
-    }, [webIdStore, session]);
+    }, [webId, webIdStore, session]);
 
     return(
         <div>
