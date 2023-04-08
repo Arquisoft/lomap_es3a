@@ -2,9 +2,9 @@ name: CI for LOMAP ES3A
 
 on:
   push:
-    branches: [master]
+    branches: [master, testing]
   pull_request:
-    branches: [master]
+    branches: [master, testing]
 
 jobs:
   unit-tests:
@@ -31,7 +31,7 @@ jobs:
         with:
           node-version: 18
       - run: npm --prefix webapp install
-      - run: npm --prefix restapi install
+#      - run: npm --prefix restapi install
       - run: npm --prefix webapp run build
 #      - run: npm --prefix webapp run test:e2e
   docker-push-webapp:

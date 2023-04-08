@@ -45,7 +45,7 @@ function OptionsPanel() {
             <input type="button" id="optionsButton" value="☰️" onClick={displayMenu}/>
             <div id="optionsMenu">
                 <h1>Options Menu</h1>
-                <a href="javascript:void(0)" className="cross" onClick={closeMenu}>&times;</a>
+                <a href="#" className="cross" onClick={closeMenu}>&times;</a>
                 <Search title={t("search")}/>
                 <Filter
                     title={t("category")}
