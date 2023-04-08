@@ -40,8 +40,7 @@ function MarkerPanel() {
             <form>
                 <NamePlace title={t("places_name")}/>
                 <Coordinates/>
-                <Filter title={t("category")}
-                        />
+                <Filter title={t("category")}/>
                 <Score title={t("mark")}/>
                 <Comments title={t("comment")}/>
                 <ButtonAddPod idName={"namePlace"} idCategory={"category"} idComment={"comment"} idScore={"score"}
