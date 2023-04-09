@@ -2,7 +2,7 @@ import "../../css/home.css"
 import TechButton from "./TechButton";
 import FooterInfo from "../FooterInfo";
 import DocumentationButton from "./DocumentationButton";
-import ImgCarousel from "./Carousel";
+import ImgCarousel from "./ImgCarousel";
 import ReactSymbol from "../../img/symbols/ReactSymbol.png";
 import SOLIDProjectSymbol from "../../img/symbols/SOLIDProjectSymbol.png";
 import TypeScriptSymbol from "../../img/symbols/TypeScriptSymbol.png";
