@@ -13,7 +13,6 @@ import {
 import {initReactI18next, useTranslation} from "react-i18next";
 import i18n from "../../i18n";
 
-
 i18n.use(initReactI18next)
 
 function FriendList(){
@@ -89,13 +88,14 @@ function FriendList(){
         let updatedAcl = setAgentResourceAccess(
             resourceAcl,
             friendWebId,
-            { read: false, append: false, write: false, control: true }
+            { read: true, append: false, write: false, control: false }
         );
         updatedAcl = setAgentDefaultAccess(
             updatedAcl,
             friendWebId,
             { read: true, append: false, write: false,control:false }
         )
+
 
         // Now save the ACL:
         await saveAclFor(myDatasetWithAcl, updatedAcl,{fetch:session.fetch});
@@ -111,6 +111,7 @@ function FriendList(){
                             <button onClick={() =>getMarkers("button-"+friend.webId,friend.webId)}>{friend.name} <img id={"button-"+friend.webId} src={botonRojo} alt="botonRojo" width={15} height={15}/></button>
                         </div>
                     ))
+
                 }
             </div>
         </div>

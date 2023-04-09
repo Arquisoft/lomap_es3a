@@ -139,7 +139,7 @@ function ButtonAddPod({
             .then(  (file) =>  createData(webIdStore, file, session))
             .then(createNotification)
              .then( ()=> {
-                 const root = ReactDOM.createRoot(document.getElementById("screen") as HTMLElement);
+                 const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
                 root.render(<MapView
                     lat={ Number((document.getElementById(idLatitude) as HTMLInputElement).value)}
                     lng={Number((document.getElementById(idLongitude) as HTMLInputElement).value)
