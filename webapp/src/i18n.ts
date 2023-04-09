@@ -46,6 +46,7 @@ i18n
                     search_placeholder: "Type to search...",
                     category: "Category",
                     // Categories
+                    all: "All",
                     bars: "Bars",
                     restaurants: "Restaurants",
                     shops: "Shops",
@@ -120,6 +121,7 @@ i18n
                     search_placeholder: "Escribe para buscar...",
                     category: "Categoría",
                     // Categories
+                    all: "Todas",
                     bars: "Bares",
                     restaurants: "Restaurantes",
                     shops: "Tiendas",
@@ -194,6 +196,7 @@ i18n
                     search_placeholder: "Tapez pour rechercher...",
                     category: "Catégorie",
                     // Categories
+                    all: "Toutes",
                     bars: "Bars",
                     restaurants: "Restaurants",
                     shops: "Magasins",
@@ -267,6 +270,7 @@ i18n
                     search_placeholder: "Geben Sie zum Suchen ein...",
                     category: "Kategorie",
                     // Categories
+                    all:"Alle",
                     bars: "Bars",
                     restaurants: "Restaurants",
                     shops: "Geschäfte",
@@ -341,6 +345,7 @@ i18n
                     search_placeholder: "输入以搜索...",
                     category: "类别",
                     // Categories
+                    all:"全部",
                     bars: "酒吧",
                     restaurants: "餐馆",
                     shops: "商店",
@@ -414,6 +419,7 @@ i18n
                     search_placeholder: "Escribi pa buscar...",
                     category: "Categoría",
                     // Categories
+                    all:"Todes",
                     bars: "Chigres",
                     restaurants: "Restoranes",
                     shops: "Tiendes",
