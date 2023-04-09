@@ -77,7 +77,22 @@ i18n
                     // Show marker
                     media: "Media",
                     reviews: "Reviews",
-                    add_review: "Add your review..."
+                    add_review: "Add your review...",
+
+                    // Help:
+                    office: "Our office",
+                    contact_us: "Contact us",
+                    name: "Your name:",
+                    name_placeholder: "Write your name...",
+                    email: "Your email:",
+                    email_placeholder: "Write your email...",
+                    message: "Your message:",
+                    message_placeholder: "Write your message...",
+                    send: "Send",
+                    panel_office: "Our main office",
+                    panel_phone: "Our phone",
+                    panel_fax: "Our fax",
+                    panel_email: "Our email"
                 }
             },
             es: {
@@ -152,7 +167,22 @@ i18n
                     // Show marker
                     media: "Media",
                     reviews: "Opiniones",
-                    add_review: "Agrega tu opinión..."
+                    add_review: "Agrega tu opinión...",
+
+                    // Help:
+                    office: "Nuestra oficina",
+                    contact_us: "Contáctenos",
+                    name: "Tu nombre:",
+                    name_placeholder: "Escribe tu nombre...",
+                    email: "Tu correo electrónico:",
+                    email_placeholder: "Escribe tu correo electrónico...",
+                    message: "Tu mensaje:",
+                    message_placeholder: "Escribe tu mensaje...",
+                    send: "Enviar",
+                    panel_office: "Nuestra oficina principal",
+                    panel_phone: "Nuestro teléfono",
+                    panel_fax: "Nuestro fax",
+                    panel_email: "Nuestro correo electrónico"
                 }
             },
             fr: {
@@ -227,7 +257,22 @@ i18n
                     // Show marker
                     media: "Médias",
                     reviews: "Avis",
-                    add_review: "Ajoutez votre avis..."
+                    add_review: "Ajoutez votre avis...",
+
+                    // Help:
+                    office: "Notre bureau",
+                    contact_us: "Contactez-nous",
+                    name: "Votre nom :",
+                    name_placeholder: "Écrivez votre nom...",
+                    email: "Votre adresse email :",
+                    email_placeholder: "Écrivez votre adresse email...",
+                    message: "Votre message :",
+                    message_placeholder: "Écrivez votre message...",
+                    send: "Envoyer",
+                    panel_office: "Notre bureau principal",
+                    panel_phone: "Notre téléphone",
+                    panel_fax: "Notre fax",
+                    panel_email: "Notre email"
                 }
             },
             deu: {
@@ -301,7 +346,22 @@ i18n
                     // Show marker
                     media: "Medien",
                     reviews: "Bewertungen",
-                    add_review: "Fügen Sie Ihre Bewertung hinzu..."
+                    add_review: "Fügen Sie Ihre Bewertung hinzu...",
+
+                    // Help:
+                    office: "Unser Büro",
+                    contact_us: "Kontaktiere uns",
+                    name: "Dein Name:",
+                    name_placeholder: "Schreibe deinen Namen...",
+                    email: "Deine E-Mail:",
+                    email_placeholder: "Schreibe deine E-Mail...",
+                    message: "Deine Nachricht:",
+                    message_placeholder: "Schreibe deine Nachricht...",
+                    send: "Senden",
+                    panel_office: "Unser Hauptbüro",
+                    panel_phone: "Unser Telefon",
+                    panel_fax: "Unser Fax",
+                    panel_email: "Unsere E-Mail"
                 }
             },
             chn: {
@@ -376,7 +436,22 @@ i18n
                     // Show marker
                     media: "媒体",
                     reviews: "评论",
-                    add_review: "添加你的评论..."
+                    add_review: "添加你的评论...",
+
+                    // Help:
+                    office: "我们的办公室",
+                    contact_us: "联系我们",
+                    name: "您的姓名：",
+                    name_placeholder: "填写您的姓名...",
+                    email: "您的电子邮件：",
+                    email_placeholder: "填写您的电子邮件...",
+                    message: "您的留言：",
+                    message_placeholder: "填写您的留言...",
+                    send: "发送",
+                    panel_office: "我们的主要办事处",
+                    panel_phone: "我们的电话",
+                    panel_fax: "我们的传真",
+                    panel_email: "我们的电子邮件"
                 }
             },
             ast: {
@@ -450,7 +525,22 @@ i18n
                     // Show marker
                     media: "Meyos",
                     reviews: "Comentarios",
-                    add_review: "Amesta'l to comentariu..."
+                    add_review: "Amesta'l to comentariu...",
+
+                    // Help:
+                    office: "La nuesa oficina",
+                    contact_us: "Contáctanos",
+                    name: "Tu nome:",
+                    name_placeholder: "Escribe'l to nome...",
+                    email: "El to corréu electrónicu:",
+                    email_placeholder: "Escribe'l to corréu electrónicu...",
+                    message: "El to mensaxe:",
+                    message_placeholder: "Escribe'l to mensaxe...",
+                    send: "Unviar",
+                    panel_office: "La nuesa oficina principal",
+                    panel_phone: "El nuesu teléfonu",
+                    panel_fax: "El nuesu fax",
+                    panel_email: "El nuesu corréu electrónicu"
                 }
             }
         },

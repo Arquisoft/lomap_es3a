@@ -76,7 +76,7 @@ select, option {
 #mapView {
     height: 85vh;
     width: 80vw;
-    border-radius: 0.625em;
+    border-top-left-radius: 0.625em;
     overflow: hidden;
     z-index: 0;
 }

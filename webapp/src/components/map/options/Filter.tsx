@@ -1,4 +1,3 @@
-import { FilterType } from "../../../shared/shareddtypes";
 import {initReactI18next, useTranslation} from "react-i18next";
 import i18n from "../../../i18n";
 import React from "react";

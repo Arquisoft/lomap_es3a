@@ -8,7 +8,7 @@ import ImgCarousel from "./ImgCarousel";
 import DescriptionText from "./DescriptionText";
 import DocumentationButton from "./DocumentationButton";
 import TechStack from "./TechStack";
-import FooterInfo from "../FooterInfo";
+import FooterInfo from "./FooterInfo";
 
 i18n.use(initReactI18next)
 

@@ -50,7 +50,6 @@
 #documentation p {
     margin-top: 1.25em;
     color: black;
-    padding: 0;
     cursor: auto;
     font-family: "Corbel Light", serif;
     font-weight: bold;
@@ -64,4 +63,31 @@
     font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: 1.25em;
+}
+
+@media only screen and (max-width: 768px) {
+    #city {
+        margin-top: 0.625em;
+    }
+
+    #symbolsPanel {
+        display: block;
+        margin-top: 1.25em;
+    }
+
+    .techButtons {
+        margin: 0.625em;
+    }
+
+    #documentButton {
+        font-size: 1.25em;
+    }
+
+    #documentation p {
+        font-size: 1.25em;
+    }
+
+    #symbolsPanel > p {
+        font-size: 1.125em;
+    }
 }
