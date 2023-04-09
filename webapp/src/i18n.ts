@@ -88,7 +88,11 @@ i18n
                     email_placeholder: "Write your email...",
                     message: "Your message:",
                     message_placeholder: "Write your message...",
-                    send: "Send"
+                    send: "Send",
+                    panel_office: "Our main office",
+                    panel_phone: "Our phone",
+                    panel_fax: "Our fax",
+                    panel_email: "Our email"
                 }
             },
             es: {
@@ -174,7 +178,11 @@ i18n
                     email_placeholder: "Escribe tu correo electrónico...",
                     message: "Tu mensaje:",
                     message_placeholder: "Escribe tu mensaje...",
-                    send: "Enviar"
+                    send: "Enviar",
+                    panel_office: "Nuestra oficina principal",
+                    panel_phone: "Nuestro teléfono",
+                    panel_fax: "Nuestro fax",
+                    panel_email: "Nuestro correo electrónico"
                 }
             },
             fr: {
@@ -260,7 +268,11 @@ i18n
                     email_placeholder: "Écrivez votre adresse email...",
                     message: "Votre message :",
                     message_placeholder: "Écrivez votre message...",
-                    send: "Envoyer"
+                    send: "Envoyer",
+                    panel_office: "Notre bureau principal",
+                    panel_phone: "Notre téléphone",
+                    panel_fax: "Notre fax",
+                    panel_email: "Notre email"
                 }
             },
             deu: {
@@ -345,7 +357,11 @@ i18n
                     email_placeholder: "Schreibe deine E-Mail...",
                     message: "Deine Nachricht:",
                     message_placeholder: "Schreibe deine Nachricht...",
-                    send: "Senden"
+                    send: "Senden",
+                    panel_office: "Unser Hauptbüro",
+                    panel_phone: "Unser Telefon",
+                    panel_fax: "Unser Fax",
+                    panel_email: "Unsere E-Mail"
                 }
             },
             chn: {
@@ -431,7 +447,11 @@ i18n
                     email_placeholder: "填写您的电子邮件...",
                     message: "您的留言：",
                     message_placeholder: "填写您的留言...",
-                    send: "发送"
+                    send: "发送",
+                    panel_office: "我们的主要办事处",
+                    panel_phone: "我们的电话",
+                    panel_fax: "我们的传真",
+                    panel_email: "我们的电子邮件"
                 }
             },
             ast: {
@@ -516,7 +536,11 @@ i18n
                     email_placeholder: "Escribe'l to corréu electrónicu...",
                     message: "El to mensaxe:",
                     message_placeholder: "Escribe'l to mensaxe...",
-                    send: "Unviar"
+                    send: "Unviar",
+                    panel_office: "La nuesa oficina principal",
+                    panel_phone: "El nuesu teléfonu",
+                    panel_fax: "El nuesu fax",
+                    panel_email: "El nuesu corréu electrónicu"
                 }
             }
         },
