@@ -88,13 +88,14 @@ function FriendList(){
         let updatedAcl = setAgentResourceAccess(
             resourceAcl,
             friendWebId,
-            { read: false, append: false, write: false, control: true }
+            { read: true, append: false, write: false, control: false }
         );
         updatedAcl = setAgentDefaultAccess(
             updatedAcl,
             friendWebId,
             { read: true, append: false, write: false,control:false }
         )
+
 
         // Now save the ACL:
         await saveAclFor(myDatasetWithAcl, updatedAcl,{fetch:session.fetch});
