@@ -1,5 +1,8 @@
 import {CommentType} from "../../../shared/shareddtypes";
-import {useTranslation} from "react-i18next";
+import {initReactI18next, useTranslation} from "react-i18next";
+import i18n from "../../../i18n";
+
+i18n.use(initReactI18next)
 
 function Comments({title}: CommentType) {
 

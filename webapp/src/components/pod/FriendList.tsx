@@ -10,13 +10,18 @@ import {
     hasFallbackAcl,
     hasResourceAcl, saveAclFor, setAgentResourceAccess,setAgentDefaultAccess
 } from "@inrupt/solid-client";
+import {initReactI18next, useTranslation} from "react-i18next";
+import i18n from "../../i18n";
 
+i18n.use(initReactI18next)
 
 function FriendList(){
     const { session } = useSession();
     const [personData, setPersonData] = useState<PersonData>({ webId: '', name: '', friends: [] })
     const {webId} = session.info;
     const [friends, setFriendList] = useState<PersonData[]>([]);
+
+    const { t } = useTranslation();
 
     useEffect(() => {
         async function loadPersonData() {
@@ -97,7 +102,7 @@ function FriendList(){
 
     return(
         <div id="friends" >
-            <h2>Friends</h2>
+            <h2>{t("friends")}</h2>
             <div id="friendsList">
                 {
                     friends.map(friend => (

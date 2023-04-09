@@ -1,24 +1,24 @@
 h1 {
     font-family: 'Lato', sans-serif;
-    font-size: 40px;
+    font-size: 2.5em;
     color: #92b5f5;
-    padding: 10px;
+    padding: 0.625em;
     margin: 0;
 }
 
 h2 {
     font-family: "Corbel Light", serif;
-    font-size: 25px;
-    margin: 10px;
+    font-size: 1.563em;
+    margin: 0.625em;
 }
 
 select, option {
-    font-size: 20px;
+    font-size: 1.25em;
     font-weight: lighter;
     color: white;
     background-color: rgba(15, 94, 197, 0.8);
-    padding: 5px;
-    border-radius: 5px;
+    padding: 0.313em;
+    border-radius: 0.313em;
     width: 80%;
 }
 
@@ -28,148 +28,81 @@ select, option {
 }
 
 #searchText, #namePlace, #comment, #latitude, #longitude {
-    font-size: 20px;
+    font-size: 1.25em;
     font-weight: lighter;
     color: white;
     background-color: rgba(15, 94, 197, 0.8);
-    padding: 5px;
-    border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
+    padding: 0.313em;
+    border-bottom-left-radius: 0.313em;
+    border-top-left-radius: 0.313em;
     width: 65%;
 }
 
-#screen {
-    height: 90vh;
-    width: 100vw;
-    position: relative;
-    z-index: 0;
-    overflow: hidden;
-}
-
 #searchButton {
-    font-size: 20px;
+    font-size: 1.25em;
     font-weight: lighter;
     color: white;
     background-color: rgba(15, 94, 197, 0.8);
-    padding: 5px;
-    border-bottom-right-radius: 5px;
-    border-top-right-radius: 5px;
+    padding: 0.313em;
+    border-bottom-right-radius: 0.313em;
+    border-top-right-radius: 0.313em;
     width: 15%;
 }
 
-#optionsButton {
-    padding: 5px;
-    position: absolute;
-    z-index: 2;
-
-    color: white;
-    font-size: 25px;
-    background-color: #232269;
-    border-radius: 20px;
-    border-style: none;
-    margin-top: 20px;
-
-    left: 20px;
-    cursor: pointer;
+#mapPage {
+    display: flex;
+    flex-direction: row;
 }
 
-#optionsButton:hover {
-    background-color: #323376;
-}
-
-#optionsButton:active {
-    background-color: #1c2a70;
+#mapView {
+    height: 85vh;
+    width: 80vw;
+    border-radius: 0.625em;
+    overflow: hidden;
+    z-index: 0;
 }
 
 #optionsMenu {
     color: white;
-    font-size: 15px;
-    font-weight: bold;
-    background-color: rgba(35, 34, 105, 0.8);
+    background-color: rgb(35, 34, 105);
     text-align: center;
-
-    height: 90vh;
-    width: 0;
-    position: absolute;
-    z-index: 1;
-
+    height: 85vh;
+    width: 20vw;
     overflow-x: hidden;
-    padding-top: 60px;
-    transition: 0.5s;
 }
 
-#optionsMenu a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
+#markersMenu .cross {
+    padding: 0.5em 0.5em 0.5em 2em;
+    background: none;
+    border: none;
     color: #ffffff;
     display: block;
     transition: 0.3s;
-}
-
-.cross {
     position: absolute;
     top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-
-@media screen and (max-height: 450px) {
-    #optionsMenu {padding-top: 15px;}
-}
-
-#developers {
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
-    text-align: center;
-}
-
-#developers p {
-    color: white;
-    text-align: center;
-    margin: 0;
-}
-
-#developers p a:hover {
-    color: white;
-}
-
-.member {
-    color: rgba(255, 255, 255, 0.75);
-    text-decoration: underline;
+    right: 1.563em;
+    font-size: 2.25em;
+    margin-left: 3.125em;
 }
 
 #markersMenu {
     color: white;
-    font-size: 15px;
+    font-size: 0.938em;
     font-weight: bold;
     background-color: rgba(35, 34, 105, 0.8);
     text-align: center;
-
     height: 90vh;
     width: 0;
     right: 0;
     position: absolute;
     z-index: 1;
-
     overflow-x: hidden;
-    padding-top: 60px;
+    padding-top: 3.75em;
     transition: 0.5s;
 }
 
-#markersMenu a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #ffffff;
-    display: block;
-    transition: 0.3s;
-}
-
 #namePlace, #comment, #longitude, #latitude {
-    border-radius: 5px;
+    border-radius: 0.313em;
     width: 80%;
 }
 
@@ -177,30 +110,8 @@ select, option {
     font-weight: bold;
     color: white;
     background-color: #0063fd;
-    padding: 10px;
-    border-width: 3px;
-    cursor: pointer;
-    margin-bottom: 1em;
-    margin-top: 1em;
-}
-
-#addPanel button:hover,#friends button:hover {
-    background-color: #00a6fb;
-}
-
-#addPanel button:active {
-    background-color: #007ffd;
-}
-
-#friends button {
-    font-weight: bold;
-    color: white;
-    background-color: #0063fd;
-    padding: 5px;
-    border-radius: 5px;
-    border-color: white;
-    border-style: solid;
-    border-width: 3px;
+    padding: 0.625em;
+    border-width: 0.188em;
     cursor: pointer;
     margin-bottom: 0.3em;
 }
