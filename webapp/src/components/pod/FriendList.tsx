@@ -111,7 +111,6 @@ function FriendList(){
                             <button onClick={() =>getMarkers("button-"+friend.webId,friend.webId)}>{friend.name} <img id={"button-"+friend.webId} src={botonRojo} alt="botonRojo" width={15} height={15}/></button>
                         </div>
                     ))
-
                 }
             </div>
         </div>

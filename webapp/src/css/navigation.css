@@ -107,24 +107,14 @@ nav a:active, #login-manage a:active {
 }
 
 .card {
-    width: 75%;
-    border-radius: 0.625em;
+    width: 100%;
     margin-top: 0.3125em;
     margin-bottom: 0.3125em;
 }
 
 .card-text {
-    font-size: 0.9375em;
+    font-size: 1em;
     color: white;
     background-color: #0063fd;
     text-align: center;
-    border-radius: 0.625em;
-    border-color: white;
-    border-style: solid;
-    border-width: 0.0625em;
-}
-
-.card-text:hover {
-    color: white;
-    border-color: black;
 }
