@@ -98,9 +98,10 @@ select, option {
     transition: 0.5s;
 }
 
-#optionsMenu a {
+#optionsMenu .cross, #markersMenu .cross {
     padding: 8px 8px 8px 32px;
-    text-decoration: none;
+    background: none;
+    border: none;
     font-size: 25px;
     color: #ffffff;
     display: block;
@@ -113,32 +114,6 @@ select, option {
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
-}
-
-@media screen and (max-height: 450px) {
-    #optionsMenu {padding-top: 15px;}
-}
-
-#developers {
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
-    text-align: center;
-}
-
-#developers p {
-    color: white;
-    text-align: center;
-    margin: 0;
-}
-
-#developers p a:hover {
-    color: white;
-}
-
-.member {
-    color: rgba(255, 255, 255, 0.75);
-    text-decoration: underline;
 }
 
 #markersMenu {
@@ -159,9 +134,10 @@ select, option {
     transition: 0.5s;
 }
 
-#markersMenu a {
+#markersMenu .cross {
     padding: 8px 8px 8px 32px;
-    text-decoration: none;
+    background: none;
+    border: none;
     font-size: 25px;
     color: #ffffff;
     display: block;

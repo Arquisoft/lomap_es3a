@@ -22,11 +22,6 @@ export type FilterType = {
     title: string;
 }
 
-export type DocumentationButtonType = {
-    href: string;
-    text: string;
-}
-
 export type NamePlaceType = {
     title: string;
 }
