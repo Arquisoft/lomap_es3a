@@ -1,13 +1,20 @@
 import React, {useEffect, useState} from "react";
-import HomeScreen from "./HomeScreen";
+import "../../css/home.css"
 import Notification from "../Notification";
 import Icon from "../../img/symbols/GOMapSymbol.png";
 import {initReactI18next, useTranslation} from 'react-i18next';
 import i18n from "../../i18n";
+import ImgCarousel from "./ImgCarousel";
+import DescriptionText from "./DescriptionText";
+import DocumentationButton from "./DocumentationButton";
+import TechStack from "./TechStack";
+import FooterInfo from "./FooterInfo";
 
 i18n.use(initReactI18next)
 
 function HomePage() {
+    const { t } = useTranslation();
+
     const [showWelcomeNotification, setShowWelcomeNotification] = useState(false);
 
     useEffect(() => {
@@ -22,22 +29,28 @@ function HomePage() {
         setShowWelcomeNotification(false);
     };
 
-    const { t } = useTranslation();
-
     return (
-        <div>
-            <HomeScreen/>
-            {showWelcomeNotification && (
-                <Notification
-                    title={t("notification_welcome")}
-                    message={t("notification_message_home")}
-                    time={t("notification_time")}
-                    icon={Icon}
-                    onClose={handleDismissWelcomeNotification}
-                />
-            )}
+        <div id="homeScreen">
+            <div>
+                <ImgCarousel/>
+                <DescriptionText/>
+                <DocumentationButton/>
+                <div id="usedTechnologies">
+                    <TechStack/>
+                </div>
+                <FooterInfo/>
+                {showWelcomeNotification && (
+                    <Notification
+                        title={t("notification_welcome")}
+                        message={t("notification_message_home")}
+                        time={t("notification_time")}
+                        icon={Icon}
+                        onClose={handleDismissWelcomeNotification}
+                    />
+                )}
+            </div>
         </div>
-    );
+    )
 }
 
 export default HomePage;

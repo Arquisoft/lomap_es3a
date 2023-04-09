@@ -85,7 +85,7 @@ function NavBar() {
                             {(!isLoggedIn) ? "" :
                                 <Card><Card.Text>{dropdownTitle}</Card.Text></Card>}
                             {(!isLoggedIn) ?
-                                <LoginButton oidcIssuer="https://inrupt.net" redirectUrl="http://localhost:3000/map">
+                                <LoginButton oidcIssuer="https://inrupt.net" redirectUrl={window.location.href}>
                                     <Button variant="contained" color="primary" id="login">
                                         {t("login")}
                                     </Button>

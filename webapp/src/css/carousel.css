@@ -3,9 +3,9 @@
 }
 
 .carousel-item img {
-    width: 65vw;
-    height: 50vh;
+    width: 50vw;
+    height: 45vh;
 
-    border-radius: 5px;
+    border-radius: 0.3125em;
     text-align: center;
 }
