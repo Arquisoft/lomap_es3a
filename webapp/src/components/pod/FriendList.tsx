@@ -3,16 +3,26 @@ import {useSession} from "@inrupt/solid-ui-react";
 import {findPersonData, PersonData} from "./FriendsPOD";
 import botonRojo from "../../img/botonRojo.png";
 import botonVerde from "../../img/botonVerde.png";
-import {Session} from "@inrupt/solid-client-authn-browser";
-import * as solid from '@inrupt/solid-client';
-import {SessionInfo} from "@inrupt/solid-ui-react/dist/src/hooks/useSession";
+import {
+    createAclFromFallbackAcl, getResourceAcl,
+    getSolidDatasetWithAcl,
+    hasAccessibleAcl,
+    hasFallbackAcl,
+    hasResourceAcl, saveAclFor, setAgentResourceAccess,setAgentDefaultAccess
+} from "@inrupt/solid-client";
+import {initReactI18next, useTranslation} from "react-i18next";
+import i18n from "../../i18n";
 
+
+i18n.use(initReactI18next)
 
 function FriendList(){
     const { session } = useSession();
     const [personData, setPersonData] = useState<PersonData>({ webId: '', name: '', friends: [] })
     const {webId} = session.info;
     const [friends, setFriendList] = useState<PersonData[]>([]);
+
+    const { t } = useTranslation();
 
     useEffect(() => {
         async function loadPersonData() {
@@ -39,43 +49,66 @@ function FriendList(){
         fetchFriends()
     }, [personData.friends, session])
 
-    function getMarkers(id:string){
+    function getMarkers(id:string,friendWebId:string){
         (document.getElementById(id) as HTMLImageElement).src = botonVerde;
-
+        if(webId!==undefined){
+            let target = webId.split("profile")[0]
+            console.log(friendWebId)
+            changePermissions(target,friendWebId);
+        }
     }
 
-    // async function friendsAclPermission(webId:string,session:Session) {
-    //     let url = webId.replace("profile/card#me","");
-    //     let urlContainer = url+"private/locations.json";
-    //
-    //     try {
-    //         let file = await solid.getFile(
-    //             url,
-    //             { fetch: session.fetch }
-    //         );
-    //
-    //         let resourceAcl = solid.createAcl(file);
-    //
-    //         const updatedAcl = solid.setAgentResourceAccess(
-    //             resourceAcl,
-    //             personData.friends[1],
-    //             { read: true, append: false, write: false, control: false }
-    //         );
-    //
-    //         await solid.saveAclFor(file, updatedAcl, { fetch: session.fetch });
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
+    async function changePermissions(webId:string,friendWebId:string){
+        // Fetch the SolidDataset and its associated ACLs, if available:
+        const myDatasetWithAcl = await getSolidDatasetWithAcl(webId+"private/",{fetch:session.fetch});
+
+        // Obtain the SolidDataset's own ACL, if available,
+        // or initialise a new one, if possible:
+        let resourceAcl;
+        if (!hasResourceAcl(myDatasetWithAcl)) {
+            if (!hasAccessibleAcl(myDatasetWithAcl)) {
+                throw new Error(
+                    "The current user does not have permission to change access rights to this Resource."
+                );
+            }
+            if (!hasFallbackAcl(myDatasetWithAcl)) {
+                throw new Error(
+                    "The current user does not have permission to see who currently has access to this Resource."
+                );
+                // Alternatively, initialise a new empty ACL as follows,
+                // but be aware that if you do not give someone Control access,
+                // **nobody will ever be able to change Access permissions in the future**:
+                // resourceAcl = createAcl(myDatasetWithAcl);
+            }
+            resourceAcl = createAclFromFallbackAcl(myDatasetWithAcl);
+        } else {
+            resourceAcl = getResourceAcl(myDatasetWithAcl);
+        }
+
+        // Give someone Control access to the given Resource:
+        let updatedAcl = setAgentResourceAccess(
+            resourceAcl,
+            friendWebId,
+            { read: false, append: false, write: false, control: true }
+        );
+        updatedAcl = setAgentDefaultAccess(
+            updatedAcl,
+            friendWebId,
+            { read: true, append: false, write: false,control:false }
+        )
+
+        // Now save the ACL:
+        await saveAclFor(myDatasetWithAcl, updatedAcl,{fetch:session.fetch});
+    }
 
     return(
         <div id="friends" >
-            <h2>Friends</h2>
+            <h2>{t("friends")}</h2>
             <div id="friendsList">
                 {
                     friends.map(friend => (
                         <div key={friend.webId}>
-                            <button onClick={() =>getMarkers("button-"+friend.webId)}>{friend.name} <img id={"button-"+friend.webId} src={botonRojo} alt="botonRojo" width={15} height={15}/></button>
+                            <button onClick={() =>getMarkers("button-"+friend.webId,friend.webId)}>{friend.name} <img id={"button-"+friend.webId} src={botonRojo} alt="botonRojo" width={15} height={15}/></button>
                         </div>
                     ))
 

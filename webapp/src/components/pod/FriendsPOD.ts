@@ -10,6 +10,7 @@ import { foaf, vcard, owl, rdfs } from 'rdf-namespaces'
 import {Session} from "@inrupt/solid-client-authn-browser";
 
 
+
 export interface PersonData {
     webId: IriString
     name: string
@@ -47,11 +48,13 @@ const findFullPersonProfile = async (
 
 
 
+
+
 export const findPersonData = async (session: Session,webId: IriString): Promise<PersonData> => {
     const data: PersonData = { webId: webId, name: '', friends: [] }
     if (webId) {
         const dataset = await findFullPersonProfile(webId,session)
-        dataset.reduce((data, d) => {
+        const result = dataset.reduce((data, d) => {
             const person = getThing(d, webId)
             if (person) {
                 const friends = getTermAll(person, foaf.knows).map(a => a.value)
@@ -63,11 +66,12 @@ export const findPersonData = async (session: Session,webId: IriString): Promise
                         getTerm(person, foaf.name)?.value ??
                         getTerm(person, vcard.fn)?.value ??
                         ''
-                console.log("hlo")
+
+
             }
             return data
         }, data)
-        return data
+        return result
     }
 
     return data;
