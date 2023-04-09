@@ -38,14 +38,6 @@ select, option {
     width: 65%;
 }
 
-#screen {
-    height: 90vh;
-    width: 100vw;
-    position: relative;
-    z-index: 0;
-    overflow: hidden;
-}
-
 #searchButton {
     font-size: 20px;
     font-weight: lighter;
@@ -57,58 +49,36 @@ select, option {
     width: 15%;
 }
 
-#optionsButton {
-    padding: 5px;
-    position: absolute;
-    z-index: 2;
-
-    color: white;
-    font-size: 25px;
-    background-color: #232269;
-    border-radius: 20px;
-    border-style: none;
-    margin-top: 20px;
-
-    left: 20px;
-    cursor: pointer;
+#mapPage {
+    display: flex;
+    flex-direction: row;
 }
 
-#optionsButton:hover {
-    background-color: #323376;
-}
-
-#optionsButton:active {
-    background-color: #1c2a70;
+#mapView {
+    height: 90vh;
+    width: 80vw;
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 0;
 }
 
 #optionsMenu {
     color: white;
-    font-size: 15px;
-    font-weight: bold;
-    background-color: rgba(35, 34, 105, 0.8);
+    background-color: rgb(35, 34, 105);
     text-align: center;
 
     height: 90vh;
-    width: 0;
-    position: absolute;
-    z-index: 1;
-
+    width: 20vw;
     overflow-x: hidden;
-    padding-top: 60px;
-    transition: 0.5s;
 }
 
-#optionsMenu .cross, #markersMenu .cross {
+#markersMenu .cross {
     padding: 8px 8px 8px 32px;
     background: none;
     border: none;
-    font-size: 25px;
     color: #ffffff;
     display: block;
     transition: 0.3s;
-}
-
-.cross {
     position: absolute;
     top: 0;
     right: 25px;
@@ -132,16 +102,6 @@ select, option {
     overflow-x: hidden;
     padding-top: 60px;
     transition: 0.5s;
-}
-
-#markersMenu .cross {
-    padding: 8px 8px 8px 32px;
-    background: none;
-    border: none;
-    font-size: 25px;
-    color: #ffffff;
-    display: block;
-    transition: 0.3s;
 }
 
 #namePlace, #comment, #longitude, #latitude {
