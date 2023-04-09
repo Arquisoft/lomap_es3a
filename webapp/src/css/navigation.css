@@ -1,34 +1,53 @@
 nav {
-    background-color: #1c2a70;
-    border-style: solid;
-    border-color: white;
-    border-width: 5px;
+    width: 100vw;
+    height: 15vh;
+    background-color: #23226a;
+    transition: 0.3s ease-in-out;
+}
+
+nav.nav-expanded {
+    height: 40em;
 }
 
 .nav-link {
-    font-size: 30px !important;
+    font-size: 2.2222222222em !important;
     text-decoration: none;
     color: rgba(148, 148, 148, 0.61);
+    margin-right: 2.2222222222vw;
 }
 
 .dropdown-toggle {
-    font-size: 20px !important;
+    font-size: 1.8em !important;
     text-decoration: none;
     color: white !important;
-    background-color: #1c2a70;
+    background-color: #232269 !important;
     border-style: none;
 }
 
 .dropdown-menu {
-    background-color: #1c2a70;
+    background-color: #23226a;
     border-style: solid;
     border-color: white;
-    border-width: 1px;
+    border-width: 0.0625em;
 }
 
 .dropdown-item {
-    font-size: 15px !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1.15em !important;
     text-decoration: none;
+    color: rgba(148, 148, 148, 0.61);
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background-color: #23226a;
+    color: white;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+    background-color: #23226a;
     color: white;
 }
 
@@ -43,7 +62,6 @@ nav a:active, #login-manage a:active {
 .active {
     color: white !important;
     font-weight: bold;
-    text-decoration-line: underline;
 }
 
 #login-manage {
@@ -53,21 +71,23 @@ nav a:active, #login-manage a:active {
 }
 
 #login-manage a {
-    font-size: 15px;
-    color: #669de3;
-    padding: 10px;
-    margin-top: -5px;
+    font-size: 0.9375em;
+    color: #c5dff1;
+    padding: 0.625em;
+    margin-top: -0.3125em;
     margin-right: 0;
+    text-align: center;
 }
 
 #login, #logout {
+    font-size: 1.15em;
     font-weight: bold;
     color: white;
-    padding: 10px;
+    padding: 0.625em;
     border-color: white;
-    border-width: 3px;
+    border-width: 0.1875em;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 0.625em;
 }
 
 #login {
@@ -88,20 +108,20 @@ nav a:active, #login-manage a:active {
 
 .card {
     width: 75%;
-    border-radius: 10px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    border-radius: 0.625em;
+    margin-top: 0.3125em;
+    margin-bottom: 0.3125em;
 }
 
 .card-text {
-    font-size: 15px;
+    font-size: 0.9375em;
     color: white;
     background-color: #0063fd;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 0.625em;
     border-color: white;
     border-style: solid;
-    border-width: 1px;
+    border-width: 0.0625em;
 }
 
 .card-text:hover {

@@ -14,14 +14,12 @@ export type TechButtonType = {
     text: string;
 }
 
-export type FilterType = {
+export type SearchType = {
     title: string;
-    options: string[]
 }
 
-export type DocumentationButtonType = {
-    href: string;
-    text: string;
+export type FilterType = {
+    title: string;
 }
 
 export type NamePlaceType = {

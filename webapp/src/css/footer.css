@@ -1,11 +1,9 @@
 #info {
-    font-size: 20px;
-    font-weight: initial;
-    padding: 10px;
-    position: fixed;
+    font-size: 1.25em;
+    padding: 0.625em;
+    position: absolute;
     bottom: 0;
     left: 0;
-    text-decoration: none;
 }
 
 #link {

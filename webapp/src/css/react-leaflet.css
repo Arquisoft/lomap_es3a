@@ -1,4 +1,4 @@
 .leaflet-container {
-    height: 88.3vh; /* Set the height to 90% of the remaining viewport height */
-    width: 100vw; /* Set the width to 80% of the remaining viewport width */
+    height: 100%;
+    width: 100%;
 }

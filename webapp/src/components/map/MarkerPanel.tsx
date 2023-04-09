@@ -2,25 +2,38 @@ import Filter from "./options/Filter";
 import ButtonAddPod from "../pod/ButtonAddPod";
 import NamePlace from "./options/NamePlace";
 import Comments from "./options/Comments";
-import Score from "./options/Score";
 import Coordinates from "./options/Coordinates";
 import React from "react";
+import {initReactI18next, useTranslation} from "react-i18next";
+import Mark from "./options/Mark";
+import i18n from "../../i18n";
+
+i18n.use(initReactI18next)
 
 function MarkerPanel() {
 
+    const { t } = useTranslation();
+
+    function closeMenu() {
+        const markersMenu = document.getElementById("markersMenu");
+        if (markersMenu !== null) {
+            markersMenu.style.width = "0";
+        }
+    }
+
     return (
         <div id="markersMenu">
-            <h1>Add Marker</h1>
-            <NamePlace title={"Enter place's name:"}/>
-            <Coordinates/>
-            <Filter title={"Marker's Category:"}
-                    options={["Bar", "Shop", "Restaurant", "Cinema", "Landscape", "Monument"]}/>
-            <Comments title={"Put a comment about this place"}/>
-            <Score title={"Select the score you would give this place"}/>
-            <ButtonAddPod idName={"namePlace"} idCategory={"category"} idComment={"comment"} idScore={"score"}
-                          idLatitude={"latitude"} idLongitude={"longitude"}/>
-
-
+            <h1>{t("add_marker")}</h1>
+            <input type="button" className="cross" onClick={closeMenu} value="&times;"/>
+            <form>
+                <NamePlace title={t("places_name")}/>
+                <Coordinates/>
+                <Filter title={t("category")}/>
+                <Mark title={t("mark")}/>
+                <Comments title={t("comment")}/>
+                <ButtonAddPod idName={"namePlace"} idCategory={"category"} idComment={"comment"} idScore={"score"}
+                              idLatitude={"latitude"} idLongitude={"longitude"}/>
+            </form>
         </div>
     )
 

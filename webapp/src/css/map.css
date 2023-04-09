@@ -1,46 +1,25 @@
 h1 {
-    font-family: "Bauhaus 93", serif;
-    font-size: 40px;
+    font-family: 'Lato', sans-serif;
+    font-size: 2.5em;
     color: #92b5f5;
-    padding: 10px;
+    padding: 0.625em;
     margin: 0;
 }
 
 h2 {
     font-family: "Corbel Light", serif;
-    font-size: 25px;
-    margin: 10px;
+    font-size: 1.563em;
+    margin: 0.625em;
 }
 
 select, option {
-    font-size: 20px;
+    font-size: 1.25em;
     font-weight: lighter;
     color: white;
     background-color: rgba(15, 94, 197, 0.8);
-    padding: 5px;
-    border-radius: 10px;
-    width: 85%;
-}
-
-#slider {
-    margin-right: 5px;
-    width: 60%;
-    background: linear-gradient(to right, #00d9fd 0%, #017dfa 50%, #007ffd 50%, #1c2a6f 100%);
-    border: solid 2px #ffffff;
-    border-radius: 8px;
-    height: 10px;
-    -webkit-appearance: none;
-}
-
-#value {
-    font-size: 20px;
-    font-weight: lighter;
-    color: white;
-    background-color: rgba(15, 94, 197, 0.8);
-    margin-left: 5px;
-    padding: 5px;
-    border-radius: 10px;
-    width: 20%;
+    padding: 0.313em;
+    border-radius: 0.313em;
+    width: 80%;
 }
 
 #searchPanel {
@@ -49,125 +28,81 @@ select, option {
 }
 
 #searchText, #namePlace, #comment, #latitude, #longitude {
-    font-size: 20px;
+    font-size: 1.25em;
     font-weight: lighter;
     color: white;
     background-color: rgba(15, 94, 197, 0.8);
-    padding: 5px;
-    border-bottom-left-radius: 10px;
-    border-top-left-radius: 10px;
+    padding: 0.313em;
+    border-bottom-left-radius: 0.313em;
+    border-top-left-radius: 0.313em;
     width: 65%;
 }
 
 #searchButton {
-    font-size: 20px;
+    font-size: 1.25em;
     font-weight: lighter;
     color: white;
     background-color: rgba(15, 94, 197, 0.8);
-    padding: 5px;
-    border-bottom-right-radius: 10px;
-    border-top-right-radius: 10px;
+    padding: 0.313em;
+    border-bottom-right-radius: 0.313em;
+    border-top-right-radius: 0.313em;
     width: 15%;
 }
 
-#screen {
-    position: relative;
+#mapPage {
+    display: flex;
+    flex-direction: row;
+}
+
+#mapView {
+    height: 85vh;
+    width: 80vw;
+    border-radius: 0.625em;
+    overflow: hidden;
     z-index: 0;
 }
 
-#optionsButton {
-    padding: 5px;
-    position: fixed;
-    z-index: 2;
-
-    color: white;
-    font-size: 25px;
-    font-weight: bold;
-    background-color: #0064ff;
-    border-radius: 20px;
-    border-color: black;
-    border-style: solid;
-
-    left: 20px;
-    cursor: pointer;
-    transition: background 250ms ease-in-out,
-    transform 150ms ease;
-}
-
-#optionsButton:hover {
-    background-color: #00a7fd;
-}
-
-#optionsButton:active {
-    background-color: #1c2a70;
-}
-
 #optionsMenu {
-    display: table-cell;
-    position: fixed;
-    z-index: 1;
-
     color: white;
-    font-size: 15px;
-    font-weight: bold;
-    background-color: rgba(28, 42, 111, 0.8);
+    background-color: rgb(35, 34, 105);
     text-align: center;
-    margin-left: 10px;
-    margin-top: 10px;
-    border-radius: 30px;
-    border-color: black;
-
-    height: auto;
-    width: 0;
+    height: 85vh;
+    width: 20vw;
     overflow-x: hidden;
-    transition: 0.5s;
 }
 
-#developers {
+#markersMenu .cross {
+    padding: 0.5em 0.5em 0.5em 2em;
+    background: none;
+    border: none;
+    color: #ffffff;
+    display: block;
+    transition: 0.3s;
     position: absolute;
-    bottom: 20px;
-    width: 100%;
-    text-align: center;
-}
-
-#developers p {
-    color: white;
-    text-align: center;
-    margin: 0;
-}
-
-#developers p a:hover {
-    color: white;
-}
-
-.member {
-    color: rgba(255, 255, 255, 0.75);
-    text-decoration: underline;
+    top: 0;
+    right: 1.563em;
+    font-size: 2.25em;
+    margin-left: 3.125em;
 }
 
 #markersMenu {
-    position: fixed;
-    z-index: 1;
-
     color: white;
-    font-size: 15px;
+    font-size: 0.938em;
     font-weight: bold;
-    background-color: rgba(28, 42, 111, 0.8);
+    background-color: rgba(35, 34, 105, 0.8);
     text-align: center;
-    margin-right: 10px;
-    margin-top: 10px;
-    border-radius: 30px;
-    border-color: black;
-    right: 0;
-
-    height: auto;
+    height: 90vh;
     width: 0;
+    right: 0;
+    position: absolute;
+    z-index: 1;
     overflow-x: hidden;
+    padding-top: 3.75em;
     transition: 0.5s;
 }
 
 #namePlace, #comment, #longitude, #latitude {
-    border-radius: 10px;
+    border-radius: 0.313em;
     width: 80%;
 }
 
@@ -175,33 +110,8 @@ select, option {
     font-weight: bold;
     color: white;
     background-color: #0063fd;
-    padding: 10px;
-    border-radius: 20px;
-    border-color: white;
-    border-style: solid;
-    border-width: 3px;
-    cursor: pointer;
-    margin-bottom: 1em;
-    margin-top: 1em;
-}
-
-#addPanel button:hover,#friends button:hover {
-    background-color: #00a6fb;
-}
-
-#addPanel button:active {
-    background-color: #007ffd;
-}
-
-#friends button {
-    font-weight: bold;
-    color: white;
-    background-color: #0063fd;
-    padding: 5px;
-    border-radius: 20px;
-    border-color: white;
-    border-style: solid;
-    border-width: 3px;
+    padding: 0.625em;
+    border-width: 0.188em;
     cursor: pointer;
     margin-bottom: 0.3em;
 }
