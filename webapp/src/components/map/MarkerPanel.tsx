@@ -5,7 +5,7 @@ import Comments from "./options/Comments";
 import Coordinates from "./options/Coordinates";
 import React from "react";
 import {initReactI18next, useTranslation} from "react-i18next";
-import Score from "./options/Score";
+import Mark from "./options/Mark";
 import i18n from "../../i18n";
 
 i18n.use(initReactI18next)
@@ -29,7 +29,7 @@ function MarkerPanel() {
                 <NamePlace title={t("places_name")}/>
                 <Coordinates/>
                 <Filter title={t("category")}/>
-                <Score title={t("mark")}/>
+                <Mark title={t("mark")}/>
                 <Comments title={t("comment")}/>
                 <ButtonAddPod idName={"namePlace"} idCategory={"category"} idComment={"comment"} idScore={"score"}
                               idLatitude={"latitude"} idLongitude={"longitude"}/>
