@@ -2,9 +2,9 @@ name: CI for LOMAP ES3A
 
 on:
   push:
-    branches: [master, testing]
+    branches: [master, develop, testing]
   pull_request:
-    branches: [master, testing]
+    branches: [master, develop, testing]
 
 jobs:
   unit-tests:
