@@ -3,5 +3,5 @@ import FooterInfo from "../components/FooterInfo";
 
 test("Footer renders correctly", async () => {
     const {getByText} = render(<FooterInfo/>);
-    expect(getByText("footer")).toBeInTheDocument();
+    expect(getByText("© Arquisoft - UNIOVI")).toBeInTheDocument();
 });
