@@ -25,7 +25,7 @@ function LanguageMenu() {
 
     return (
         <Dropdown className="nav-item dropdown">
-            <Dropdown.Toggle className="nav-link dropdown-toggle">
+            <Dropdown.Toggle className="dropdown-toggle">
                 {t("language")}
             </Dropdown.Toggle>
 
