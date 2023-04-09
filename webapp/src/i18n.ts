@@ -41,7 +41,7 @@ i18n
 
                     // Map
                     // Options menu
-                    options_menu: "Options Menu",
+                    options_menu: "Map options",
                     search: "Search",
                     search_placeholder: "Type to search...",
                     category: "Category",
@@ -59,6 +59,7 @@ i18n
                     parks: "Parks",
                     others: "Others",
                     mark: "Mark",
+                    friends: "Your friends",
 
                     // Add marker
                     add_marker: "Add marker",
@@ -114,7 +115,7 @@ i18n
 
                     // Map
                     // Options menu
-                    options_menu: "Menú de opciones",
+                    options_menu: "Opciones del mapa",
                     search: "Buscar",
                     search_placeholder: "Escribe para buscar...",
                     category: "Categoría",
@@ -132,6 +133,7 @@ i18n
                     parks: "Parques",
                     others: "Otros",
                     mark: "Nota",
+                    friends: "Tus amigos",
 
                     // Add marker
                     add_marker: "Agregar marca",
@@ -187,7 +189,7 @@ i18n
 
                     // Map
                     // Options menu
-                    options_menu: "Menu d'options",
+                    options_menu: "Options de carte",
                     search: "Rechercher",
                     search_placeholder: "Tapez pour rechercher...",
                     category: "Catégorie",
@@ -204,7 +206,8 @@ i18n
                     museum: "Musées",
                     parks: "Parcs",
                     others: "Autres",
-                    mark: "Marquer",
+                    mark: "Note",
+                    friends: "Vos amis",
 
                     // Add marker
                     add_marker: "Ajouter une marque",
@@ -259,7 +262,7 @@ i18n
 
                     // Map
                     // Options menu
-                    options_menu: "Optionsmenü",
+                    options_menu: "Kartenoptionen",
                     search: "Suchen",
                     search_placeholder: "Geben Sie zum Suchen ein...",
                     category: "Kategorie",
@@ -277,6 +280,7 @@ i18n
                     parks: "Parks",
                     others: "Andere",
                     mark: "Markieren",
+                    friends: "Deine Freunde",
 
                     // Add marker
                     add_marker: "Markierung hinzufügen",
@@ -332,7 +336,7 @@ i18n
 
                     // Map
                     // Options menu
-                    options_menu: "选项菜单",
+                    options_menu: "地图选项",
                     search: "搜索",
                     search_placeholder: "输入以搜索...",
                     category: "类别",
@@ -350,6 +354,7 @@ i18n
                     parks: "公园",
                     others: "其他",
                     mark: "标记",
+                    friends: "你的朋友",
 
                     // Add marker
                     add_marker: "添加标记",
@@ -404,7 +409,7 @@ i18n
 
                     // Map
                     // Options menu
-                    options_menu: "Menú d'opciones",
+                    options_menu: "Opciones del mapa",
                     search: "Buscar",
                     search_placeholder: "Escribi pa buscar...",
                     category: "Categoría",
@@ -422,6 +427,7 @@ i18n
                     parks: "Parques",
                     others: "Otros",
                     mark: "Nota",
+                    friends: "Los tos amigos",
 
                     // Add marker
                     add_marker: "Amestar marcador",
