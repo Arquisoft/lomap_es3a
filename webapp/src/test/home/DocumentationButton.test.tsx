@@ -3,5 +3,5 @@ import DocumentationButton from "../../components/home/DocumentationButton";
 
 test("Documentation button renders correctly", async () => {
     const {getByText} = render(<DocumentationButton/>);
-    expect(getByText("docs_button")).toBeInTheDocument();
+    expect(getByText("See our documentation 🔗")).toBeInTheDocument();
 });

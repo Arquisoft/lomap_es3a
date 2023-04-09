@@ -4,8 +4,11 @@ import NamePlace from "./options/NamePlace";
 import Comments from "./options/Comments";
 import Coordinates from "./options/Coordinates";
 import React from "react";
-import {useTranslation} from "react-i18next";
+import {initReactI18next, useTranslation} from "react-i18next";
 import Score from "./options/Score";
+import i18n from "../../i18n";
+
+i18n.use(initReactI18next)
 
 function MarkerPanel() {
 

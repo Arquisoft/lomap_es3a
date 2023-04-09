@@ -2,7 +2,10 @@ import React, {useEffect, useState} from "react";
 import HomeScreen from "./HomeScreen";
 import Notification from "../Notification";
 import Icon from "../../img/symbols/GOMapSymbol.png";
-import {useTranslation} from 'react-i18next';
+import {initReactI18next, useTranslation} from 'react-i18next';
+import i18n from "../../i18n";
+
+i18n.use(initReactI18next)
 
 function HomePage() {
     const [showWelcomeNotification, setShowWelcomeNotification] = useState(false);

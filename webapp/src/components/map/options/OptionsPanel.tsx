@@ -1,8 +1,11 @@
 import Filter from "./Filter";
 import Search from "./Search";
 import FriendList from "../../pod/FriendList";
-import {useTranslation} from "react-i18next";
+import {initReactI18next, useTranslation} from "react-i18next";
 import React from "react";
+import i18n from "../../../i18n";
+
+i18n.use(initReactI18next)
 
 function OptionsPanel() {
 

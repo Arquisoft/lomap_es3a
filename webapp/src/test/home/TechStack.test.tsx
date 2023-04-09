@@ -3,7 +3,7 @@ import TechStack from "../../components/home/TechStack";
 
 test("TechStack renders correctly", async () => {
     const {getByText} = render(<TechStack/>);
-    expect(getByText("tech_stack")).toBeInTheDocument();
+    expect(getByText("Used technologies:")).toBeInTheDocument();
 });
 
 test("TechStack displays all tech symbols", async () => {
@@ -11,7 +11,7 @@ test("TechStack displays all tech symbols", async () => {
     const reactSymbol = getByAltText("React Symbol");
     const solidSymbol = getByAltText("SOLID Project Symbol");
     const typescriptSymbol = getByAltText("TypeScript Symbol");
-    const openStreetMapSymbol = getByAltText("OpenStreetMaps Symbol");
+    const openStreetMapSymbol = getByAltText("OpenStreetMap Symbol");
     const nodeJSSymbol = getByAltText("NodeJS Symbol");
     const webStormSymbol = getByAltText("WebStorm Symbol");
     const bootstrapSymbol = getByAltText("Bootstrap Symbol");

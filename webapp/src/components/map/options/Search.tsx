@@ -1,5 +1,8 @@
-import {useTranslation} from "react-i18next";
+import {initReactI18next, useTranslation} from "react-i18next";
 import {SearchType} from "../../../shared/shareddtypes";
+import i18n from "../../../i18n";
+
+i18n.use(initReactI18next)
 
 function Search({title} : SearchType) {
 

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Dropdown} from 'react-bootstrap';
-import {useTranslation} from 'react-i18next';
+import {initReactI18next, useTranslation} from 'react-i18next';
 import i18n from 'i18next';
 import UKFlag from "../../img/flags/UKFlag.png";
 import SpainFlag from "../../img/flags/SpainFlag.png";
@@ -8,6 +8,8 @@ import FranceFlag from "../../img/flags/FranceFlag.png";
 import GermanyFlag from "../../img/flags/GermanyFlag.png";
 import ChinaFlag from "../../img/flags/ChinaFlag.png";
 import AsturiasFlag from "../../img/flags/AsturiasFlag.png";
+
+i18n.use(initReactI18next)
 
 function LanguageMenu() {
     const [selectedLanguage, setSelectedLanguage] = useState('en');

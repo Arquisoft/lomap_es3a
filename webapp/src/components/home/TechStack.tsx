@@ -1,4 +1,4 @@
-import {useTranslation} from "react-i18next";
+import {initReactI18next, useTranslation} from "react-i18next";
 import TechButton from "./TechButton";
 import ReactSymbol from "../../img/symbols/ReactSymbol.png";
 import SOLIDProjectSymbol from "../../img/symbols/SOLIDProjectSymbol.png";
@@ -8,6 +8,9 @@ import NodeJSSymbol from "../../img/symbols/NodeJSSymbol.png";
 import WebStormSymbol from "../../img/symbols/WebStormSymbol.png";
 import Bootstrap from "../../img/symbols/Bootstrap_logo.png";
 import React from "react";
+import i18n from "../../i18n";
+
+i18n.use(initReactI18next)
 
 function TechStack() {
     const { t } = useTranslation();
