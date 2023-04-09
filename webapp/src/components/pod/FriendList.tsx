@@ -3,10 +3,6 @@ import {useSession} from "@inrupt/solid-ui-react";
 import {findPersonData, PersonData} from "./FriendsPOD";
 import botonRojo from "../../img/botonRojo.png";
 import botonVerde from "../../img/botonVerde.png";
-import {Session} from "@inrupt/solid-client-authn-browser";
-import * as solid from '@inrupt/solid-client';
-import {SessionInfo} from "@inrupt/solid-ui-react/dist/src/hooks/useSession";
-
 
 function FriendList(){
     const { session } = useSession();

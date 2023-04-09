@@ -61,7 +61,7 @@ function MarkersPOD() {
             }
         }
         fetchPoints();
-    }, [webIdStore, session]);
+    }, [webId, webIdStore, session]);
 
     return(
         <div>
@@ -118,10 +118,6 @@ function MarkersPOD() {
                                         </CardActions>
                                     </CardContent>
                                 </CardActionArea>
-
-
-
-
                         </Popup>
                     </Marker>
                 ))

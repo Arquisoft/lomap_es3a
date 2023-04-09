@@ -11,21 +11,6 @@ function MarkerPanel() {
 
     const { t } = useTranslation();
 
-    const categories = {
-        bars: t('bars'),
-        restaurants: t('restaurants'),
-        shops: t('shops'),
-        supermarkets: t('supermarkets'),
-        hotels: t('hotels'),
-        cinemas: t('cinemas'),
-        academic_institution: t('academic_institution'),
-        public_institution: t('public_institution'),
-        sports_club: t('sports_club'),
-        museum: t('museum'),
-        parks: t('parks'),
-        others: t('others'),
-    };
-
     function closeMenu() {
         const markersMenu = document.getElementById("markersMenu");
         if (markersMenu !== null) {
@@ -36,7 +21,7 @@ function MarkerPanel() {
     return (
         <div id="markersMenu">
             <h1>{t("add_marker")}</h1>
-            <a href="javascript:void(0)" className="cross" onClick={closeMenu}>&times;</a>
+            <input type="button" className="cross" onClick={closeMenu} value="&times;"/>
             <form>
                 <NamePlace title={t("places_name")}/>
                 <Coordinates/>

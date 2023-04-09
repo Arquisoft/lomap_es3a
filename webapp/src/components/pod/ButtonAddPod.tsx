@@ -1,7 +1,7 @@
 import {useSession} from "@inrupt/solid-ui-react";
 import {getFile, overwriteFile} from "@inrupt/solid-client";
 import {Button} from "@mui/material";
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {Session} from "@inrupt/solid-client-authn-browser";
 import Notification from "../Notification";
 import ReactDOM from "react-dom/client";
@@ -99,7 +99,7 @@ function ButtonAddPod({
 
     const createData = async (url: string, file: File, session: Session) => {
         try {
-            let savedFile = await overwriteFile(
+            await overwriteFile(
                 url,
                 file,
                 {contentType: file.type, fetch: session.fetch}
@@ -107,10 +107,6 @@ function ButtonAddPod({
         } catch (error) {
             console.log(error);
         }
-    };
-
-    const handleOpenNotification = () => {
-        setShowNotification(true);
     };
 
     const handleCloseNotification = () => {

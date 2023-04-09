@@ -2,6 +2,7 @@ import Filter from "./Filter";
 import Search from "./Search";
 import FriendList from "../../pod/FriendList";
 import {useTranslation} from "react-i18next";
+import React from "react";
 
 function OptionsPanel() {
 
@@ -45,7 +46,7 @@ function OptionsPanel() {
             <input type="button" id="optionsButton" value="☰️" onClick={displayMenu}/>
             <div id="optionsMenu">
                 <h1>Options Menu</h1>
-                <a href="javascript:void(0)" className="cross" onClick={closeMenu}>&times;</a>
+                <input type="button" className="cross" onClick={closeMenu} value="&times;"/>
                 <Search title={t("search")}/>
                 <Filter
                     title={t("category")}
