@@ -72,7 +72,7 @@ async function readFileFromPod(fileURL: string, session: Session) {
             let comment = fileJSON[i].comment;
             var e = document.getElementById("category");
             // @ts-ignore
-            var value = e.value;
+            // var value = e.value;
             // @ts-ignore
             var text = e.options[e.selectedIndex].value;
             if (category === text  || text ==="All")
