@@ -6,28 +6,31 @@ import StarIcon from '@mui/icons-material/Star';
 
 
 function Mark({title}: ScoreType) {
-    const [value, setValue] = React.useState<number | null>(2);
+    const [value, setValue] = React.useState<number | null>(0);
     const [hover, setHover] = React.useState(-1);
 
     return (
-        <div id="rating">
+        <div>
             <h2>{title}</h2>
-            <Rating
-                name="hover-feedback"
-                value={value}
-                precision={0.5}
+            <div id="rating">
+                <Rating
+                    name="size-large"
+                    value={value}
+                    precision={1}
+                    size={"large"}
 
-                onChange={(event, newValue) => {
-                    setValue(newValue);
-                }}
-                onChangeActive={(event, newHover) => {
-                    setHover(newHover);
-                }}
-                emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
-            />
-            {value !== null && (
-                <Box id="score" sx={{ ml: 2 }}>{hover !== -1 ? hover : value}</Box>
-            )}
+                    onChange={(event, newValue) => {
+                        setValue(newValue);
+                    }}
+                    onChangeActive={(event, newHover) => {
+                        setHover(newHover);
+                    }}
+                    emptyIcon={<StarIcon style={{opacity: 0.55}} fontSize="inherit"/>}
+                />
+                {value !== null && (
+                    <Box id="score" sx={{ml: 3}}>{hover !== -1 ? hover : value}</Box>
+                )}
+            </div>
         </div>
     )
 }

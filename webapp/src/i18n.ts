@@ -448,7 +448,7 @@ i18n
                 }
             }
         },
-        lng: 'en',
+        lng: sessionStorage.getItem("language") || "en",
         fallbackLng: 'en',
         interpolation: {
             escapeValue: false
@@ -456,5 +456,13 @@ i18n
     }).then(() => {
         console.log("Internationalization initialized correctly")
     });
+
+const saveLanguageToSession = (language: string) => {
+    sessionStorage.setItem("language", language);
+};
+
+i18n.on("languageChanged", (lang) => {
+    saveLanguageToSession(lang);
+});
 
 export default i18n;
