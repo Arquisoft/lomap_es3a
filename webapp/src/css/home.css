@@ -40,11 +40,11 @@
 }
 
 #documentButton:hover {
-    background-color: #00a6fb;
+    background-color: #4f558f;
 }
 
 #documentButton:active {
-    background-color: #007ffd;
+    background-color: #232269;
 }
 
 #documentation p {

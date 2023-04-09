@@ -19,7 +19,17 @@ select, option {
     background-color: rgba(15, 94, 197, 0.8);
     padding: 0.313em;
     border-radius: 0.313em;
-    width: 80%;
+    width: 90%;
+}
+
+#rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#score {
+    font-size: 1.5em;
 }
 
 #searchPanel {
@@ -27,15 +37,10 @@ select, option {
     justify-content: center;
 }
 
-#searchText, #namePlace, #comment, #latitude, #longitude {
-    font-size: 1.25em;
-    font-weight: lighter;
-    color: white;
-    background-color: rgba(15, 94, 197, 0.8);
-    padding: 0.313em;
+#searchText {
+    width: 70%;
     border-bottom-left-radius: 0.313em;
     border-top-left-radius: 0.313em;
-    width: 65%;
 }
 
 #searchButton {
@@ -46,7 +51,21 @@ select, option {
     padding: 0.313em;
     border-bottom-right-radius: 0.313em;
     border-top-right-radius: 0.313em;
-    width: 15%;
+    width: 20%;
+}
+
+#searchText, #namePlace, #comment, #latitude, #longitude {
+    font-size: 1.25em;
+    font-weight: lighter;
+    color: white;
+    background-color: rgba(15, 94, 197, 0.8);
+    padding: 0.313em;
+
+}
+
+#namePlace, #comment, #latitude, #longitude {
+    width: 90%;
+    border-radius: 0.313em;
 }
 
 #mapPage {
@@ -91,7 +110,7 @@ select, option {
     font-weight: bold;
     background-color: rgba(35, 34, 105, 0.8);
     text-align: center;
-    height: 90vh;
+    height: 85vh;
     width: 0;
     right: 0;
     position: absolute;
@@ -101,17 +120,22 @@ select, option {
     transition: 0.5s;
 }
 
-#namePlace, #comment, #longitude, #latitude {
-    border-radius: 0.313em;
-    width: 80%;
-}
-
 #addPanel button {
     font-weight: bold;
     color: white;
     background-color: #0063fd;
     padding: 0.625em;
     border-width: 0.188em;
+    cursor: pointer;
+    margin: 0.7em;
+}
+
+#friends button {
+    font-weight: bold;
+    color: white;
+    background-color: #0063fd;
+    padding: 0.5em;
+    border-radius: 0.5em;
     cursor: pointer;
     margin-bottom: 0.3em;
 }
