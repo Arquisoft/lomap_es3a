@@ -1,9 +1,12 @@
-import {DocumentationButtonType} from "../../shared/shareddtypes";
+import {useTranslation} from "react-i18next";
 
-function DocumentationButton({href, text}: DocumentationButtonType) {
+function DocumentationButton() {
+
+    const { t } = useTranslation();
+
     return (
-        <a href={href} id="documentButton">
-            {text}
+        <a href="https://arquisoft.github.io/lomap_es3a/" id="documentButton">
+            {t("docs_button")}
         </a>
     )
 
