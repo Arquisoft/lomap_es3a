@@ -118,10 +118,6 @@ function MarkersPOD() {
                                         </CardActions>
                                     </CardContent>
                                 </CardActionArea>
-
-
-
-
                         </Popup>
                     </Marker>
                 ))
