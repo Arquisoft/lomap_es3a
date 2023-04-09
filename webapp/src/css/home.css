@@ -46,23 +46,19 @@
     background-color: #007ffd;
 }
 
-#documentation > p {
+#documentation p {
     margin-top: 1em;
     color: black;
-    padding: 0px;
+    padding: 0;
     cursor: auto;
     font-family: "Corbel Light", serif;
     font-weight: bold;
-    font-size: 20px;
-}
-
-p:hover {
-    color: black;
+    font-size: 25px;
 }
 
 #symbolsPanel > p {
     color: black;
-    padding: 0px;
+    padding: 0;
     cursor: auto;
     font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
     font-weight: bold;
