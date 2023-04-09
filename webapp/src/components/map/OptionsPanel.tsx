@@ -16,7 +16,7 @@ function OptionsPanel() {
     return (
         <div>
             <div id="optionsMenu">
-                <h1>Options Menu</h1>
+                <h1>{t("options_menu")}</h1>
                 <Search title={t("search")}/>
                 <Filter
                     title={t("category")}

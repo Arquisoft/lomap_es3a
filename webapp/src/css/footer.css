@@ -1,11 +1,11 @@
 #info {
-    font-size: 20px;
-    padding: 10px;
+    font-size: 1.25em;
+    padding: 0.625em;
     position: absolute;
     bottom: 0;
     left: 0;
 }
 
 #link {
-    color: #0062fb;
+    color: #000000;
 }

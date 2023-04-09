@@ -5,19 +5,19 @@
     top: 1.5rem;
     right: 1.5rem;
     background-color: #ffffff;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 0.3125em;
+    box-shadow: 0 0 0.625em rgba(0, 0, 0, 0.25);
     padding: 1rem;
-    width: 400px;
+    width: 25em;
 }
 
 .notification-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 32px;
-    width: 32px;
-    margin-right: 12px;
+    height: 2em;
+    width: 2em;
+    margin-right: 0.75em;
     background-color: #f2f2f2;
     border-radius: 50%;
     flex-shrink: 0;
@@ -29,9 +29,9 @@
 }
 
 .notification-icon i {
-    font-size: 18px;
+    font-size: 1.125em;
     color: #333;
-    margin-right: 8px;
+    margin-right: 0.5em;
 }
 
 .notification-icon i.fa-bell {
@@ -46,20 +46,20 @@
 }
 
 .notification-title {
-    font-size: 1.2rem;
+    font-size: 1.2em;
     font-weight: bold;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.5em;
     color: #333;
 }
 
 .notification-message {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
+    font-size: 1em;
+    margin-bottom: 0.5em;
     color: #666;
 }
 
 .notification-time {
-    font-size: 0.8rem;
+    font-size: 0.8em;
     color: #999;
 }
 
@@ -73,7 +73,7 @@
 }
 
 .close-btn i {
-    font-size: 1.2rem;
+    font-size: 1.2em;
     color: #999;
 }
 
