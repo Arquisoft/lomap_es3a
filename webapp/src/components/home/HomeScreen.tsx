@@ -12,6 +12,7 @@ import WebStormSymbol from "../../img/symbols/WebStormSymbol.png";
 import Bootstrap from "../../img/symbols/Bootstrap_logo.png";
 import React from "react";
 import {useTranslation} from 'react-i18next';
+import DescriptionText from "./DescriptionText";
 
 function Symbols() {
     const { t } = useTranslation();
@@ -37,16 +38,9 @@ function HomeScreen() {
         <div id="screen">
             <div>
                 <ImgCarousel/>
-                <div id="documentation">
-                    <p>
-                        {t("home_info1")}
-                    </p>
-                    <p>
-                        {t("home_info2")}
-                    </p>
-                    <DocumentationButton href={"https://arquisoft.github.io/lomap_es3a/"}
-                                         text={t("docs_button")}/>
-                </div>
+                <DescriptionText/>
+                <DocumentationButton href={"https://arquisoft.github.io/lomap_es3a/"}
+                                     text={t("docs_button")}/>
                 <div id="usedTechnologies">
                     <Symbols/>
                 </div>
