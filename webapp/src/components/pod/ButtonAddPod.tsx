@@ -1,13 +1,16 @@
 import {useSession} from "@inrupt/solid-ui-react";
 import {getFile, overwriteFile} from "@inrupt/solid-client";
 import {Button} from "@mui/material";
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {Session} from "@inrupt/solid-client-authn-browser";
 import Notification from "../Notification";
 import ReactDOM from "react-dom/client";
 import MapView from "../map/MapView";
 import Icon from "../../img/symbols/GOMapSymbol.png";
-import {useTranslation} from "react-i18next";
+import {initReactI18next, useTranslation} from "react-i18next";
+import i18n from "../../i18n";
+
+i18n.use(initReactI18next)
 
 interface ButtonAddPodType {
     idName: string;
@@ -31,6 +34,8 @@ function ButtonAddPod({
     const {webId} = session.info;
     let webIdStore = webId?.slice(0, -15) + "private/locations.json";
 
+    const { t } = useTranslation();
+
     const createMarker = async (
         nameFile: string,
         idName: string,
@@ -48,7 +53,7 @@ function ButtonAddPod({
         let comment = (document.getElementById(
             idComment
         ) as HTMLInputElement).value;
-        let score = (document.getElementById(idScore) as HTMLInputElement).value;
+        let score = (document.getElementById(idScore) as HTMLDivElement).innerText;
         let latitude = (document.getElementById(
             idLatitude
         ) as HTMLInputElement).value;
@@ -97,7 +102,7 @@ function ButtonAddPod({
 
     const createData = async (url: string, file: File, session: Session) => {
         try {
-            let savedFile = await overwriteFile(
+            await overwriteFile(
                 url,
                 file,
                 {contentType: file.type, fetch: session.fetch}
@@ -105,10 +110,6 @@ function ButtonAddPod({
         } catch (error) {
             console.log(error);
         }
-    };
-
-    const handleOpenNotification = () => {
-        setShowNotification(true);
     };
 
     const handleCloseNotification = () => {
@@ -132,7 +133,8 @@ function ButtonAddPod({
             idScore,
             idLatitude,
             idLongitude,
-            webIdStore
+            webIdStore,
+
         )
             .then(  (file) =>  createData(webIdStore, file, session))
             .then(createNotification)
@@ -154,8 +156,6 @@ function ButtonAddPod({
             }
         }
     };
-
-    const { t } = useTranslation();
 
     return (
 

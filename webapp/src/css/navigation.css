@@ -2,6 +2,11 @@ nav {
     width: 100vw;
     height: 10vh;
     background-color: #23226a;
+    transition: height 0.3s ease-in-out;
+}
+
+nav.nav-expanded {
+    height: 50vh;
 }
 
 .nav-link {

@@ -6,9 +6,12 @@ import {CombinedDataProvider, LoginButton, LogoutButton, Text, useSession} from 
 import {FOAF} from "@inrupt/lit-generated-vocab-common";
 import {Card} from "react-bootstrap";
 import {Button} from "@mui/material";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import LanguageMenu from "./LanguageMenu";
-import {useTranslation} from "react-i18next";
+import {initReactI18next, useTranslation} from "react-i18next";
+import i18n from "../../i18n";
+
+i18n.use(initReactI18next)
 
 function NavBar() {
     const {session} = useSession();
@@ -19,6 +22,22 @@ function NavBar() {
         webId = "";
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    const [isNavExpanded, setIsNavExpanded] = useState(false);
+
+    function handleNavToggle() {
+        setIsNavExpanded(!isNavExpanded);
+    }
+
+    useEffect(() => {
+        function handleResize() {
+            if (window.innerWidth >= 992 && isNavExpanded) {
+                setIsNavExpanded(false);
+            }
+        }
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, [isNavExpanded]);
 
     //We have logged in
     session.onLogin(() => {
@@ -41,16 +60,19 @@ function NavBar() {
     const { t } = useTranslation();
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark">
+        <nav className={`navbar navbar-expand-lg navbar-dark ${isNavExpanded ? 'nav-expanded' : 'nav-normal'}`}>
             <div className="container-fluid">
                 <a className="navbar-brand" href="/">
                     <img src={GOMapLogo} alt="GOMap Logo" height={128} width={256}/>
                 </a>
-                <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
-                        className="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+                <button
+                    className="navbar-toggler"
+                    type="button"
+                    onClick={handleNavToggle}
+                >
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <div className="collapse navbar-collapse" id="navbarNav">
+                <div className={`collapse navbar-collapse ${isNavExpanded ? 'show' : ''}`}>
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <NavItem to={"/"} text={t("home")}/>
                         <NavItem to={"/map"} text={t("map")}/>

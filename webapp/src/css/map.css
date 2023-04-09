@@ -1,5 +1,5 @@
 h1 {
-    font-family: "Bauhaus 93", serif;
+    font-family: 'Lato', sans-serif;
     font-size: 40px;
     color: #92b5f5;
     padding: 10px;
@@ -18,29 +18,8 @@ select, option {
     color: white;
     background-color: rgba(15, 94, 197, 0.8);
     padding: 5px;
-    border-radius: 10px;
-    width: 85%;
-}
-
-#slider {
-    margin-right: 5px;
-    width: 60%;
-    background: linear-gradient(to right, #00d9fd 0%, #017dfa 50%, #007ffd 50%, #1c2a6f 100%);
-    border: solid 2px #ffffff;
-    border-radius: 8px;
-    height: 10px;
-    -webkit-appearance: none;
-}
-
-#value {
-    font-size: 20px;
-    font-weight: lighter;
-    color: white;
-    background-color: rgba(15, 94, 197, 0.8);
-    margin-left: 5px;
-    padding: 5px;
-    border-radius: 10px;
-    width: 20%;
+    border-radius: 5px;
+    width: 80%;
 }
 
 #searchPanel {
@@ -54,9 +33,17 @@ select, option {
     color: white;
     background-color: rgba(15, 94, 197, 0.8);
     padding: 5px;
-    border-bottom-left-radius: 10px;
-    border-top-left-radius: 10px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
     width: 65%;
+}
+
+#screen {
+    height: 90vh;
+    width: 100vw;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
 }
 
 #searchButton {
@@ -65,40 +52,29 @@ select, option {
     color: white;
     background-color: rgba(15, 94, 197, 0.8);
     padding: 5px;
-    border-bottom-right-radius: 10px;
-    border-top-right-radius: 10px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
     width: 15%;
-}
-
-#screen {
-    height: 90vh;
-    width: 100vw;
-    position: relative;
-    z-index: 0;
-    overflow: hidden; /* Agrega esta propiedad */
 }
 
 #optionsButton {
     padding: 5px;
-    position: fixed;
+    position: absolute;
     z-index: 2;
 
     color: white;
     font-size: 25px;
-    font-weight: bold;
     background-color: #232269;
-    border-radius: 5px;
-    border-color: black;
-    border-style: solid;
+    border-radius: 20px;
+    border-style: none;
+    margin-top: 20px;
 
     left: 20px;
     cursor: pointer;
-    transition: background 250ms ease-in-out,
-    transform 150ms ease;
 }
 
 #optionsButton:hover {
-    background-color: #00a7fd;
+    background-color: #323376;
 }
 
 #optionsButton:active {
@@ -106,71 +82,70 @@ select, option {
 }
 
 #optionsMenu {
-    display: table-cell;
-    position: fixed;
-    z-index: 1;
-
     color: white;
     font-size: 15px;
     font-weight: bold;
-    background-color: rgba(28, 42, 111, 0.8);
+    background-color: rgba(35, 34, 105, 0.8);
     text-align: center;
-    margin-left: 10px;
-    margin-top: 10px;
-    border-radius: 30px;
-    border-color: black;
 
-    height: auto;
+    height: 90vh;
     width: 0;
+    position: absolute;
+    z-index: 1;
+
     overflow-x: hidden;
+    padding-top: 60px;
     transition: 0.5s;
 }
 
-#developers {
+#optionsMenu .cross, #markersMenu .cross {
+    padding: 8px 8px 8px 32px;
+    background: none;
+    border: none;
+    font-size: 25px;
+    color: #ffffff;
+    display: block;
+    transition: 0.3s;
+}
+
+.cross {
     position: absolute;
-    bottom: 20px;
-    width: 100%;
-    text-align: center;
-}
-
-#developers p {
-    color: white;
-    text-align: center;
-    margin: 0;
-}
-
-#developers p a:hover {
-    color: white;
-}
-
-.member {
-    color: rgba(255, 255, 255, 0.75);
-    text-decoration: underline;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
 }
 
 #markersMenu {
-    position: fixed;
-    z-index: 1;
-
     color: white;
     font-size: 15px;
     font-weight: bold;
-    background-color: rgba(28, 42, 111, 0.8);
+    background-color: rgba(35, 34, 105, 0.8);
     text-align: center;
-    margin-right: 10px;
-    margin-top: 10px;
-    border-radius: 30px;
-    border-color: black;
-    right: 0;
 
-    height: auto;
+    height: 90vh;
     width: 0;
+    right: 0;
+    position: absolute;
+    z-index: 1;
+
     overflow-x: hidden;
+    padding-top: 60px;
     transition: 0.5s;
 }
 
+#markersMenu .cross {
+    padding: 8px 8px 8px 32px;
+    background: none;
+    border: none;
+    font-size: 25px;
+    color: #ffffff;
+    display: block;
+    transition: 0.3s;
+}
+
 #namePlace, #comment, #longitude, #latitude {
-    border-radius: 10px;
+    border-radius: 5px;
     width: 80%;
 }
 
@@ -179,9 +154,6 @@ select, option {
     color: white;
     background-color: #0063fd;
     padding: 10px;
-    border-radius: 20px;
-    border-color: white;
-    border-style: solid;
     border-width: 3px;
     cursor: pointer;
     margin-bottom: 1em;
@@ -201,7 +173,7 @@ select, option {
     color: white;
     background-color: #0063fd;
     padding: 5px;
-    border-radius: 20px;
+    border-radius: 5px;
     border-color: white;
     border-style: solid;
     border-width: 3px;

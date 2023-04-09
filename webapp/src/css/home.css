@@ -14,11 +14,8 @@
 #symbolsPanel {
     display: inline-block;
 
-    background-color: #b2d3f1;
-    border-radius: 20px;
-    border-color: black;
-    border-style: solid;
-    margin-bottom: 10px;
+    background-color: #a8bcd8;
+    border-radius: 5px;
     padding: 10px;
 }
 
@@ -33,7 +30,7 @@
     border-radius: 30px;
     border-color: black;
     border-style: solid;
-    border-width: 3px;
+    border-width: 2px;
     cursor: pointer;
     text-decoration: none;
     margin: 1em;
@@ -49,23 +46,19 @@
     background-color: #007ffd;
 }
 
-#documentation > p {
+#documentation p {
     margin-top: 1em;
     color: black;
-    padding: 0px;
+    padding: 0;
     cursor: auto;
     font-family: "Corbel Light", serif;
     font-weight: bold;
-    font-size: 20px;
-}
-
-p:hover {
-    color: black;
+    font-size: 25px;
 }
 
 #symbolsPanel > p {
     color: black;
-    padding: 0px;
+    padding: 0;
     cursor: auto;
     font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
     font-weight: bold;
