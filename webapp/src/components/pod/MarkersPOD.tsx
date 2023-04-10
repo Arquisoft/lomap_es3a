@@ -85,22 +85,21 @@ async function readFileFromPod(fileURL: string, session: Session) {
 }
 
 
-function MarkersPOD() {
+function MarkersPOD(props:{webId:string|undefined}) {
     const {session} = useSession();
-    const {webId} = session.info;
-    let webIdStore = webId?.slice(0, -15) + 'private/locations.json';
+    let webIdStore = props.webId?.slice(0, -15) + 'private/locations.json';
     const [points, setPoints] = useState<Point[]>([]);
 
     useEffect(() => {
         async function fetchPoints() {
-            const newPoints = webId !== undefined ? await readFileFromPod(webIdStore, session) : undefined;
+            const newPoints = props.webId !== undefined ? await readFileFromPod(webIdStore, session) : undefined;
             if (newPoints) {
                 setPoints(newPoints);
             }
         }
 
         fetchPoints();
-    }, [webId, webIdStore, session]);
+    }, [props.webId, webIdStore, session]);
 
     return (
         <div>

@@ -142,8 +142,8 @@ function ButtonAddPod({
                  const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
                 root.render(<MapView
                     lat={ Number((document.getElementById(idLatitude) as HTMLInputElement).value)}
-                    lng={Number((document.getElementById(idLongitude) as HTMLInputElement).value)
-                }/>);
+                    lng={Number((document.getElementById(idLongitude) as HTMLInputElement).value)}
+                    webId={webId}/>);
              });
 
         let optionsMenu = document.getElementById("markersMenu");
