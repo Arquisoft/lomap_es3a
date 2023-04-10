@@ -48,12 +48,16 @@
 }
 
 #documentation p {
-    margin-top: 1.25em;
+    margin-bottom: 0;
     color: black;
     cursor: auto;
     font-family: "Corbel Light", serif;
     font-weight: bold;
     font-size: 1.5625em;
+}
+
+#documentation {
+    margin-bottom: 1.25em;
 }
 
 #symbolsPanel > p {

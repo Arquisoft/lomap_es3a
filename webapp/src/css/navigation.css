@@ -36,6 +36,7 @@ nav.nav-expanded {
     color: white !important;
     background-color: #232269 !important;
     border-style: none;
+    margin-right: 2em;
 }
 
 .dropdown-menu {
