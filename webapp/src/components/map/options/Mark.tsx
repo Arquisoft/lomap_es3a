@@ -28,7 +28,7 @@ function Mark({title}: ScoreType) {
                     emptyIcon={<StarIcon style={{opacity: 0.55}} fontSize="inherit"/>}
                 />
                 {value !== null && (
-                    <Box id="score" sx={{ml: 3}}>{hover !== -1 ? hover : value}</Box>
+                    <Box id="scoreNewMarker" sx={{ml: 3}}>{hover !== -1 ? hover : value}</Box>
                 )}
             </div>
         </div>

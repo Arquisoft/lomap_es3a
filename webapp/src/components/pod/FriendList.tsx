@@ -22,7 +22,7 @@ function FriendList(){
     const [personData, setPersonData] = useState<PersonData>({ webId: '', name: '', friends: [] })
     const {webId} = session.info;
     const [friends, setFriendList] = useState<PersonData[]>([]);
-
+    const [showFriend, setShowFriend] = useState(false)
     const { t } = useTranslation();
 
     useEffect(() => {
@@ -51,12 +51,21 @@ function FriendList(){
     }, [personData.friends, session])
 
     function getMarkers(id:string,friendWebId:string){
-        (document.getElementById(id) as HTMLImageElement).src = botonVerde;
         if(webId!==undefined){
-            let target = webId.split("profile")[0]
-            changePermissions(target,friendWebId);
-            const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
-            root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={friendWebId}/>);
+            if(!showFriend){
+                (document.getElementById(id) as HTMLImageElement).src = botonVerde;
+                let target = webId.split("profile")[0]
+                changePermissions(target,friendWebId);
+                const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
+                root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={friendWebId}/>);
+                setShowFriend(true)
+            }else{
+                (document.getElementById(id) as HTMLImageElement).src = botonRojo;
+                const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
+                root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={webId}/>);
+                setShowFriend(false)
+            }
+
         }
     }
 
