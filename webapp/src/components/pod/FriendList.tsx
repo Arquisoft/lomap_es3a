@@ -12,6 +12,8 @@ import {
 } from "@inrupt/solid-client";
 import {initReactI18next, useTranslation} from "react-i18next";
 import i18n from "../../i18n";
+import ReactDOM from "react-dom/client";
+import MapView from "../map/MapView";
 
 i18n.use(initReactI18next)
 
@@ -52,8 +54,9 @@ function FriendList(){
         (document.getElementById(id) as HTMLImageElement).src = botonVerde;
         if(webId!==undefined){
             let target = webId.split("profile")[0]
-            console.log(friendWebId)
             changePermissions(target,friendWebId);
+            const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
+            root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={friendWebId}/>);
         }
     }
 
