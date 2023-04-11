@@ -54,29 +54,32 @@ let categories = {
     Others: OtherIcon
 } as IDictionary
 
-async function readFileFromPod(fileURL: string, session: Session) {
+async function readFileFromPod(fileURL: string[], session: Session) {
     try {
-        const file = await getFile(
-            fileURL,
-            {fetch: session.fetch}
-        );
-        let fileContent = await file.text()
-        let fileJSON = JSON.parse(fileContent)
         let markers = []
-        for (let i = 0; i < fileJSON.length; i++) {
-            let latitude = Number(fileJSON[i].latitude);
-            let longitude = Number(fileJSON[i].longitude);
-            let name = fileJSON[i].name;
-            let category = fileJSON[i].category;
-            let score = fileJSON[i].score;
-            let comment = fileJSON[i].comment;
-            var e = document.getElementById("category");
-            // @ts-ignore
-            var value = e.value;
-            // @ts-ignore
-            var text = e.options[e.selectedIndex].value;
-            if (category === text  || text ==="All")
-                markers.push(new Point(uuidv4(), latitude, longitude, name, category, comment, score))
+        for(let i = 0;i < fileURL.length;i++){
+            const file = await getFile(
+                fileURL[i],
+                {fetch: session.fetch}
+            );
+            let fileContent = await file.text()
+            let fileJSON = JSON.parse(fileContent)
+            for (let i = 0; i < fileJSON.length; i++) {
+                let latitude = Number(fileJSON[i].latitude);
+                let longitude = Number(fileJSON[i].longitude);
+                let name = fileJSON[i].name;
+                let category = fileJSON[i].category;
+                let score = fileJSON[i].score;
+                let comment = fileJSON[i].comment;
+                var e = document.getElementById("category");
+                // @ts-ignore
+                // var value = e.value;
+                // @ts-ignore
+                var text = e.options[e.selectedIndex].value;
+                if (category === text  || text ==="All")
+                    markers.push(new Point(uuidv4(), latitude, longitude, name, category, comment, score))
+        }
+
         }
         return markers
     } catch (err) {
@@ -85,22 +88,20 @@ async function readFileFromPod(fileURL: string, session: Session) {
 }
 
 
-function MarkersPOD() {
+function MarkersPOD(props:{webId:string[]}) {
     const {session} = useSession();
-    const {webId} = session.info;
-    let webIdStore = webId?.slice(0, -15) + 'private/locations.json';
     const [points, setPoints] = useState<Point[]>([]);
 
     useEffect(() => {
         async function fetchPoints() {
-            const newPoints = webId !== undefined ? await readFileFromPod(webIdStore, session) : undefined;
+            const newPoints = props.webId !== undefined ? await readFileFromPod(props.webId, session) : undefined;
             if (newPoints) {
                 setPoints(newPoints);
             }
         }
 
         fetchPoints();
-    }, [webId, webIdStore, session]);
+    }, [props.webId, session]);
 
     return (
         <div>

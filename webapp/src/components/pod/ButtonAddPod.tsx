@@ -53,7 +53,7 @@ function ButtonAddPod({
         let comment = (document.getElementById(
             idComment
         ) as HTMLInputElement).value;
-        let score = (document.getElementById(idScore) as HTMLDivElement).innerText;
+        let score = (document.getElementById(idScore) as HTMLDivElement).innerHTML;
         let latitude = (document.getElementById(
             idLatitude
         ) as HTMLInputElement).value;
@@ -139,11 +139,15 @@ function ButtonAddPod({
             .then(  (file) =>  createData(webIdStore, file, session))
             .then(createNotification)
              .then( ()=> {
-                 const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
-                root.render(<MapView
-                    lat={ Number((document.getElementById(idLatitude) as HTMLInputElement).value)}
-                    lng={Number((document.getElementById(idLongitude) as HTMLInputElement).value)
-                }/>);
+                 if(webId!==undefined){
+                     const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
+                     let webIdStore = webId?.slice(0, -15) + 'private/locations.json';
+                     let user : string[] = [webIdStore]
+                     root.render(<MapView
+                         lat={ Number((document.getElementById(idLatitude) as HTMLInputElement).value)}
+                         lng={Number((document.getElementById(idLongitude) as HTMLInputElement).value)}
+                         webId={user}/>);
+                 }
              });
 
         let optionsMenu = document.getElementById("markersMenu");

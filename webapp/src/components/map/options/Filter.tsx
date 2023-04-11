@@ -3,6 +3,7 @@ import i18n from "../../../i18n";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import MapView from "../MapView";
+import {useSession} from "@inrupt/solid-ui-react";
 
 i18n.use(initReactI18next)
 interface IProps {
@@ -10,7 +11,8 @@ interface IProps {
     nameFilter: string,
 }
 function Filter({ titleFilter, nameFilter }: IProps) {
-
+    const {session} = useSession();
+    const {webId} = session.info;
     const {t} = useTranslation();
 
     let categories = [];
@@ -31,8 +33,12 @@ function Filter({ titleFilter, nameFilter }: IProps) {
 
     function updateMarkers() {
         if(nameFilter !== "edit") {
-            const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
-            root.render(<MapView lat={43.3548057} lng={-5.8534646}/>);
+            if(webId!==undefined){
+                const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
+                let webIdStore = webId?.slice(0, -15) + 'private/locations.json';
+                let user : string[] = [webIdStore]
+                root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={user}/>);
+            }
         }
     }
 

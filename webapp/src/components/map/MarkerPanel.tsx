@@ -31,7 +31,7 @@ function MarkerPanel() {
                 <Filter titleFilter={t("category")} nameFilter={"edit"}/>
                 <Mark title={t("mark")}/>
                 <Comments title={t("comment")}/>
-                <ButtonAddPod idName={"namePlace"} idCategory={"categoryMarker"} idComment={"comment"} idScore={"score"}
+                <ButtonAddPod idName={"namePlace"} idCategory={"categoryMarker"} idComment={"comment"} idScore={"scoreNewMarker"}
                               idLatitude={"latitude"} idLongitude={"longitude"}/>
             </form>
         </div>

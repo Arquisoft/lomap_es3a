@@ -12,6 +12,8 @@ import {
 } from "@inrupt/solid-client";
 import {initReactI18next, useTranslation} from "react-i18next";
 import i18n from "../../i18n";
+import ReactDOM from "react-dom/client";
+import MapView from "../map/MapView";
 
 i18n.use(initReactI18next)
 
@@ -20,8 +22,8 @@ function FriendList(){
     const [personData, setPersonData] = useState<PersonData>({ webId: '', name: '', friends: [] })
     const {webId} = session.info;
     const [friends, setFriendList] = useState<PersonData[]>([]);
-
     const { t } = useTranslation();
+    let friendSelected : string[] = [];
 
     useEffect(() => {
         async function loadPersonData() {
@@ -49,11 +51,29 @@ function FriendList(){
     }, [personData.friends, session])
 
     function getMarkers(id:string,friendWebId:string){
-        (document.getElementById(id) as HTMLImageElement).src = botonVerde;
         if(webId!==undefined){
-            let target = webId.split("profile")[0]
-            console.log(friendWebId)
-            changePermissions(target,friendWebId);
+            let webIdFriend = friendWebId.slice(0, -15) + 'private/locations.json'
+            let webIdUser = webId.slice(0, -15) + 'private/locations.json'
+            if(friendSelected.indexOf(webIdFriend)==-1){
+                (document.getElementById(id) as HTMLImageElement).src = botonVerde;
+                if(friendSelected.indexOf(webIdUser)!=-1){
+                    friendSelected.pop()
+                }
+                friendSelected.push(webIdFriend)
+                let target = webId.split("profile")[0]
+                changePermissions(target,friendWebId);
+                const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
+                root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={friendSelected}/>);
+            }else{
+                (document.getElementById(id) as HTMLImageElement).src = botonRojo;
+                friendSelected = friendSelected.filter(friend => friend != webIdFriend)
+                if(friendSelected.length==0){
+                    friendSelected.push(webIdUser);
+                }
+                const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
+                root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={friendSelected}/>);
+            }
+
         }
     }
 
