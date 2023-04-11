@@ -139,11 +139,15 @@ function ButtonAddPod({
             .then(  (file) =>  createData(webIdStore, file, session))
             .then(createNotification)
              .then( ()=> {
-                 const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
-                root.render(<MapView
-                    lat={ Number((document.getElementById(idLatitude) as HTMLInputElement).value)}
-                    lng={Number((document.getElementById(idLongitude) as HTMLInputElement).value)}
-                    webId={webId}/>);
+                 if(webId!==undefined){
+                     const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
+                     let webIdStore = webId?.slice(0, -15) + 'private/locations.json';
+                     let user : string[] = [webIdStore]
+                     root.render(<MapView
+                         lat={ Number((document.getElementById(idLatitude) as HTMLInputElement).value)}
+                         lng={Number((document.getElementById(idLongitude) as HTMLInputElement).value)}
+                         webId={user}/>);
+                 }
              });
 
         let optionsMenu = document.getElementById("markersMenu");

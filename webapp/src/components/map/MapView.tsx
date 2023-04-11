@@ -5,7 +5,7 @@ import LocationMarker from "./LocationMarker";
 import MarkersPOD from "../pod/MarkersPOD";
 import React from "react";
 
-function MapView(props: { lat: number; lng:number; webId:string|undefined }) {
+function MapView(props: { lat: number; lng:number; webId:string[] }) {
     const position ={lat: props.lat, lng:props.lng}
 
     return (

@@ -8,12 +8,14 @@ import {useSession} from "@inrupt/solid-ui-react";
 function MapPage() {
     const {session} = useSession();
     const {webId} = session.info;
+    let webIdStore = webId?.slice(0, -15) + 'private/locations.json';
+    let user : string[] = [webIdStore]
 
     return (
         <div id="mapPage">
             <OptionsPanel/>
             <div id="mapView">
-                <MapView lat={43.3548057} lng={-5.8534646} webId={webId}/>
+                <MapView lat={43.3548057} lng={-5.8534646} webId={user}/>
             </div>
             <MarkerPanel/>
         </div>
