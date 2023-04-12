@@ -9,6 +9,7 @@ import MapView from "../map/MapView";
 import Icon from "../../img/symbols/GOMapSymbol.png";
 import {initReactI18next, useTranslation} from "react-i18next";
 import i18n from "../../i18n";
+import FriendList from "./FriendList";
 
 i18n.use(initReactI18next)
 
@@ -149,7 +150,8 @@ function ButtonAddPod({
                          webId={user}/>);
                  }
              });
-
+        let root2 = ReactDOM.createRoot(document.getElementById("friendDiv") as HTMLElement);
+        root2.render(<FriendList/>)
         let optionsMenu = document.getElementById("markersMenu");
         if (optionsMenu !== null) {
             const width = optionsMenu.style.width;
