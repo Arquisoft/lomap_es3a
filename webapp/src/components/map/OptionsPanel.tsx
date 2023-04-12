@@ -20,7 +20,10 @@ function OptionsPanel() {
                 <Search title={t("search")}/>
                 <Filter titleFilter={t("category")} nameFilter={"option"}/>
                 <Mark title={t("mark")}/>
-                <FriendList/>
+                <div id="friendDiv">
+                    <FriendList/>
+                </div>
+
             </div>
         </div>
     )
