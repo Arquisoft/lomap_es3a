@@ -5,10 +5,15 @@ import {initReactI18next, useTranslation} from "react-i18next";
 import React from "react";
 import i18n from "../../i18n";
 import Mark from "./options/Mark";
+import {useSession} from "@inrupt/solid-ui-react";
 
 i18n.use(initReactI18next)
 
 function OptionsPanel() {
+    const {session} = useSession();
+    const {webId} = session.info;
+    let webIdStore = webId?.slice(0, -15) + 'private/locations.json';
+    let user : string[] = [webIdStore]
 
     const {t} = useTranslation();
 
@@ -18,7 +23,9 @@ function OptionsPanel() {
             <div id="optionsMenu">
                 <h1>{t("options_menu")}</h1>
                 <Search title={t("search")}/>
-                <Filter titleFilter={t("category")} nameFilter={"option"}/>
+                <div id="filterDiv">
+                    <Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={user}/>
+                </div>
                 <Mark title={t("mark")}/>
                 <div id="friendDiv">
                     <FriendList/>

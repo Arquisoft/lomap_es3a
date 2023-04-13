@@ -13,6 +13,7 @@ i18n.use(initReactI18next)
 function MarkerPanel() {
 
     const { t } = useTranslation();
+    let user : string[] = []
 
     function closeMenu() {
         const markersMenu = document.getElementById("markersMenu");
@@ -28,7 +29,7 @@ function MarkerPanel() {
             <form>
                 <NamePlace title={t("places_name")}/>
                 <Coordinates/>
-                <Filter titleFilter={t("category")} nameFilter={"edit"}/>
+                <Filter titleFilter={t("category")} nameFilter={"edit"} usersWebId={user}/>
                 <Mark title={t("mark")}/>
                 <Comments title={t("comment")}/>
                 <ButtonAddPod idName={"namePlace"} idCategory={"categoryMarker"} idComment={"comment"} idScore={"scoreNewMarker"}

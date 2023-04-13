@@ -14,6 +14,7 @@ import {initReactI18next, useTranslation} from "react-i18next";
 import i18n from "../../i18n";
 import ReactDOM from "react-dom/client";
 import MapView from "../map/MapView";
+import Filter from "../map/options/Filter";
 
 i18n.use(initReactI18next)
 
@@ -64,6 +65,8 @@ function FriendList(){
                 changePermissions(target,friendWebId);
                 const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
                 root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={friendSelected}/>);
+                const root2 = ReactDOM.createRoot(document.getElementById("filterDiv") as HTMLElement);
+                root2.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={friendSelected}/>);
             }else{
                 (document.getElementById(id) as HTMLImageElement).src = botonRojo;
                 friendSelected = friendSelected.filter(friend => friend != webIdFriend)
@@ -72,6 +75,8 @@ function FriendList(){
                 }
                 const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
                 root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={friendSelected}/>);
+                const root2 = ReactDOM.createRoot(document.getElementById("filterDiv") as HTMLElement);
+                root2.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={friendSelected}/>);
             }
 
         }
