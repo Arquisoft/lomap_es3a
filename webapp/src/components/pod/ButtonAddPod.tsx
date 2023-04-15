@@ -10,6 +10,7 @@ import Icon from "../../img/symbols/GOMapSymbol.png";
 import {initReactI18next, useTranslation} from "react-i18next";
 import i18n from "../../i18n";
 import FriendList from "./FriendList";
+import Filter from "../map/options/Filter";
 
 i18n.use(initReactI18next)
 
@@ -33,7 +34,8 @@ function ButtonAddPod({
                       }: ButtonAddPodType) {
     const {session} = useSession();
     const {webId} = session.info;
-    let webIdStore = webId?.slice(0, -15) + "private/locations.json";
+    const webIdStore = webId?.slice(0, -15) + "private/locations.json";
+    const user : string[] = [webIdStore]
 
     const { t } = useTranslation();
 
@@ -142,16 +144,16 @@ function ButtonAddPod({
              .then( ()=> {
                  if(webId!==undefined){
                      const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
-                     let webIdStore = webId?.slice(0, -15) + 'private/locations.json';
-                     let user : string[] = [webIdStore]
                      root.render(<MapView
                          lat={ Number((document.getElementById(idLatitude) as HTMLInputElement).value)}
                          lng={Number((document.getElementById(idLongitude) as HTMLInputElement).value)}
                          webId={user}/>);
                  }
              });
-        let root2 = ReactDOM.createRoot(document.getElementById("friendDiv") as HTMLElement);
-        root2.render(<FriendList/>)
+        let rootFriends = ReactDOM.createRoot(document.getElementById("friendDiv") as HTMLElement);
+        rootFriends.render(<FriendList/>)
+        const rootFilter = ReactDOM.createRoot(document.getElementById("filterDiv") as HTMLElement);
+        rootFilter.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={user}/>);
         let optionsMenu = document.getElementById("markersMenu");
         if (optionsMenu !== null) {
             const width = optionsMenu.style.width;

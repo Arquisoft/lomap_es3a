@@ -55,9 +55,9 @@ function FriendList(){
         if(webId!==undefined){
             let webIdFriend = friendWebId.slice(0, -15) + 'private/locations.json'
             let webIdUser = webId.slice(0, -15) + 'private/locations.json'
-            if(friendSelected.indexOf(webIdFriend)==-1){
+            if(friendSelected.indexOf(webIdFriend)===-1){
                 (document.getElementById(id) as HTMLImageElement).src = botonVerde;
-                if(friendSelected.indexOf(webIdUser)!=-1){
+                if(friendSelected.indexOf(webIdUser)!==-1){
                     friendSelected.pop()
                 }
                 friendSelected.push(webIdFriend)
@@ -69,8 +69,8 @@ function FriendList(){
                 root2.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={friendSelected}/>);
             }else{
                 (document.getElementById(id) as HTMLImageElement).src = botonRojo;
-                friendSelected = friendSelected.filter(friend => friend != webIdFriend)
-                if(friendSelected.length==0){
+                friendSelected = friendSelected.filter(friend => friend !== webIdFriend)
+                if(friendSelected.length===0){
                     friendSelected.push(webIdUser);
                 }
                 const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
