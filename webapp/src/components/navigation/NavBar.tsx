@@ -110,43 +110,45 @@ function NavBar() {
                         <NavItem to={"/about"} text={t("about")}/>
                     </ul>
                     <LanguageMenu/>
-                    <Container maxWidth="xl">
-                        <Toolbar disableGutters>
-                            <Box sx={{ flexGrow: 0 }}>
-                                <Tooltip title="Open settings">
-                                    <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                        <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                                    </IconButton>
-                                </Tooltip>
-                                <Menu
-                                    sx={{ mt: '45px' }}
-                                    id="menu-appbar"
-                                    anchorEl={anchorElUser}
-                                    anchorOrigin={{
-                                        vertical: 'top',
-                                        horizontal: 'right',
-                                    }}
-                                    keepMounted
-                                    transformOrigin={{
-                                        vertical: 'top',
-                                        horizontal: 'right',
-                                    }}
-                                    open={Boolean(anchorElUser)}
-                                    onClose={handleCloseUserMenu}
-                                >
-                                    {settings.map((setting) => (
-                                        <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                            <Typography textAlign="center">{setting}</Typography>
-                                        </MenuItem>
-                                    ))}
-                                </Menu>
-                            </Box>
-                        </Toolbar>
-                    </Container>
                     <div className="d-flex">
                         <div id="login-manage">
                             {(!isLoggedIn) ? "" :
-                                <Card><Card.Text>{dropdownTitle}</Card.Text></Card>}
+                                <Card>
+                                    <Container maxWidth="xl">
+                                        <Toolbar disableGutters>
+                                            <Box sx={{ flexGrow: 0 }}>
+                                                <Tooltip title="Open settings">
+                                                    <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                                                        <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                                    </IconButton>
+                                                </Tooltip>
+                                                <Menu
+                                                    sx={{ mt: '45px' }}
+                                                    id="menu-appbar"
+                                                    anchorEl={anchorElUser}
+                                                    anchorOrigin={{
+                                                        vertical: 'top',
+                                                        horizontal: 'right',
+                                                    }}
+                                                    keepMounted
+                                                    transformOrigin={{
+                                                        vertical: 'top',
+                                                        horizontal: 'right',
+                                                    }}
+                                                    open={Boolean(anchorElUser)}
+                                                    onClose={handleCloseUserMenu}
+                                                >
+                                                    {settings.map((setting) => (
+                                                        <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                                                            <Typography textAlign="center">{setting}</Typography>
+                                                        </MenuItem>
+                                                    ))}
+                                                </Menu>
+                                            </Box>
+                                        </Toolbar>
+                                    </Container>
+                                    <Card.Text>{dropdownTitle}</Card.Text>
+                                </Card>}
                             {(!isLoggedIn) ?
                                 <LoginButton oidcIssuer="https://inrupt.net" redirectUrl={window.location.href}>
                                     <Button variant="contained" color="primary" id="login">
