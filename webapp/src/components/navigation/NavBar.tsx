@@ -74,7 +74,7 @@ function NavBar() {
      *
      */
 
-    const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+    const settings = ['Profile', 'Account', 'Dashboard'];
 
 
         const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
@@ -113,7 +113,6 @@ function NavBar() {
                     <div className="d-flex">
                         <div id="login-manage">
                             {(!isLoggedIn) ? "" :
-
                                     <Container maxWidth="xl">
                                         <Toolbar disableGutters>
                                             <Box sx={{ flexGrow: 0 }}>
@@ -143,23 +142,28 @@ function NavBar() {
                                                             <Typography textAlign="center">{setting}</Typography>
                                                         </MenuItem>
                                                     ))}
+                                                    <MenuItem >
+                                                        <LogoutButton>
+                                                            <Button variant="contained" color="error" id="logout">
+                                                                {t("logout")}
+                                                            </Button>
+                                                        </LogoutButton>
+                                                    </MenuItem>
                                                 </Menu>
                                             </Box>
                                         </Toolbar>
                                     </Container>
 }
-                            {(!isLoggedIn) ?
+                            {isLoggedIn ? "" :(
                                 <LoginButton oidcIssuer="https://inrupt.net" redirectUrl={window.location.href}>
                                     <Button variant="contained" color="primary" id="login">
                                         {t("login")}
                                     </Button>
-                                </LoginButton> : <LogoutButton>
-                                    <Button variant="contained" color="error" id="logout">
-                                        {t("logout")}
-                                    </Button></LogoutButton>}
-                            {(isLoggedIn) ? "" :
+                                </LoginButton>
+                            )}
+                            {!isLoggedIn && (
                                 <a href="https://inrupt.net/register">{t("register")}</a>
-                            }
+                            )}
                         </div>
                     </div>
                 </div>
