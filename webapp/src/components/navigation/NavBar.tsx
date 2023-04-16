@@ -19,6 +19,7 @@ import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import { Link } from 'react-router-dom';
 
 i18n.use(initReactI18next)
 
@@ -141,6 +142,9 @@ function NavBar() {
                                                             <Typography textAlign="center">{setting}</Typography>
                                                         </MenuItem>
                                                     ))}
+                                                    <MenuItem onClick={handleCloseUserMenu} component={Link} to="/profile">
+                                                        <Typography textAlign="center">{"Profile"}</Typography>
+                                                    </MenuItem>
                                                     <MenuItem >
                                                         <LogoutButton>
                                                             <Button variant="contained" color="error" id="logout">

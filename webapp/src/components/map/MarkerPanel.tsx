@@ -7,6 +7,10 @@ import React from "react";
 import {initReactI18next, useTranslation} from "react-i18next";
 import Mark from "./options/Mark";
 import i18n from "../../i18n";
+import PhotoUpload from "../PhotoUpload";
+import { Button } from "react-bootstrap";
+import IconButton from "@mui/material/IconButton";
+import {PhotoCamera} from "@mui/icons-material";
 
 i18n.use(initReactI18next)
 
@@ -32,6 +36,7 @@ function MarkerPanel() {
                 <Filter titleFilter={t("category")} nameFilter={"edit"} usersWebId={user}/>
                 <Mark title={t("mark")}/>
                 <Comments title={t("comment")}/>
+                <PhotoUpload/>
                 <ButtonAddPod idName={"namePlace"} idCategory={"categoryMarker"} idComment={"comment"} idScore={"scoreNewMarker"}
                               idLatitude={"latitude"} idLongitude={"longitude"}/>
             </form>

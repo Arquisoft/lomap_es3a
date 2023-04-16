@@ -11,6 +11,14 @@ import {initReactI18next, useTranslation} from "react-i18next";
 import i18n from "../../i18n";
 import FriendList from "./FriendList";
 import Filter from "../map/options/Filter";
+import IconButton from "@mui/material/IconButton";
+import {PhotoCamera} from "@mui/icons-material";
+
+import {fill} from "@cloudinary/url-gen/actions/resize";
+import {CloudinaryImage} from '@cloudinary/url-gen';
+import {AdvancedImage} from "@cloudinary/react";
+
+const myImage = new CloudinaryImage('sample', {cloudName: 'dwyizn0f7'}).resize(fill().width(50).height(50));
 
 i18n.use(initReactI18next)
 
@@ -171,6 +179,11 @@ function ButtonAddPod({
             <Button variant="contained" color="primary" onClick={handleClick}>
                 {t("confirm")}
             </Button>
+            <IconButton color="primary" aria-label="upload picture" component="label">
+                <input hidden accept="image/*" type="file" />
+                <PhotoCamera />
+            </IconButton>
+            <AdvancedImage cldImg={myImage} />
             {showNotification && (
                 <Notification
                     title={t("notification_marker_added")}
