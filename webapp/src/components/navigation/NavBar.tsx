@@ -4,7 +4,6 @@ import GOMapLogo from "../../img/symbols/SimpleSymbol.png";
 import NavItem from "./NavItem";
 import {CombinedDataProvider, LoginButton, LogoutButton, Text, useSession} from "@inrupt/solid-ui-react";
 import {FOAF} from "@inrupt/lit-generated-vocab-common";
-import {Card} from "react-bootstrap";
 import {Button} from "@mui/material";
 import {useState, useEffect} from "react";
 import LanguageMenu from "./LanguageMenu";
@@ -20,6 +19,7 @@ import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import { Link } from 'react-router-dom';
 
 i18n.use(initReactI18next)
 
@@ -142,6 +142,9 @@ function NavBar() {
                                                             <Typography textAlign="center">{setting}</Typography>
                                                         </MenuItem>
                                                     ))}
+                                                    <MenuItem onClick={handleCloseUserMenu} component={Link} to="/profile">
+                                                        <Typography textAlign="center">{"Profile"}</Typography>
+                                                    </MenuItem>
                                                     <MenuItem >
                                                         <LogoutButton>
                                                             <Button variant="contained" color="error" id="logout">

@@ -5,6 +5,10 @@ import HomePage from "./home/HomePage";
 import HelpPage from "./help/HelpPage";
 import AboutPage from "./about/AboutPage";
 import NavBar from "./navigation/NavBar";
+import UserProfile from "./UserProfile";
+
+
+
 
 function ViewPaths() {
     return (
@@ -33,6 +37,12 @@ function ViewPaths() {
                     path='/about'
                     element={
                         <AboutPage/>
+                    }
+                />
+                <Route
+                    path='/profile'
+                    element={
+                        <UserProfile/>
                     }
                 />
             </Routes>
