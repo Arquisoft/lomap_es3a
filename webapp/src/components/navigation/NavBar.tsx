@@ -74,7 +74,7 @@ function NavBar() {
      *
      */
 
-    const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+    const settings = ['Profile', 'Account', 'Dashboard'];
 
 
         const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
@@ -110,55 +110,60 @@ function NavBar() {
                         <NavItem to={"/about"} text={t("about")}/>
                     </ul>
                     <LanguageMenu/>
-                    <Container maxWidth="xl">
-                        <Toolbar disableGutters>
-                            <Box sx={{ flexGrow: 0 }}>
-                                <Tooltip title="Open settings">
-                                    <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                        <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                                    </IconButton>
-                                </Tooltip>
-                                <Menu
-                                    sx={{ mt: '45px' }}
-                                    id="menu-appbar"
-                                    anchorEl={anchorElUser}
-                                    anchorOrigin={{
-                                        vertical: 'top',
-                                        horizontal: 'right',
-                                    }}
-                                    keepMounted
-                                    transformOrigin={{
-                                        vertical: 'top',
-                                        horizontal: 'right',
-                                    }}
-                                    open={Boolean(anchorElUser)}
-                                    onClose={handleCloseUserMenu}
-                                >
-                                    {settings.map((setting) => (
-                                        <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                            <Typography textAlign="center">{setting}</Typography>
-                                        </MenuItem>
-                                    ))}
-                                </Menu>
-                            </Box>
-                        </Toolbar>
-                    </Container>
                     <div className="d-flex">
                         <div id="login-manage">
                             {(!isLoggedIn) ? "" :
-                                <Card><Card.Text>{dropdownTitle}</Card.Text></Card>}
-                            {(!isLoggedIn) ?
+                                    <Container maxWidth="xl">
+                                        <Toolbar disableGutters>
+                                            <Box sx={{ flexGrow: 0 }}>
+                                                <Tooltip title="Open settings">
+                                                    <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                                                        <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                                    </IconButton>
+                                                </Tooltip>
+                                                <Menu
+                                                    sx={{ mt: '45px' }}
+                                                    id="menu-appbar"
+                                                    anchorEl={anchorElUser}
+                                                    anchorOrigin={{
+                                                        vertical: 'top',
+                                                        horizontal: 'right',
+                                                    }}
+                                                    keepMounted
+                                                    transformOrigin={{
+                                                        vertical: 'top',
+                                                        horizontal: 'right',
+                                                    }}
+                                                    open={Boolean(anchorElUser)}
+                                                    onClose={handleCloseUserMenu}
+                                                >
+                                                    {settings.map((setting) => (
+                                                        <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                                                            <Typography textAlign="center">{setting}</Typography>
+                                                        </MenuItem>
+                                                    ))}
+                                                    <MenuItem >
+                                                        <LogoutButton>
+                                                            <Button variant="contained" color="error" id="logout">
+                                                                {t("logout")}
+                                                            </Button>
+                                                        </LogoutButton>
+                                                    </MenuItem>
+                                                </Menu>
+                                            </Box>
+                                        </Toolbar>
+                                    </Container>
+}
+                            {isLoggedIn ? "" :(
                                 <LoginButton oidcIssuer="https://inrupt.net" redirectUrl={window.location.href}>
                                     <Button variant="contained" color="primary" id="login">
                                         {t("login")}
                                     </Button>
-                                </LoginButton> : <LogoutButton>
-                                    <Button variant="contained" color="error" id="logout">
-                                        {t("logout")}
-                                    </Button></LogoutButton>}
-                            {(isLoggedIn) ? "" :
+                                </LoginButton>
+                            )}
+                            {!isLoggedIn && (
                                 <a href="https://inrupt.net/register">{t("register")}</a>
-                            }
+                            )}
                         </div>
                     </div>
                 </div>
