@@ -113,7 +113,7 @@ function NavBar() {
                     <div className="d-flex">
                         <div id="login-manage">
                             {(!isLoggedIn) ? "" :
-                                <Card>
+
                                     <Container maxWidth="xl">
                                         <Toolbar disableGutters>
                                             <Box sx={{ flexGrow: 0 }}>
@@ -147,8 +147,7 @@ function NavBar() {
                                             </Box>
                                         </Toolbar>
                                     </Container>
-                                    <Card.Text>{dropdownTitle}</Card.Text>
-                                </Card>}
+}
                             {(!isLoggedIn) ?
                                 <LoginButton oidcIssuer="https://inrupt.net" redirectUrl={window.location.href}>
                                     <Button variant="contained" color="primary" id="login">
