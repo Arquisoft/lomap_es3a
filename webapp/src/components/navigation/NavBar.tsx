@@ -3,8 +3,8 @@ import 'bootstrap/dist/js/bootstrap.bundle';
 import GOMapLogo from "../../img/symbols/SimpleSymbol.png";
 import NavItem from "./NavItem";
 import {CombinedDataProvider, LoginButton, LogoutButton, Text, useSession} from "@inrupt/solid-ui-react";
-import {FOAF} from "@inrupt/lit-generated-vocab-common";
-import {Button} from "@mui/material";
+import {FOAF, VCARD} from "@inrupt/lit-generated-vocab-common";
+import {Button, Card, CardActionArea, CardContent} from "@mui/material";
 import {useState, useEffect} from "react";
 import LanguageMenu from "./LanguageMenu";
 import {initReactI18next, useTranslation} from "react-i18next";
@@ -21,12 +21,18 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 
+import { Image} from "@inrupt/solid-ui-react";
+
+
+
+
 i18n.use(initReactI18next)
 
 function NavBar() {
-    const {session} = useSession();
+    const { session } = useSession();
+    let { webId } = session.info;
 
-    let {webId} = session.info;
+
 
     if (webId === undefined)
         webId = "";
@@ -64,9 +70,13 @@ function NavBar() {
             <CombinedDataProvider datasetUrl={webId} thingUrl={webId}>
                 <Text property={FOAF.name.iri.value}  autosave/>
 
+
             </CombinedDataProvider>
         </span>
     );
+
+
+
 
     const { t } = useTranslation();
 
@@ -89,6 +99,8 @@ function NavBar() {
         const handleCloseUserMenu = () => {
             setAnchorElUser(null);
         };
+
+
 
     return (
         <nav className={`navbar navbar-expand-lg navbar-dark ${isNavExpanded ? 'nav-expanded' : 'nav-normal'}`}>
@@ -125,7 +137,14 @@ function NavBar() {
                                             <Box sx={{ flexGrow: 0 }}>
                                                 <Tooltip title="Open settings">
                                                     <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                                        <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+
+
+
+                                                            <CombinedDataProvider datasetUrl={webId} thingUrl={webId}>
+
+                                                                        <Image property={VCARD.hasPhoto.iri.value} width={480} />
+                                                                         <Avatar alt="Remy Sharp" src={VCARD.hasPhoto.iri.value} />
+                                                            </CombinedDataProvider>
                                                     </IconButton>
                                                 </Tooltip>
                                                 <Menu
@@ -163,6 +182,7 @@ function NavBar() {
                                             </Box>
                                         </Toolbar>
                                     </Container>
+
                                 </div>
 }
                             {isLoggedIn ? "" :(
