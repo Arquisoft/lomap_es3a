@@ -109,7 +109,7 @@ function MarkersPOD(props:{webId:string[]}) {
                 points.map((item) => (
                     <Marker key={item.id} position={{lat: item.latitude, lng: item.longitude}}
                             icon={new Icon({
-                                iconUrl: categories[item.category]
+                                iconUrl: categories[item.category] !==undefined? categories[item.category]:markerIconPng
                             })}>
                         <Popup>
                             <CardHeader
