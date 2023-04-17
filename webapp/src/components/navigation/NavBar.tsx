@@ -2,7 +2,7 @@ import "../../css/navigation.css";
 import 'bootstrap/dist/js/bootstrap.bundle';
 import GOMapLogo from "../../img/symbols/SimpleSymbol.png";
 import NavItem from "./NavItem";
-import {CombinedDataProvider, LoginButton, LogoutButton, Text, useSession} from "@inrupt/solid-ui-react";
+import {CombinedDataProvider, LogoutButton, Text, useSession} from "@inrupt/solid-ui-react";
 import {FOAF} from "@inrupt/lit-generated-vocab-common";
 import {Button} from "@mui/material";
 import {useState, useEffect} from "react";
@@ -158,11 +158,11 @@ function NavBar() {
                                     </Container>
 }
                             {isLoggedIn ? "" :(
-                                <LoginButton oidcIssuer="https://inrupt.net" redirectUrl={window.location.href}>
+
                                     <Button variant="contained" color="primary" id="login">
                                         {t("login")}
                                     </Button>
-                                </LoginButton>
+
                             )}
                             {!isLoggedIn && (
                                 <a href="https://inrupt.net/register">{t("register")}</a>

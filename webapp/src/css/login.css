@@ -38,6 +38,10 @@
     font-size: 1.5em;
     margin-bottom: 2em;
 }
+
+#loginForm a{
+    margin-bottom: 2em;
+}
 #loginButton{
     margin-left: auto;
 }

@@ -31,12 +31,13 @@ function LoginPage(){
                         <option value={providers[0].value}>{providers[0].name}</option>
                         <option value={providers[1].value}>{providers[1].name}</option>
                     </select>
+                    <a href={idp+"/register"}>{t("register")}</a>
                     <div id="loginButton">
-                    <LoginButton oidcIssuer={idp} redirectUrl={window.location.href}>
-                        <Button variant="contained" color="primary" id="login">
-                            {t("login")}
-                        </Button>
-                    </LoginButton>
+                        <LoginButton oidcIssuer={idp} redirectUrl={window.location.href}>
+                            <Button variant="contained" color="primary" id="login">
+                                {t("login")}
+                            </Button>
+                        </LoginButton>
                     </div>
                 </form>
             </div>
