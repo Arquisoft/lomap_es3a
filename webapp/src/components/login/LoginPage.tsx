@@ -33,7 +33,7 @@ function LoginPage(){
                     </select>
                     <a href={idp+"/register"}>{t("register")}</a>
                     <div id="loginButton">
-                        <LoginButton oidcIssuer={idp} redirectUrl={window.location.href}>
+                        <LoginButton oidcIssuer={idp} redirectUrl={window.location.origin}>
                             <Button variant="contained" color="primary" id="login">
                                 {t("login")}
                             </Button>
