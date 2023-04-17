@@ -4,7 +4,7 @@ import GOMapLogo from "../../img/symbols/SimpleSymbol.png";
 import NavItem from "./NavItem";
 import {CombinedDataProvider, LoginButton, LogoutButton, Text, useSession} from "@inrupt/solid-ui-react";
 import {FOAF, VCARD} from "@inrupt/lit-generated-vocab-common";
-import {Button, Card, CardActionArea, CardContent} from "@mui/material";
+import {Button} from "@mui/material";
 import {useState, useEffect} from "react";
 import LanguageMenu from "./LanguageMenu";
 import {initReactI18next, useTranslation} from "react-i18next";
