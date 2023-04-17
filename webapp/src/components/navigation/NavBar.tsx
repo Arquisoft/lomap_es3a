@@ -99,8 +99,9 @@ function NavBar() {
         const handleCloseUserMenu = () => {
             setAnchorElUser(null);
         };
+        let ano = <Image property={VCARD.hasPhoto.iri.value} width={480}/> as unknown  as HTMLImageElement;
 
-
+        console.log(ano);
 
     return (
         <nav className={`navbar navbar-expand-lg navbar-dark ${isNavExpanded ? 'nav-expanded' : 'nav-normal'}`}>
@@ -137,13 +138,8 @@ function NavBar() {
                                             <Box sx={{ flexGrow: 0 }}>
                                                 <Tooltip title="Open settings">
                                                     <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-
-
-
                                                             <CombinedDataProvider datasetUrl={webId} thingUrl={webId}>
-
-                                                                        <Image property={VCARD.hasPhoto.iri.value} width={480} />
-                                                                         <Avatar alt="Remy Sharp" src={VCARD.hasPhoto.iri.value} />
+                                                                        <Avatar alt="Remy Sharp" ><Image property={VCARD.hasPhoto.iri.value} width={40}/></Avatar>
                                                             </CombinedDataProvider>
                                                     </IconButton>
                                                 </Tooltip>
