@@ -158,15 +158,13 @@ function NavBar() {
                                     </Container>
 }
                             {isLoggedIn ? "" :(
-
+                                <Link to="/login">
                                     <Button variant="contained" color="primary" id="login">
                                         {t("login")}
                                     </Button>
+                                </Link>
+                            )}
 
-                            )}
-                            {!isLoggedIn && (
-                                <a href="https://inrupt.net/register">{t("register")}</a>
-                            )}
                         </div>
                     </div>
                 </div>
