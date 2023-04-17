@@ -32,6 +32,7 @@ export type CommentType = {
 
 export type ScoreType = {
     title: string;
+    id:string
 }
 
 export type ButtonAddPodType = {

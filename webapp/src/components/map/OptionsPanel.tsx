@@ -26,7 +26,7 @@ function OptionsPanel() {
                 <div id="filterDiv">
                     <Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={user}/>
                 </div>
-                <Mark title={t("mark")}/>
+                <Mark title={t("mark")} id={"scoreMarker"}/>
                 <div id="friendDiv">
                     <FriendList/>
                 </div>

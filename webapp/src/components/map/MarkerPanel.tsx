@@ -30,7 +30,7 @@ function MarkerPanel() {
                 <NamePlace title={t("places_name")}/>
                 <Coordinates/>
                 <Filter titleFilter={t("category")} nameFilter={"edit"} usersWebId={user}/>
-                <Mark title={t("mark")}/>
+                <Mark title={t("mark")} id={"scoreNewMarker"}/>
                 <Comments title={t("comment")}/>
                 <ButtonAddPod idName={"namePlace"} idCategory={"categoryMarker"} idComment={"comment"} idScore={"scoreNewMarker"}
                               idLatitude={"latitude"} idLongitude={"longitude"}/>
