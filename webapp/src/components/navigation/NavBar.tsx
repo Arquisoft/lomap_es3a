@@ -62,7 +62,8 @@ function NavBar() {
     const dropdownTitle = (
         <span>
             <CombinedDataProvider datasetUrl={webId} thingUrl={webId}>
-                <Text property={FOAF.name.iri.value} autosave/>
+                <Text property={FOAF.name.iri.value}  autosave/>
+
             </CombinedDataProvider>
         </span>
     );
@@ -113,8 +114,14 @@ function NavBar() {
                     <div className="d-flex">
                         <div id="login-manage">
                             {(!isLoggedIn) ? "" :
+                                <div>
+
                                     <Container maxWidth="xl">
+
                                         <Toolbar disableGutters>
+                                            <label>
+                                                <text>{dropdownTitle}</text>&nbsp;
+                                            </label>
                                             <Box sx={{ flexGrow: 0 }}>
                                                 <Tooltip title="Open settings">
                                                     <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -156,6 +163,7 @@ function NavBar() {
                                             </Box>
                                         </Toolbar>
                                     </Container>
+                                </div>
 }
                             {isLoggedIn ? "" :(
                                 <LoginButton oidcIssuer="https://inrupt.net" redirectUrl={window.location.href}>
