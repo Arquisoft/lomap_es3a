@@ -6,6 +6,7 @@ import HelpPage from "./help/HelpPage";
 import AboutPage from "./about/AboutPage";
 import NavBar from "./navigation/NavBar";
 import UserProfile from "./UserProfile";
+import LoginPage from "./login/LoginPage";
 
 
 
@@ -19,6 +20,12 @@ function ViewPaths() {
                     path='/'
                     element={
                         <HomePage/>
+                    }
+                />
+                <Route
+                    path='/login'
+                    element={
+                        <LoginPage/>
                     }
                 />
                 <Route
