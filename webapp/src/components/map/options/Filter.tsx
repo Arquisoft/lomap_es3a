@@ -16,18 +16,24 @@ function Filter({ titleFilter, nameFilter,usersWebId }: IProps) {
     let categories = [];
     if(nameFilter !== "edit")
         categories.push({ value: "All", text: t('all') });
-    categories.push({ value: "Bars", text: t('bars') });
-    categories.push({ value: "Restaurants", text: t('restaurants') });
-    categories.push({ value: "Shops", text: t('shops') });
-    categories.push({ value: "Supermarkets", text: t('supermarkets') });
-    categories.push({ value: "Hotels", text: t('hotels') });
-    categories.push( { value: "Cinemas", text: t('cinemas') });
-    categories.push({ value: "Academic_Institution", text: t('academic_institution') });
-    categories.push({ value: "Public_Institution", text: t('public_institution') });
-    categories.push( { value: "Sports_Club", text: t('sports_club') });
-    categories.push({ value: "Museum", text: t('museum') });
-    categories.push({ value: "Parks", text: t('parks') });
-    categories.push({ value: "Others", text: t('others') });
+    categories.push({ value: "bar", text: t('bars') });
+    categories.push({ value: "restaurant", text: t('restaurants') });
+    categories.push({ value: "shop", text: t('shops') });
+    categories.push({ value: "supermarket", text: t('supermarkets') });
+    categories.push({ value: "hotel", text: t('hotels') });
+    categories.push( { value: "cinema", text: t('cinemas') });
+    categories.push({ value: "academicInstitution", text: t('academic_institution') });
+    categories.push({ value: "publicInstitution", text: t('public_institution') });
+    categories.push( { value: "sportsClub", text: t('sports_club') });
+    categories.push({ value: "museum", text: t('museum') });
+    categories.push({ value: "park", text: t('parks') });
+    categories.push({ value: "landscape", text: t('landscape') });
+    categories.push({ value: "monument", text: t('monument') });
+    categories.push({ value: "hospital", text: t('hospital') });
+    categories.push({ value: "policeStation", text: t('policeStation') });
+    categories.push({ value: "transportCenter", text: t('transportCenter') });
+    categories.push({ value: "entertainment", text: t('entertainment') });
+    categories.push({ value: "other", text: t('others') });
 
     function updateMarkers() {
         if(nameFilter !== "edit") {

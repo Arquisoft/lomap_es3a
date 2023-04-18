@@ -33,31 +33,46 @@ import SportIcon from "../../img/icons/sport.png";
 import MuseumIcon from "../../img/icons/museum.png";
 import ParkIcon from "../../img/icons/park.png";
 import OtherIcon from "../../img/icons/other.png";
+import LandscapeIcon from "../../img/icons/landscape.png";
+import MonumentIcon from "../../img/icons/monument.png";
+import HospitalIcon from "../../img/icons/hospital.png";
+import PoliceIcon from "../../img/icons/police.png";
+import TransportIcon from "../../img/icons/transport.png";
+import EntertainmentIcon from "../../img/icons/entertainment.png";
+import {initReactI18next, useTranslation} from "react-i18next";
+import i18n from "../../i18n";
 
+i18n.use(initReactI18next)
 interface IDictionary {
     [index: string]: string;
 }
 
 let categories = {
     All: markerIconPng,
-    Bars: BarIcon,
-    Restaurants: RestaurantIcon,
-    Shops: ShopIcon,
-    Supermarkets: SupermarketIcon,
-    Hotels: HotelIcon,
-    Cinemas: CinemaIcon,
-    Academic_Institution: AcademicIcon,
-    Public_Institution: PublicIcon,
-    Sports_Club: SportIcon,
-    Museum: MuseumIcon,
-    Parks: ParkIcon,
-    Others: OtherIcon
+    bar: BarIcon,
+    restaurant: RestaurantIcon,
+    shop: ShopIcon,
+    supermarket: SupermarketIcon,
+    hotel: HotelIcon,
+    cinema: CinemaIcon,
+    academicInstitution: AcademicIcon,
+    publicInstitution: PublicIcon,
+    sportsClub: SportIcon,
+    museum: MuseumIcon,
+    park: ParkIcon,
+    landscape: LandscapeIcon,
+    monument: MonumentIcon,
+    hospital: HospitalIcon,
+    policeStation: PoliceIcon,
+    transportCenter: TransportIcon,
+    entertainment: EntertainmentIcon,
+    other: OtherIcon
 } as IDictionary
 
 async function readFileFromPod(fileURL: string[], session: Session) {
     try {
         let markers = []
-        for(let i = 0;i < fileURL.length;i++){
+        for (let i = 0; i < fileURL.length; i++) {
             const file = await getFile(
                 fileURL[i],
                 {fetch: session.fetch}
@@ -76,9 +91,9 @@ async function readFileFromPod(fileURL: string[], session: Session) {
                 // var value = e.value;
                 // @ts-ignore
                 var text = e.options[e.selectedIndex].value;
-                if (category === text  || text ==="All")
+                if (category === text || text === "All")
                     markers.push(new Point(uuidv4(), latitude, longitude, name, category, comment, score))
-        }
+            }
 
         }
         return markers
@@ -88,9 +103,10 @@ async function readFileFromPod(fileURL: string[], session: Session) {
 }
 
 
-function MarkersPOD(props:{webId:string[]}) {
+function MarkersPOD(props: { webId: string[] }) {
     const {session} = useSession();
     const [points, setPoints] = useState<Point[]>([]);
+    const {t} = useTranslation();
 
     useEffect(() => {
         async function fetchPoints() {
@@ -109,7 +125,7 @@ function MarkersPOD(props:{webId:string[]}) {
                 points.map((item) => (
                     <Marker key={item.id} position={{lat: item.latitude, lng: item.longitude}}
                             icon={new Icon({
-                                iconUrl: categories[item.category] !==undefined? categories[item.category]:markerIconPng
+                                iconUrl: categories[item.category] !== undefined ? categories[item.category] : markerIconPng
                             })}>
                         <Popup>
                             <CardHeader
@@ -138,7 +154,7 @@ function MarkersPOD(props:{webId:string[]}) {
                                         {item.name}
                                     </Typography>
                                     <Typography gutterBottom variant="h6" component="div">
-                                        {item.category}
+                                        {t(item.category)}
                                     </Typography>
                                     <Typography variant="body2" color="text.secondary">
                                         {item.comment}
