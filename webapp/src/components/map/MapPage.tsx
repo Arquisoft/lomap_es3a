@@ -8,7 +8,7 @@ import {useSession} from "@inrupt/solid-ui-react";
 function MapPage() {
     const {session} = useSession();
     const {webId} = session.info;
-    let webIdStore = webId?.slice(0, -15) + 'private/locations.json';
+    let webIdStore = webId?.slice(0, -15) + 'private/locations.jsonld';
     let user : string[] = [webIdStore]
 
     return (
