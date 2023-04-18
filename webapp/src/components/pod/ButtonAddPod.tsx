@@ -77,10 +77,17 @@ function ButtonAddPod({
             "@type": "Place",
             "name": name,
             "category": category,
-            "comment": comment,
-            "score": score,
+            "description": comment,
             "latitude": latitude,
             "longitude": longitude,
+            "comments": [],
+            "reviewScores": [{
+                "author": webId?.slice(8,-27),
+                "score": score,
+                "date": new Date().valueOf()
+            }],
+            "pictures": [],
+            "date": new Date().valueOf()
         };
 
         return  await readFileFromPod(fileURL, session).then(file => {

@@ -84,8 +84,8 @@ async function readFileFromPod(fileURL: string[], session: Session) {
                 let longitude = Number(fileJSON[i].longitude);
                 let name = fileJSON[i].name;
                 let category = fileJSON[i].category;
-                let score = fileJSON[i].score;
-                let comment = fileJSON[i].comment;
+                let score = fileJSON[i].reviewScores[0].score;
+                let comment = fileJSON[i].description;
                 var e = document.getElementById("category");
                 // @ts-ignore
                 // var value = e.value;
