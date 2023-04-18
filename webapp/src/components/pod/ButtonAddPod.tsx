@@ -42,7 +42,7 @@ function ButtonAddPod({
                       }: ButtonAddPodType) {
     const {session} = useSession();
     const {webId} = session.info;
-    const webIdStore = webId?.slice(0, -15) + "private/locations.json";
+    const webIdStore = webId?.slice(0, -15) + "private/locations.jsonld";
     const user : string[] = [webIdStore]
 
     const { t } = useTranslation();
@@ -73,25 +73,34 @@ function ButtonAddPod({
         ) as HTMLInputElement).value;
 
         let json = {
-            name: name,
-            category: category,
-            comment: comment,
-            score: score,
-            latitude: latitude,
-            longitude: longitude,
+            "@context": "https://schema.org/",
+            "@type": "Place",
+            "name": name,
+            "category": category,
+            "description": comment,
+            "latitude": latitude,
+            "longitude": longitude,
+            "comments": [],
+            "reviewScores": [{
+                "author": webId?.slice(8,-27),
+                "score": score,
+                "date": new Date().valueOf()
+            }],
+            "pictures": [],
+            "date": new Date().valueOf()
         };
 
         return  await readFileFromPod(fileURL, session).then(file => {
                 if (file === "") {
                     const blob = new Blob([JSON.stringify(json, null, 2)], {
-                        type: "application/json",
+                        type: "application/ld+json",
                     });
                     return new File([blob], nameFile, {type: blob.type});
                 } else {
                     let fileContent = Array.from(JSON.parse(file));
                     fileContent.push(json);
                     const blob = new Blob([JSON.stringify(fileContent, null, 2)], {
-                        type: "application/json",
+                        type: "application/ld+json",
                     });
                     return new File([blob], nameFile, {type: blob.type});
                 }

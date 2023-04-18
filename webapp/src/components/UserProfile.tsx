@@ -1,11 +1,34 @@
 import React from 'react';
 import { Avatar, Box, Typography, Button } from '@mui/material';
+import {CombinedDataProvider, Image, Text, useSession} from "@inrupt/solid-ui-react";
+import {FOAF, VCARD} from "@inrupt/lit-generated-vocab-common";
+
+
 
 interface UserProfileProps {
 
 }
 
 const UserProfile: React.FC<UserProfileProps> = () => {
+
+    const { session } = useSession();
+    let { webId } = session.info;
+
+
+
+    if (webId === undefined)
+        webId = "";
+
+    const dropdownTitle = (
+        <span>
+            <CombinedDataProvider datasetUrl={webId} thingUrl={webId}>
+                <Text property={FOAF.name.iri.value}  autosave/>
+
+
+            </CombinedDataProvider>
+        </span>
+    );
+
     return (
         <Box
             display="flex"
@@ -15,24 +38,30 @@ const UserProfile: React.FC<UserProfileProps> = () => {
             minHeight="100vh"
             px={2}
         >
-            <Avatar
-                sx={{ width: 150, height: 150, mb: 2 }}
-                alt={"name"}
-                src={"profileImage"}
-            />
+            <CombinedDataProvider datasetUrl={webId} thingUrl={webId}>
+                <Avatar sx={{ width: 200, height: 200, mb: 2 }}> <Image property={VCARD.hasPhoto.iri.value} width={200}/></Avatar>
+            </CombinedDataProvider>
             <Typography variant="h4" gutterBottom textAlign="center">
-                {"name"}
+                {dropdownTitle}
             </Typography>
             <Typography variant="h6" gutterBottom textAlign="center">
-                @{"username"}
+                @{"email"}
             </Typography>
-            <Typography variant="body1" gutterBottom textAlign="center">
-                {"email"}
-            </Typography>
+            <CombinedDataProvider datasetUrl={webId} thingUrl={webId}>
+                <Typography variant="body2" color="textSecondary" component="p" style={{ display: "flex", alignItems: "center" }}>
+                    @{"Mas info"}
+                </Typography>
+            </CombinedDataProvider>
             <Box mt={4}>
                 <Button variant="contained">Editar perfil</Button>
             </Box>
+
         </Box>
+
+
+
+
+
     );
 };
 

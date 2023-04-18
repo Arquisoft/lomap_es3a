@@ -2,8 +2,8 @@ import "../../css/navigation.css";
 import 'bootstrap/dist/js/bootstrap.bundle';
 import GOMapLogo from "../../img/symbols/SimpleSymbol.png";
 import NavItem from "./NavItem";
-import {CombinedDataProvider, LogoutButton, Text, useSession} from "@inrupt/solid-ui-react";
-import {FOAF} from "@inrupt/lit-generated-vocab-common";
+import {CombinedDataProvider, LoginButton, LogoutButton, Text, useSession} from "@inrupt/solid-ui-react";
+import {FOAF, VCARD} from "@inrupt/lit-generated-vocab-common";
 import {Button} from "@mui/material";
 import {useState, useEffect} from "react";
 import LanguageMenu from "./LanguageMenu";
@@ -21,12 +21,18 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 
+import { Image} from "@inrupt/solid-ui-react";
+
+
+
+
 i18n.use(initReactI18next)
 
 function NavBar() {
-    const {session} = useSession();
+    const { session } = useSession();
+    let { webId } = session.info;
 
-    let {webId} = session.info;
+
 
     if (webId === undefined)
         webId = "";
@@ -62,10 +68,15 @@ function NavBar() {
     const dropdownTitle = (
         <span>
             <CombinedDataProvider datasetUrl={webId} thingUrl={webId}>
-                <Text property={FOAF.name.iri.value} autosave/>
+                <Text property={FOAF.name.iri.value}  autosave/>
+
+
             </CombinedDataProvider>
         </span>
     );
+
+
+
 
     const { t } = useTranslation();
 
@@ -74,7 +85,7 @@ function NavBar() {
      *
      */
 
-    const settings = ['Profile', 'Account', 'Dashboard'];
+    const settings = [ 'Account', 'Dashboard'];
 
 
         const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
@@ -110,15 +121,18 @@ function NavBar() {
                         <NavItem to={"/about"} text={t("about")}/>
                     </ul>
                     <LanguageMenu/>
-                    <div className="d-flex">
+
                         <div id="login-manage">
                             {(!isLoggedIn) ? "" :
                                     <Container maxWidth="xl">
+
                                         <Toolbar disableGutters>
                                             <Box sx={{ flexGrow: 0 }}>
                                                 <Tooltip title="Open settings">
                                                     <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                                        <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                                            <CombinedDataProvider datasetUrl={webId} thingUrl={webId}>
+                                                                        <Avatar alt="Remy Sharp" sx={{ width: 65, height: 65, mb: 2 }}><Image property={VCARD.hasPhoto.iri.value} width={65}/></Avatar>
+                                                            </CombinedDataProvider>
                                                     </IconButton>
                                                 </Tooltip>
                                                 <Menu
@@ -137,6 +151,9 @@ function NavBar() {
                                                     open={Boolean(anchorElUser)}
                                                     onClose={handleCloseUserMenu}
                                                 >
+                                                    <MenuItem onClick={handleCloseUserMenu} component={Link} to="/profile">
+                                                        <Typography textAlign="center">{dropdownTitle}</Typography>
+                                                    </MenuItem>
                                                     {settings.map((setting) => (
                                                         <MenuItem key={setting} onClick={handleCloseUserMenu}>
                                                             <Typography textAlign="center">{setting}</Typography>
@@ -156,6 +173,8 @@ function NavBar() {
                                             </Box>
                                         </Toolbar>
                                     </Container>
+
+
 }
                             {isLoggedIn ? "" :(
                                 <Link to="/login">
@@ -167,7 +186,7 @@ function NavBar() {
 
                         </div>
                     </div>
-                </div>
+
             </div>
         </nav>
     );
