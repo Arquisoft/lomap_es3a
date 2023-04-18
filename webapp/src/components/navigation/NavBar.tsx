@@ -85,7 +85,7 @@ function NavBar() {
      *
      */
 
-    const settings = ['Profile', 'Account', 'Dashboard'];
+    const settings = [ 'Account', 'Dashboard'];
 
 
         const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
@@ -99,9 +99,6 @@ function NavBar() {
         const handleCloseUserMenu = () => {
             setAnchorElUser(null);
         };
-        let ano = <Image property={VCARD.hasPhoto.iri.value} width={480}/> as unknown  as HTMLImageElement;
-
-        console.log(ano);
 
     return (
         <nav className={`navbar navbar-expand-lg navbar-dark ${isNavExpanded ? 'nav-expanded' : 'nav-normal'}`}>
@@ -124,22 +121,17 @@ function NavBar() {
                         <NavItem to={"/about"} text={t("about")}/>
                     </ul>
                     <LanguageMenu/>
-                    <div className="d-flex">
+
                         <div id="login-manage">
                             {(!isLoggedIn) ? "" :
-                                <div>
-
                                     <Container maxWidth="xl">
 
                                         <Toolbar disableGutters>
-                                            <label>
-                                                <text>{dropdownTitle}</text>&nbsp;
-                                            </label>
                                             <Box sx={{ flexGrow: 0 }}>
                                                 <Tooltip title="Open settings">
                                                     <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                                             <CombinedDataProvider datasetUrl={webId} thingUrl={webId}>
-                                                                        <Avatar alt="Remy Sharp" ><Image property={VCARD.hasPhoto.iri.value} width={40}/></Avatar>
+                                                                        <Avatar alt="Remy Sharp" sx={{ width: 65, height: 65, mb: 2 }}><Image property={VCARD.hasPhoto.iri.value} width={65}/></Avatar>
                                                             </CombinedDataProvider>
                                                     </IconButton>
                                                 </Tooltip>
@@ -159,6 +151,9 @@ function NavBar() {
                                                     open={Boolean(anchorElUser)}
                                                     onClose={handleCloseUserMenu}
                                                 >
+                                                    <MenuItem onClick={handleCloseUserMenu} component={Link} to="/profile">
+                                                        <Typography textAlign="center">{dropdownTitle}</Typography>
+                                                    </MenuItem>
                                                     {settings.map((setting) => (
                                                         <MenuItem key={setting} onClick={handleCloseUserMenu}>
                                                             <Typography textAlign="center">{setting}</Typography>
@@ -179,7 +174,7 @@ function NavBar() {
                                         </Toolbar>
                                     </Container>
 
-                                </div>
+
 }
                             {isLoggedIn ? "" :(
                                 <LoginButton oidcIssuer="https://inrupt.net" redirectUrl={window.location.href}>
@@ -193,7 +188,7 @@ function NavBar() {
                             )}
                         </div>
                     </div>
-                </div>
+
             </div>
         </nav>
     );
