@@ -177,15 +177,13 @@ function NavBar() {
 
 }
                             {isLoggedIn ? "" :(
-                                <LoginButton oidcIssuer="https://inrupt.net" redirectUrl={window.location.href}>
+                                <Link to="/login">
                                     <Button variant="contained" color="primary" id="login">
                                         {t("login")}
                                     </Button>
-                                </LoginButton>
+                                </Link>
                             )}
-                            {!isLoggedIn && (
-                                <a href="https://inrupt.net/register">{t("register")}</a>
-                            )}
+
                         </div>
                     </div>
 

@@ -98,7 +98,10 @@ i18n
                     panel_office: "Our main office",
                     panel_phone: "Our phone",
                     panel_fax: "Our fax",
-                    panel_email: "Our email"
+                    panel_email: "Our email",
+
+                    // Login:
+                    provider: "Select POD provider:"
                 }
             },
             es: {
@@ -194,7 +197,10 @@ i18n
                     panel_office: "Nuestra oficina principal",
                     panel_phone: "Nuestro teléfono",
                     panel_fax: "Nuestro fax",
-                    panel_email: "Nuestro correo electrónico"
+                    panel_email: "Nuestro correo electrónico",
+
+                    // Login:
+                    provider: "Seleccione el proveedor de PODs:"
                 }
             },
             fr: {
@@ -290,7 +296,10 @@ i18n
                     panel_office: "Notre bureau principal",
                     panel_phone: "Notre téléphone",
                     panel_fax: "Notre fax",
-                    panel_email: "Notre email"
+                    panel_email: "Notre email",
+
+                    // Login:
+                    provider: "Sélectionner le fournisseur de PODs"
                 }
             },
             deu: {
@@ -385,7 +394,10 @@ i18n
                     panel_office: "Unser Hauptbüro",
                     panel_phone: "Unser Telefon",
                     panel_fax: "Unser Fax",
-                    panel_email: "Unsere E-Mail"
+                    panel_email: "Unsere E-Mail",
+
+                    // Login:
+                    provider: "Wählen Sie den POD-Anbieter aus:"
                 }
             },
             chn: {
@@ -481,7 +493,10 @@ i18n
                     panel_office: "我们的主要办事处",
                     panel_phone: "我们的电话",
                     panel_fax: "我们的传真",
-                    panel_email: "我们的电子邮件"
+                    panel_email: "我们的电子邮件",
+
+                    // Login:
+                    provider: "选择POD提供商"
                 }
             },
             ast: {
@@ -576,7 +591,10 @@ i18n
                     panel_office: "La nuesa oficina principal",
                     panel_phone: "El nuesu teléfonu",
                     panel_fax: "El nuesu fax",
-                    panel_email: "El nuesu corréu electrónicu"
+                    panel_email: "El nuesu corréu electrónicu",
+
+                    // Login:
+                    provider: "Escoya'l proveedor de PODs:"
                 }
             }
         },
