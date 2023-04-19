@@ -8,9 +8,10 @@ i18n.use(initReactI18next)
 interface IProps {
     titleFilter: string,
     nameFilter: string,
-    usersWebId: string[]
+    usersWebId: string[],
+    setItem: Function
 }
-function Filter({ titleFilter, nameFilter,usersWebId }: IProps) {
+function Filter({ titleFilter, nameFilter, usersWebId, setItem }: IProps) {
     const {t} = useTranslation();
 
     let categories = [];
@@ -33,7 +34,7 @@ function Filter({ titleFilter, nameFilter,usersWebId }: IProps) {
         if(nameFilter !== "edit") {
             if(usersWebId!==undefined){
                 const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
-                root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={usersWebId}/>);
+                root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={usersWebId} setItem={setItem}/>);
             }
         }
     }

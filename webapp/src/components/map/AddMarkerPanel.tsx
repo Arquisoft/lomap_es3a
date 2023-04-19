@@ -10,34 +10,35 @@ import i18n from "../../i18n";
 
 i18n.use(initReactI18next)
 
-function MarkerPanel() {
+function AddMarkerPanel(props: { setItem: Function }) {
 
     const { t } = useTranslation();
-    let user : string[] = []
+
+    let user : string[] = [];
 
     function closeMenu() {
-        const markersMenu = document.getElementById("markersMenu");
-        if (markersMenu !== null) {
-            markersMenu.style.width = "0";
+        const addMarkerPanel = document.getElementById("addMarkerPanel");
+        if (addMarkerPanel !== null) {
+            addMarkerPanel.style.width = "0";
         }
     }
 
     return (
-        <div id="markersMenu">
+        <div id="addMarkerPanel">
             <h1>{t("add_marker")}</h1>
             <input type="button" className="cross" onClick={closeMenu} value="&times;"/>
             <form>
                 <NamePlace title={t("places_name")}/>
                 <Coordinates/>
-                <Filter titleFilter={t("category")} nameFilter={"edit"} usersWebId={user}/>
+                <Filter titleFilter={t("category")} nameFilter={"edit"} usersWebId={user} setItem={props.setItem}/>
                 <Mark title={t("mark")} id={"scoreNewMarker"}/>
                 <Comments title={t("comment")}/>
                 <ButtonAddPod idName={"namePlace"} idCategory={"categoryMarker"} idComment={"comment"} idScore={"scoreNewMarker"}
-                              idLatitude={"latitude"} idLongitude={"longitude"}/>
+                              idLatitude={"latitude"} idLongitude={"longitude"} setItem={props.setItem}/>
             </form>
         </div>
     )
 
 }
 
-export default MarkerPanel;
+export default AddMarkerPanel;

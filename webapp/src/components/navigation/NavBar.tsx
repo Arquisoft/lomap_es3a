@@ -15,7 +15,6 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
-import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
@@ -115,56 +114,51 @@ function NavBar() {
                         <div id="login-manage">
                             {(!isLoggedIn) ? "" :
                                 <div>
-
-                                    <Container maxWidth="xl">
-
-                                        <Toolbar disableGutters>
-                                            <label>
-                                                <text>{dropdownTitle}</text>&nbsp;
-                                            </label>
-                                            <Box sx={{ flexGrow: 0 }}>
-                                                <Tooltip title="Open settings">
-                                                    <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                                        <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                                                    </IconButton>
-                                                </Tooltip>
-                                                <Menu
-                                                    sx={{ mt: '45px' }}
-                                                    id="menu-appbar"
-                                                    anchorEl={anchorElUser}
-                                                    anchorOrigin={{
-                                                        vertical: 'top',
-                                                        horizontal: 'right',
-                                                    }}
-                                                    keepMounted
-                                                    transformOrigin={{
-                                                        vertical: 'top',
-                                                        horizontal: 'right',
-                                                    }}
-                                                    open={Boolean(anchorElUser)}
-                                                    onClose={handleCloseUserMenu}
-                                                >
-                                                    {settings.map((setting) => (
-                                                        <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                                            <Typography textAlign="center">{setting}</Typography>
-                                                        </MenuItem>
-                                                    ))}
-                                                    <MenuItem onClick={handleCloseUserMenu} component={Link} to="/profile">
-                                                        <Typography textAlign="center">{"Profile"}</Typography>
+                                    <Toolbar disableGutters>
+                                        <Box sx={{ flexGrow: 0 }}>
+                                            <Tooltip title="Open settings">
+                                                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                                                    <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                                </IconButton>
+                                            </Tooltip>
+                                            <Menu
+                                                sx={{ mt: '45px' }}
+                                                id="menu-appbar"
+                                                anchorEl={anchorElUser}
+                                                anchorOrigin={{
+                                                    vertical: 'top',
+                                                    horizontal: 'right',
+                                                }}
+                                                keepMounted
+                                                transformOrigin={{
+                                                    vertical: 'top',
+                                                    horizontal: 'right',
+                                                }}
+                                                open={Boolean(anchorElUser)}
+                                                onClose={handleCloseUserMenu}
+                                            >
+                                                <p id="profileName">
+                                                    {dropdownTitle}
+                                                </p>
+                                                {settings.map((setting) => (
+                                                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                                                        <Typography textAlign="center">{setting}</Typography>
                                                     </MenuItem>
-                                                    <MenuItem >
-                                                        <LogoutButton>
-                                                            <Button variant="contained" color="error" id="logout">
-                                                                {t("logout")}
-                                                            </Button>
-                                                        </LogoutButton>
-                                                    </MenuItem>
-                                                </Menu>
-                                            </Box>
-                                        </Toolbar>
-                                    </Container>
-                                </div>
-}
+                                                ))}
+                                                <MenuItem onClick={handleCloseUserMenu} component={Link} to="/profile">
+                                                    <Typography textAlign="center">{"Profile"}</Typography>
+                                                </MenuItem>
+                                                <MenuItem >
+                                                    <LogoutButton>
+                                                        <Button variant="contained" color="error" id="logout">
+                                                            {t("logout")}
+                                                        </Button>
+                                                    </LogoutButton>
+                                                </MenuItem>
+                                            </Menu>
+                                        </Box>
+                                    </Toolbar>
+                                </div>}
                             {isLoggedIn ? "" :(
                                 <LoginButton oidcIssuer="https://inrupt.net" redirectUrl={window.location.href}>
                                     <Button variant="contained" color="primary" id="login">

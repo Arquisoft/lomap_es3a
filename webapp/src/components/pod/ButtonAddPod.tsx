@@ -29,6 +29,7 @@ interface ButtonAddPodType {
     idScore: string;
     idLatitude: string;
     idLongitude: string;
+    setItem: Function
 }
 
 // Componente para añadir marcadores al POD
@@ -39,13 +40,14 @@ function ButtonAddPod({
                           idScore,
                           idLatitude,
                           idLongitude,
+                          setItem
                       }: ButtonAddPodType) {
     const {session} = useSession();
     const {webId} = session.info;
     const webIdStore = webId?.slice(0, -15) + "private/locations.json";
-    const user : string[] = [webIdStore]
+    const user: string[] = [webIdStore]
 
-    const { t } = useTranslation();
+    const {t} = useTranslation();
 
     const createMarker = async (
         nameFile: string,
@@ -81,7 +83,7 @@ function ButtonAddPod({
             longitude: longitude,
         };
 
-        return  await readFileFromPod(fileURL, session).then(file => {
+        return await readFileFromPod(fileURL, session).then(file => {
                 if (file === "") {
                     const blob = new Blob([JSON.stringify(json, null, 2)], {
                         type: "application/json",
@@ -136,7 +138,7 @@ function ButtonAddPod({
     };
 
     const handleClick = async () => {
-         createMarker(
+        createMarker(
             "locations.json",
             idName,
             idCategory,
@@ -145,23 +147,23 @@ function ButtonAddPod({
             idLatitude,
             idLongitude,
             webIdStore,
-
         )
-            .then(  (file) =>  createData(webIdStore, file, session))
+            .then((file) => createData(webIdStore, file, session))
             .then(createNotification)
-             .then( ()=> {
-                 if(webId!==undefined){
-                     const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
-                     root.render(<MapView
-                         lat={ Number((document.getElementById(idLatitude) as HTMLInputElement).value)}
-                         lng={Number((document.getElementById(idLongitude) as HTMLInputElement).value)}
-                         webId={user}/>);
-                 }
-             });
+            .then(() => {
+                if (webId !== undefined) {
+                    const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
+                    root.render(<MapView
+                        lat={Number((document.getElementById(idLatitude) as HTMLInputElement).value)}
+                        lng={Number((document.getElementById(idLongitude) as HTMLInputElement).value)}
+                        webId={user}
+                        setItem={setItem}/>);
+                }
+            });
         let rootFriends = ReactDOM.createRoot(document.getElementById("friendDiv") as HTMLElement);
-        rootFriends.render(<FriendList/>)
+        rootFriends.render(<FriendList setItem={setItem}/>)
         const rootFilter = ReactDOM.createRoot(document.getElementById("filterDiv") as HTMLElement);
-        rootFilter.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={user}/>);
+        rootFilter.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={user} setItem={setItem}/>);
         let optionsMenu = document.getElementById("markersMenu");
         if (optionsMenu !== null) {
             const width = optionsMenu.style.width;
@@ -180,10 +182,10 @@ function ButtonAddPod({
                 {t("confirm")}
             </Button>
             <IconButton color="primary" aria-label="upload picture" component="label">
-                <input hidden accept="image/*" type="file" />
-                <PhotoCamera />
+                <input hidden accept="image/*" type="file"/>
+                <PhotoCamera/>
             </IconButton>
-            <AdvancedImage cldImg={myImage} />
+            <AdvancedImage cldImg={myImage}/>
             {showNotification && (
                 <Notification
                     title={t("notification_marker_added")}

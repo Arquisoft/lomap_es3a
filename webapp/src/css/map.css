@@ -60,7 +60,6 @@ select, option {
     color: white;
     background-color: rgba(15, 94, 197, 0.8);
     padding: 0.313em;
-
 }
 
 #namePlace, #comment, #latitude, #longitude {
@@ -90,7 +89,7 @@ select, option {
     overflow-x: hidden;
 }
 
-#markersMenu .cross {
+#addMarkerPanel .cross, #showMarkerPanel .cross {
     padding: 0.5em 0.5em 0.5em 2em;
     background: none;
     border: none;
@@ -99,12 +98,12 @@ select, option {
     transition: 0.3s;
     position: absolute;
     top: 0;
-    right: 1.563em;
+    right: 0.2em;
     font-size: 2.25em;
     margin-left: 3.125em;
 }
 
-#markersMenu {
+#addMarkerPanel, #showMarkerPanel {
     color: white;
     font-size: 0.938em;
     font-weight: bold;
@@ -138,4 +137,146 @@ select, option {
     border-radius: 0.5em;
     cursor: pointer;
     margin-bottom: 0.3em;
+}
+
+#profileMarkerAuthor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#profileMarkerData h3 {
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#profileMarkerData h4 {
+    margin: 0;
+    font-size: 1.15em;
+    font-weight: lighter;
+    font-style: italic;
+}
+
+#showMarkerPanel .carousel-item img {
+    width: 22.5vw;
+    height: 17.5vh;
+
+    border-radius: 0.3125em;
+    text-align: center;
+}
+
+#markerData {
+    text-align: start;
+    align-items: center;
+    margin-left: 1.5em;
+}
+
+#markerData h3 {
+    font-size: 2em;
+}
+
+#showMarkerScore {
+    display: flex;
+    flex-direction: row;
+    text-align: start;
+    align-items: center;
+    gap: 0.5em;
+}
+
+#totalReviews, #totalScore, #ratingScore {
+    margin-bottom: 0 !important;
+}
+
+#totalScore {
+    font-size: 1.5em;
+    color: #000000;
+    background-color: #b9bcd0;
+    border-radius: 0.1em;
+    padding: 0.25em;
+}
+
+#showMarkerCategory {
+    font-size: 1.25em;
+    font-style: italic;
+    font-weight: lighter;
+}
+
+#showMarkerCoords {
+    font-size: 0.9em;
+    font-style: italic;
+    font-weight: lighter;
+}
+
+#reviewsTitle {
+    text-decoration: underline;
+    font-style: italic;
+}
+
+#addReview {
+    margin: 0 1em 1em 0;
+    text-align: end;
+}
+
+#addReview #rating{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    margin-bottom: 0.25em;
+}
+
+#reviewComment {
+    font-size: 1.15em;
+    width: 100%;
+    font-weight: lighter;
+    color: white;
+    background-color: rgba(15, 94, 197, 0.8);
+    margin-bottom: 0.15em;
+}
+
+#reviewButton {
+    font-size: 1.15em;
+    font-weight: bold;
+    color: white;
+    padding: 0.3em;
+    border: none;
+    cursor: pointer;
+    margin-top: 0.625em;
+    border-radius: 0.2em;
+    background-color: #0063fd;
+}
+
+.profileReview {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+}
+
+#nameAndDate h5 {
+    margin: 0;
+    font-size: 1.15em;
+    font-weight: bold;
+}
+
+#nameAndDate p {
+    margin: 0;
+    font-size: 0.9em;
+    font-weight: lighter;
+    font-style: italic;
+}
+
+#ratingReview {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+}
+
+#ratingScore {
+    color: white;
+    font-size: 1.15em;
+    background-color: #273572;
+    padding: 0.4em;
+    border-radius: 0.2em;
 }

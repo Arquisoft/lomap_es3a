@@ -1,3 +1,10 @@
+interface Review {
+    webId: string,
+    img: string,
+    score: number,
+    comment: string,
+}
+
 export class Point {
     latitude: number
     longitude: number
@@ -5,7 +12,6 @@ export class Point {
     category: string
     comment: string
     score: number
-
     id: string
 
     constructor(id: string, latitude: number, longitude: number, name: string, category: string, comment: string, score: number) {
@@ -17,5 +23,4 @@ export class Point {
         this.category = category;
         this.score = score;
     }
-
 }

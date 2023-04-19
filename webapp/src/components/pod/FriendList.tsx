@@ -18,7 +18,7 @@ import Filter from "../map/options/Filter";
 
 i18n.use(initReactI18next)
 
-function FriendList(){
+function FriendList(props: {setItem : Function}){
     const { session } = useSession();
     const [personData, setPersonData] = useState<PersonData>({ webId: '', name: '', friends: [] })
     const {webId} = session.info;
@@ -64,9 +64,9 @@ function FriendList(){
                 let target = webId.split("profile")[0]
                 changePermissions(target,friendWebId);
                 const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
-                root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={friendSelected}/>);
+                root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={friendSelected} setItem={props.setItem}/>);
                 const root2 = ReactDOM.createRoot(document.getElementById("filterDiv") as HTMLElement);
-                root2.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={friendSelected}/>);
+                root2.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={friendSelected} setItem={props.setItem}/>);
             }else{
                 (document.getElementById(id) as HTMLImageElement).src = botonRojo;
                 friendSelected = friendSelected.filter(friend => friend !== webIdFriend)
@@ -74,9 +74,9 @@ function FriendList(){
                     friendSelected.push(webIdUser);
                 }
                 const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
-                root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={friendSelected}/>);
+                root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={friendSelected} setItem={props.setItem}/>);
                 const root2 = ReactDOM.createRoot(document.getElementById("filterDiv") as HTMLElement);
-                root2.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={friendSelected}/>);
+                root2.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={friendSelected} setItem={props.setItem}/>);
             }
 
         }
