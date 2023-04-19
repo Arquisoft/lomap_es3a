@@ -29,7 +29,6 @@ interface ButtonAddPodType {
     idScore: string;
     idLatitude: string;
     idLongitude: string;
-    setItem: Function
 }
 
 // Componente para añadir marcadores al POD
@@ -40,14 +39,13 @@ function ButtonAddPod({
                           idScore,
                           idLatitude,
                           idLongitude,
-                          setItem
                       }: ButtonAddPodType) {
     const {session} = useSession();
     const {webId} = session.info;
-    const webIdStore = webId?.slice(0, -15) + "private/locations.json";
-    const user: string[] = [webIdStore]
+    const webIdStore = webId?.slice(0, -15) + "private/locations.jsonld";
+    const user : string[] = [webIdStore]
 
-    const {t} = useTranslation();
+    const { t } = useTranslation();
 
     const createMarker = async (
         nameFile: string,
@@ -75,25 +73,35 @@ function ButtonAddPod({
         ) as HTMLInputElement).value;
 
         let json = {
-            name: name,
-            category: category,
-            comment: comment,
-            score: score,
-            latitude: latitude,
-            longitude: longitude,
+            "@context": "https://schema.org/",
+            "@type": "Place",
+            "name": name,
+            "category": category,
+            "description": comment,
+            "latitude": latitude,
+            "longitude": longitude,
+            "comments": [],
+            "reviewScores": [{
+                "author": webId?.slice(8,-27),
+                "score": score,
+                "date": new Date().valueOf()
+            }],
+            "pictures": [],
+            "date": new Date().valueOf()
         };
 
-        return await readFileFromPod(fileURL, session).then(file => {
+        return  await readFileFromPod(fileURL, session).then(file => {
                 if (file === "") {
-                    const blob = new Blob([JSON.stringify(json, null, 2)], {
-                        type: "application/json",
+                    let fileContent = [json]
+                    const blob = new Blob([JSON.stringify(fileContent, null, 2)], {
+                        type: "application/ld+json",
                     });
                     return new File([blob], nameFile, {type: blob.type});
                 } else {
                     let fileContent = Array.from(JSON.parse(file));
                     fileContent.push(json);
                     const blob = new Blob([JSON.stringify(fileContent, null, 2)], {
-                        type: "application/json",
+                        type: "application/ld+json",
                     });
                     return new File([blob], nameFile, {type: blob.type});
                 }
@@ -138,8 +146,8 @@ function ButtonAddPod({
     };
 
     const handleClick = async () => {
-        createMarker(
-            "locations.json",
+         createMarker(
+            "locations.jsonld",
             idName,
             idCategory,
             idComment,
@@ -147,23 +155,23 @@ function ButtonAddPod({
             idLatitude,
             idLongitude,
             webIdStore,
+
         )
-            .then((file) => createData(webIdStore, file, session))
+            .then(  (file) =>  createData(webIdStore, file, session))
             .then(createNotification)
-            .then(() => {
-                if (webId !== undefined) {
-                    const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
-                    root.render(<MapView
-                        lat={Number((document.getElementById(idLatitude) as HTMLInputElement).value)}
-                        lng={Number((document.getElementById(idLongitude) as HTMLInputElement).value)}
-                        webId={user}
-                        setItem={setItem}/>);
-                }
-            });
+             .then( ()=> {
+                 if(webId!==undefined){
+                     const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
+                     root.render(<MapView
+                         lat={ Number((document.getElementById(idLatitude) as HTMLInputElement).value)}
+                         lng={Number((document.getElementById(idLongitude) as HTMLInputElement).value)}
+                         webId={user}/>);
+                 }
+             });
         let rootFriends = ReactDOM.createRoot(document.getElementById("friendDiv") as HTMLElement);
-        rootFriends.render(<FriendList setItem={setItem}/>)
+        rootFriends.render(<FriendList/>)
         const rootFilter = ReactDOM.createRoot(document.getElementById("filterDiv") as HTMLElement);
-        rootFilter.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={user} setItem={setItem}/>);
+        rootFilter.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={user}/>);
         let optionsMenu = document.getElementById("markersMenu");
         if (optionsMenu !== null) {
             const width = optionsMenu.style.width;
@@ -182,10 +190,10 @@ function ButtonAddPod({
                 {t("confirm")}
             </Button>
             <IconButton color="primary" aria-label="upload picture" component="label">
-                <input hidden accept="image/*" type="file"/>
-                <PhotoCamera/>
+                <input hidden accept="image/*" type="file" />
+                <PhotoCamera />
             </IconButton>
-            <AdvancedImage cldImg={myImage}/>
+            <AdvancedImage cldImg={myImage} />
             {showNotification && (
                 <Notification
                     title={t("notification_marker_added")}

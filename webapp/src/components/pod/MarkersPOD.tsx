@@ -1,13 +1,26 @@
 import {Session} from "@inrupt/solid-client-authn-browser";
 import {getFile} from "@inrupt/solid-client";
 import {Icon} from "leaflet";
-import {Marker} from "react-leaflet";
+import {Marker, Popup} from "react-leaflet";
 import markerIconPng from "leaflet/dist/images/marker-icon.png"
 import {useSession} from "@inrupt/solid-ui-react";
 import {Point} from "./Point";
 import {v4 as uuidv4} from 'uuid';
-import * as React from "react";
 import {useEffect, useState} from "react";
+import * as React from 'react';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import {Avatar, CardActionArea, CardActions, CardHeader} from '@mui/material';
+import Rijksmuseum from "../../img/Rijksmuseum.png";
+import Rating from "@mui/material/Rating";
+import {red} from "@mui/material/colors";
+import IconButton, {} from '@mui/material/IconButton';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import ShareIcon from '@mui/icons-material/Share';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import {ExpandMore} from "@mui/icons-material";
 import BarIcon from "../../img/icons/bar.png";
 import RestaurantIcon from "../../img/icons/restaurant.png";
 import ShopIcon from "../../img/icons/shop.png";
@@ -20,50 +33,67 @@ import SportIcon from "../../img/icons/sport.png";
 import MuseumIcon from "../../img/icons/museum.png";
 import ParkIcon from "../../img/icons/park.png";
 import OtherIcon from "../../img/icons/other.png";
+import LandscapeIcon from "../../img/icons/landscape.png";
+import MonumentIcon from "../../img/icons/monument.png";
+import HospitalIcon from "../../img/icons/hospital.png";
+import PoliceIcon from "../../img/icons/police.png";
+import TransportIcon from "../../img/icons/transport.png";
+import EntertainmentIcon from "../../img/icons/entertainment.png";
+import {initReactI18next, useTranslation} from "react-i18next";
+import i18n from "../../i18n";
 
+i18n.use(initReactI18next)
 interface IDictionary {
     [index: string]: string;
 }
 
 let categories = {
     All: markerIconPng,
-    Bars: BarIcon,
-    Restaurants: RestaurantIcon,
-    Shops: ShopIcon,
-    Supermarkets: SupermarketIcon,
-    Hotels: HotelIcon,
-    Cinemas: CinemaIcon,
-    Academic_Institution: AcademicIcon,
-    Public_Institution: PublicIcon,
-    Sports_Club: SportIcon,
-    Museum: MuseumIcon,
-    Parks: ParkIcon,
-    Others: OtherIcon
+    bar: BarIcon,
+    restaurant: RestaurantIcon,
+    shop: ShopIcon,
+    supermarket: SupermarketIcon,
+    hotel: HotelIcon,
+    cinema: CinemaIcon,
+    academicInstitution: AcademicIcon,
+    publicInstitution: PublicIcon,
+    sportsClub: SportIcon,
+    museum: MuseumIcon,
+    park: ParkIcon,
+    landscape: LandscapeIcon,
+    monument: MonumentIcon,
+    hospital: HospitalIcon,
+    policeStation: PoliceIcon,
+    transportCenter: TransportIcon,
+    entertainment: EntertainmentIcon,
+    other: OtherIcon
 } as IDictionary
 
 async function readFileFromPod(fileURL: string[], session: Session) {
     try {
         let markers = []
-        for (const element of fileURL) {
+        for (let i = 0; i < fileURL.length; i++) {
             const file = await getFile(
-                element,
+                fileURL[i],
                 {fetch: session.fetch}
             );
             let fileContent = await file.text()
             let fileJSON = JSON.parse(fileContent)
-            for (const element of fileJSON) {
-                let latitude = Number(element.latitude);
-                let longitude = Number(element.longitude);
-                let name = element.name;
-                let category = element.category;
-                let score = element.score;
-                let comment = element.comment;
-                let e = document.getElementById("category");
+            for (let i = 0; i < fileJSON.length; i++) {
+                let latitude = Number(fileJSON[i].latitude);
+                let longitude = Number(fileJSON[i].longitude);
+                let name = fileJSON[i].name;
+                let category = fileJSON[i].category;
+                let score = fileJSON[i].reviewScores[0].score;
+                let comment = fileJSON[i].description;
+                var e = document.getElementById("category");
                 // @ts-ignore
-                let text = e.options[e.selectedIndex].value;
+                // var value = e.value;
+                // @ts-ignore
+                var text = e.options[e.selectedIndex].value;
                 if (category === text || text === "All")
                     markers.push(new Point(uuidv4(), latitude, longitude, name, category, comment, score))
-            }
+        }
 
         }
         return markers
@@ -76,6 +106,7 @@ async function readFileFromPod(fileURL: string[], session: Session) {
 function MarkersPOD(props: { webId: string[], setItem: Function }) {
     const {session} = useSession();
     const [points, setPoints] = useState<Point[]>([]);
+    const {t} = useTranslation();
 
     useEffect(() => {
         async function fetchPoints() {

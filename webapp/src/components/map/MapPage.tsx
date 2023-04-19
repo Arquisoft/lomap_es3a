@@ -11,7 +11,7 @@ function MapPage() {
     const [item, setItem] = useState<Point>();
     const {session} = useSession();
     const {webId} = session.info;
-    let webIdStore = webId?.slice(0, -15) + 'private/locations.json';
+    let webIdStore = webId?.slice(0, -15) + 'private/locations.jsonld';
     let user : string[] = [webIdStore]
 
     return (

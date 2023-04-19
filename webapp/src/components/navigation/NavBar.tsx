@@ -3,7 +3,7 @@ import 'bootstrap/dist/js/bootstrap.bundle';
 import GOMapLogo from "../../img/symbols/SimpleSymbol.png";
 import NavItem from "./NavItem";
 import {CombinedDataProvider, LoginButton, LogoutButton, Text, useSession} from "@inrupt/solid-ui-react";
-import {FOAF} from "@inrupt/lit-generated-vocab-common";
+import {FOAF, VCARD} from "@inrupt/lit-generated-vocab-common";
 import {Button} from "@mui/material";
 import {useState, useEffect} from "react";
 import LanguageMenu from "./LanguageMenu";
@@ -15,17 +15,24 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
+import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 
+import { Image} from "@inrupt/solid-ui-react";
+
+
+
+
 i18n.use(initReactI18next)
 
 function NavBar() {
-    const {session} = useSession();
+    const { session } = useSession();
+    let { webId } = session.info;
 
-    let {webId} = session.info;
+
 
     if (webId === undefined)
         webId = "";
@@ -63,9 +70,13 @@ function NavBar() {
             <CombinedDataProvider datasetUrl={webId} thingUrl={webId}>
                 <Text property={FOAF.name.iri.value}  autosave/>
 
+
             </CombinedDataProvider>
         </span>
     );
+
+
+
 
     const { t } = useTranslation();
 
@@ -74,7 +85,7 @@ function NavBar() {
      *
      */
 
-    const settings = ['Profile', 'Account', 'Dashboard'];
+    const settings = [ 'Account', 'Dashboard'];
 
 
         const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
@@ -110,68 +121,72 @@ function NavBar() {
                         <NavItem to={"/about"} text={t("about")}/>
                     </ul>
                     <LanguageMenu/>
-                    <div className="d-flex">
+
                         <div id="login-manage">
                             {(!isLoggedIn) ? "" :
-                                <div>
-                                    <Toolbar disableGutters>
-                                        <Box sx={{ flexGrow: 0 }}>
-                                            <Tooltip title="Open settings">
-                                                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                                    <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                                                </IconButton>
-                                            </Tooltip>
-                                            <Menu
-                                                sx={{ mt: '45px' }}
-                                                id="menu-appbar"
-                                                anchorEl={anchorElUser}
-                                                anchorOrigin={{
-                                                    vertical: 'top',
-                                                    horizontal: 'right',
-                                                }}
-                                                keepMounted
-                                                transformOrigin={{
-                                                    vertical: 'top',
-                                                    horizontal: 'right',
-                                                }}
-                                                open={Boolean(anchorElUser)}
-                                                onClose={handleCloseUserMenu}
-                                            >
-                                                <p id="profileName">
-                                                    {dropdownTitle}
-                                                </p>
-                                                {settings.map((setting) => (
-                                                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                                        <Typography textAlign="center">{setting}</Typography>
+                                    <Container maxWidth="xl">
+
+                                        <Toolbar disableGutters>
+                                            <Box sx={{ flexGrow: 0 }}>
+                                                <Tooltip title="Open settings">
+                                                    <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                                                            <CombinedDataProvider datasetUrl={webId} thingUrl={webId}>
+                                                                        <Avatar alt="Remy Sharp" sx={{ width: 65, height: 65, mb: 2 }}><Image property={VCARD.hasPhoto.iri.value} width={65}/></Avatar>
+                                                            </CombinedDataProvider>
+                                                    </IconButton>
+                                                </Tooltip>
+                                                <Menu
+                                                    sx={{ mt: '45px' }}
+                                                    id="menu-appbar"
+                                                    anchorEl={anchorElUser}
+                                                    anchorOrigin={{
+                                                        vertical: 'top',
+                                                        horizontal: 'right',
+                                                    }}
+                                                    keepMounted
+                                                    transformOrigin={{
+                                                        vertical: 'top',
+                                                        horizontal: 'right',
+                                                    }}
+                                                    open={Boolean(anchorElUser)}
+                                                    onClose={handleCloseUserMenu}
+                                                >
+                                                    <MenuItem onClick={handleCloseUserMenu} component={Link} to="/profile">
+                                                        <Typography textAlign="center">{dropdownTitle}</Typography>
                                                     </MenuItem>
-                                                ))}
-                                                <MenuItem onClick={handleCloseUserMenu} component={Link} to="/profile">
-                                                    <Typography textAlign="center">{"Profile"}</Typography>
-                                                </MenuItem>
-                                                <MenuItem >
-                                                    <LogoutButton>
-                                                        <Button variant="contained" color="error" id="logout">
-                                                            {t("logout")}
-                                                        </Button>
-                                                    </LogoutButton>
-                                                </MenuItem>
-                                            </Menu>
-                                        </Box>
-                                    </Toolbar>
-                                </div>}
+                                                    {settings.map((setting) => (
+                                                        <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                                                            <Typography textAlign="center">{setting}</Typography>
+                                                        </MenuItem>
+                                                    ))}
+                                                    <MenuItem onClick={handleCloseUserMenu} component={Link} to="/profile">
+                                                        <Typography textAlign="center">{"Profile"}</Typography>
+                                                    </MenuItem>
+                                                    <MenuItem >
+                                                        <LogoutButton>
+                                                            <Button variant="contained" color="error" id="logout">
+                                                                {t("logout")}
+                                                            </Button>
+                                                        </LogoutButton>
+                                                    </MenuItem>
+                                                </Menu>
+                                            </Box>
+                                        </Toolbar>
+                                    </Container>
+
+
+}
                             {isLoggedIn ? "" :(
-                                <LoginButton oidcIssuer="https://inrupt.net" redirectUrl={window.location.href}>
+                                <Link to="/login">
                                     <Button variant="contained" color="primary" id="login">
                                         {t("login")}
                                     </Button>
-                                </LoginButton>
+                                </Link>
                             )}
-                            {!isLoggedIn && (
-                                <a href="https://inrupt.net/register">{t("register")}</a>
-                            )}
+
                         </div>
                     </div>
-                </div>
+
             </div>
         </nav>
     );

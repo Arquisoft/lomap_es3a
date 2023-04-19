@@ -58,6 +58,12 @@ i18n
                     sports_club: "Sports Clubs",
                     museum: "Museums",
                     parks: "Parks",
+                    landscape:"Landscapes",
+                    monument:"Monuments",
+                    hospital:"Hospitals",
+                    policeStation:"Police Stations",
+                    transportCenter:"Transport Centers",
+                    entertainment: "Entertainment",
                     others: "Others",
                     mark: "Mark",
                     friends: "Your friends",
@@ -92,7 +98,10 @@ i18n
                     panel_office: "Our main office",
                     panel_phone: "Our phone",
                     panel_fax: "Our fax",
-                    panel_email: "Our email"
+                    panel_email: "Our email",
+
+                    // Login:
+                    provider: "Select POD provider:"
                 }
             },
             es: {
@@ -148,6 +157,12 @@ i18n
                     sports_club: "Clubes deportivos",
                     museum: "Museos",
                     parks: "Parques",
+                    landscape:"Paisajes",
+                    monument:"Monumetos",
+                    hospital:"Hospitales",
+                    policeStation:"Comisarias",
+                    transportCenter:"Transporte",
+                    entertainment: "Entretenimiento",
                     others: "Otros",
                     mark: "Nota",
                     friends: "Tus amigos",
@@ -182,7 +197,10 @@ i18n
                     panel_office: "Nuestra oficina principal",
                     panel_phone: "Nuestro teléfono",
                     panel_fax: "Nuestro fax",
-                    panel_email: "Nuestro correo electrónico"
+                    panel_email: "Nuestro correo electrónico",
+
+                    // Login:
+                    provider: "Seleccione el proveedor de PODs:"
                 }
             },
             fr: {
@@ -238,6 +256,12 @@ i18n
                     sports_club: "Clubs de sport",
                     museum: "Musées",
                     parks: "Parcs",
+                    landscape:"Paysages",
+                    monument:"Monuments",
+                    hospital:"Hôpitaux",
+                    policeStation:"Postes de police",
+                    transportCenter:"Centres de transport",
+                    entertainment: "Divertissements",
                     others: "Autres",
                     mark: "Note",
                     friends: "Vos amis",
@@ -272,7 +296,10 @@ i18n
                     panel_office: "Notre bureau principal",
                     panel_phone: "Notre téléphone",
                     panel_fax: "Notre fax",
-                    panel_email: "Notre email"
+                    panel_email: "Notre email",
+
+                    // Login:
+                    provider: "Sélectionner le fournisseur de PODs"
                 }
             },
             deu: {
@@ -327,6 +354,12 @@ i18n
                     sports_club: "Sportvereine",
                     museum: "Museen",
                     parks: "Parks",
+                    landscape:"Landschaften",
+                    monument:"Denkmäler",
+                    hospital:"Krankenhäuser",
+                    policeStation:"Krankenhäuser",
+                    transportCenter:"Verkehrszentren",
+                    entertainment: "Unterhaltungsmöglichkeiten",
                     others: "Andere",
                     mark: "Markieren",
                     friends: "Deine Freunde",
@@ -361,7 +394,10 @@ i18n
                     panel_office: "Unser Hauptbüro",
                     panel_phone: "Unser Telefon",
                     panel_fax: "Unser Fax",
-                    panel_email: "Unsere E-Mail"
+                    panel_email: "Unsere E-Mail",
+
+                    // Login:
+                    provider: "Wählen Sie den POD-Anbieter aus:"
                 }
             },
             chn: {
@@ -417,6 +453,12 @@ i18n
                     sports_club: "运动俱乐部",
                     museum: "博物馆",
                     parks: "公园",
+                    landscape:"风景",
+                    monument:"纪念碑",
+                    hospital:"医院",
+                    policeStation:"警察局",
+                    transportCenter:"交通中心",
+                    entertainment: "娱乐场所",
                     others: "其他",
                     mark: "标记",
                     friends: "你的朋友",
@@ -451,7 +493,10 @@ i18n
                     panel_office: "我们的主要办事处",
                     panel_phone: "我们的电话",
                     panel_fax: "我们的传真",
-                    panel_email: "我们的电子邮件"
+                    panel_email: "我们的电子邮件",
+
+                    // Login:
+                    provider: "选择POD提供商"
                 }
             },
             ast: {
@@ -506,6 +551,12 @@ i18n
                     sports_club: "Clubes deportivos",
                     museum: "Museos",
                     parks: "Parques",
+                    landscape:"Paisaxes",
+                    monument:"Monumentos",
+                    hospital:"Hospitales",
+                    policeStation:"Comisarias",
+                    transportCenter:"Tresporte",
+                    entertainment: "Entretenimiento",
                     others: "Otros",
                     mark: "Nota",
                     friends: "Los tos amigos",
@@ -540,7 +591,10 @@ i18n
                     panel_office: "La nuesa oficina principal",
                     panel_phone: "El nuesu teléfonu",
                     panel_fax: "El nuesu fax",
-                    panel_email: "El nuesu corréu electrónicu"
+                    panel_email: "El nuesu corréu electrónicu",
+
+                    // Login:
+                    provider: "Escoya'l proveedor de PODs:"
                 }
             }
         },
