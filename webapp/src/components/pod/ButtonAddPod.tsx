@@ -92,7 +92,8 @@ function ButtonAddPod({
 
         return  await readFileFromPod(fileURL, session).then(file => {
                 if (file === "") {
-                    const blob = new Blob([JSON.stringify(json, null, 2)], {
+                    let fileContent = [json]
+                    const blob = new Blob([JSON.stringify(fileContent, null, 2)], {
                         type: "application/ld+json",
                     });
                     return new File([blob], nameFile, {type: blob.type});
@@ -146,7 +147,7 @@ function ButtonAddPod({
 
     const handleClick = async () => {
          createMarker(
-            "locations.json",
+            "locations.jsonld",
             idName,
             idCategory,
             idComment,
