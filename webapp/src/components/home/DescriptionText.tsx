@@ -11,10 +11,10 @@ function DescriptionText() {
     return (
         <div id="documentation">
             <p>
-                {t("home_info1")}
+                {t("homeInfo1")}
             </p>
             <p>
-                {t("home_info2")}
+                {t("homeInfo2")}
             </p>
         </div>
     );

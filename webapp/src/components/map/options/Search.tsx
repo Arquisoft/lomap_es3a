@@ -17,7 +17,7 @@ function Search({title} : SearchType) {
         <div>
             <h2>{title}</h2>
             <div id="searchPanel">
-                <input type="text" id="searchText" placeholder={t("search_placeholder") ?? ""}/>
+                <input type="text" id="searchText" placeholder={t("searchPlaceholder") ?? ""}/>
                 <input type="button" id="searchButton" value="🔍" onClick={searchMarker}/>
             </div>
         </div>

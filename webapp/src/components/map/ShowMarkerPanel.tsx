@@ -116,17 +116,17 @@ function ShowMarkerPanel(props: { data: Point | undefined }) {
                     </p>
                 </div>
                 <p id="showMarkerCategory">
-                    {props.data.category}
+                    {t(props.data.category)}
                 </p>
                 <p id="showMarkerCoords">
                     {props.data.latitude}, {props.data.longitude}
                 </p>
                 <div id="reviews">
-                    <h4 id="reviewsTitle">Reviews</h4>
+                    <h4 id="reviewsTitle">{t("reviews")}</h4>
                     <div id="addReview">
                         <Mark title={""} id={"reviewScore"}/>
-                        <textarea id="reviewComment" placeholder="Add your review..."/>
-                        <button id="reviewButton">Add</button>
+                        <textarea id="reviewComment" placeholder={t("addReview") ?? ""}/>
+                        <button id="reviewButton">{t("add")}</button>
                     </div>
                     {
                         review.map((reviewItem) => (

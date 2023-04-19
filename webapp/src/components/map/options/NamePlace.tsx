@@ -10,7 +10,7 @@ function NamePlace({title}: NamePlaceType) {
     return (
         <div>
             <h2>{title}</h2>
-            <input type="text" id="namePlace" placeholder={t("places_name_placeholder") ?? ""} required/>
+            <input type="text" id="namePlace" placeholder={t("placesNamePlaceholder") ?? ""} required/>
         </div>
     )
 

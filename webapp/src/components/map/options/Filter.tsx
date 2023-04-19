@@ -17,17 +17,17 @@ function Filter({ titleFilter, nameFilter, usersWebId, setItem }: IProps) {
     let categories = [];
     if(nameFilter !== "edit")
         categories.push({ value: "All", text: t('all') });
-    categories.push({ value: "bar", text: t('bars') });
-    categories.push({ value: "restaurant", text: t('restaurants') });
+    categories.push({ value: "bar", text: t('bar') });
+    categories.push({ value: "restaurant", text: t('restaurant') });
     categories.push({ value: "shop", text: t('shops') });
-    categories.push({ value: "supermarket", text: t('supermarkets') });
-    categories.push({ value: "hotel", text: t('hotels') });
-    categories.push( { value: "cinema", text: t('cinemas') });
-    categories.push({ value: "academicInstitution", text: t('academic_institution') });
-    categories.push({ value: "publicInstitution", text: t('public_institution') });
-    categories.push( { value: "sportsClub", text: t('sports_club') });
+    categories.push({ value: "supermarket", text: t('supermarket') });
+    categories.push({ value: "hotel", text: t('hotel') });
+    categories.push( { value: "cinema", text: t('cinema') });
+    categories.push({ value: "academicInstitution", text: t('academicInstitution') });
+    categories.push({ value: "publicInstitution", text: t('publicInstitution') });
+    categories.push( { value: "sportsClub", text: t('sportsClub') });
     categories.push({ value: "museum", text: t('museum') });
-    categories.push({ value: "park", text: t('parks') });
+    categories.push({ value: "park", text: t('park') });
     categories.push({ value: "landscape", text: t('landscape') });
     categories.push({ value: "monument", text: t('monument') });
     categories.push({ value: "hospital", text: t('hospital') });

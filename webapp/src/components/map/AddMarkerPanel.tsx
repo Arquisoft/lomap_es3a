@@ -25,10 +25,10 @@ function AddMarkerPanel(props: { setItem: Function }) {
 
     return (
         <div id="addMarkerPanel">
-            <h1>{t("add_marker")}</h1>
+            <h1>{t("addMarker")}</h1>
             <input type="button" className="cross" onClick={closeMenu} value="&times;"/>
             <form>
-                <NamePlace title={t("places_name")}/>
+                <NamePlace title={t("placesName")}/>
                 <Coordinates/>
                 <Filter titleFilter={t("category")} nameFilter={"edit"} usersWebId={user} setItem={props.setItem}/>
                 <Mark title={t("mark")} id={"scoreNewMarker"}/>

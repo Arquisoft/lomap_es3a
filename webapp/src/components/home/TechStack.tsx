@@ -17,7 +17,7 @@ function TechStack() {
 
     return (
         <div id="symbolsPanel">
-            <h2>{t("tech_stack")}</h2>
+            <h2>{t("techStack")}</h2>
             <TechButton href={"https://reactjs.org/"} img={ReactSymbol} text={"React Symbol"}/>
             <TechButton href={"https://solidproject.org/"} img={SOLIDProjectSymbol} text={"SOLID Project Symbol"}/>
             <TechButton href={"https://www.typescriptlang.org/"} img={TypeScriptSymbol} text={"TypeScript Symbol"}/>
