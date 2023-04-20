@@ -9,8 +9,6 @@ import UserProfile from "./UserProfile";
 import LoginPage from "./login/LoginPage";
 
 
-
-
 function ViewPaths() {
     return (
         <Router>

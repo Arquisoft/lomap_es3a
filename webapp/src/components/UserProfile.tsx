@@ -1,8 +1,7 @@
 import React from 'react';
-import { Avatar, Box, Typography, Button } from '@mui/material';
+import {Avatar, Box, Button, Typography} from '@mui/material';
 import {CombinedDataProvider, Image, Text, useSession} from "@inrupt/solid-ui-react";
 import {FOAF, VCARD} from "@inrupt/lit-generated-vocab-common";
-
 
 
 interface UserProfileProps {
@@ -11,9 +10,8 @@ interface UserProfileProps {
 
 const UserProfile: React.FC<UserProfileProps> = () => {
 
-    const { session } = useSession();
-    let { webId } = session.info;
-
+    const {session} = useSession();
+    let {webId} = session.info;
 
 
     if (webId === undefined)
@@ -22,7 +20,7 @@ const UserProfile: React.FC<UserProfileProps> = () => {
     const dropdownTitle = (
         <span>
             <CombinedDataProvider datasetUrl={webId} thingUrl={webId}>
-                <Text property={FOAF.name.iri.value}  autosave/>
+                <Text property={FOAF.name.iri.value} autosave/>
 
 
             </CombinedDataProvider>
@@ -39,7 +37,7 @@ const UserProfile: React.FC<UserProfileProps> = () => {
             px={2}
         >
             <CombinedDataProvider datasetUrl={webId} thingUrl={webId}>
-                <Avatar sx={{ width: 200, height: 200, mb: 2 }}> <Image property={VCARD.hasPhoto.iri.value} width={200}/></Avatar>
+                <Avatar sx={{width: 200, height: 200, mb: 2}}> <Image property={VCARD.hasPhoto.iri.value} width={200}/></Avatar>
             </CombinedDataProvider>
             <Typography variant="h4" gutterBottom textAlign="center">
                 {dropdownTitle}
@@ -48,7 +46,8 @@ const UserProfile: React.FC<UserProfileProps> = () => {
                 @{"email"}
             </Typography>
             <CombinedDataProvider datasetUrl={webId} thingUrl={webId}>
-                <Typography variant="body2" color="textSecondary" component="p" style={{ display: "flex", alignItems: "center" }}>
+                <Typography variant="body2" color="textSecondary" component="p"
+                            style={{display: "flex", alignItems: "center"}}>
                     @{"Mas info"}
                 </Typography>
             </CombinedDataProvider>
@@ -57,9 +56,6 @@ const UserProfile: React.FC<UserProfileProps> = () => {
             </Box>
 
         </Box>
-
-
-
 
 
     );

@@ -1,14 +1,6 @@
-import {
-    getSolidDataset,
-    getTerm,
-    getThing,
-    getTermAll,
-    IriString,
-    SolidDataset,
-} from '@inrupt/solid-client'
-import { foaf, vcard, owl, rdfs } from 'rdf-namespaces'
+import {getSolidDataset, getTerm, getTermAll, getThing, IriString, SolidDataset,} from '@inrupt/solid-client'
+import {foaf, owl, rdfs, vcard} from 'rdf-namespaces'
 import {Session} from "@inrupt/solid-client-authn-browser";
-
 
 
 export interface PersonData {
@@ -19,7 +11,7 @@ export interface PersonData {
 
 const findFullPersonProfile = async (
     webId: IriString,
-    session:Session,
+    session: Session,
     visited = new Set<IriString>(),
     response: SolidDataset[] = [],
     fail = true,
@@ -27,7 +19,7 @@ const findFullPersonProfile = async (
 ): Promise<SolidDataset[]> => {
     try {
         visited.add(iri)
-        const dataset = await getSolidDataset(iri, { fetch: session.fetch})
+        const dataset = await getSolidDataset(iri, {fetch: session.fetch})
         const person = getThing(dataset, webId)
         if (person) {
             response.push(dataset)
@@ -37,7 +29,7 @@ const findFullPersonProfile = async (
             for (const uri of [...same, ...see]) {
                 console.log('extending', uri)
                 if (!visited.has(uri))
-                    await findFullPersonProfile(webId,session, visited, response, false, uri)
+                    await findFullPersonProfile(webId, session, visited, response, false, uri)
             }
         }
     } catch (e) {
@@ -47,13 +39,10 @@ const findFullPersonProfile = async (
 }
 
 
-
-
-
-export const findPersonData = async (session: Session,webId: IriString): Promise<PersonData> => {
-    const data: PersonData = { webId: webId, name: '', friends: [] }
+export const findPersonData = async (session: Session, webId: IriString): Promise<PersonData> => {
+    const data: PersonData = {webId: webId, name: '', friends: []}
     if (webId) {
-        const dataset = await findFullPersonProfile(webId,session)
+        const dataset = await findFullPersonProfile(webId, session)
         const result = dataset.reduce((data, d) => {
             const person = getThing(d, webId)
             if (person) {

@@ -8,13 +8,13 @@ function ContactUs() {
         <div id="fullPanel">
             <div id="contactPanel">
                 <div id="contactMap">
-                    <ContactMap />
+                    <ContactMap/>
                 </div>
                 <div id="contactForm">
                     <ContactForm/>
                 </div>
             </div>
-            <ContactFooter />
+            <ContactFooter/>
         </div>
     );
 }

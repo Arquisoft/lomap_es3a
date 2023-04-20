@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import {initReactI18next, useTranslation} from "react-i18next";
 import i18n from "../../i18n";
 
@@ -10,7 +10,7 @@ function ContactForm() {
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
 
-    const { t } = useTranslation();
+    const {t} = useTranslation();
 
     const handleSubmit = () => {
         // Aquí se puede agregar el código para enviar el formulario

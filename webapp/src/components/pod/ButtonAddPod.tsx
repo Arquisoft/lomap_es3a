@@ -172,7 +172,8 @@ function ButtonAddPod({
         let rootFriends = ReactDOM.createRoot(document.getElementById("friendDiv") as HTMLElement);
         rootFriends.render(<FriendList setItem={setItem}/>)
         const rootFilter = ReactDOM.createRoot(document.getElementById("filterDiv") as HTMLElement);
-        rootFilter.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={user} setItem={setItem}/>);
+        rootFilter.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={user}
+                                  setItem={setItem}/>);
         let optionsMenu = document.getElementById("markersMenu");
         if (optionsMenu !== null) {
             const width = optionsMenu.style.width;
