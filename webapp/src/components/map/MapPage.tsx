@@ -12,7 +12,7 @@ function MapPage() {
     const {session} = useSession();
     const {webId} = session.info;
     let webIdStore = webId?.slice(0, -15) + 'private/locations.jsonld';
-    let user : string[] = [webIdStore]
+    let user: string[] = [webIdStore]
 
     return (
         <div id="mapPage">

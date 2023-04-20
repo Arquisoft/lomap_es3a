@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import StarIcon from '@mui/icons-material/Star';
 
 
-function Mark({title,id}: ScoreType) {
+function Mark({title, id}: ScoreType) {
     const [value, setValue] = React.useState<number | null>(0);
     const [hover, setHover] = React.useState(-1);
 

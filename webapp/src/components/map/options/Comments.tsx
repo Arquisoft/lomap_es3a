@@ -6,7 +6,7 @@ i18n.use(initReactI18next)
 
 function Comments({title}: CommentType) {
 
-    const { t } = useTranslation();
+    const {t} = useTranslation();
 
     return (
         <div>

@@ -5,12 +5,12 @@
   "about": "À propos de",
   "language": "Langue",
 
-  "english": "Anglais",
-  "spanish": "Espagnol",
-  "french": "Français",
-  "german": "Allemand",
-  "chinese": "Chinois",
-  "asturian": "Asturien",
+  "english": "English",
+  "spanish": "Español",
+  "french": "French",
+  "german": "Deutsch",
+  "chinese": "中文在此",
+  "asturian": "Asturianu",
 
   "login": "Se connecter",
   "logout": "Se déconnecter",

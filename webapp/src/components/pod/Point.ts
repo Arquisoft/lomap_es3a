@@ -1,10 +1,3 @@
-interface Review {
-    webId: string,
-    img: string,
-    score: number,
-    comment: string,
-}
-
 export class Point {
     latitude: number
     longitude: number

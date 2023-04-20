@@ -4,9 +4,9 @@ import i18n from "../../../i18n";
 
 i18n.use(initReactI18next)
 
-function Search({title} : SearchType) {
+function Search({title}: SearchType) {
 
-    const { t } = useTranslation();
+    const {t} = useTranslation();
 
     function searchMarker() {
         /*TODO*/

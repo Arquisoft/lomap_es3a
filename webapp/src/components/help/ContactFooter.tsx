@@ -9,7 +9,7 @@ i18n.use(initReactI18next)
 
 function ContactFooter() {
 
-    const { t } = useTranslation()
+    const {t} = useTranslation()
 
     return (
         <footer id="contactFooter">
