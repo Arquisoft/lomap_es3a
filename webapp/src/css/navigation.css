@@ -1,8 +1,12 @@
 nav {
     width: 100vw;
-    height: 15vh;
+    height: 10vh;
     background-color: #23226a;
     transition: 0.3s ease-in-out;
+}
+
+.nav-item {
+    margin-right: 2.2222222222vw;
 }
 
 nav.nav-expanded {
@@ -13,7 +17,6 @@ nav.nav-expanded {
     font-size: 2.2222222222em !important;
     text-decoration: none;
     color: rgba(148, 148, 148, 0.61);
-    margin-right: 2.2222222222vw;
     transition:all 0.4s ease-in-out;
     float: left;
     display: block;
@@ -90,10 +93,10 @@ nav a:active, #login-manage a:active {
 }
 
 #login, #logout {
-    font-size: 1.15em;
+    font-size: 1.25em;
     font-weight: bold;
     color: white;
-    padding: 0.3em;
+    padding: 0.5em;
     border-color: white;
     border-width: 0.1875em;
     cursor: pointer;

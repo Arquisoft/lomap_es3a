@@ -73,7 +73,7 @@ select, option {
 }
 
 #mapView {
-    height: 85vh;
+    height: 90vh;
     width: 80vw;
     border-top-left-radius: 0.625em;
     overflow: hidden;
@@ -84,7 +84,7 @@ select, option {
     color: white;
     background-color: rgb(35, 34, 105);
     text-align: center;
-    height: 85vh;
+    height: 90vh;
     width: 20vw;
     overflow-x: hidden;
 }
@@ -109,7 +109,7 @@ select, option {
     font-weight: bold;
     background-color: rgba(35, 34, 105, 0.8);
     text-align: center;
-    height: 85vh;
+    height: 90vh;
     width: 0;
     right: 0;
     position: absolute;
@@ -167,7 +167,7 @@ select, option {
 }
 
 #markerData {
-    text-align: flex-start;
+    text-align: start;
     align-items: center;
     margin-left: 1.5em;
 }
@@ -179,7 +179,7 @@ select, option {
 #showMarkerScore {
     display: flex;
     flex-direction: row;
-    text-align: flex-start;
+    text-align: start;
     align-items: center;
     gap: 0.5em;
 }
