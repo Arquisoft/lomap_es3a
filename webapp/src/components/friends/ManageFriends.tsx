@@ -11,6 +11,7 @@ function ManageFriends(){
     const [personData, setPersonData] = useState<PersonData>({ webId: '',photo: '', name: '', friends: [] })
     const {webId} = session.info;
     const [friends, setFriendList] = useState<PersonData[]>([]);
+    const [showButtonAdd,setShowButtonAdd] = useState(true)
     const { t } = useTranslation();
 
 
@@ -41,10 +42,24 @@ function ManageFriends(){
         fetchFriends()
     }, [personData.friends, session])
 
+    function showFormAddFriend(){
+        setShowButtonAdd(false)
+    }
+
     return(
         <div id="friendsConfiguration" >
             <div id="friendsConfigurationBody">
                 <h1>{t("friends")}</h1>
+                { showButtonAdd ? (
+                    <button onClick={showFormAddFriend}>Añadir amigo</button>
+                ) : (
+                    <div id="formAddFriend">
+
+                    </div>
+                )
+
+                }
+
                 <div id="friendsTable">
                     <table>
                         <thead>
