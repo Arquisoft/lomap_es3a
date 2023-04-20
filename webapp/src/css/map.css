@@ -167,7 +167,7 @@ select, option {
 }
 
 #markerData {
-    text-align: start;
+    text-align: flex-start;
     align-items: center;
     margin-left: 1.5em;
 }
@@ -179,7 +179,7 @@ select, option {
 #showMarkerScore {
     display: flex;
     flex-direction: row;
-    text-align: start;
+    text-align: flex-start;
     align-items: center;
     gap: 0.5em;
 }
@@ -221,7 +221,7 @@ select, option {
 #addReview #rating{
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    justify-content: flex-start;
     margin-bottom: 0.25em;
 }
 
