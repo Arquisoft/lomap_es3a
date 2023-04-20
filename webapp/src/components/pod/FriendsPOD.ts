@@ -4,10 +4,11 @@ import {
     getThing,
     getTermAll,
     IriString,
-    SolidDataset,
+    SolidDataset, Thing, buildThing, setThing, saveSolidDatasetAt,
 } from '@inrupt/solid-client'
 import { foaf, vcard, owl, rdfs } from 'rdf-namespaces'
-import {Session} from "@inrupt/solid-client-authn-browser";
+import {Session,fetch} from "@inrupt/solid-client-authn-browser";
+
 
 
 
@@ -79,4 +80,12 @@ export const findPersonData = async (session: Session,webId: IriString): Promise
     }
 
     return data;
+}
+
+export async function removeFriendFromPOD(friendWebId:string,webId:string){
+    let solidDataset = await getSolidDataset(webId!);
+    let friends = getThing(solidDataset, webId!) as Thing;
+    friends = buildThing(friends).removeUrl(foaf.knows, friendWebId).build();
+    solidDataset = setThing(solidDataset, friends);
+    saveSolidDatasetAt(webId!, solidDataset, { fetch: fetch });
 }

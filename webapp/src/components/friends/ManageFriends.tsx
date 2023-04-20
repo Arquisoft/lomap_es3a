@@ -1,10 +1,12 @@
 import {CombinedDataProvider, Image, useSession} from "@inrupt/solid-ui-react";
 import React, {useEffect, useState} from "react";
-import {findPersonData, PersonData} from "../pod/FriendsPOD";
+import {findPersonData, PersonData, removeFriendFromPOD} from "../pod/FriendsPOD";
 import {useTranslation} from "react-i18next";
 import "../../css/friends.css"
 import Avatar from "@mui/material/Avatar";
 import {VCARD} from "@inrupt/lit-generated-vocab-common";
+
+
 
 function ManageFriends(){
     const { session } = useSession();
@@ -56,6 +58,10 @@ function ManageFriends(){
         setIdp(provider)
     }
 
+    function removeFriend(friendWebId:string){
+        removeFriendFromPOD(friendWebId,webId!)
+    }
+
     return(
         <div id="friendsConfiguration" >
             <div id="friendsConfigurationBody">
@@ -105,7 +111,7 @@ function ManageFriends(){
                                         </div>
                                     </th>
                                     <td><button id="buttonPermissions">Dar permisos</button></td>
-                                    <td><button id="buttonDelete">Eliminar</button></td>
+                                    <td><button id="buttonDelete" onClick={() => removeFriend(friend.webId)}>Eliminar</button></td>
                                 </tr>
                         ))
                     }
