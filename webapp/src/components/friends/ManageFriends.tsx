@@ -1,8 +1,10 @@
-import {useSession} from "@inrupt/solid-ui-react";
+import {CombinedDataProvider, Image, useSession} from "@inrupt/solid-ui-react";
 import React, {useEffect, useState} from "react";
 import {findPersonData, PersonData} from "../pod/FriendsPOD";
 import {useTranslation} from "react-i18next";
-import botonRojo from "../../img/botonRojo.png";
+import "../../css/friends.css"
+import Avatar from "@mui/material/Avatar";
+import {VCARD} from "@inrupt/lit-generated-vocab-common";
 
 function ManageFriends(){
     const { session } = useSession();
@@ -10,6 +12,8 @@ function ManageFriends(){
     const {webId} = session.info;
     const [friends, setFriendList] = useState<PersonData[]>([]);
     const { t } = useTranslation();
+
+
 
 
     useEffect(() => {
@@ -38,18 +42,38 @@ function ManageFriends(){
     }, [personData.friends, session])
 
     return(
-        <div id="friends" >
-            <h2>{t("friends")}</h2>
-            <div id="friendsList">
-                <table>
-                {
-                    friends.map(friend => (
-                            <tr key={friend.webId}>
-                                <td>friend.name</td>
+        <div id="friendsConfiguration" >
+            <div id="friendsConfigurationBody">
+                <h1>{t("friends")}</h1>
+                <div id="friendsTable">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Dar permisos</th>
+                                <th scope="col">Eliminar amigo</th>
                             </tr>
-                    ))
-                }
-                </table>
+                        </thead>
+                        <tbody>
+                    {
+                        friends.map(friend => (
+                                <tr key={friend.webId}>
+                                    <th scope="row">
+                                        <div id="friendNamePhoto">
+                                            <CombinedDataProvider datasetUrl={friend.webId} thingUrl={friend.webId}>
+                                                <Avatar id="friendPhoto" alt="Remy Sharp" sx={{ width: 65, height: 65, mb: 2 }}><Image property={VCARD.hasPhoto.iri.value} width={65}/></Avatar>
+                                            </CombinedDataProvider>
+                                            {friend.name}
+                                        </div>
+                                    </th>
+                                    <td><button>Dar permisos</button></td>
+                                    <td><button>Eliminar</button></td>
+                                </tr>
+                        ))
+                    }
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     )
