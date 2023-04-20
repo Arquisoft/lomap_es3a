@@ -89,3 +89,8 @@ export async function removeFriendFromPOD(friendWebId:string,webId:string){
     solidDataset = setThing(solidDataset, friends);
     saveSolidDatasetAt(webId!, solidDataset, { fetch: fetch });
 }
+
+export function addFriendToPod(provider:string,friendName:string){
+    let friendWebId = provider.replace(/https:\/\//, "https://"+friendName+".");
+    friendWebId += "/profile/card#me"
+}

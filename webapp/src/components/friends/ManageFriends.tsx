@@ -1,6 +1,6 @@
 import {CombinedDataProvider, Image, useSession} from "@inrupt/solid-ui-react";
 import React, {useEffect, useState} from "react";
-import {findPersonData, PersonData, removeFriendFromPOD} from "../pod/FriendsPOD";
+import {addFriendToPod, findPersonData, PersonData, removeFriendFromPOD} from "../pod/FriendsPOD";
 import {useTranslation} from "react-i18next";
 import "../../css/friends.css"
 import Avatar from "@mui/material/Avatar";
@@ -63,6 +63,12 @@ function ManageFriends(){
         setFriendList(friends.filter(friend => friend.webId !== friendWebId));
     }
 
+    function addFriend(){
+        let provider = (document.getElementById("selectProviderFriend")as HTMLSelectElement).value
+        let friendName = (document.getElementById("inputNameFriend") as HTMLInputElement).value
+        addFriendToPod(provider,friendName)
+    }
+
     return(
         <div id="friendsConfiguration" >
             <div id="friendsConfigurationBody">
@@ -73,17 +79,17 @@ function ManageFriends(){
                     <div id="formAddFriend">
                         <div id="friendProvider">
                             <p>{t("provider")}</p>
-                            <select onChange={changeProvider} id="selectProvider">
+                            <select onChange={changeProvider} id="selectProviderFriend">
                                 <option value={providers[0].value}>{providers[0].name}</option>
                                 <option value={providers[1].value}>{providers[1].name}</option>
                             </select>
                         </div>
                         <div id="friendName">
                             <p>Introduce nombre usuario:</p>
-                            <input type="text"></input>
+                            <input type="text" id="inputNameFriend"></input>
                         </div>
                         <div id="buttonAddFriendToPod">
-                            <button>Añadir amigo</button>
+                            <button onClick={addFriend}>Añadir amigo</button>
                         </div>
                     </div>
                 )
