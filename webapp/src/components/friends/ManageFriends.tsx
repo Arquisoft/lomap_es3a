@@ -60,6 +60,7 @@ function ManageFriends(){
 
     function removeFriend(friendWebId:string){
         removeFriendFromPOD(friendWebId,webId!)
+        setFriendList(friends.filter(friend => friend.webId !== friendWebId));
     }
 
     return(
