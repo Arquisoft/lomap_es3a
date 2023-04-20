@@ -12,9 +12,10 @@ import {Session} from "@inrupt/solid-client-authn-browser";
 
 
 export interface PersonData {
-    webId: IriString
+    webId: string
+    photo: string
     name: string
-    friends: IriString[]
+    friends: string[]
 }
 
 const findFullPersonProfile = async (
@@ -51,7 +52,7 @@ const findFullPersonProfile = async (
 
 
 export const findPersonData = async (session: Session,webId: IriString): Promise<PersonData> => {
-    const data: PersonData = { webId: webId, name: '', friends: [] }
+    const data: PersonData = { webId: webId, photo:'',name: '', friends: [] }
     if (webId) {
         const dataset = await findFullPersonProfile(webId,session)
         const result = dataset.reduce((data, d) => {
@@ -66,8 +67,11 @@ export const findPersonData = async (session: Session,webId: IriString): Promise
                         getTerm(person, foaf.name)?.value ??
                         getTerm(person, vcard.fn)?.value ??
                         ''
-
-
+                if (!data.photo)
+                    data.photo =
+                        getTerm(person, vcard.hasPhoto)?.value ??
+                        getTerm(person, foaf.img)?.value ??
+                        ''
             }
             return data
         }, data)

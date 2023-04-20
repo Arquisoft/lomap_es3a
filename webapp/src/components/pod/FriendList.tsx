@@ -20,7 +20,7 @@ i18n.use(initReactI18next)
 
 function FriendList(props: {setItem : Function}){
     const { session } = useSession();
-    const [personData, setPersonData] = useState<PersonData>({ webId: '', name: '', friends: [] })
+    const [personData, setPersonData] = useState<PersonData>({ webId: '',photo: '', name: '', friends: [] })
     const {webId} = session.info;
     const [friends, setFriendList] = useState<PersonData[]>([]);
     const { t } = useTranslation();
