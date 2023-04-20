@@ -7,6 +7,7 @@ import AboutPage from "./about/AboutPage";
 import NavBar from "./navigation/NavBar";
 import UserProfile from "./UserProfile";
 import LoginPage from "./login/LoginPage";
+import ManageFriends from "./friends/ManageFriends";
 
 
 
@@ -26,6 +27,12 @@ function ViewPaths() {
                     path='/login'
                     element={
                         <LoginPage/>
+                    }
+                />
+                <Route
+                    path='/friends'
+                    element={
+                        <ManageFriends/>
                     }
                 />
                 <Route
