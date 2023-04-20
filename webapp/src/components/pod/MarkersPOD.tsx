@@ -93,7 +93,7 @@ async function readFileFromPod(fileURL: string[], session: Session) {
                 var text = e.options[e.selectedIndex].value;
                 if (category === text || text === "All")
                     markers.push(new Point(uuidv4(), latitude, longitude, name, category, comment, score))
-            }
+        }
 
         }
         return markers
@@ -103,7 +103,7 @@ async function readFileFromPod(fileURL: string[], session: Session) {
 }
 
 
-function MarkersPOD(props: { webId: string[] }) {
+function MarkersPOD(props: { webId: string[], setItem: Function }) {
     const {session} = useSession();
     const [points, setPoints] = useState<Point[]>([]);
     const {t} = useTranslation();
@@ -126,56 +126,21 @@ function MarkersPOD(props: { webId: string[] }) {
                     <Marker key={item.id} position={{lat: item.latitude, lng: item.longitude}}
                             icon={new Icon({
                                 iconUrl: categories[item.category] !== undefined ? categories[item.category] : markerIconPng
-                            })}>
-                        <Popup>
-                            <CardHeader
-                                avatar={
-                                    <Avatar sx={{bgcolor: red[500]}} aria-label="recipe">
-                                        R
-                                    </Avatar>
+                            })}
+                            eventHandlers={{
+                                click: (e) => {
+                                    const addMarkerPanel = document.getElementById("addMarkerPanel");
+                                    if (addMarkerPanel !== null) {
+                                        addMarkerPanel.style.width = "0";
+                                    }
+
+                                    const showMarkerPanel = document.getElementById("showMarkerPanel");
+                                    if (showMarkerPanel !== null) {
+                                        showMarkerPanel.style.width = "25vw";
+                                    }
+                                    props.setItem(item);
                                 }
-                                action={
-                                    <IconButton aria-label="settings">
-                                        <MoreVertIcon/>
-                                    </IconButton>
-                                }
-                                title="Rodrigo Alvarez"
-                                subheader="April 08, 2023"
-                            />
-                            <CardActionArea>
-                                <CardMedia
-                                    component="img"
-                                    height="140"
-                                    image={Rijksmuseum}
-                                    alt="green iguana"
-                                />
-                                <CardContent>
-                                    <Typography gutterBottom variant="h5" component="div">
-                                        {item.name}
-                                    </Typography>
-                                    <Typography gutterBottom variant="h6" component="div">
-                                        {t(item.category)}
-                                    </Typography>
-                                    <Typography variant="body2" color="text.secondary">
-                                        {item.comment}
-                                    </Typography>
-                                    <Typography component="legend"></Typography>
-                                    <Rating name="read-only" value={item.score} readOnly/>
-                                    <CardActions disableSpacing>
-                                        <IconButton aria-label="add to favorites">
-                                            <FavoriteIcon/>
-                                        </IconButton>
-                                        <IconButton aria-label="share">
-                                            <ShareIcon/>
-                                        </IconButton>
-                                        <ExpandMore
-                                        >
-                                            <ExpandMoreIcon/>
-                                        </ExpandMore>
-                                    </CardActions>
-                                </CardContent>
-                            </CardActionArea>
-                        </Popup>
+                            }}>
                     </Marker>
                 ))
             }

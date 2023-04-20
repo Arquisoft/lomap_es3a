@@ -18,10 +18,6 @@ export type SearchType = {
     title: string;
 }
 
-export type FilterType = {
-    title: string;
-}
-
 export type NamePlaceType = {
     title: string;
 }
@@ -33,19 +29,4 @@ export type CommentType = {
 export type ScoreType = {
     title: string;
     id:string
-}
-
-export type ButtonAddPodType = {
-    idName: string;
-    idCategory: string;
-    idComment: string;
-    idScore: string;
-    idLatitude: string;
-    idLongitude: string;
-}
-
-export type SliderType = {
-    title: string;
-    min: number;
-    max: number;
 }

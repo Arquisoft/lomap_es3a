@@ -22,7 +22,7 @@ function ContactForm() {
 
     return (
         <div>
-            <h1>{t("contact_us")}</h1>
+            <h1>{t("contactUs")}</h1>
             <form onSubmit={handleSubmit}>
                 <h2><label htmlFor="name">
                     {t("name")}
@@ -32,7 +32,7 @@ function ContactForm() {
                     id="name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    placeholder={t("name_placeholder") ?? ""} required
+                    placeholder={t("namePlaceholder") ?? ""} required
                 />
                 <h2><label htmlFor="email">
                     {t("email")}
@@ -42,7 +42,7 @@ function ContactForm() {
                     id="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder={t("email_placeholder") ?? ""} required
+                    placeholder={t("emailPlaceholder") ?? ""} required
                 />
                 <h2><label htmlFor="message">
                     {t("message")}
@@ -52,7 +52,7 @@ function ContactForm() {
                     rows={5}
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    placeholder={t("message_placeholder") ?? ""} required
+                    placeholder={t("messagePlaceholder") ?? ""} required
                 ></textarea>
                 <button type="submit" id="send">
                     {t("send")}

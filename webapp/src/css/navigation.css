@@ -93,7 +93,7 @@ nav a:active, #login-manage a:active {
     font-size: 1.15em;
     font-weight: bold;
     color: white;
-    padding: 0.625em;
+    padding: 0.3em;
     border-color: white;
     border-width: 0.1875em;
     cursor: pointer;
@@ -116,15 +116,7 @@ nav a:active, #login-manage a:active {
     background-color: #007ffd;
 }
 
-.card {
-    width: 100%;
-    margin-top: 0.3125em;
-    margin-bottom: 0.3125em;
-}
-
-.card-text {
-    font-size: 1em;
-    color: white;
-    background-color: #0063fd;
+#profileName {
     text-align: center;
+    font-size: 1.25em;
 }

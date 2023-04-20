@@ -5,8 +5,8 @@ import LocationMarker from "./LocationMarker";
 import MarkersPOD from "../pod/MarkersPOD";
 import React from "react";
 
-function MapView(props: { lat: number; lng:number; webId:string[] }) {
-    const position ={lat: props.lat, lng:props.lng}
+function MapView(props: { lat: number; lng: number; webId: string[]; setItem: Function }) {
+    const position = {lat: props.lat, lng: props.lng}
 
     return (
         <MapContainer center={position} zoom={13} scrollWheelZoom={true} zoomControl={true}>
@@ -15,7 +15,7 @@ function MapView(props: { lat: number; lng:number; webId:string[] }) {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             <LocationMarker/>
-            <MarkersPOD webId={props.webId}/>
+            <MarkersPOD webId={props.webId} setItem={props.setItem}/>
         </MapContainer>
     );
 }

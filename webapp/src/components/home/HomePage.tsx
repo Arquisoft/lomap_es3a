@@ -41,9 +41,9 @@ function HomePage() {
                 <FooterInfo/>
                 {showWelcomeNotification && (
                     <Notification
-                        title={t("notification_welcome")}
-                        message={t("notification_message_home")}
-                        time={t("notification_time")}
+                        title={t("notificationWelcome")}
+                        message={t("notificationMessageHome")}
+                        time={t("notificationTime")}
                         icon={Icon}
                         onClose={handleDismissWelcomeNotification}
                     />

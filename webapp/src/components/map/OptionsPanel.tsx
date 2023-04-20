@@ -9,7 +9,7 @@ import {useSession} from "@inrupt/solid-ui-react";
 
 i18n.use(initReactI18next)
 
-function OptionsPanel() {
+function OptionsPanel(props: {setItem: Function}) {
     const {session} = useSession();
     const {webId} = session.info;
     let webIdStore = webId?.slice(0, -15) + 'private/locations.json';
@@ -21,14 +21,14 @@ function OptionsPanel() {
     return (
         <div>
             <div id="optionsMenu">
-                <h1>{t("options_menu")}</h1>
+                <h1>{t("optionsMenu")}</h1>
                 <Search title={t("search")}/>
                 <div id="filterDiv">
-                    <Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={user}/>
+                    <Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={user} setItem={props.setItem}/>
                 </div>
                 <Mark title={t("mark")} id={"scoreMarker"}/>
                 <div id="friendDiv">
-                    <FriendList/>
+                    <FriendList setItem={props.setItem}/>
                 </div>
 
             </div>
