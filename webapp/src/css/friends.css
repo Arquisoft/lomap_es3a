@@ -44,3 +44,74 @@ tr{
     margin-right: 2em;
 }
 
+#buttonPermissions{
+    border-radius: 0.3em;
+    font-size: 0.9em;
+    padding: 0.3em;
+    background-color: #c4b526;
+}
+#buttonDelete{
+    border-radius: 0.3em;
+    font-size: 0.9em;
+    padding: 0.3em;
+    background-color: #d90a0a;
+}
+
+#buttonAddFriend{
+    margin-top: 0.8em;
+    margin-bottom: 1.5em;
+    font-size: 1.5em;
+    border-radius: 0.3em;
+    padding: 0.3em;
+    color: white;
+    background-color: rgba(15, 94, 197, 0.8);
+}
+
+#buttonAddFriend:hover{
+    background-color: #00a6fb;
+}
+
+#formAddFriend{
+    display: flex;
+    margin-bottom: 1.5em;
+    font-size: 1.5em;
+    color: white;
+}
+
+#friendProvider{
+    margin-right: 2em;
+}
+
+#formAddFriend > select{
+    width: 8em;
+}
+
+#friendName{
+    margin-right: 2em;
+}
+
+#friendName > input{
+    font-weight: lighter;
+    color: white;
+    background-color: rgba(15, 94, 197, 0.8);
+    padding: 0.313em;
+    border-radius: 0.3em;
+}
+
+#buttonAddFriendToPod{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#buttonAddFriendToPod > button{
+    border-radius: 0.3em;
+    padding: 0.3em;
+    color: white;
+    background-color: rgba(15, 94, 197, 0.8);
+}
+
+#buttonAddFriendToPod > button:hover {
+    background-color: #00a6fb;
+}
+

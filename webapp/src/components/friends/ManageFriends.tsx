@@ -8,13 +8,17 @@ import {VCARD} from "@inrupt/lit-generated-vocab-common";
 
 function ManageFriends(){
     const { session } = useSession();
+    const [idp, setIdp] = useState("https://inrupt.net");
     const [personData, setPersonData] = useState<PersonData>({ webId: '',photo: '', name: '', friends: [] })
     const {webId} = session.info;
     const [friends, setFriendList] = useState<PersonData[]>([]);
     const [showButtonAdd,setShowButtonAdd] = useState(true)
     const { t } = useTranslation();
 
-
+    const providers = [
+        { name: "Inrupt", value: "https://inrupt.net" },
+        { name: "SolidCommunity", value: "https://solidcommunity.net" },
+    ];
 
 
     useEffect(() => {
@@ -46,15 +50,34 @@ function ManageFriends(){
         setShowButtonAdd(false)
     }
 
+    function changeProvider(){
+        let provider = (document.getElementById("selectProvider") as HTMLSelectElement).value;
+        console.log(provider)
+        setIdp(provider)
+    }
+
     return(
         <div id="friendsConfiguration" >
             <div id="friendsConfigurationBody">
                 <h1>{t("friends")}</h1>
                 { showButtonAdd ? (
-                    <button onClick={showFormAddFriend}>Añadir amigo</button>
+                    <button onClick={showFormAddFriend} id="buttonAddFriend">Añadir amigo</button>
                 ) : (
                     <div id="formAddFriend">
-
+                        <div id="friendProvider">
+                            <p>{t("provider")}</p>
+                            <select onChange={changeProvider} id="selectProvider">
+                                <option value={providers[0].value}>{providers[0].name}</option>
+                                <option value={providers[1].value}>{providers[1].name}</option>
+                            </select>
+                        </div>
+                        <div id="friendName">
+                            <p>Introduce nombre usuario:</p>
+                            <input type="text"></input>
+                        </div>
+                        <div id="buttonAddFriendToPod">
+                            <button>Añadir amigo</button>
+                        </div>
                     </div>
                 )
 
@@ -81,8 +104,8 @@ function ManageFriends(){
                                             {friend.name}
                                         </div>
                                     </th>
-                                    <td><button>Dar permisos</button></td>
-                                    <td><button>Eliminar</button></td>
+                                    <td><button id="buttonPermissions">Dar permisos</button></td>
+                                    <td><button id="buttonDelete">Eliminar</button></td>
                                 </tr>
                         ))
                     }
