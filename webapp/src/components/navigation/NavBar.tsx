@@ -2,8 +2,7 @@ import "../../css/navigation.css";
 import 'bootstrap/dist/js/bootstrap.bundle';
 import GOMapLogo from "../../img/symbols/SimpleSymbol.png";
 import NavItem from "./NavItem";
-import {CombinedDataProvider, Text, useSession} from "@inrupt/solid-ui-react";
-import {FOAF, VCARD} from "@inrupt/lit-generated-vocab-common";
+import { useSession} from "@inrupt/solid-ui-react";
 import {Button} from "@mui/material";
 import * as React from "react";
 import {useEffect, useState} from "react";
@@ -61,22 +60,6 @@ function NavBar() {
      * Nuevos Cambios para añadir el Avatar con opciones al LOGIN
      *
      */
-
-    const settings = ['Account', 'Dashboard'];
-
-
-    const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
-        null
-    );
-
-    const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorElUser(event.currentTarget);
-    };
-
-    const handleCloseUserMenu = () => {
-        setAnchorElUser(null);
-    };
-
     return (
         <nav className={`navbar navbar-expand-lg navbar-dark ${isNavExpanded ? 'nav-expanded' : 'nav-normal'}`}>
             <div className="container-fluid">
