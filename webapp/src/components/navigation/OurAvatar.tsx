@@ -12,17 +12,16 @@ import {
     Button,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
-import {VCARD} from "@inrupt/lit-generated-vocab-common";
-import {CombinedDataProvider, Image, LogoutButton} from "@inrupt/solid-ui-react";
+import {FOAF, VCARD} from "@inrupt/lit-generated-vocab-common";
+import {CombinedDataProvider, LogoutButton, Text} from '@inrupt/solid-ui-react';
+import {Image} from "@inrupt/solid-ui-react";
 import {t} from "i18next";
-
+import * as React from "react";
 interface Props {
     webId: string;
-    dropdownTitle: string;
-    settings: string[];
 }
 
-export const MyComponent = ({ webId, dropdownTitle, settings }: Props) => {
+const OurAvatar = ({ webId}: Props) => {
     const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
     const handleOpenUserMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -32,6 +31,18 @@ export const MyComponent = ({ webId, dropdownTitle, settings }: Props) => {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
+
+    const dropdownTitle = (
+        <span>
+            <CombinedDataProvider datasetUrl={webId} thingUrl={webId}>
+                <Text property={FOAF.name.iri.value} autosave/>
+
+
+            </CombinedDataProvider>
+        </span>
+    );
+
+    const settings = ['Account', 'Dashboard'];
 
     return (
         <Container maxWidth="xl">
@@ -89,3 +100,5 @@ export const MyComponent = ({ webId, dropdownTitle, settings }: Props) => {
         </Container>
     );
 };
+
+export default OurAvatar;
