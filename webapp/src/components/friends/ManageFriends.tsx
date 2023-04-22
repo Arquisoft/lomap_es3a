@@ -54,26 +54,21 @@ function ManageFriends(){
 
     function changeProvider(){
         let provider = (document.getElementById("selectProvider") as HTMLSelectElement).value;
-        console.log(provider)
         setIdp(provider)
     }
 
     async function removeFriend(friendWebId:string){
         await removeFriendFromPOD(friendWebId,webId!)
-        const names = await Promise.all(
-            personData.friends.map((friend) => findPersonData(session,friend))
-        );
-        setFriendList(names);
+        const data = await findPersonData(session,webId!)
+        setPersonData(data)
     }
 
     async function addFriend(){
-        let provider = (document.getElementById("selectProviderFriend")as HTMLSelectElement).value
+        let provider = idp
         let friendName = (document.getElementById("inputNameFriend") as HTMLInputElement).value
         await addFriendToPod(provider,friendName,webId!)
-        const names = await Promise.all(
-            personData.friends.map((friend) => findPersonData(session,friend))
-        );
-        setFriendList(names);
+        const data = await findPersonData(session,webId!)
+        setPersonData(data)
     }
 
     return(
