@@ -103,7 +103,7 @@ function ManageFriends(){
 
                 }
 
-                <div id="friendsTable">
+                <div id="friendsTable" >
                     <table>
                         <thead>
                             <tr>

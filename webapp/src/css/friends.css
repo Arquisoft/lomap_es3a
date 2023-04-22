@@ -13,7 +13,15 @@
     align-items: center;
     padding: 1em 3em 3em 3em;
     background-color: #3b4594;
-    border-radius: 2em;
+    border-radius: 1em;
+}
+
+thead{
+    background-color: rgba(84, 100, 187, 0.79);
+}
+
+tbody > tr{
+    background-color: rgba(111, 132, 246, 0.79);
 }
 
 h2{
@@ -24,6 +32,7 @@ h2{
 #friendsTable{
     text-align: center;
     border: 1px solid #000;
+    border-radius: 0.5em;
 
 }
 
@@ -48,13 +57,15 @@ tr{
     border-radius: 0.3em;
     font-size: 0.9em;
     padding: 0.3em;
-    background-color: #c4b526;
+    background-color: #0bb70b;
+    color: white;
 }
 #buttonDelete{
     border-radius: 0.3em;
     font-size: 0.9em;
     padding: 0.3em;
     background-color: #d90a0a;
+    color: white;
 }
 
 #buttonAddFriend{
@@ -113,5 +124,13 @@ tr{
 
 #buttonAddFriendToPod > button:hover {
     background-color: #00a6fb;
+}
+
+#buttonDelete:hover{
+    background-color: #960707;
+}
+
+#buttonPermissions:hover{
+    background-color: #0a7c0a;
 }
 
