@@ -95,17 +95,18 @@ export async function addFriendToPod(provider:string,friendName:string,webId:str
     friendWebId += "/profile/card#me"
 
     try{
-        await findFullPersonProfile(webId,session)
-        let solidDataset = await getSolidDataset(webId);
-        let friends = getThing(solidDataset, webId) as Thing;
+        await findFullPersonProfile(friendWebId,session)
 
-        friends = buildThing(friends).addUrl(foaf.knows, friendWebId).build();
-        solidDataset = setThing(solidDataset, friends);
-        await saveSolidDatasetAt(webId, solidDataset, { fetch: fetch })
     }catch(e){
-        console.log(e)
-
+        return true
+        throw e
     }
 
+    let solidDataset = await getSolidDataset(webId);
+    let friends = getThing(solidDataset, webId) as Thing;
 
+    friends = buildThing(friends).addUrl(foaf.knows, friendWebId).build();
+    solidDataset = setThing(solidDataset, friends);
+    await saveSolidDatasetAt(webId, solidDataset, { fetch: fetch })
+    return false
 }

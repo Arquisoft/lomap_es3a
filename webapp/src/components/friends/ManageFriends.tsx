@@ -5,12 +5,15 @@ import {useTranslation} from "react-i18next";
 import "../../css/friends.css"
 import Avatar from "@mui/material/Avatar";
 import {VCARD} from "@inrupt/lit-generated-vocab-common";
+import Icon from "../../img/symbols/GOMapSymbol.png";
+import Notification from "../Notification";
 
 
 
 function ManageFriends(){
     const { session } = useSession();
     const [idp, setIdp] = useState("https://inrupt.net");
+    const [error,setError] = useState(false)
     const [personData, setPersonData] = useState<PersonData>({ webId: '',photo: '', name: '', friends: [] })
     const {webId} = session.info;
     const [friends, setFriendList] = useState<PersonData[]>([]);
@@ -52,6 +55,10 @@ function ManageFriends(){
         setShowButtonAdd(false)
     }
 
+    function handleCloseNotification(){
+        setError(false)
+    }
+
     function changeProvider(){
         let provider = (document.getElementById("selectProvider") as HTMLSelectElement).value;
         setIdp(provider)
@@ -66,7 +73,8 @@ function ManageFriends(){
     async function addFriend(){
         let provider = idp
         let friendName = (document.getElementById("inputNameFriend") as HTMLInputElement).value
-        await addFriendToPod(provider,friendName,webId!,session)
+        let error = await addFriendToPod(provider,friendName,webId!,session)
+        setError(error)
         const data = await findPersonData(session,webId!)
         setPersonData(data)
     }
@@ -128,6 +136,15 @@ function ManageFriends(){
                     </table>
                 </div>
             </div>
+            {error && (
+                <Notification
+                    title={t("notificationMarkerAdded")}
+                    message={t("notificationMessageMarker")}
+                    time={t("notificationTime")}
+                    icon={Icon}
+                    onClose={handleCloseNotification}
+                />
+            )}
         </div>
     )
 }
