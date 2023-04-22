@@ -12,9 +12,9 @@ i18n.use(initReactI18next)
 
 function AddMarkerPanel(props: { setItem: Function }) {
 
-    const { t } = useTranslation();
+    const {t} = useTranslation();
 
-    let user : string[] = [];
+    let user: string[] = [];
 
     function closeMenu() {
         const addMarkerPanel = document.getElementById("addMarkerPanel");
@@ -33,7 +33,8 @@ function AddMarkerPanel(props: { setItem: Function }) {
                 <Filter titleFilter={t("category")} nameFilter={"edit"} usersWebId={user} setItem={props.setItem}/>
                 <Mark title={t("mark")} id={"scoreNewMarker"}/>
                 <Comments title={t("comment")}/>
-                <ButtonAddPod idName={"namePlace"} idCategory={"categoryMarker"} idComment={"comment"} idScore={"scoreNewMarker"}
+                <ButtonAddPod idName={"namePlace"} idCategory={"categoryMarker"} idComment={"comment"}
+                              idScore={"scoreNewMarker"}
                               idLatitude={"latitude"} idLongitude={"longitude"} setItem={props.setItem}/>
             </form>
         </div>

@@ -19,7 +19,7 @@ label {
 
 #send {
     margin-top: 1em;
-    text-align: start;
+    text-align: flex-start;
     font-size: 1.25em;
     background-color: #3f77bb;
     color: white;

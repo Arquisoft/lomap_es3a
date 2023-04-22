@@ -13,7 +13,7 @@ import i18n from "../../i18n";
 i18n.use(initReactI18next)
 
 function TechStack() {
-    const { t } = useTranslation();
+    const {t} = useTranslation();
 
     return (
         <div id="symbolsPanel">

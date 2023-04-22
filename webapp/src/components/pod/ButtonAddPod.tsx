@@ -17,6 +17,7 @@ import {PhotoCamera} from "@mui/icons-material";
 import {fill} from "@cloudinary/url-gen/actions/resize";
 import {CloudinaryImage} from '@cloudinary/url-gen';
 import {AdvancedImage} from "@cloudinary/react";
+import {v4 as uuidv4} from "uuid";
 
 const myImage = new CloudinaryImage('sample', {cloudName: 'dwyizn0f7'}).resize(fill().width(50).height(50));
 
@@ -66,7 +67,6 @@ function ButtonAddPod({
         let comment = (document.getElementById(
             idComment
         ) as HTMLInputElement).value;
-        let score = (document.getElementById(idScore) as HTMLDivElement).innerHTML;
         let latitude = (document.getElementById(
             idLatitude
         ) as HTMLInputElement).value;
@@ -77,19 +77,19 @@ function ButtonAddPod({
         let json = {
             "@context": "https://schema.org/",
             "@type": "Place",
+            "identifier":uuidv4(),
             "name": name,
-            "category": category,
-            "description": comment,
+            "author": {
+                "@type":"Person",
+                "identifier": webId
+            },
+            "additionalType": category,
             "latitude": latitude,
             "longitude": longitude,
-            "comments": [],
-            "reviewScores": [{
-                "author": webId?.slice(8, -27),
-                "score": score,
-                "date": new Date().valueOf()
-            }],
-            "pictures": [],
-            "date": new Date().valueOf()
+            "description": comment,
+            "review": [],
+            "image": [],
+            "dateCreated": new Date().valueOf()
         };
 
         return await readFileFromPod(fileURL, session).then(file => {
@@ -172,7 +172,8 @@ function ButtonAddPod({
         let rootFriends = ReactDOM.createRoot(document.getElementById("friendDiv") as HTMLElement);
         rootFriends.render(<FriendList setItem={setItem}/>)
         const rootFilter = ReactDOM.createRoot(document.getElementById("filterDiv") as HTMLElement);
-        rootFilter.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={user} setItem={setItem}/>);
+        rootFilter.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={user}
+                                  setItem={setItem}/>);
         let optionsMenu = document.getElementById("markersMenu");
         if (optionsMenu !== null) {
             const width = optionsMenu.style.width;

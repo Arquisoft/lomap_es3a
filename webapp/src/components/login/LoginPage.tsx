@@ -1,19 +1,19 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import {useTranslation} from "react-i18next";
 import {Button} from "@mui/material";
 import {LoginButton} from "@inrupt/solid-ui-react";
 import "../../css/login.css";
 
-function LoginPage(){
+function LoginPage() {
     const [idp, setIdp] = useState("https://inrupt.net");
     const providers = [
-        { name: "Inrupt", value: "https://inrupt.net" },
-        { name: "SolidCommunity", value: "https://solidcommunity.net" },
+        {name: "Inrupt", value: "https://inrupt.net"},
+        {name: "SolidCommunity", value: "https://solidcommunity.net"},
     ];
-    const { t } = useTranslation();
+    const {t} = useTranslation();
 
 
-    function changeProvider(){
+    function changeProvider() {
         let provider = (document.getElementById("selectProvider") as HTMLSelectElement).value;
         console.log(provider)
         setIdp(provider)
@@ -31,7 +31,7 @@ function LoginPage(){
                         <option value={providers[0].value}>{providers[0].name}</option>
                         <option value={providers[1].value}>{providers[1].name}</option>
                     </select>
-                    <a href={idp+"/register"}>{t("register")}</a>
+                    <a href={idp + "/register"}>{t("register")}</a>
                     <div id="loginButton">
                         <LoginButton oidcIssuer={idp} redirectUrl={window.location.origin}>
                             <Button variant="contained" color="primary" id="login">
@@ -44,4 +44,5 @@ function LoginPage(){
         </div>
     )
 }
+
 export default LoginPage

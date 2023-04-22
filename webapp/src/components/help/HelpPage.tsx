@@ -5,7 +5,7 @@ import ContactUs from "./ContactUs";
 function HelpPage() {
     return (
         <div id="helpPage">
-            <ContactUs />
+            <ContactUs/>
         </div>
     )
 }

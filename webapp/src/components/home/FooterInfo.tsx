@@ -5,7 +5,7 @@ import i18n from "../../i18n";
 i18n.use(initReactI18next)
 
 function FooterInfo() {
-    const { t } = useTranslation();
+    const {t} = useTranslation();
 
     return (
         <footer id="info">

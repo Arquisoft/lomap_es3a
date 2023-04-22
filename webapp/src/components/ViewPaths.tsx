@@ -10,8 +10,6 @@ import LoginPage from "./login/LoginPage";
 import ManageFriends from "./friends/ManageFriends";
 
 
-
-
 function ViewPaths() {
     return (
         <Router>
