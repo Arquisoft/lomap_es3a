@@ -65,8 +65,6 @@ function FriendList(props: {setItem : Function}){
                     friendSelected.pop()
                 }
                 friendSelected.push(webIdFriend)
-                let target = webId.split("profile")[0]
-                changePermissions(target, friendWebId);
                 const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
                 root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={friendSelected}
                                      setItem={props.setItem}/>);
@@ -88,50 +86,6 @@ function FriendList(props: {setItem : Function}){
             }
 
         }
-    }
-
-    async function changePermissions(webId: string, friendWebId: string) {
-        // Fetch the SolidDataset and its associated ACLs, if available:
-        const myDatasetWithAcl = await getSolidDatasetWithAcl(webId + "private/", {fetch: session.fetch});
-
-        // Obtain the SolidDataset's own ACL, if available,
-        // or initialise a new one, if possible:
-        let resourceAcl;
-        if (!hasResourceAcl(myDatasetWithAcl)) {
-            if (!hasAccessibleAcl(myDatasetWithAcl)) {
-                throw new Error(
-                    "The current user does not have permission to change access rights to this Resource."
-                );
-            }
-            if (!hasFallbackAcl(myDatasetWithAcl)) {
-                throw new Error(
-                    "The current user does not have permission to see who currently has access to this Resource."
-                );
-                // Alternatively, initialise a new empty ACL as follows,
-                // but be aware that if you do not give someone Control access,
-                // **nobody will ever be able to change Access permissions in the future**:
-                // resourceAcl = createAcl(myDatasetWithAcl);
-            }
-            resourceAcl = createAclFromFallbackAcl(myDatasetWithAcl);
-        } else {
-            resourceAcl = getResourceAcl(myDatasetWithAcl);
-        }
-
-        // Give someone Control access to the given Resource:
-        let updatedAcl = setAgentResourceAccess(
-            resourceAcl,
-            friendWebId,
-            {read: true, append: false, write: false, control: false}
-        );
-        updatedAcl = setAgentDefaultAccess(
-            updatedAcl,
-            friendWebId,
-            {read: true, append: false, write: false, control: false}
-        )
-
-
-        // Now save the ACL:
-        await saveAclFor(myDatasetWithAcl, updatedAcl, {fetch: session.fetch});
     }
 
     return (

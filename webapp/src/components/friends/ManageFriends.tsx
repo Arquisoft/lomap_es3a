@@ -1,6 +1,6 @@
 import {CombinedDataProvider, Image, useSession} from "@inrupt/solid-ui-react";
 import React, {useEffect, useState} from "react";
-import {addFriendToPod, findPersonData, PersonData, removeFriendFromPOD} from "../pod/FriendsPOD";
+import {addFriendToPod, changePermissions, findPersonData, PersonData, removeFriendFromPOD} from "../pod/FriendsPOD";
 import {useTranslation} from "react-i18next";
 import "../../css/friends.css"
 import Avatar from "@mui/material/Avatar";
@@ -87,6 +87,11 @@ function ManageFriends(){
         }
     }
 
+    async function givePermissions(friendWebId:string){
+        let webIdWithoutProfile = webId!.split("profile")[0]
+        await changePermissions(webIdWithoutProfile,friendWebId,session)
+    }
+
     return(
         <div id="friendsConfiguration" >
             <div id="friendsConfigurationBody">
@@ -135,7 +140,7 @@ function ManageFriends(){
                                             {friend.name}
                                         </div>
                                     </th>
-                                    <td><button id="buttonPermissions">Dar permisos</button></td>
+                                    <td><button id="buttonPermissions" onClick={() => givePermissions(friend.webId)}>Dar permisos</button></td>
                                     <td><button id="buttonDelete" onClick={() => removeFriend(friend.webId)}>Eliminar</button></td>
                                 </tr>
                         ))
