@@ -28,6 +28,9 @@
   "docsButton": "Unsere Dokumentation anzeigen 🔗",
   "techStack": "Verwendete Technologien:",
   "optionsMenu": "Kartenoptionen",
+  "mapSelector": "Karten-Auswahl",
+  "createNewMap": "Neue Karte erstellen",
+  "create": "Erstellen",
   "search": "Suche",
   "searchPlaceholder": "Suchbegriff eingeben...",
   "category": "Kategorie",
@@ -64,6 +67,7 @@
   "confirm": "Bestätigen",
 
   "media": "Medien",
+  "noImages": "Es gibt keine Bilder für dieses Lesezeichen.",
   "reviews": "Bewertungen",
   "addReview": "Füge deine Bewertung hinzu...",
   "add": "Hinzufügen",
