@@ -90,14 +90,22 @@ export async function removeFriendFromPOD(friendWebId:string,webId:string){
     await saveSolidDatasetAt(webId!, solidDataset, { fetch: fetch });
 }
 
-export async function addFriendToPod(provider:string,friendName:string,webId:string){
+export async function addFriendToPod(provider:string,friendName:string,webId:string,session:Session){
     let friendWebId = provider.replace(/https:\/\//, "https://"+friendName+".");
     friendWebId += "/profile/card#me"
 
-    let solidDataset = await getSolidDataset(webId);
-    let friends = getThing(solidDataset, webId) as Thing;
+    try{
+        await findFullPersonProfile(webId,session)
+        let solidDataset = await getSolidDataset(webId);
+        let friends = getThing(solidDataset, webId) as Thing;
 
-    friends = buildThing(friends).addUrl(foaf.knows, friendWebId).build();
-    solidDataset = setThing(solidDataset, friends);
-    await saveSolidDatasetAt(webId, solidDataset, { fetch: fetch })
+        friends = buildThing(friends).addUrl(foaf.knows, friendWebId).build();
+        solidDataset = setThing(solidDataset, friends);
+        await saveSolidDatasetAt(webId, solidDataset, { fetch: fetch })
+    }catch(e){
+        console.log(e)
+
+    }
+
+
 }

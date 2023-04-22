@@ -66,7 +66,7 @@ function ManageFriends(){
     async function addFriend(){
         let provider = idp
         let friendName = (document.getElementById("inputNameFriend") as HTMLInputElement).value
-        await addFriendToPod(provider,friendName,webId!)
+        await addFriendToPod(provider,friendName,webId!,session)
         const data = await findPersonData(session,webId!)
         setPersonData(data)
     }
