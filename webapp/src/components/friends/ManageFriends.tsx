@@ -7,6 +7,7 @@ import Avatar from "@mui/material/Avatar";
 import {VCARD} from "@inrupt/lit-generated-vocab-common";
 import Icon from "../../img/symbols/GOMapSymbol.png";
 import Notification from "../Notification";
+import profilePhoto from "../../img/profile.png";
 
 
 
@@ -138,7 +139,14 @@ function ManageFriends(){
                                     <th scope="row">
                                         <div id="friendNamePhoto">
                                             <CombinedDataProvider datasetUrl={friend.webId} thingUrl={friend.webId}>
-                                                <Avatar id="friendPhoto" alt="Remy Sharp" sx={{ width: 65, height: 65, mb: 2 }}><Image property={VCARD.hasPhoto.iri.value} width={65}/></Avatar>
+                                                <Avatar id="friendPhoto" alt="Remy Sharp" sx={{ width: 65, height: 65, mb: 2 }}>
+                                                    {
+                                                        friend.photo!=='' && <Image property={VCARD.hasPhoto.iri.value} width={65}/>
+                                                    }
+                                                    {
+                                                        friend.photo==='' && <img src={profilePhoto} width={65}/>
+                                                    }
+                                                </Avatar>
                                             </CombinedDataProvider>
                                             {friend.name}
                                         </div>
