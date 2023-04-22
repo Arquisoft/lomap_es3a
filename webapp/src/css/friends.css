@@ -1,11 +1,11 @@
 #friendsConfiguration{
     display: flex;
     flex-direction: column;
-    height: 80vh;
+    height: auto;
     width: 100vw;
     justify-content: center;
     align-items: center;
-
+    margin-top: 2em;
 }
 #friendsConfigurationBody{
     display: flex;
@@ -33,8 +33,10 @@ h2{
     text-align: center;
     border: 1px solid #000;
     border-radius: 0.5em;
-
+    overflow: auto;
+    max-height: 600px;
 }
+
 
 th,td{
     border: 1px solid #000;
