@@ -6,47 +6,9 @@ import Kremlin from "../../img/Kremlin.png";
 import {Point} from "../pod/Point";
 import Rating from "@mui/material/Rating";
 import Mark from "./options/Mark";
+import {v4 as uuidv4} from "uuid";
 
 i18n.use(initReactI18next)
-
-interface Review {
-    author: string,
-    img: string,
-    reviewRating: number,
-    datePublished: number,
-    reviewBody: string,
-}
-
-let review: Review[] = [
-    {
-        author: "Omar",
-        img: "https://avatars.githubusercontent.com/u/91057639?v=4",
-        reviewRating: 5,
-        datePublished: Date.now(),
-        reviewBody: "Se come de puta madre"
-    },
-    {
-        author: "Raul",
-        img: "https://avatars.githubusercontent.com/u/98962647?v=4",
-        reviewRating: 5,
-        datePublished: Date.now(),
-        reviewBody: "Kebab rico rico"
-    },
-    {
-        author: "David",
-        img: "https://avatars.githubusercontent.com/u/98973949?v=4",
-        reviewRating: 4,
-        datePublished: Date.now(),
-        reviewBody: "Nunca fui"
-    },
-    {
-        author: "Carlos",
-        img: "https://avatars.githubusercontent.com/u/98974171?v=4",
-        reviewRating: 3,
-        datePublished: Date.now(),
-        reviewBody: "Lo mismo que el david"
-    }
-];
 
 function ShowMarkerPanel(props: { data: Point | undefined }) {
 
@@ -75,23 +37,21 @@ function ShowMarkerPanel(props: { data: Point | undefined }) {
                     height="72"
                 />
                 <div id="profileMarkerData">
-                    <h3>Omar</h3>
-                    {/*<h3>{props.data.author}</h3>*/}
-                    <h4>{new Date(Date.now()).toLocaleDateString(sessionStorage.getItem("language") || "en")}</h4>
-                    {/*<p>{new Date(props.data.dateCreated).toLocaleDateString(sessionStorage.getItem("language") || "en")}</p>*/}
+                    <h3>{props.data.author.slice(8,-27)}</h3>
+                    <h4>{new Date(props.data.dateCreated).toLocaleDateString(sessionStorage.getItem("language") || "en")}</h4>
                 </div>
             </div>
             <Carousel defaultActiveIndex={0}>
-                {/*{*/}
-                {/*    props.data.image.map((image) => (*/}
-                {/*        <Carousel.Item key={image.img}>*/}
-                {/*            <img*/}
-                {/*                src={image.contentUrl}*/}
-                {/*                alt={image.author}*/}
-                {/*            />*/}
-                {/*        </Carousel.Item>*/}
-                {/*    ))*/}
-                {/*}*/}
+                {
+                    props.data.image.map((image) => (
+                        <Carousel.Item key={uuidv4()}>
+                            <img
+                                src={image.contentUrl}
+                                alt={image.author}
+                            />
+                        </Carousel.Item>
+                    ))
+                }
                 <Carousel.Item>
                     <img
                         src={Kremlin}
@@ -103,16 +63,16 @@ function ShowMarkerPanel(props: { data: Point | undefined }) {
                 <h3>{props.data.name}</h3>
                 <div id="showMarkerScore">
                     <p id="totalReviews">
-                        ({review.length})
+                        ({props.data.review.length})
                     </p>
                     <Rating
                         name="size-medium"
-                        value={props.data.score}
+                        value={props.data.review.reduce((sum, reviewItem) => sum+ reviewItem.reviewRating, 0) / props.data.review.length}
                         precision={1}
                         readOnly
                     />
                     <p id="totalScore">
-                        {props.data.score}
+                        {props.data.review.length}
                     </p>
                 </div>
                 <p id="showMarkerCategory">
@@ -129,18 +89,18 @@ function ShowMarkerPanel(props: { data: Point | undefined }) {
                         <button id="reviewButton">{t("add")}</button>
                     </div>
                     {
-                        review.map((reviewItem) => (
+                        props.data.review.map((reviewItem) => (
                             <div className="review" key={reviewItem.author}>
                                 <div className="profileReview">
                                     <img
-                                        src={reviewItem.img}
+                                        src={reviewItem.author}
                                         className="rounded-circle"
                                         alt="Avatar"
                                         width="36"
                                         height="36"
                                     />
                                     <div id="nameAndDate">
-                                        <h5>@{reviewItem.author}</h5>
+                                        <h5>@{reviewItem.author.slice(8,-27)}</h5>
                                         <p>{new Date(reviewItem.datePublished).toLocaleDateString(sessionStorage.getItem("language") || "en")}</p>
                                     </div>
                                 </div>
@@ -155,7 +115,7 @@ function ShowMarkerPanel(props: { data: Point | undefined }) {
                                         {reviewItem.reviewRating}
                                     </p>
                                 </div>
-                                <p>{reviewItem.reviewBody}</p>
+                                <p>{reviewItem.comment}</p>
                             </div>
                         ))
                     }
