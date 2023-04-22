@@ -21,6 +21,12 @@
   "notificationTime": "Maintenant",
   "notificationMarkerAdded": "Nouveau marqueur",
   "notificationMessageMarker": "Votre marqueur a été ajouté avec succès !",
+  "notificationAddFriendError": "L'utilisateur que vous essayez d'ajouter n'a pas de compte sur le fournisseur sélectionné.",
+  "notificationAddFriendErrorTitle": "Impossible d'ajouter votre ami",
+  "notificationAddFriend": "Votre ami a été ajouté avec succès",
+  "notificationAddFriendTitle": "Ami ajouté",
+  "notificationRemoveFriend": "Votre ami a été supprimé avec succès",
+  "notificationRemoveFriendTitle": "Ami supprimé",
 
   "footer": "© Arquisoft - UNIOVI",
   "homeInfo1": "GOMap!® est une application qui permet aux utilisateurs d'avoir des cartes personnalisées sur les lieux et les commerces locaux de leur ville, tels que des magasins, des bars, des restaurants, des monuments, des cinémas...",

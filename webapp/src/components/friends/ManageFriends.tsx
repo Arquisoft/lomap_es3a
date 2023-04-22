@@ -14,6 +14,8 @@ function ManageFriends(){
     const { session } = useSession();
     const [idp, setIdp] = useState("https://inrupt.net");
     const [error,setError] = useState(false)
+    const [friendAdd, setFriendAdd] = useState(false)
+    const [friendRemove, setFriendRemove] = useState(false)
     const [personData, setPersonData] = useState<PersonData>({ webId: '',photo: '', name: '', friends: [] })
     const {webId} = session.info;
     const [friends, setFriendList] = useState<PersonData[]>([]);
@@ -57,6 +59,8 @@ function ManageFriends(){
 
     function handleCloseNotification(){
         setError(false)
+        setFriendAdd(false)
+        setFriendRemove(false)
     }
 
     function changeProvider(){
@@ -68,6 +72,7 @@ function ManageFriends(){
         await removeFriendFromPOD(friendWebId,webId!)
         const data = await findPersonData(session,webId!)
         setPersonData(data)
+        setFriendRemove(true)
     }
 
     async function addFriend(){
@@ -75,8 +80,11 @@ function ManageFriends(){
         let friendName = (document.getElementById("inputNameFriend") as HTMLInputElement).value
         let error = await addFriendToPod(provider,friendName,webId!,session)
         setError(error)
-        const data = await findPersonData(session,webId!)
-        setPersonData(data)
+        if(!error){
+            const data = await findPersonData(session,webId!)
+            setPersonData(data)
+            setFriendAdd(true)
+        }
     }
 
     return(
@@ -138,8 +146,26 @@ function ManageFriends(){
             </div>
             {error && (
                 <Notification
-                    title={t("notificationMarkerAdded")}
-                    message={t("notificationMessageMarker")}
+                    title={t("notificationAddFriendErrorTitle")}
+                    message={t("notificationAddFriendError")}
+                    time={t("notificationTime")}
+                    icon={Icon}
+                    onClose={handleCloseNotification}
+                />
+            )}
+            {friendAdd && (
+                <Notification
+                    title={t("notificationAddFriendTitle")}
+                    message={t("notificationAddFriend")}
+                    time={t("notificationTime")}
+                    icon={Icon}
+                    onClose={handleCloseNotification}
+                />
+            )}
+            {friendRemove && (
+                <Notification
+                    title={t("notificationRemoveFriendTitle")}
+                    message={t("notificationRemoveFriend")}
                     time={t("notificationTime")}
                     icon={Icon}
                     onClose={handleCloseNotification}

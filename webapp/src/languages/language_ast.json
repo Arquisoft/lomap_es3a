@@ -21,6 +21,12 @@
   "notificationTime": "Agora mesmu",
   "notificationMarkerAdded": "Nuevu marcador",
   "notificationMessageMarker": "¡El so marcador foi añedíu correchamente!",
+  "notificationAddFriendError": "El usuariu que ta intentando amestar nun tien una cuenta nel proveedor esbilláu",
+  "notificationAddFriendErrorTitle": "Nun se pudo amestar al so amigu",
+  "notificationAddFriend": "El so amigu foi amestáu correchamente",
+  "notificationAddFriendTitle": "Amigu amestáu",
+  "notificationRemoveFriend": "El so amigu foi esborráu correchamente",
+  "notificationRemoveFriendTitle": "Amigu esborráu",
 
   "footer": "© Arquisoft - UNIOVI",
   "homeInfo1": "GOMap!® ye una aplicación onde los usuarios puen tener mapes personalizaos tocante llugares y negocios locales na so ciudá, como tiendes, bares, restaurantes, monumentos, cines...",
