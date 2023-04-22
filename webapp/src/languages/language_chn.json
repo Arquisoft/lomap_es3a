@@ -27,6 +27,8 @@
   "notificationAddFriendTitle": "添加成功",
   "notificationRemoveFriend": "您的朋友已成功删除",
   "notificationRemoveFriendTitle": "删除成功",
+  "notificationPermissionsFriend": "已成功为您的朋友分配阅读权限",
+  "notificationPermissionsFriendTitle": "已分配阅读权限",
 
   "footer": "© Arquisoft - UNIOVI",
   "homeInfo1": "GOMap!®是一个应用程序，用户可以在其中创建个性化地图，显示他们城市中的本地商家和场所，如商店、酒吧、餐厅、纪念碑、电影院等等。",

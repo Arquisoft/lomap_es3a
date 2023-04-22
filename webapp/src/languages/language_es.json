@@ -27,6 +27,8 @@
   "notificationAddFriendTitle": "Amigo añadido",
   "notificationRemoveFriend": "Su amigo ha sido borrado correctamente",
   "notificationRemoveFriendTitle": "Amigo borrado",
+  "notificationPermissionsFriend": "Se le han dado permisos de lectura a su amigo correctamente",
+  "notificationPermissionsFriendTitle": "Permisos de lectura asignados",
 
   "footer": "© Arquisoft - UNIOVI",
   "homeInfo1": "GOMap!® es una aplicación en la que los usuarios pueden tener mapas personalizados sobre lugares y negocios locales en su ciudad, como tiendas, bares, restaurantes, monumentos, cines...",

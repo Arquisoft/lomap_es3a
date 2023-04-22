@@ -16,6 +16,7 @@ function ManageFriends(){
     const [error,setError] = useState(false)
     const [friendAdd, setFriendAdd] = useState(false)
     const [friendRemove, setFriendRemove] = useState(false)
+    const [friendPermissions,setFriendPermissions] = useState(false)
     const [personData, setPersonData] = useState<PersonData>({ webId: '',photo: '', name: '', friends: [] })
     const {webId} = session.info;
     const [friends, setFriendList] = useState<PersonData[]>([]);
@@ -61,6 +62,7 @@ function ManageFriends(){
         setError(false)
         setFriendAdd(false)
         setFriendRemove(false)
+        setFriendPermissions(false)
     }
 
     function changeProvider(){
@@ -90,6 +92,7 @@ function ManageFriends(){
     async function givePermissions(friendWebId:string){
         let webIdWithoutProfile = webId!.split("profile")[0]
         await changePermissions(webIdWithoutProfile,friendWebId,session)
+        setFriendPermissions(true)
     }
 
     return(
@@ -171,6 +174,15 @@ function ManageFriends(){
                 <Notification
                     title={t("notificationRemoveFriendTitle")}
                     message={t("notificationRemoveFriend")}
+                    time={t("notificationTime")}
+                    icon={Icon}
+                    onClose={handleCloseNotification}
+                />
+            )}
+            {friendPermissions && (
+                <Notification
+                    title={t("notificationPermissionsFriendTitle")}
+                    message={t("notificationPermissionsFriend")}
                     time={t("notificationTime")}
                     icon={Icon}
                     onClose={handleCloseNotification}

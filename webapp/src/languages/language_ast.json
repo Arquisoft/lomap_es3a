@@ -27,6 +27,8 @@
   "notificationAddFriendTitle": "Amigu amestáu",
   "notificationRemoveFriend": "El so amigu foi esborráu correchamente",
   "notificationRemoveFriendTitle": "Amigu esborráu",
+  "notificationPermissionsFriend": "Asignáronse correchamente permisos de llectura al so amigu",
+  "notificationPermissionsFriendTitle": "Permisos de llectura asignaos",
 
   "footer": "© Arquisoft - UNIOVI",
   "homeInfo1": "GOMap!® ye una aplicación onde los usuarios puen tener mapes personalizaos tocante llugares y negocios locales na so ciudá, como tiendes, bares, restaurantes, monumentos, cines...",
