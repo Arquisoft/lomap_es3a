@@ -2,7 +2,7 @@ import "../../css/navigation.css";
 import 'bootstrap/dist/js/bootstrap.bundle';
 import GOMapLogo from "../../img/symbols/SimpleSymbol.png";
 import NavItem from "./NavItem";
-import { useSession} from "@inrupt/solid-ui-react";
+import {useSession} from "@inrupt/solid-ui-react";
 import {Button} from "@mui/material";
 import * as React from "react";
 import {useEffect, useState} from "react";
@@ -16,16 +16,15 @@ import OurAvatar from "./OurAvatar";
 i18n.use(initReactI18next)
 
 function NavBar() {
-    const {session} = useSession();
-    let {webId} = session.info;
+    const { session } = useSession();
 
-
-    if (webId === undefined)
-        webId = "";
-
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const {t} = useTranslation();
 
     const [isNavExpanded, setIsNavExpanded] = useState(false);
+
+    if (session.info.webId === undefined) {
+        session.info.webId = "";
+    }
 
     function handleNavToggle() {
         setIsNavExpanded(!isNavExpanded);
@@ -41,24 +40,6 @@ function NavBar() {
         return () => window.removeEventListener('resize', handleResize);
     }, [isNavExpanded]);
 
-    //We have logged in
-    session.onLogin(() => {
-        setIsLoggedIn(true)
-    })
-
-    //We have logged out
-    session.onLogout(() => {
-        setIsLoggedIn(false)
-    })
-
-
-
-    const {t} = useTranslation();
-
-    /**
-     * Nuevos Cambios para añadir el Avatar con opciones al LOGIN
-     *
-     */
     return (
         <nav className={`navbar navbar-expand-lg navbar-dark ${isNavExpanded ? 'nav-expanded' : 'nav-normal'}`}>
             <div className="container-fluid">
@@ -82,15 +63,16 @@ function NavBar() {
                     <LanguageMenu/>
 
                     <div id="login-manage">
-                        {(!isLoggedIn) ? "" : <OurAvatar webId={webId}/>}
-                        {isLoggedIn ? "" : (
-                            <Link to="/login">
-                                <Button variant="contained" color="primary" id="login">
-                                    {t("login")}
-                                </Button>
-                            </Link>
-                        )}
-
+                        {
+                            (session.info.isLoggedIn) ?
+                                <OurAvatar webId={session.info.webId}/>
+                                :
+                                <Link to="/login">
+                                    <Button variant="contained" color="primary" id="login">
+                                        {t("login")}
+                                    </Button>
+                                </Link>
+                        }
                     </div>
                 </div>
 
