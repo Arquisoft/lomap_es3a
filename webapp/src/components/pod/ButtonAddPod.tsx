@@ -12,8 +12,6 @@ import i18n from "../../i18n";
 import FriendList from "./FriendList";
 import Filter from "../map/options/Filter";
 
-import {fill} from "@cloudinary/url-gen/actions/resize";
-import {CloudinaryImage} from '@cloudinary/url-gen';
 import {v4 as uuidv4} from "uuid";
 import ImgbbUploader from "../ImgbbUploader";
 
