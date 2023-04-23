@@ -21,6 +21,14 @@
   "notificationTime": "Jetzt",
   "notificationMarkerAdded": "Neuer Marker",
   "notificationMessageMarker": "Ihr Marker wurde erfolgreich hinzugefügt!",
+  "notificationAddFriendError": "Der Benutzer, den Sie hinzufügen möchten, hat kein Konto beim ausgewählten Anbieter.",
+  "notificationAddFriendErrorTitle": "Ihr Freund konnte nicht hinzugefügt werden",
+  "notificationAddFriend": "Ihr Freund wurde erfolgreich hinzugefügt",
+  "notificationAddFriendTitle": "Freund hinzugefügt",
+  "notificationRemoveFriend": "Ihr Freund wurde erfolgreich entfernt",
+  "notificationRemoveFriendTitle": "Freund entfernt",
+  "notificationPermissionsFriend": "Leseberechtigungen wurden Ihrem Freund erfolgreich zugewiesen",
+  "notificationPermissionsFriendTitle": "Leseberechtigungen zugewiesen",
 
   "footer": "© Arquisoft - UNIOVI",
   "homeInfo1": "GOMap!® ist eine Anwendung, bei der Benutzer personalisierte Karten über lokale Orte und Geschäfte in ihrer Stadt wie Geschäfte, Bars, Restaurants, Monumente, Kinos usw. haben können.",
@@ -86,5 +94,12 @@
   "panelFax": "Unser Fax",
   "panelEmail": "Unsere E-Mail-Adresse",
 
-  "provider": "Wählen Sie den POD-Anbieter aus:"
+  "provider": "Wählen Sie den POD-Anbieter aus:",
+  "userName": "Geben Sie den Benutzernamen ein:",
+  "buttonAddFriend": "Freund hinzufügen",
+  "friendName": "Name",
+  "friendPermissions": "Berechtigungen",
+  "removeFriend": "Freund entfernen",
+  "buttonGivePermissions": "Berechtigungen geben",
+  "buttonRemoveFriend": "Entfernen"
 }

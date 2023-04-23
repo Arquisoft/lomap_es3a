@@ -13,23 +13,18 @@
     width: 30em;
     height: 35em;
     margin: auto;
-    padding: 1em 2em 1em 2em;
+    padding: 0em 2em 1em 2em;
     background-color: #3b4594;
     border-radius: 2em;
 }
 
 #loginForm h1{
-    font-size: 3.5em;
+    font-size: 2.3em;
     padding-bottom: 0.3em;
 }
 #loginForm p{
     color: white;
     font-size: 1.5em;
-}
-
-#loginForm h2{
-    font-size: 3em;
-    margin-bottom: 1em;
 }
 
 #loginForm select{

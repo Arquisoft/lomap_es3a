@@ -3,6 +3,7 @@ import {useTranslation} from "react-i18next";
 import {Button} from "@mui/material";
 import {LoginButton} from "@inrupt/solid-ui-react";
 import "../../css/login.css";
+import Logo from "../../img/FullLogo.png";
 
 function LoginPage() {
     const {t} = useTranslation();
@@ -23,8 +24,8 @@ function LoginPage() {
     return (
         <div id="loginBody">
             <div id="loginForm">
-                <h1>LoMap</h1>
-                <h2>Sign In</h2>
+                <img src={Logo} width={350}/>
+                <h1>{t("login")}</h1>
                 <form>
                     <p>{t("provider")}</p>
                     <select onChange={changeProvider} id="selectProvider">
