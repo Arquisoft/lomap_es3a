@@ -1,3 +1,4 @@
+import {useTranslation} from "react-i18next";
 import { useState } from 'react';
 import {
     Box,
@@ -14,13 +15,13 @@ import {
 import { Link } from 'react-router-dom';
 import {FOAF, VCARD} from "@inrupt/lit-generated-vocab-common";
 import {CombinedDataProvider, LogoutButton, Text, Image} from '@inrupt/solid-ui-react';
-import {t} from "i18next";
 import * as React from "react";
 interface AvatarType {
     webId: string;
 }
 
 const OurAvatar = ({ webId}: AvatarType) => {
+    const {t} = useTranslation();
     const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
     const handleOpenUserMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -41,13 +42,13 @@ const OurAvatar = ({ webId}: AvatarType) => {
         </span>
     );
 
-    const settings = ['Account', 'Dashboard'];
+
 
     return (
         <Container maxWidth="xs">
             <Toolbar disableGutters>
                 <Box sx={{ flexGrow: 0 }}>
-                    <Tooltip title="Open settings">
+                    <Tooltip title={t("options-profile")}>
                         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                             <CombinedDataProvider datasetUrl={webId} thingUrl={webId}>
                                 <Avatar
@@ -78,16 +79,12 @@ const OurAvatar = ({ webId}: AvatarType) => {
                         <MenuItem onClick={handleCloseUserMenu} component={Link} to="/profile">
                             <Typography textAlign="center">{dropdownTitle}</Typography>
                         </MenuItem>
-                        {settings.map((setting) => (
-                            <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                <Typography textAlign="center">{setting}</Typography>
-                            </MenuItem>
-                        ))}
+
                         <MenuItem onClick={handleCloseUserMenu} component={Link} to="/profile">
-                            <Typography textAlign="center">{'Profile'}</Typography>
+                            <Typography textAlign="center">{t("profile")}</Typography>
                         </MenuItem>
                         <MenuItem onClick={handleCloseUserMenu} component={Link} to="/friends">
-                            <Typography textAlign="center">{"Friends"}</Typography>
+                            <Typography textAlign="center">{t("friends")}</Typography>
                         </MenuItem>
                         <MenuItem>
                             <LogoutButton>

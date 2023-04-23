@@ -101,5 +101,9 @@
   "friendPermissions": "权限",
   "removeFriend": "删除朋友",
   "buttonGivePermissions": "授予权限",
-  "buttonRemoveFriend": "删除"
+  "buttonRemoveFriend": "删除",
+
+  "options-profile": "打开选项" ,
+  "profile": "用户档案",
+  "friends": "朋友们"
 }
