@@ -36,6 +36,18 @@ h2{
     max-height: 450px;
 }
 
+#friendsTable::-webkit-scrollbar {
+    width: 8px;
+}
+
+#friendsTable::-webkit-scrollbar-track {
+    background: rgba(111, 132, 246, 0.79);
+}
+
+#friendsTable::-webkit-scrollbar-thumb {
+    background: rgba(84, 100, 187, 0.79);
+    border-radius: 8px;
+}
 
 th,td{
     border: 1px solid #000;

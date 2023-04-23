@@ -25,7 +25,7 @@ function LoginPage() {
         <div id="loginBody">
             <div id="loginForm">
                 <img src={Logo} width={350}/>
-                <h1>Sign In</h1>
+                <h1>{t("login")}</h1>
                 <form>
                     <p>{t("provider")}</p>
                     <select onChange={changeProvider} id="selectProvider">
