@@ -13,7 +13,6 @@ function ContactForm() {
     const {t} = useTranslation();
 
     const handleSubmit = () => {
-        // Aquí se puede agregar el código para enviar el formulario
         console.log(`Nombre: ${name}, Email: ${email}, Mensaje: ${message}`);
         setName("");
         setEmail("");

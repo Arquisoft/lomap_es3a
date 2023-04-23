@@ -17,26 +17,27 @@ function Filter({titleFilter, nameFilter, usersWebId, setItem}: IProps) {
     const {t} = useTranslation();
 
     let categories = [];
-    if (nameFilter !== "edit")
+    if (nameFilter !== "edit") {
         categories.push({value: "All", text: t('all')});
-    categories.push({value: "bar", text: t('bar')});
-    categories.push({value: "restaurant", text: t('restaurant')});
-    categories.push({value: "shop", text: t('shops')});
-    categories.push({value: "supermarket", text: t('supermarket')});
-    categories.push({value: "hotel", text: t('hotel')});
-    categories.push({value: "cinema", text: t('cinema')});
-    categories.push({value: "academicInstitution", text: t('academicInstitution')});
-    categories.push({value: "publicInstitution", text: t('publicInstitution')});
-    categories.push({value: "sportsClub", text: t('sportsClub')});
-    categories.push({value: "museum", text: t('museum')});
-    categories.push({value: "park", text: t('park')});
-    categories.push({value: "landscape", text: t('landscape')});
-    categories.push({value: "monument", text: t('monument')});
-    categories.push({value: "hospital", text: t('hospital')});
-    categories.push({value: "policeStation", text: t('policeStation')});
-    categories.push({value: "transportCenter", text: t('transportCenter')});
-    categories.push({value: "entertainment", text: t('entertainment')});
-    categories.push({value: "other", text: t('others')});
+        categories.push({value: "bar", text: t('bar')});
+        categories.push({value: "restaurant", text: t('restaurant')});
+        categories.push({value: "shop", text: t('shop')});
+        categories.push({value: "supermarket", text: t('supermarket')});
+        categories.push({value: "hotel", text: t('hotel')});
+        categories.push({value: "cinema", text: t('cinema')});
+        categories.push({value: "academicInstitution", text: t('academicInstitution')});
+        categories.push({value: "publicInstitution", text: t('publicInstitution')});
+        categories.push({value: "sportsClub", text: t('sportsClub')});
+        categories.push({value: "museum", text: t('museum')});
+        categories.push({value: "park", text: t('park')});
+        categories.push({value: "landscape", text: t('landscape')});
+        categories.push({value: "monument", text: t('monument')});
+        categories.push({value: "hospital", text: t('hospital')});
+        categories.push({value: "policeStation", text: t('policeStation')});
+        categories.push({value: "transportCenter", text: t('transportCenter')});
+        categories.push({value: "entertainment", text: t('entertainment')});
+        categories.push({value: "other", text: t('others')});
+    }
 
     function updateMarkers() {
         if (nameFilter !== "edit") {

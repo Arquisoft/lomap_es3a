@@ -28,6 +28,9 @@
   "docsButton": "See our documentation 🔗",
   "techStack": "Used technologies:",
   "optionsMenu": "Map options",
+  "mapSelector": "Map selector",
+  "createNewMap": "Create new map",
+  "create": "Create",
   "search": "Search",
   "searchPlaceholder": "Type to search...",
   "category": "Category",
@@ -64,6 +67,7 @@
   "confirm": "Confirm",
 
   "media": "Media",
+  "noImages": "There are no images for this marker",
   "reviews": "Reviews",
   "addReview": "Add your review...",
   "add": "Add",
