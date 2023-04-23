@@ -101,5 +101,10 @@
   "friendPermissions": "Permisos",
   "removeFriend": "Eliminar amigo",
   "buttonGivePermissions": "Dar permisos",
-  "buttonRemoveFriend": "Eliminar"
+  "buttonRemoveFriend": "Eliminar",
+
+  "options-profile": "Abrir opciones",
+  "profile": "Perfil de usuario",
+  "friends": "Amigos",
+  "upload": "Subir la imagen"
 }
