@@ -79,8 +79,9 @@ const OurAvatar = ({ webId}: AvatarType) => {
                     >
                         <MenuItem onClick={handleCloseUserMenu} component={Link} to="/profile">
                             <Typography textAlign="center">{t("registered-as")} <strong><em>{dropdownTitle}</em></strong></Typography>
+
                         </MenuItem>
-                        <Divider />
+                        <Divider style={{ borderColor: "#333" }} />
                         <MenuItem onClick={handleCloseUserMenu} component={Link} to="/profile">
                             <ListItemIcon>
                                 <Person fontSize="small" />
