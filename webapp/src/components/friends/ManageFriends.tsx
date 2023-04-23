@@ -101,7 +101,7 @@ function ManageFriends(){
             <div id="friendsConfigurationBody">
                 <h1>{t("friends")}</h1>
                 { showButtonAdd ? (
-                    <button onClick={showFormAddFriend} id="buttonAddFriend">Añadir amigo</button>
+                    <button onClick={showFormAddFriend} id="buttonAddFriend">{t("buttonAddFriend")}</button>
                 ) : (
                     <div id="formAddFriend">
                         <div id="friendProvider">
@@ -112,11 +112,11 @@ function ManageFriends(){
                             </select>
                         </div>
                         <div id="friendName">
-                            <p>Introduce nombre usuario:</p>
+                            <p>{t("userName")}</p>
                             <input type="text" id="inputNameFriend"></input>
                         </div>
                         <div id="buttonAddFriendToPod">
-                            <button onClick={addFriend}>Añadir amigo</button>
+                            <button onClick={addFriend}>{t("buttonAddFriend")}</button>
                         </div>
                     </div>
                 )
@@ -127,9 +127,9 @@ function ManageFriends(){
                     <table>
                         <thead>
                             <tr>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Dar permisos</th>
-                                <th scope="col">Eliminar amigo</th>
+                                <th scope="col">{t("friendName")}</th>
+                                <th scope="col">{t("friendPermissions")}</th>
+                                <th scope="col">{t("removeFriend")}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -151,8 +151,8 @@ function ManageFriends(){
                                             {friend.name}
                                         </div>
                                     </th>
-                                    <td><button id="buttonPermissions" onClick={() => givePermissions(friend.webId)}>Dar permisos</button></td>
-                                    <td><button id="buttonDelete" onClick={() => removeFriend(friend.webId)}>Eliminar</button></td>
+                                    <td><button id="buttonPermissions" onClick={() => givePermissions(friend.webId)}>{t("buttonGivePermissions")}</button></td>
+                                    <td><button id="buttonDelete" onClick={() => removeFriend(friend.webId)}>{t("buttonRemoveFriend")}</button></td>
                                 </tr>
                         ))
                     }

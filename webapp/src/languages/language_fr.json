@@ -90,5 +90,12 @@
   "panelFax": "Notre fax",
   "panelEmail": "Notre email",
 
-  "provider": "Sélectionnez le fournisseur du POD:"
+  "provider": "Sélectionnez le fournisseur du POD:",
+  "userName": "Entrez le nom d'utilisateur:",
+  "buttonAddFriend": "Ajouter un ami",
+  "friendName": "Nom",
+  "friendPermissions": "Permissions",
+  "removeFriend": "Supprimer l'ami",
+  "buttonGivePermissions": "Donner des permissions",
+  "buttonRemoveFriend": "Supprimer"
 }

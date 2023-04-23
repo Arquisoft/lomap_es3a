@@ -90,5 +90,12 @@
   "panelFax": "我们的传真",
   "panelEmail": "我们的电子邮件",
 
-  "provider": "选择POD提供者:"
+  "provider": "选择POD提供者:",
+  "userName": "输入用户名：",
+  "buttonAddFriend": "添加朋友",
+  "friendName": "名称",
+  "friendPermissions": "权限",
+  "removeFriend": "删除朋友",
+  "buttonGivePermissions": "授予权限",
+  "buttonRemoveFriend": "删除"
 }

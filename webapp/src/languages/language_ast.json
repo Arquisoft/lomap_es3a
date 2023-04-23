@@ -90,5 +90,12 @@
   "panelFax": "El nuesu fax",
   "panelEmail": "El nuesu corréu electrónicu",
 
-  "provider": "Seleccione'l proveedor del POD:"
+  "provider": "Seleccione'l proveedor del POD:",
+  "userName": "Introduz el nome d'usuariu:",
+  "buttonAddFriend": "Amestar amigu",
+  "friendName": "Nome",
+  "friendPermissions": "Permisos",
+  "removeFriend": "Esborrar amigu",
+  "buttonGivePermissions": "Dar permisos",
+  "buttonRemoveFriend": "Esborrar"
 }
