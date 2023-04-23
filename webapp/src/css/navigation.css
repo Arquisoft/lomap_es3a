@@ -35,37 +35,37 @@ nav.nav-expanded {
 
 .dropdown-toggle {
     font-size: 1.8em !important;
-    text-decoration: none;
+    text-decoration: none !important;
     color: white !important;
     background-color: #232269 !important;
     border: none !important;
 }
 
 .dropdown-menu {
-    background-color: #23226a;
-    border-style: solid;
-    border-color: white;
-    border-width: 0.0625em;
+    background-color: #23226a !important;
+    border-style: solid !important;
+    border-color: white !important;
+    border-width: 0.0625em !important;
 }
 
 .dropdown-item {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
     font-size: 1.15em !important;
     text-decoration: none;
-    color: rgba(148, 148, 148, 0.61);
+    color: rgba(148, 148, 148, 0.61) !important;
     cursor: pointer;
 }
 
 .dropdown-item:hover {
-    background-color: #23226a;
-    color: white;
+    background-color: #23226a !important;
+    color: white !important;
 }
 
 .dropdown-item.active, .dropdown-item:active {
-    background-color: #23226a;
-    color: white;
+    background-color: #23226a !important;
+    color: white !important;
 }
 
 nav a:hover {

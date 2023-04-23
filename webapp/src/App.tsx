@@ -9,6 +9,7 @@ import MapPage from "./components/map/MapPage";
 import HelpPage from "./components/help/HelpPage";
 import AboutPage from "./components/about/AboutPage";
 import UserProfile from "./components/UserProfile";
+import ManageFriends from "./components/friends/ManageFriends";
 
 function App(): JSX.Element {
 
@@ -27,6 +28,12 @@ function App(): JSX.Element {
                         path='/login'
                         element={
                             <LoginPage/>
+                        }
+                    />
+                    <Route
+                        path='/friends'
+                        element={
+                            <ManageFriends/>
                         }
                     />
                     <Route
