@@ -18,6 +18,7 @@ import {fill} from "@cloudinary/url-gen/actions/resize";
 import {CloudinaryImage} from '@cloudinary/url-gen';
 import {AdvancedImage} from "@cloudinary/react";
 import {v4 as uuidv4} from "uuid";
+import ImgbbUploader from "../ImgbbUploader";
 
 const myImage = new CloudinaryImage('sample', {cloudName: 'dwyizn0f7'}).resize(fill().width(50).height(50));
 
@@ -185,17 +186,32 @@ function ButtonAddPod({
         }
     };
 
+    const [imageUrl, setImageUrl] = useState("");
+
+    function handleUploadSuccess(imageUrl: string) {
+        setImageUrl(imageUrl);
+    }
+
+    function handleUploadFailure(error: Error) {
+        console.error(error);
+    }
+
     return (
 
         <div id="addPanel">
             <Button variant="contained" color="primary" onClick={handleClick}>
                 {t("confirm")}
             </Button>
-            <IconButton color="primary" aria-label="upload picture" component="label">
-                <input hidden accept="image/*" type="file"/>
-                <PhotoCamera/>
-            </IconButton>
-            <AdvancedImage cldImg={myImage}/>
+
+            <div>
+                <ImgbbUploader
+                    apiKey="7e17d052e1f665b83d3addfe291f8047"
+                    onUploadSuccess={handleUploadSuccess}
+                    onUploadFailure={handleUploadFailure}
+                />
+                {imageUrl && <img src={imageUrl} alt="Uploaded" />}
+            </div>
+
             {showNotification && (
                 <Notification
                     title={t("notificationMarkerAdded")}
