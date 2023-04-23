@@ -36,6 +36,9 @@
   "docsButton": "Voir notre documentation 🔗",
   "techStack": "Technologies utilisées :",
   "optionsMenu": "Options de la carte",
+  "mapSelector": "Sélecteur de carte",
+  "createNewMap": "Créer une nouvelle carte",
+  "create": "Créer",
   "search": "Rechercher",
   "searchPlaceholder": "Écrivez pour rechercher...",
   "category": "Catégorie",
@@ -72,6 +75,7 @@
   "confirm": "Confirmer",
 
   "media": "Médias",
+  "noImages": "Il n'y a pas d'images pour ce signet.",
   "reviews": "Avis",
   "addReview": "Ajoutez votre avis...",
   "add": "Ajouter",

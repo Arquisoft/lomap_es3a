@@ -82,10 +82,7 @@ function NavBar() {
                     <LanguageMenu/>
 
                     <div id="login-manage">
-                        {(!isLoggedIn) ? "" : <OurAvatar webId={webId}/>
-
-
-                        }
+                        {(!isLoggedIn) ? "" : <OurAvatar webId={webId}/>}
                         {isLoggedIn ? "" : (
                             <Link to="/login">
                                 <Button variant="contained" color="primary" id="login">

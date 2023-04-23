@@ -16,10 +16,14 @@ select, option {
     font-size: 1.25em;
     font-weight: lighter;
     color: white;
-    background-color: rgba(15, 94, 197, 0.8);
+    background-color: rgba(35, 34, 105, 0.6);
     padding: 0.313em;
     border-radius: 0.313em;
     width: 90%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 0.125em solid #91b4f3;
 }
 
 #rating {
@@ -39,32 +43,61 @@ select, option {
 
 #searchText {
     width: 70%;
-    border-bottom-left-radius: 0.313em;
-    border-top-left-radius: 0.313em;
 }
 
 #searchButton {
     font-size: 1.25em;
     font-weight: lighter;
     color: white;
-    background-color: rgba(15, 94, 197, 0.8);
     padding: 0.313em;
-    border-bottom-right-radius: 0.313em;
-    border-top-right-radius: 0.313em;
     width: 20%;
+    background-color: rgba(35, 34, 105, 0.6);
+    margin-bottom: 0.15em;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 0.125em solid #91b4f3;
 }
 
-#searchText, #namePlace, #comment, #latitude, #longitude {
+#searchButton:hover {
+    border-top-right-radius: 0.2em;
+    border-top-left-radius: 0.2em;
+    background-color: rgba(0, 127, 253, 0.7);
+}
+
+#searchText, #namePlace, #comment, #latitude, #longitude, #newMapTitle {
     font-size: 1.25em;
     font-weight: lighter;
     color: white;
-    background-color: rgba(15, 94, 197, 0.8);
     padding: 0.313em;
+    background-color: rgba(35, 34, 105, 0.6);
+    margin-bottom: 0.15em;
+    border-radius: 0.1em;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 0.125em solid #91b4f3;
 }
 
-#namePlace, #comment, #latitude, #longitude {
+#namePlace, #comment, #latitude, #longitude  {
     width: 90%;
     border-radius: 0.313em;
+}
+
+#newMapTitle {
+    width: 55%;
+    border-radius: 0.313em;
+}
+
+#createButton {
+    width: 35%;
+}
+
+#newMapButtonPanel {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.25em;
 }
 
 #mapPage {
@@ -73,7 +106,7 @@ select, option {
 }
 
 #mapView {
-    height: 85vh;
+    height: 90vh;
     width: 80vw;
     border-top-left-radius: 0.625em;
     overflow: hidden;
@@ -84,7 +117,7 @@ select, option {
     color: white;
     background-color: rgb(35, 34, 105);
     text-align: center;
-    height: 85vh;
+    height: 90vh;
     width: 20vw;
     overflow-x: hidden;
 }
@@ -109,7 +142,7 @@ select, option {
     font-weight: bold;
     background-color: rgba(35, 34, 105, 0.8);
     text-align: center;
-    height: 85vh;
+    height: 90vh;
     width: 0;
     right: 0;
     position: absolute;
@@ -167,7 +200,7 @@ select, option {
 }
 
 #markerData {
-    text-align: flex-start;
+    text-align: start;
     align-items: center;
     margin-left: 1.5em;
 }
@@ -179,7 +212,7 @@ select, option {
 #showMarkerScore {
     display: flex;
     flex-direction: row;
-    text-align: flex-start;
+    text-align: start;
     align-items: center;
     gap: 0.5em;
 }
@@ -199,6 +232,11 @@ select, option {
 #showMarkerCategory {
     font-size: 1.25em;
     font-style: italic;
+    font-weight: lighter;
+}
+
+#showMarkerDescription {
+    font-size: 1em;
     font-weight: lighter;
 }
 
@@ -230,11 +268,16 @@ select, option {
     width: 100%;
     font-weight: lighter;
     color: white;
-    background-color: rgba(15, 94, 197, 0.8);
+    background-color: rgba(35, 34, 105, 0.6);
     margin-bottom: 0.15em;
+    border-radius: 0.2em;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 0.125em solid #91b4f3;
 }
 
-#reviewButton {
+#reviewButton, #createButton {
     font-size: 1.15em;
     font-weight: bold;
     color: white;
@@ -279,4 +322,14 @@ select, option {
     background-color: #273572;
     padding: 0.4em;
     border-radius: 0.2em;
+}
+
+#no-image {
+    padding: 2em 0 2em 0;
+    margin: 1em 0.3em 1em;
+    font-style: italic;
+    font-weight: lighter;
+    border-style: solid;
+    border-radius: 0.3em;
+    border-width: 0.1em;
 }

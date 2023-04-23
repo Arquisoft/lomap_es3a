@@ -36,6 +36,9 @@
   "docsButton": "Ver nuestra documentación 🔗",
   "techStack": "Tecnologías utilizadas:",
   "optionsMenu": "Opciones del mapa",
+  "mapSelector": "Selector de mapa",
+  "createNewMap": "Crear nuevo mapa",
+  "create": "Crear",
   "search": "Buscar",
   "searchPlaceholder": "Escribe para buscar...",
   "category": "Categoría",
@@ -72,6 +75,7 @@
   "confirm": "Confirmar",
 
   "media": "Multimedia",
+  "noImages": "No hay imágenes para este marcador",
   "reviews": "Reseñas",
   "addReview": "Añade tu reseña...",
   "add": "Añadir",
