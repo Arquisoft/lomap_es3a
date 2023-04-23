@@ -87,6 +87,9 @@ const OurAvatar = ({ webId}: Props) => {
                         <MenuItem onClick={handleCloseUserMenu} component={Link} to="/profile">
                             <Typography textAlign="center">{'Profile'}</Typography>
                         </MenuItem>
+                        <MenuItem onClick={handleCloseUserMenu} component={Link} to="/friends">
+                            <Typography textAlign="center">{"Friends"}</Typography>
+                        </MenuItem>
                         <MenuItem>
                             <LogoutButton>
                                 <Button variant="contained" color="error" id="logout">

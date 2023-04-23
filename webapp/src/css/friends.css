@@ -1,0 +1,149 @@
+#friendsConfiguration{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2em;
+}
+#friendsConfigurationBody{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em 2em 2em 2em;
+    background-color: #3b4594;
+    border-radius: 1em;
+}
+
+thead{
+    background-color: rgba(84, 100, 187, 0.79);
+}
+
+tbody > tr{
+    background-color: rgba(111, 132, 246, 0.79);
+}
+
+h2{
+    font-size: 3em;
+}
+
+#friendsTable{
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: 0.5em;
+    overflow: auto;
+    max-height: 450px;
+}
+
+#friendsTable::-webkit-scrollbar {
+    width: 8px;
+}
+
+#friendsTable::-webkit-scrollbar-track {
+    background: rgba(111, 132, 246, 0.79);
+}
+
+#friendsTable::-webkit-scrollbar-thumb {
+    background: rgba(84, 100, 187, 0.79);
+    border-radius: 8px;
+}
+
+th,td{
+    border: 1px solid #000;
+    padding: 0.7em;
+}
+
+tr{
+    font-size: 1.5em;
+}
+
+#friendNamePhoto{
+    display: flex;
+    align-items: center;
+}
+
+#friendPhoto{
+    margin-right: 2em;
+}
+
+#buttonPermissions{
+    border-radius: 0.3em;
+    font-size: 0.8em;
+    padding: 0.3em;
+    background-color: #0bb70b;
+    color: white;
+}
+#buttonDelete{
+    border-radius: 0.3em;
+    font-size: 0.8em;
+    padding: 0.3em;
+    background-color: #d90a0a;
+    color: white;
+}
+
+#buttonAddFriend{
+    margin-top: 0.8em;
+    margin-bottom: 1.5em;
+    font-size: 1.2em;
+    border-radius: 0.3em;
+    padding: 0.3em;
+    color: white;
+    background-color: rgba(15, 94, 197, 0.8);
+}
+
+#buttonAddFriend:hover{
+    background-color: #00a6fb;
+}
+
+#formAddFriend{
+    display: flex;
+    margin-bottom: 1.5em;
+    font-size: 1.2em;
+    color: white;
+}
+
+#friendProvider{
+    margin-right: 2em;
+}
+
+#formAddFriend > select{
+    width: 8em;
+}
+
+#friendName{
+    margin-right: 2em;
+}
+
+#friendName > input{
+    font-weight: lighter;
+    color: white;
+    background-color: rgba(15, 94, 197, 0.8);
+    padding: 0.313em;
+    border-radius: 0.3em;
+}
+
+#buttonAddFriendToPod{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#buttonAddFriendToPod > button{
+    border-radius: 0.3em;
+    padding: 0.3em;
+    color: white;
+    background-color: rgba(15, 94, 197, 0.8);
+}
+
+#buttonAddFriendToPod > button:hover {
+    background-color: #00a6fb;
+}
+
+#buttonDelete:hover{
+    background-color: #960707;
+}
+
+#buttonPermissions:hover{
+    background-color: #0a7c0a;
+}
