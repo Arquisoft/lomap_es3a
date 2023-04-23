@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import { PhotoCamera } from "@mui/icons-material";
 import "../../src/css/map.css";
-
+import {useTranslation} from "react-i18next";
 interface ImgbbUploaderProps {
     apiKey: string;
     onUploadSuccess: (imageUrl: string) => void;
@@ -10,6 +10,7 @@ interface ImgbbUploaderProps {
 }
 
 function ImgbbUploader(props: ImgbbUploaderProps) {
+    const {t} = useTranslation();
     const { apiKey, onUploadSuccess, onUploadFailure } = props;
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
     const [isChecked, setIsChecked] = useState<boolean>(false);
@@ -75,7 +76,7 @@ function ImgbbUploader(props: ImgbbUploaderProps) {
                     />
                     <PhotoCamera />
                     <div className="icon-button-overlay" style={{ marginLeft: "8px" }}>
-                        Subir foto
+                        {t("upload")}
                     </div>
                 </IconButton>
             </label>
