@@ -13,15 +13,14 @@ import {
 } from '@mui/material';
 import { Link } from 'react-router-dom';
 import {FOAF, VCARD} from "@inrupt/lit-generated-vocab-common";
-import {CombinedDataProvider, LogoutButton, Text} from '@inrupt/solid-ui-react';
-import {Image} from "@inrupt/solid-ui-react";
+import {CombinedDataProvider, LogoutButton, Text, Image} from '@inrupt/solid-ui-react';
 import {t} from "i18next";
 import * as React from "react";
-interface Props {
+interface AvatarType {
     webId: string;
 }
 
-const OurAvatar = ({ webId}: Props) => {
+const OurAvatar = ({ webId}: AvatarType) => {
     const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
     const handleOpenUserMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -45,15 +44,15 @@ const OurAvatar = ({ webId}: Props) => {
     const settings = ['Account', 'Dashboard'];
 
     return (
-        <Container maxWidth="xl">
+        <Container maxWidth="xs">
             <Toolbar disableGutters>
                 <Box sx={{ flexGrow: 0 }}>
                     <Tooltip title="Open settings">
                         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                             <CombinedDataProvider datasetUrl={webId} thingUrl={webId}>
                                 <Avatar
-                                    alt="Remy Sharp"
-                                    sx={{ width: 65, height: 65, mb: 2 }}
+                                    alt="Profile picture"
+                                    sx={{ width: 65, height: 65, mb: 2, margin: 0 }}
                                 >
                                     <Image property={VCARD.hasPhoto.iri.value} width={65} />
                                 </Avatar>

@@ -5,20 +5,20 @@ import {LoginButton} from "@inrupt/solid-ui-react";
 import "../../css/login.css";
 
 function LoginPage() {
+    const {t} = useTranslation();
+
     const [idp, setIdp] = useState("https://inrupt.net");
+
     const providers = [
         {name: "Inrupt", value: "https://inrupt.net"},
         {name: "SolidCommunity", value: "https://solidcommunity.net"},
     ];
-    const {t} = useTranslation();
-
 
     function changeProvider() {
         let provider = (document.getElementById("selectProvider") as HTMLSelectElement).value;
         console.log(provider)
         setIdp(provider)
     }
-
 
     return (
         <div id="loginBody">

@@ -38,8 +38,7 @@ nav.nav-expanded {
     text-decoration: none;
     color: white !important;
     background-color: #232269 !important;
-    border-style: none;
-    margin-right: 1em;
+    border: none !important;
 }
 
 .dropdown-menu {
@@ -69,11 +68,11 @@ nav.nav-expanded {
     color: white;
 }
 
-nav a:hover, #login-manage a:hover {
+nav a:hover {
     color: #ffffff !important;
 }
 
-nav a:active, #login-manage a:active {
+nav a:active {
     color: #007ffd;
 }
 
@@ -81,15 +80,6 @@ nav a:active, #login-manage a:active {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-#login-manage a {
-    font-size: 0.9375em;
-    color: #c5dff1;
-    padding: 0.625em;
-    margin-top: -0.3125em;
-    margin-right: 0;
-    text-align: center;
 }
 
 #login, #logout {
@@ -100,7 +90,6 @@ nav a:active, #login-manage a:active {
     border-color: white;
     border-width: 0.1875em;
     cursor: pointer;
-    margin-top: 0.625em;
 }
 
 #login {
