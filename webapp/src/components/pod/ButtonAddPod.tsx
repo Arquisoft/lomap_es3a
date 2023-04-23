@@ -1,6 +1,7 @@
+import "../../css/navigation.css";
 import {useSession} from "@inrupt/solid-ui-react";
 import {getFile, overwriteFile} from "@inrupt/solid-client";
-import {Button} from "@mui/material";
+import {Button, Container} from "@mui/material";
 import React, {useState} from "react";
 import {Session} from "@inrupt/solid-client-authn-browser";
 import Notification from "../Notification";
@@ -190,12 +191,27 @@ function ButtonAddPod({
         console.error(error);
     }
 
+    const styles = {
+        container: {
+            marginTop: 1,
+            border: '2px solid white',
+            borderRadius: '10px',
+            width: 250,
+            height: 250,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+        },
+        image: {
+            maxWidth: '100%',
+            maxHeight: '100%',
+            objectFit: 'contain',
+        },
+    };
+
     return (
 
         <div id="addPanel">
-            <Button variant="contained" color="primary" onClick={handleClick}>
-                {t("confirm")}
-            </Button>
 
             <div>
                 <ImgbbUploader
@@ -203,8 +219,22 @@ function ButtonAddPod({
                     onUploadSuccess={handleUploadSuccess}
                     onUploadFailure={handleUploadFailure}
                 />
-                {imageUrl && <img src={imageUrl} alt="Uploaded" />}
+
+                <Container sx={styles.container}>
+                    {imageUrl && <img src={imageUrl} alt="Uploaded" width="100%"/>}
+
+                </Container>
+
+
+
             </div>
+
+
+            <Button variant="contained" color="primary" onClick={handleClick}>
+                {t("confirm")}
+            </Button>
+
+
 
             {showNotification && (
                 <Notification
