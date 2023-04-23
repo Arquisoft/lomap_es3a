@@ -3,17 +3,6 @@ import {useSession} from "@inrupt/solid-ui-react";
 import {findPersonData, PersonData} from "./FriendsPOD";
 import botonRojo from "../../img/botonRojo.png";
 import botonVerde from "../../img/botonVerde.png";
-import {
-    createAclFromFallbackAcl,
-    getResourceAcl,
-    getSolidDatasetWithAcl,
-    hasAccessibleAcl,
-    hasFallbackAcl,
-    hasResourceAcl,
-    saveAclFor,
-    setAgentDefaultAccess,
-    setAgentResourceAccess
-} from "@inrupt/solid-client";
 import {initReactI18next, useTranslation} from "react-i18next";
 import i18n from "../../i18n";
 import ReactDOM from "react-dom/client";

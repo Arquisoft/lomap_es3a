@@ -95,11 +95,11 @@ export const findPersonData = async (session: Session,webId: IriString): Promise
 }
 
 export async function removeFriendFromPOD(friendWebId:string,webId:string){
-    let solidDataset = await getSolidDataset(webId!);
-    let friends = getThing(solidDataset, webId!) as Thing;
+    let solidDataset = await getSolidDataset(webId);
+    let friends = getThing(solidDataset, webId) as Thing;
     friends = buildThing(friends).removeUrl(foaf.knows, friendWebId).build();
     solidDataset = setThing(solidDataset, friends);
-    await saveSolidDatasetAt(webId!, solidDataset, { fetch: fetch });
+    await saveSolidDatasetAt(webId, solidDataset, { fetch: fetch });
 }
 
 export async function addFriendToPod(provider:string,friendName:string,webId:string,session:Session){
@@ -111,7 +111,6 @@ export async function addFriendToPod(provider:string,friendName:string,webId:str
 
     }catch(e){
         return true
-        throw e
     }
 
     let solidDataset = await getSolidDataset(webId);
