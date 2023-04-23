@@ -10,13 +10,13 @@ import {
     Typography,
     Toolbar,
     Avatar,
-    Button, ListItemIcon, SnackbarContent, Divider,
+    Button, ListItemIcon, Divider,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
 import {FOAF, VCARD} from "@inrupt/lit-generated-vocab-common";
 import {CombinedDataProvider, LogoutButton, Text, Image} from '@inrupt/solid-ui-react';
 import * as React from "react";
-import {ContentCut, ContentCutRounded, ContentPasteSharp, Group, GroupAdd, Person} from "@mui/icons-material";
+import {GroupAdd, Person} from "@mui/icons-material";
 interface AvatarType {
     webId: string;
 }
@@ -78,7 +78,7 @@ const OurAvatar = ({ webId}: AvatarType) => {
                         onClose={handleCloseUserMenu}
                     >
                         <MenuItem onClick={handleCloseUserMenu} component={Link} to="/profile">
-                            <Typography textAlign="center">t("registered-as")<strong><em>{dropdownTitle}</em></strong></Typography>
+                            <Typography textAlign="center">{t("registered-as")} <strong><em>{dropdownTitle}</em></strong></Typography>
                         </MenuItem>
                         <Divider />
                         <MenuItem onClick={handleCloseUserMenu} component={Link} to="/profile">
