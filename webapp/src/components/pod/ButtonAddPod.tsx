@@ -221,7 +221,7 @@ function ButtonAddPod({
                 />
 
                 <Container sx={styles.container}>
-                    {imageUrl && <img src={imageUrl} alt="Uploaded" width="100%"/>}
+                    {imageUrl && <img src={imageUrl} alt="Uploaded" width="100%" height="100%"/>}
 
                 </Container>
 
