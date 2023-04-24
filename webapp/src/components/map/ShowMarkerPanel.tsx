@@ -35,9 +35,9 @@ function ShowMarkerPanel(props: { data: Point | undefined }) {
                 return 0;
             }
             for (const element of reviews) {
-                total += element.reviewRating;
+                total += Number(element.reviewRating);
             }
-            return total / reviews.length;
+            return Number(total / reviews.length);
         }
         return 0;
     }
