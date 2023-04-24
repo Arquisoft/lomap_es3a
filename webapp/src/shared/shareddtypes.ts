@@ -3,11 +3,6 @@ export type User = {
     email: string;
 }
 
-export type NavItemType = {
-    to: string;
-    text: string;
-}
-
 export type TechButtonType = {
     href: string;
     img: string;
