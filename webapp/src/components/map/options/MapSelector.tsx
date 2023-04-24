@@ -28,10 +28,8 @@ function MapSelector() {
         if (session.info === undefined || session.info === null) {
             return false;
         }
-        if (session.info.webId === undefined || session.info.webId === null || session.info.webId === "") {
-            return false;
-        }
-        return true;
+        return !(session.info.webId === undefined || session.info.webId === null || session.info.webId === "");
+
     }
 
     const handleCloseNotification = () => {
@@ -63,7 +61,7 @@ function MapSelector() {
     }
 
     useEffect(() => {
-        fetchMaps().then(r => console.log("Reading maps..."));
+        fetchMaps().then(r => console.log("Reading maps..." + r));
     }, [session.info.webId, session]);
 
     function beautifyMapName(mapName: string): string {
@@ -107,10 +105,9 @@ function MapSelector() {
         }
     }
 
-    function updateMap(mapName: string) {
+    function updateMap() {
         /*TODO*/
     }
-
 
     return (
         <div>
@@ -120,11 +117,10 @@ function MapSelector() {
                     (maps.length > 0) ?
                         <select value={selectedMap} onChange={(e) => {
                             setSelectedMap(e.target.value);
-                            updateMap(e.target.value);
+                            updateMap();
                         }}>
                             {
-                                maps.map(m =>
-                                    <option key={m} value={m}> {beautifyMapName(m)} </option>)
+                                maps.map(m => <option key={m} value={m}> {beautifyMapName(m)} </option>)
                             }
                         </select>
                         :

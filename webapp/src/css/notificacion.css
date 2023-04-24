@@ -9,6 +9,7 @@
     box-shadow: 0 0 0.625em rgba(0, 0, 0, 0.25);
     padding: 1rem;
     width: 25em;
+    z-index: 3;
 }
 
 .notification-icon {
