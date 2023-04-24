@@ -144,7 +144,7 @@ function ManageFriends(){
                                                         friend.photo!=='' && <Image property={VCARD.hasPhoto.iri.value} width={65}/>
                                                     }
                                                     {
-                                                        friend.photo==='' && <img src={profilePhoto} width={65}/>
+                                                        friend.photo==='' && <img src={profilePhoto} width={65} alt={friend.name}/>
                                                     }
                                                 </Avatar>
                                             </CombinedDataProvider>

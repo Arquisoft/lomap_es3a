@@ -16,7 +16,7 @@ import OurAvatar from "./OurAvatar";
 i18n.use(initReactI18next)
 
 function NavBar() {
-    const { session } = useSession();
+    const {session} = useSession();
 
     const {t} = useTranslation();
 
@@ -36,6 +36,7 @@ function NavBar() {
                 setIsNavExpanded(false);
             }
         }
+
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, [isNavExpanded]);
@@ -61,17 +62,21 @@ function NavBar() {
                         <NavItem to={"/about"} text={t("about")}/>
                     </ul>
                     <LanguageMenu/>
-
                     <div id="login-manage">
                         {
                             (session.info.isLoggedIn) ?
                                 <OurAvatar webId={session.info.webId}/>
                                 :
                                 <Link to="/login">
-                                    <Button variant="contained" color="primary" id="login">
+                                    <Button
+                                        variant="contained"
+                                        color="primary"
+                                        id="login"
+                                    >
                                         {t("login")}
                                     </Button>
                                 </Link>
+
                         }
                     </div>
                 </div>
