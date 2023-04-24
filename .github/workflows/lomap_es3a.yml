@@ -17,7 +17,7 @@ jobs:
     - run: npm --prefix webapp ci
     - run: npm --prefix webapp test --coverage --watchAll
     - name: Analyze with SonarCloud
-      uses: sonarsource/sonarcloud-github-action@1.8
+      uses: sonarsource/sonarcloud-github-action@v1.8
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
