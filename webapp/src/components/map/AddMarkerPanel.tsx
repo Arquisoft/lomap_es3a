@@ -5,7 +5,6 @@ import Comments from "./options/Comments";
 import Coordinates from "./options/Coordinates";
 import React from "react";
 import {initReactI18next, useTranslation} from "react-i18next";
-import Mark from "./options/Mark";
 import i18n from "../../i18n";
 
 i18n.use(initReactI18next)
