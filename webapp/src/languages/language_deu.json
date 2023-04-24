@@ -70,8 +70,8 @@
   "placesNamePlaceholder": "Name des Ortes eingeben...",
   "latitude": "Breitengrad",
   "longitude": "Längengrad",
-  "comment": "Kommentar",
-  "commentPlaceholder": "Kommentar eingeben...",
+  "description": "Beschreibung",
+  "descriptionPlaceholder": "Schreiben Sie, um eine Beschreibung hinzuzufügen...",
   "confirm": "Bestätigen",
 
   "media": "Medien",

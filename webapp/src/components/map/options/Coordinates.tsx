@@ -8,10 +8,10 @@ function Coordinates() {
 
     return (
         <div>
-            <h2>{t("latitude")}</h2>
-            <input type="text" id="latitude" readOnly={true}/>
-            <h2>{t("longitude")}</h2>
-            <input type="text" id="longitude" readOnly={true}/>
+            <h2 hidden={true}>{t("latitude")}</h2>
+            <input type="text" id="latitude" readOnly={true} hidden={true}/>
+            <h2 hidden={true}>{t("longitude")}</h2>
+            <input type="text" id="longitude" readOnly={true} hidden={true}/>
         </div>
     )
 }
