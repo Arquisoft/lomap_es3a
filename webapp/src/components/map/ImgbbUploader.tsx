@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import { PhotoCamera } from "@mui/icons-material";
-import "../../src/css/map.css";
+import "../../css/map.css";
 import {useTranslation} from "react-i18next";
 interface ImgbbUploaderProps {
     apiKey: string;

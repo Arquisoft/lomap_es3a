@@ -55,7 +55,7 @@ function ShowMarkerPanel(props: { data: Point | undefined }) {
                     </Avatar>
                 </CombinedDataProvider>
                 <div id="profileMarkerData">
-                    <h3>{props.data.author.slice(8, -27)}</h3>
+                    <h3>{props.data.author.slice(8, -27).toLocaleUpperCase(sessionStorage.getItem("language") || "en")}</h3>
                     <h4>{new Date(props.data.dateCreated).toLocaleDateString(sessionStorage.getItem("language") || "en")}</h4>
                 </div>
             </div>
@@ -73,7 +73,7 @@ function ShowMarkerPanel(props: { data: Point | undefined }) {
                     }
                 </Carousel>
                 :
-                <p id="no-image">{t("noImages")}</p>
+                <p className="no-content">{t("noImages")}</p>
             }
             <div id="markerData">
                 <h3>{props.data.name}</h3>

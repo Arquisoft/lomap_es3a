@@ -14,7 +14,7 @@ nav.nav-expanded {
 }
 
 .nav-link {
-    font-size: 2.2222222222em !important;
+    font-size: 2em !important;
     text-decoration: none;
     color: rgba(148, 148, 148, 0.61);
     transition:all 0.4s ease-in-out;

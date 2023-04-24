@@ -29,6 +29,8 @@
   "notificationRemoveFriendTitle": "Friend removed",
   "notificationPermissionsFriend": "Read permissions have been assigned to your friend successfully",
   "notificationPermissionsFriendTitle": "Read permissions assigned",
+  "notificationMapAdded": "New Map!",
+  "notificationMessageMap": "Your map has been created correctly!",
 
   "footer": "© Arquisoft - UNIOVI",
   "homeInfo1": "GOMap!® is an application where users can have custom maps about places and local business in their city like shops, bars, restaurants, monuments, cinemas...",

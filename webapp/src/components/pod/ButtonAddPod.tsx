@@ -14,7 +14,7 @@ import FriendList from "./FriendList";
 import Filter from "../map/options/Filter";
 
 import {v4 as uuidv4} from "uuid";
-import ImgbbUploader from "../ImgbbUploader";
+import ImgbbUploader from "../map/ImgbbUploader";
 
 
 i18n.use(initReactI18next)
@@ -191,24 +191,6 @@ function ButtonAddPod({
         console.error(error);
     }
 
-    const styles = {
-        container: {
-            marginTop: 1,
-            border: '2px solid white',
-            borderRadius: '10px',
-            width: 250,
-            height: 250,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-        },
-        image: {
-            maxWidth: '100%',
-            maxHeight: '100%',
-            objectFit: 'contain',
-        },
-    };
-
     return (
 
         <div id="addPanel">
@@ -220,9 +202,8 @@ function ButtonAddPod({
                     onUploadFailure={handleUploadFailure}
                 />
 
-                <Container sx={styles.container}>
+                <Container id="imgContainer">
                     {imageUrl && <img src={imageUrl} alt="Uploaded" width="100%" height="100%"/>}
-
                 </Container>
 
 

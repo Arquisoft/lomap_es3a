@@ -1,6 +1,6 @@
 h1 {
     font-family: 'Lato', sans-serif;
-    font-size: 2.5em;
+    font-size: 2.25em;
     color: #92b5f5;
     padding: 0.625em;
     margin: 0;
@@ -8,7 +8,7 @@ h1 {
 
 h2 {
     font-family: "Corbel Light", serif;
-    font-size: 1.563em;
+    font-size: 1.75em !important;
     margin: 0.625em;
 }
 
@@ -99,6 +99,7 @@ select, option {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     gap: 0.25em;
 }
 
@@ -291,6 +292,14 @@ select, option {
     background-color: #0063fd;
 }
 
+#reviewButton:hover, #createButton:hover {
+    background-color: #00a6fb;
+}
+
+#reviewButton:active, #createButton:active {
+    background-color: #007ffd;
+}
+
 .profileReview {
     display: flex;
     flex-direction: row;
@@ -326,7 +335,7 @@ select, option {
     border-radius: 0.2em;
 }
 
-#no-image {
+.no-content {
     padding: 2em 0 2em 0;
     margin: 1em 0.3em 1em;
     font-style: italic;
@@ -336,4 +345,23 @@ select, option {
     border-width: 0.1em;
 }
 
+.icon-button-container {
+    margin-top: 1em;
+}
 
+#imgContainer {
+    margin-top: 0.5em;
+    border: 2px solid white;
+    border-radius: 1em;
+    width: 15em;
+    height: 15em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}

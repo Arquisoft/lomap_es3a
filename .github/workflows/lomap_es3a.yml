@@ -15,10 +15,9 @@ jobs:
       with: 
           node-version: 18
     - run: npm --prefix webapp ci
-#    - run: npm --prefix restapi ci
     - run: npm --prefix webapp test --coverage --watchAll
     - name: Analyze with SonarCloud
-      uses: sonarsource/sonarcloud-github-action@master
+      uses: sonarsource/sonarcloud-github-action@1.8
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -31,7 +30,6 @@ jobs:
         with:
           node-version: 18
       - run: npm --prefix webapp install
-#      - run: npm --prefix restapi install
       - run: npm --prefix webapp run build
       - run: npm --prefix webapp run test:e2e
   docker-push-webapp:
@@ -68,7 +66,7 @@ jobs:
 #  deploy:
 #    name: Deploy over SSH
 #    runs-on: ubuntu-latest
-#    needs: [docker-push-restapi,docker-push-webapp]
+#    needs: [docker-push-webapp]
 #    steps:
 #    - name: Deploy over SSH
 #      uses: fifsky/ssh-action@master
