@@ -7,10 +7,12 @@ import {getContainedResourceUrlAll, getSolidDataset, overwriteFile} from "@inrup
 import {v4 as uuidv4} from "uuid";
 import Notification from "../../Notification";
 import Icon from "../../../img/symbols/GOMapSymbol.png";
+import ReactDOM from "react-dom/client";
+import MapView from "../MapView";
 
 i18n.use(initReactI18next)
 
-function MapSelector() {
+function MapSelector(props: {setItem: Function }) {
     const {t} = useTranslation();
 
     const {session} = useSession();
@@ -57,6 +59,7 @@ function MapSelector() {
         const mapsFromPOD = session.info.webId !== "" ? await getMaps() : undefined;
         if (mapsFromPOD) {
             setMaps(mapsFromPOD);
+            setSelectedMap(mapsFromPOD[0])
         }
     }
 
@@ -96,7 +99,8 @@ function MapSelector() {
                         {contentType: file.type, fetch: session.fetch}
                     );
                     await fetchMaps();
-                    setMapName("");
+                    let mapCreated = maps.filter(m => beautifyMapName(m) === map.name.replace(map.name.charAt(0), map.name.charAt(0).toUpperCase()).replace("%20", ""))
+                    setSelectedMap(mapCreated[0])
                     createNotification();
                 } catch (error) {
                     console.log(error);
@@ -105,8 +109,16 @@ function MapSelector() {
         }
     }
 
+    function changeSelectMap(){
+        let select = (document.getElementById("selectMap") as HTMLSelectElement).value
+        setSelectedMap(select);
+        const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
+        root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={[select]}
+                             setItem={props.setItem}/>);
+    }
+
     function updateMap() {
-        /*TODO*/
+
     }
 
     return (
@@ -115,10 +127,7 @@ function MapSelector() {
                 <h2>{t("mapSelector")}</h2>
                 {
                     (maps.length > 0) ?
-                        <select value={selectedMap} onChange={(e) => {
-                            setSelectedMap(e.target.value);
-                            updateMap();
-                        }}>
+                        <select value={selectedMap} id="selectMap" onChange={changeSelectMap}>
                             {
                                 maps.map(m => <option key={m} value={m}> {beautifyMapName(m)} </option>)
                             }

@@ -24,7 +24,7 @@ function OptionsPanel(props: { setItem: Function }) {
             <div id="optionsMenu">
                 <h1>{t("optionsMenu")}</h1>
                 <Search title={t("search")}/>
-                <MapSelector />
+                <MapSelector setItem={props.setItem}/>
                 <div id="filterDiv">
                     <Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={user}
                             setItem={props.setItem}/>
