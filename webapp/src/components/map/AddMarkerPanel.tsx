@@ -31,8 +31,7 @@ function AddMarkerPanel(props: { setItem: Function }) {
                 <NamePlace title={t("placesName")}/>
                 <Coordinates/>
                 <Filter titleFilter={t("category")} nameFilter={"edit"} usersWebId={user} setItem={props.setItem}/>
-                <Mark title={t("mark")} id={"scoreNewMarker"}/>
-                <Comments title={t("comment")}/>
+                <Comments title={t("description")}/>
                 <ButtonAddPod idName={"namePlace"} idCategory={"categoryMarker"} idComment={"comment"}
                               idScore={"scoreNewMarker"}
                               idLatitude={"latitude"} idLongitude={"longitude"} setItem={props.setItem}/>

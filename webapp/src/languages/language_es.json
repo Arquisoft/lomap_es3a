@@ -72,8 +72,8 @@
   "placesNamePlaceholder": "Escribe para establecer el nombre...",
   "latitude": "Latitud",
   "longitude": "Longitud",
-  "comment": "Comentario",
-  "commentPlaceholder": "Escribe para añadir un comentario...",
+  "description": "Descripción",
+  "descriptionPlaceholder": "Escribe para añadir una descripción...",
   "confirm": "Confirmar",
 
   "media": "Multimedia",

@@ -6,6 +6,9 @@ import {Point} from "../pod/Point";
 import Rating from "@mui/material/Rating";
 import Mark from "./options/Mark";
 import {v4 as uuidv4} from "uuid";
+import {CombinedDataProvider, Image} from "@inrupt/solid-ui-react";
+import {Avatar} from "@mui/material";
+import {VCARD} from "@inrupt/lit-generated-vocab-common";
 
 i18n.use(initReactI18next)
 
@@ -32,9 +35,9 @@ function ShowMarkerPanel(props: { data: Point | undefined }) {
                 return 0;
             }
             for (const element of reviews) {
-                total += element.reviewRating;
+                total += Number(element.reviewRating);
             }
-            return total / reviews.length;
+            return Number(total / reviews.length);
         }
         return 0;
     }
@@ -43,13 +46,14 @@ function ShowMarkerPanel(props: { data: Point | undefined }) {
         <div id="showMarkerPanel">
             <input type="button" className="cross" onClick={closeMenu} value="&times;"/>
             <div id="profileMarkerAuthor">
-                <img
-                    src="https://avatars.githubusercontent.com/u/91057639?v=4"
-                    className="rounded-circle"
-                    alt="Avatar"
-                    width="72"
-                    height="72"
-                />
+                <CombinedDataProvider datasetUrl={props.data.author} thingUrl={props.data.author}>
+                    <Avatar
+                        alt="Profile picture"
+                        sx={{ width: 65, height: 65, mb: 2, margin: 0 }}
+                    >
+                        <Image property={VCARD.hasPhoto.iri.value} width={65} />
+                    </Avatar>
+                </CombinedDataProvider>
                 <div id="profileMarkerData">
                     <h3>{props.data.author.slice(8, -27).toLocaleUpperCase(sessionStorage.getItem("language") || "en")}</h3>
                     <h4>{new Date(props.data.dateCreated).toLocaleDateString(sessionStorage.getItem("language") || "en")}</h4>
@@ -107,13 +111,14 @@ function ShowMarkerPanel(props: { data: Point | undefined }) {
                         props.data.review.map((reviewItem) => (
                             <div className="review" key={reviewItem.author}>
                                 <div className="profileReview">
-                                    <img
-                                        src={reviewItem.author}
-                                        className="rounded-circle"
-                                        alt="Avatar"
-                                        width="36"
-                                        height="36"
-                                    />
+                                    <CombinedDataProvider datasetUrl={reviewItem.author} thingUrl={reviewItem.author}>
+                                        <Avatar
+                                            alt="Profile picture"
+                                            sx={{ width: 65, height: 65, mb: 2, margin: 0 }}
+                                        >
+                                            <Image property={VCARD.hasPhoto.iri.value} width={65} />
+                                        </Avatar>
+                                    </CombinedDataProvider>
                                     <div id="nameAndDate">
                                         <h5>@{reviewItem.author.slice(8, -27)}</h5>
                                         <p>{new Date(reviewItem.datePublished).toLocaleDateString(sessionStorage.getItem("language") || "en")}</p>

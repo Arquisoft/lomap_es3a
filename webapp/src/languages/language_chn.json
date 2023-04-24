@@ -72,8 +72,8 @@
   "placesNamePlaceholder": "输入以设定名称...",
   "latitude": "纬度",
   "longitude": "经度",
-  "comment": "评论",
-  "commentPlaceholder": "输入以添加评论...",
+  "description": "描述",
+  "descriptionPlaceholder": "写入以添加描述...",
   "confirm": "确认",
 
   "media": "媒体",
