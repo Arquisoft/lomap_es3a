@@ -103,5 +103,11 @@
   "friendPermissions": "Permissions",
   "removeFriend": "Remove friend",
   "buttonGivePermissions": "Give permissions",
-  "buttonRemoveFriend": "Remove"
+  "buttonRemoveFriend": "Remove",
+
+  "options-profile": "Open options",
+  "profile": "User profile",
+  "friends": "Friends",
+  "upload": "Upload the image",
+  "registered-as": "registered as"
 }

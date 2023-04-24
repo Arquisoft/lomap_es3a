@@ -1,6 +1,7 @@
+import "../../css/navigation.css";
 import {useSession} from "@inrupt/solid-ui-react";
 import {getFile, overwriteFile} from "@inrupt/solid-client";
-import {Button} from "@mui/material";
+import {Button, Container} from "@mui/material";
 import React, {useState} from "react";
 import {Session} from "@inrupt/solid-client-authn-browser";
 import Notification from "../Notification";
@@ -11,15 +12,10 @@ import {initReactI18next, useTranslation} from "react-i18next";
 import i18n from "../../i18n";
 import FriendList from "./FriendList";
 import Filter from "../map/options/Filter";
-import IconButton from "@mui/material/IconButton";
-import {PhotoCamera} from "@mui/icons-material";
 
-import {fill} from "@cloudinary/url-gen/actions/resize";
-import {CloudinaryImage} from '@cloudinary/url-gen';
-import {AdvancedImage} from "@cloudinary/react";
 import {v4 as uuidv4} from "uuid";
+import ImgbbUploader from "../ImgbbUploader";
 
-const myImage = new CloudinaryImage('sample', {cloudName: 'dwyizn0f7'}).resize(fill().width(50).height(50));
 
 i18n.use(initReactI18next)
 
@@ -185,17 +181,61 @@ function ButtonAddPod({
         }
     };
 
+    const [imageUrl, setImageUrl] = useState("");
+
+    function handleUploadSuccess(imageUrl: string) {
+        setImageUrl(imageUrl);
+    }
+
+    function handleUploadFailure(error: Error) {
+        console.error(error);
+    }
+
+    const styles = {
+        container: {
+            marginTop: 1,
+            border: '2px solid white',
+            borderRadius: '10px',
+            width: 250,
+            height: 250,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+        },
+        image: {
+            maxWidth: '100%',
+            maxHeight: '100%',
+            objectFit: 'contain',
+        },
+    };
+
     return (
 
         <div id="addPanel">
+
+            <div>
+                <ImgbbUploader
+                    apiKey="7e17d052e1f665b83d3addfe291f8047"
+                    onUploadSuccess={handleUploadSuccess}
+                    onUploadFailure={handleUploadFailure}
+                />
+
+                <Container sx={styles.container}>
+                    {imageUrl && <img src={imageUrl} alt="Uploaded" width="100%" height="100%"/>}
+
+                </Container>
+
+
+
+            </div>
+
+
             <Button variant="contained" color="primary" onClick={handleClick}>
                 {t("confirm")}
             </Button>
-            <IconButton color="primary" aria-label="upload picture" component="label">
-                <input hidden accept="image/*" type="file"/>
-                <PhotoCamera/>
-            </IconButton>
-            <AdvancedImage cldImg={myImage}/>
+
+
+
             {showNotification && (
                 <Notification
                     title={t("notificationMarkerAdded")}
