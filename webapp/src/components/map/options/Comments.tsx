@@ -11,7 +11,7 @@ function Comments({title}: CommentType) {
     return (
         <div>
             <h2>{title}</h2>
-            <textarea id="comment" placeholder={t("commentPlaceholder") ?? ""}></textarea>
+            <textarea id="comment" placeholder={t("descriptionPlaceholder") ?? ""}></textarea>
         </div>
     )
 }

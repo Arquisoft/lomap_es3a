@@ -70,8 +70,8 @@
   "placesNamePlaceholder": "Escriba pa establecer el nome...",
   "latitude": "Latitú",
   "longitude": "Longitú",
-  "comment": "Comentariu",
-  "commentPlaceholder": "Escriba pa amestar un comentariu...",
+  "description": "Descripción",
+  "descriptionPlaceholder": "Escribi pa amestar una descripción...",
   "confirm": "Confirmar",
 
   "media": "Multimedia",
