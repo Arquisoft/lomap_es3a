@@ -27,6 +27,7 @@ interface ButtonAddPodType {
     idLatitude: string;
     idLongitude: string;
     setItem: Function;
+    route: string;
 }
 
 // Componente para añadir marcadores al POD
@@ -37,12 +38,11 @@ function ButtonAddPod({
                           idScore,
                           idLatitude,
                           idLongitude,
-                          setItem
+                          setItem,
+                          route,
                       }: ButtonAddPodType) {
     const {session} = useSession();
-    const {webId} = session.info;
-    const webIdStore = webId?.slice(0, -15) + "private/locations.jsonld";
-    const user: string[] = [webIdStore]
+
 
     const {t} = useTranslation();
 
@@ -77,7 +77,7 @@ function ButtonAddPod({
             "name": name,
             "author": {
                 "@type":"Person",
-                "identifier": webId
+                "identifier": route
             },
             "additionalType": category,
             "latitude": latitude,
@@ -152,23 +152,23 @@ function ButtonAddPod({
             idScore,
             idLatitude,
             idLongitude,
-            webIdStore,
+            route,
         )
-            .then((file) => createData(webIdStore, file, session))
+            .then((file) => createData(route, file, session))
             .then(createNotification)
             .then(() => {
-                if (webId !== undefined) {
+                if (route !== undefined) {
                     const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
                     root.render(<MapView
                         lat={Number((document.getElementById(idLatitude) as HTMLInputElement).value)}
                         lng={Number((document.getElementById(idLongitude) as HTMLInputElement).value)}
-                        webId={user} setItem={setItem}/>);
+                        webId={[route]} setItem={setItem}/>);
                 }
             });
         let rootFriends = ReactDOM.createRoot(document.getElementById("friendDiv") as HTMLElement);
         rootFriends.render(<FriendList setItem={setItem}/>)
         const rootFilter = ReactDOM.createRoot(document.getElementById("filterDiv") as HTMLElement);
-        rootFilter.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={user}
+        rootFilter.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={[route]}
                                   setItem={setItem}/>);
         let optionsMenu = document.getElementById("markersMenu");
         if (optionsMenu !== null) {

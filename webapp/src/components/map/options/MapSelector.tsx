@@ -9,6 +9,7 @@ import Notification from "../../Notification";
 import Icon from "../../../img/symbols/GOMapSymbol.png";
 import ReactDOM from "react-dom/client";
 import MapView from "../MapView";
+import ButtonAddPod from "../../pod/ButtonAddPod";
 
 i18n.use(initReactI18next)
 
@@ -113,9 +114,14 @@ function MapSelector(props: {setItem: Function }) {
     function changeSelectMap(){
         let select = (document.getElementById("selectMap") as HTMLSelectElement).value
         setSelectedMap(select);
+        console.log(select)
         const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
         root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={[select]}
                              setItem={props.setItem}/>);
+        const root2 = ReactDOM.createRoot(document.getElementById("addMarkerToPODButton") as HTMLElement);
+        root2.render(<ButtonAddPod idName={"namePlace"} idCategory={"categoryMarker"} idComment={"comment"}
+                                   idScore={"scoreNewMarker"}
+                                   idLatitude={"latitude"} idLongitude={"longitude"} setItem={props.setItem} route={select}/>);
     }
 
     function updateMap() {
