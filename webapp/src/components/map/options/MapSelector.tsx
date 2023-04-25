@@ -6,6 +6,7 @@ import ReactDOM from "react-dom/client";
 import MapView from "../MapView";
 import Notification from "../../Notification";
 import Icon from "../../../img/symbols/GOMapSymbol.png";
+import Filter from "./Filter";
 
 
 function MapSelector(props: {setItem: Function }){
@@ -22,9 +23,8 @@ function MapSelector(props: {setItem: Function }){
             if (mapsFromPOD) {
                 setMaps(mapsFromPOD);
                 setSelectedMap(mapsFromPOD[0])
-                const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
-                root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={[mapsFromPOD[0]]}
-                                     setItem={props.setItem}/>);
+                render(mapsFromPOD[0],"mapView")
+                render(mapsFromPOD[0],"filter")
             }
         }
         fetchMaps()
@@ -41,6 +41,17 @@ function MapSelector(props: {setItem: Function }){
         setShowNotification(false);
     };
 
+    function render(route:string,element:string){
+        if(element==="filter"){
+            const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
+            root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={[route]}
+                                 setItem={props.setItem}/>);
+        }else if(element==="mapView"){
+            const root = ReactDOM.createRoot(document.getElementById("filterDiv") as HTMLElement);
+            root.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={[route]}
+                                 setItem={props.setItem}/>);
+        }
+    }
     function beautifyMapName(mapName: string): string {
         let uri = session.info.webId!.split("/").slice(0, 3).join("/").concat("/private/");
         let shortName = mapName.replace(uri, "").replace(".jsonld", "");
@@ -49,9 +60,8 @@ function MapSelector(props: {setItem: Function }){
     function changeMap(){
         let select = (document.getElementById("selectMap") as HTMLSelectElement).value
         setSelectedMap(select);
-        const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
-        root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={[select]}
-                             setItem={props.setItem}/>);
+        render(select,"mapView");
+        render(select,"filter");
     }
     async function createMap(){
         let mapName = (document.getElementById("newMapTitle")as HTMLInputElement).value
@@ -60,10 +70,9 @@ function MapSelector(props: {setItem: Function }){
             setMaps(newMaps)
             let uri = session.info.webId!.split("/").slice(0, 3).join("/").concat("/private/");
             let fileUrl = (uri + mapName).trim();
-            setSelectedMap(fileUrl)
-            const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
-            root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={[fileUrl]}
-                                 setItem={props.setItem}/>);
+            setSelectedMap(fileUrl);
+            render(fileUrl,"mapView");
+            render(fileUrl,"filter");
             (document.getElementById("newMapTitle") as HTMLInputElement).value=""
             createNotification();
         })
