@@ -22,6 +22,9 @@ function MapSelector(props: {setItem: Function }){
             if (mapsFromPOD) {
                 setMaps(mapsFromPOD);
                 setSelectedMap(mapsFromPOD[0])
+                const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
+                root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={[mapsFromPOD[0]]}
+                                     setItem={props.setItem}/>);
             }
         }
         fetchMaps()
