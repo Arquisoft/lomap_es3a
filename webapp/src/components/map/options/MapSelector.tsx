@@ -61,16 +61,12 @@ function MapSelector(props: {setItem: Function }) {
         if (mapsFromPOD) {
             setMaps(mapsFromPOD);
             setSelectedMap(mapsFromPOD[0])
-            const root2 = ReactDOM.createRoot(document.getElementById("addMarkerToPODButton") as HTMLElement);
-            root2.render(<ButtonAddPod idName={"namePlace"} idCategory={"categoryMarker"} idComment={"comment"}
-                                       idScore={"scoreNewMarker"}
-                                       idLatitude={"latitude"} idLongitude={"longitude"} setItem={props.setItem} route={mapsFromPOD[0]}/>);
         }
-        return "Fetching maps...";
     }
 
     useEffect(() => {
-        fetchMaps().then(r => console.log(r));
+        fetchMaps();
+
     }, [session]);
 
     function beautifyMapName(mapName: string): string {
@@ -122,10 +118,7 @@ function MapSelector(props: {setItem: Function }) {
         const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
         root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={[select]}
                              setItem={props.setItem}/>);
-        const root2 = ReactDOM.createRoot(document.getElementById("addMarkerToPODButton") as HTMLElement);
-        root2.render(<ButtonAddPod idName={"namePlace"} idCategory={"categoryMarker"} idComment={"comment"}
-                                   idScore={"scoreNewMarker"}
-                                   idLatitude={"latitude"} idLongitude={"longitude"} setItem={props.setItem} route={select}/>);
+
     }
 
     function updateMap() {

@@ -27,35 +27,15 @@ interface ButtonAddPodType {
     idLatitude: string;
     idLongitude: string;
     setItem: Function;
-    route: string;
 }
 
 // Componente para añadir marcadores al POD
-function ButtonAddPod({
-                          idName,
-                          idCategory,
-                          idComment,
-                          idScore,
-                          idLatitude,
-                          idLongitude,
-                          setItem,
-                          route,
-                      }: ButtonAddPodType) {
+function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLongitude, setItem}: ButtonAddPodType) {
     const {session} = useSession();
-
-
     const {t} = useTranslation();
 
-    const createMarker = async (
-        nameFile: string,
-        idName: string,
-        idCategory: string,
-        idComment: string,
-        idScore: string,
-        idLatitude: string,
-        idLongitude: string,
-        fileURL: string
-    ) => {
+    async function createMarker(nameFile: string, idName: string, idCategory: string, idComment: string, idScore: string,
+                                idLatitude: string, idLongitude: string, fileURL: string)  {
         let name = (document.getElementById(idName) as HTMLInputElement).value;
         let category = (document.getElementById(
             idCategory
@@ -69,7 +49,6 @@ function ButtonAddPod({
         let longitude = (document.getElementById(
             idLongitude
         ) as HTMLInputElement).value;
-
         let json = {
             "@context": "https://schema.org/",
             "@type": "Place",
@@ -77,7 +56,7 @@ function ButtonAddPod({
             "name": name,
             "author": {
                 "@type":"Person",
-                "identifier": route
+                "identifier": fileURL
             },
             "additionalType": category,
             "latitude": latitude,
@@ -107,7 +86,7 @@ function ButtonAddPod({
         );
     };
 
-    const readFileFromPod = async (fileURL: string, session: Session) => {
+    async function readFileFromPod(fileURL: string, session: Session){
         try {
             const file = await getFile(
                 fileURL,
@@ -119,7 +98,7 @@ function ButtonAddPod({
         }
     }
 
-    const createData = async (url: string, file: File, session: Session) => {
+    async function createData(url: string, file: File, session: Session){
         try {
             await overwriteFile(
                 url,
@@ -143,17 +122,9 @@ function ButtonAddPod({
         }, 4000); // hide notification after 5 seconds
     };
 
-    const handleClick = async () => {
-        createMarker(
-            "locations.jsonld",
-            idName,
-            idCategory,
-            idComment,
-            idScore,
-            idLatitude,
-            idLongitude,
-            route,
-        )
+    async function handleClick() {
+        let route = (document.getElementById("selectMap") as HTMLSelectElement).value
+        createMarker("locations.jsonld", idName, idCategory, idComment, idScore, idLatitude, idLongitude, route)
             .then((file) => createData(route, file, session))
             .then(createNotification)
             .then(() => {
