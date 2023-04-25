@@ -24,7 +24,7 @@ function LoginPage() {
     return (
         <div id="loginBody">
             <div id="loginForm">
-                <img src={Logo} width={350}/>
+                <img src={Logo} width={350} alt="GOMap Logo"/>
                 <h1>{t("login")}</h1>
                 <form>
                     <p>{t("provider")}</p>

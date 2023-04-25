@@ -58,11 +58,12 @@ function MapSelector() {
         if (mapsFromPOD) {
             setMaps(mapsFromPOD);
         }
+        return "Fetching maps...";
     }
 
     useEffect(() => {
-        fetchMaps().then(r => console.log("Reading maps..." + r));
-    }, [session.info.webId, session]);
+        fetchMaps().then(r => console.log(r));
+    }, [session]);
 
     function beautifyMapName(mapName: string): string {
         let shortName = mapName.replace(uriDirectory, "").replace(".jsonld", "");

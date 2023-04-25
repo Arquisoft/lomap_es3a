@@ -5,12 +5,12 @@ nav {
     transition: 0.3s ease-in-out;
 }
 
-.nav-item {
-    margin-right: 2.2222222222vw;
-}
-
 nav.nav-expanded {
     height: 40em;
+}
+
+.nav-item {
+    padding: 0 1em 0 1em;
 }
 
 .nav-link {
@@ -74,12 +74,6 @@ nav a:hover {
 
 nav a:active {
     color: #007ffd;
-}
-
-#login-manage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 #login, #logout {
