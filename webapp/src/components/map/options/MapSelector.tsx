@@ -10,20 +10,18 @@ import Icon from "../../../img/symbols/GOMapSymbol.png";
 import ReactDOM from "react-dom/client";
 import MapView from "../MapView";
 import ButtonAddPod from "../../pod/ButtonAddPod";
+import {getMaps,createNewMap} from "../../pod/FriendsPOD";
 
 i18n.use(initReactI18next)
 
 function MapSelector(props: {setItem: Function }) {
     const {t} = useTranslation();
-
     const {session} = useSession();
-
     const [mapName, setMapName] = useState("");
     const [selectedMap, setSelectedMap] = useState("");
     const [maps, setMaps] = useState<string[]>([]);
-    const [uriDirectory, setUriDirectory] = useState("");
     const [showNotification, setShowNotification] = useState(false);
-
+    let uri = session.info.webId!.split("/").slice(0, 3).join("/").concat("/private/");
     function checkSession(session: Session): boolean {
         if (session === undefined || session === null) {
             return false;
@@ -46,70 +44,26 @@ function MapSelector(props: {setItem: Function }) {
         }, 4000); // hide notification after 5 seconds
     }
 
-    async function getMaps(): Promise<string[]> {
-        if (session.info.webId === undefined || session.info.webId === null || session.info.webId === "") {
-            return [];
-        }
-        let uri = session.info.webId.split("/").slice(0, 3).join("/").concat("/private/");
-        setUriDirectory(uri);
-        let dataset = await getSolidDataset(uri, {fetch: session.fetch});
-        return getContainedResourceUrlAll(dataset);
-    }
-
-    async function fetchMaps() {
-        const mapsFromPOD = session.info.webId !== "" ? await getMaps() : undefined;
-        if (mapsFromPOD) {
-            setMaps(mapsFromPOD);
-            setSelectedMap(mapsFromPOD[0])
-        }
-    }
-
     useEffect(() => {
-        fetchMaps();
-
-    }, [session]);
+        async function fetchMaps() {
+            const mapsFromPOD = session.info.webId !== "" ? await getMaps(session) : undefined;
+            if (mapsFromPOD) {
+                setMaps(mapsFromPOD);
+                setSelectedMap(mapsFromPOD[0])
+                const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
+                root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={[mapsFromPOD[0]]}
+                                     setItem={props.setItem}/>);
+            }
+        }
+        fetchMaps()
+    }, [session.info.webId,session]);
 
     function beautifyMapName(mapName: string): string {
-        let shortName = mapName.replace(uriDirectory, "").replace(".jsonld", "");
+        let shortName = mapName.replace(uri, "").replace(".jsonld", "");
         return shortName.replace(shortName.charAt(0), shortName.charAt(0).toUpperCase()).replace("%20", "");
     }
 
-    async function createNewMap() {
-        if (checkSession(session)) {
-            if (mapName !== undefined && mapName !== null && mapName.trim().toString() !== "") {
-                try {
-                    let author = {
-                        "@type": "Person",
-                        "identifier": session.info.webId
-                    }
 
-                    let map = {
-                        "@context": "https://schema.org/",
-                        "@type": "Map",
-                        "id": uuidv4(),
-                        "name": mapName,
-                        "author": author,
-                        "spatialCoverage": []
-                    }
-
-                    const blob = new Blob([JSON.stringify(map, null, 2)], {type: "application/ld+json"});
-                    let file = new File([blob], map.name + ".jsonld", {type: blob.type});
-                    let fileUrl = (uriDirectory + file.name).trim();
-                    await overwriteFile(
-                        fileUrl,
-                        file,
-                        {contentType: file.type, fetch: session.fetch}
-                    );
-                    await fetchMaps();
-                    let mapCreated = maps.filter(m => beautifyMapName(m) === map.name.replace(map.name.charAt(0), map.name.charAt(0).toUpperCase()).replace("%20", ""))
-                    setSelectedMap(mapCreated[0])
-                    createNotification();
-                } catch (error) {
-                    console.log(error);
-                }
-            }
-        }
-    }
 
     function changeSelectMap(){
         let select = (document.getElementById("selectMap") as HTMLSelectElement).value
@@ -119,6 +73,15 @@ function MapSelector(props: {setItem: Function }) {
         root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={[select]}
                              setItem={props.setItem}/>);
 
+    }
+
+    async function createMap(){
+        if(checkSession(session)){
+            await createNewMap(session,mapName)
+            let newMaps = await getMaps(session)
+            setMaps(newMaps)
+            createNotification();
+        }
     }
 
     function updateMap() {
@@ -147,7 +110,7 @@ function MapSelector(props: {setItem: Function }) {
                            onChange={(e) => {
                                setMapName(e.target.value)
                            }} value={mapName} required/>
-                    <input type="button" id="createButton" value={t("create") ?? ""} onClick={createNewMap}/>
+                    <input type="button" id="createButton" value={t("create") ?? ""} onClick={createMap}/>
                 </form>
             </div>
             {

@@ -7,6 +7,7 @@ import i18n from "../../i18n";
 import Mark from "./options/Mark";
 import {useSession} from "@inrupt/solid-ui-react";
 import MapSelector from "./options/MapSelector";
+import SelectorMap from "./SelectorMap";
 
 i18n.use(initReactI18next)
 
@@ -24,7 +25,7 @@ function OptionsPanel(props: { setItem: Function }) {
             <div id="optionsMenu">
                 <h1>{t("optionsMenu")}</h1>
                 <Search title={t("search")}/>
-                <MapSelector setItem={props.setItem}/>
+                <SelectorMap setItem={props.setItem}/>
                 <div id="filterDiv">
                     <Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={user}
                             setItem={props.setItem}/>

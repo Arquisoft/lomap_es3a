@@ -16,10 +16,11 @@ import {
     createAclFromFallbackAcl,
     getResourceAcl,
     setAgentResourceAccess,
-    setAgentDefaultAccess, saveAclFor,
+    setAgentDefaultAccess, saveAclFor, getContainedResourceUrlAll, overwriteFile,
 } from '@inrupt/solid-client'
 import { foaf, vcard, owl, rdfs } from 'rdf-namespaces'
 import {Session,fetch} from "@inrupt/solid-client-authn-browser";
+import {v4 as uuidv4} from "uuid";
 
 
 
@@ -165,3 +166,47 @@ export async function changePermissions(webId: string, friendWebId: string,sessi
     // Now save the ACL:
     await saveAclFor(myDatasetWithAcl, updatedAcl, {fetch: session.fetch});
 }
+
+export async function getMaps(session:Session): Promise<string[]> {
+    if (session.info.webId === undefined || session.info.webId === null || session.info.webId === "") {
+        return [];
+    }
+    let uri = session.info.webId.split("/").slice(0, 3).join("/").concat("/private/");
+    let dataset = await getSolidDataset(uri, {fetch: session.fetch});
+    return getContainedResourceUrlAll(dataset);
+}
+
+export async function createNewMap(session:Session,mapName:string) {
+
+        if (mapName !== undefined && mapName !== null && mapName.trim().toString() !== "") {
+            try {
+                let author = {
+                    "@type": "Person",
+                    "identifier": session.info.webId
+                }
+
+                let map = {
+                    "@context": "https://schema.org/",
+                    "@type": "Map",
+                    "id": uuidv4(),
+                    "name": mapName,
+                    "author": author,
+                    "spatialCoverage": []
+                }
+
+                const blob = new Blob([JSON.stringify(map, null, 2)], {type: "application/ld+json"});
+                let file = new File([blob], map.name + ".jsonld", {type: blob.type});
+                let uri = session.info.webId!.split("/").slice(0, 3).join("/").concat("/private/");
+                let fileUrl = (uri + file.name).trim();
+                await overwriteFile(
+                    fileUrl,
+                    file,
+                    {contentType: file.type, fetch: session.fetch}
+                );
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+}
+
