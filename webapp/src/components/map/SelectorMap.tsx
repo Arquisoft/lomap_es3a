@@ -4,6 +4,8 @@ import {useSession} from "@inrupt/solid-ui-react";
 import {createNewMap, getMaps} from "../pod/FriendsPOD";
 import ReactDOM from "react-dom/client";
 import MapView from "./MapView";
+import Notification from "../Notification";
+import Icon from "../../img/symbols/GOMapSymbol.png";
 
 
 function SelectorMap(props: {setItem: Function }){
@@ -11,6 +13,8 @@ function SelectorMap(props: {setItem: Function }){
     const[maps,setMaps] = useState<string[]>([])
     const[selectedMap,setSelectedMap] = useState("")
     const {session} = useSession()
+    const [showNotification, setShowNotification] = useState(false);
+
 
     useEffect(() => {
         async function fetchMaps() {
@@ -22,6 +26,17 @@ function SelectorMap(props: {setItem: Function }){
         }
         fetchMaps()
     }, [session.info.webId,session]);
+
+    function createNotification() {
+        setShowNotification(true);
+        setTimeout(() => {
+            setShowNotification(false);
+        }, 4000); // hide notification after 5 seconds
+    }
+
+    const handleCloseNotification = () => {
+        setShowNotification(false);
+    };
 
     function beautifyMapName(mapName: string): string {
         let uri = session.info.webId!.split("/").slice(0, 3).join("/").concat("/private/");
@@ -46,6 +61,8 @@ function SelectorMap(props: {setItem: Function }){
             const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
             root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={[fileUrl]}
                                  setItem={props.setItem}/>);
+            (document.getElementById("newMapTitle") as HTMLInputElement).value=""
+            createNotification();
         })
 
     }
@@ -67,6 +84,18 @@ function SelectorMap(props: {setItem: Function }){
                 <input type="text" id="newMapTitle" placeholder={t("placesNamePlaceholder") ?? ""}/>
                 <button id="createButton" onClick={createMap}>{t("create")}</button>
             </div>
+            {
+                showNotification &&
+                (
+                    <Notification
+                        title={t("notificationMapAdded")}
+                        message={t("notificationMessageMap")}
+                        time={t("notificationTime")}
+                        icon={Icon}
+                        onClose={handleCloseNotification}
+                    />
+                )
+            }
         </div>
     )
 }
