@@ -96,8 +96,8 @@ function ButtonAddPod({
                     });
                     return new File([blob], nameFile, {type: blob.type});
                 } else {
-                    let fileContent = Array.from(JSON.parse(file));
-                    fileContent.push(json);
+                    let fileContent = JSON.parse(file);
+                    fileContent.spatialCoverage.push(json);
                     const blob = new Blob([JSON.stringify(fileContent, null, 2)], {
                         type: "application/ld+json",
                     });

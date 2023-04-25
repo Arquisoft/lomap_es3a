@@ -61,6 +61,10 @@ function MapSelector(props: {setItem: Function }) {
         if (mapsFromPOD) {
             setMaps(mapsFromPOD);
             setSelectedMap(mapsFromPOD[0])
+            const root2 = ReactDOM.createRoot(document.getElementById("addMarkerToPODButton") as HTMLElement);
+            root2.render(<ButtonAddPod idName={"namePlace"} idCategory={"categoryMarker"} idComment={"comment"}
+                                       idScore={"scoreNewMarker"}
+                                       idLatitude={"latitude"} idLongitude={"longitude"} setItem={props.setItem} route={mapsFromPOD[0]}/>);
         }
         return "Fetching maps...";
     }
