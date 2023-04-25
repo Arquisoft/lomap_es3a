@@ -1,41 +1,31 @@
-import i18n from "../../../i18n";
-import {initReactI18next, useTranslation} from "react-i18next";
-import {useSession} from "@inrupt/solid-ui-react";
+import {useTranslation} from "react-i18next";
 import React, {useEffect, useState} from "react";
-import {Session} from "@inrupt/solid-client-authn-browser";
-import {getContainedResourceUrlAll, getSolidDataset, overwriteFile} from "@inrupt/solid-client";
-import {v4 as uuidv4} from "uuid";
-import Notification from "../../Notification";
-import Icon from "../../../img/symbols/GOMapSymbol.png";
+import {useSession} from "@inrupt/solid-ui-react";
+import {createNewMap, getMaps} from "../../pod/FriendsPOD";
 import ReactDOM from "react-dom/client";
 import MapView from "../MapView";
-import ButtonAddPod from "../../pod/ButtonAddPod";
-import {getMaps,createNewMap} from "../../pod/FriendsPOD";
+import Notification from "../../Notification";
+import Icon from "../../../img/symbols/GOMapSymbol.png";
 
-i18n.use(initReactI18next)
 
-function MapSelector(props: {setItem: Function }) {
+function MapSelector(props: {setItem: Function }){
     const {t} = useTranslation();
-    const {session} = useSession();
-    const [mapName, setMapName] = useState("");
-    const [selectedMap, setSelectedMap] = useState("");
-    const [maps, setMaps] = useState<string[]>([]);
+    const[maps,setMaps] = useState<string[]>([])
+    const[selectedMap,setSelectedMap] = useState("")
+    const {session} = useSession()
     const [showNotification, setShowNotification] = useState(false);
-    let uri = session.info.webId!.split("/").slice(0, 3).join("/").concat("/private/");
-    function checkSession(session: Session): boolean {
-        if (session === undefined || session === null) {
-            return false;
-        }
-        if (session.info === undefined || session.info === null) {
-            return false;
-        }
-        return !(session.info.webId === undefined || session.info.webId === null || session.info.webId === "");
 
-    }
 
-    const handleCloseNotification = () => {
-        setShowNotification(false);
-    };
+    useEffect(() => {
+        async function fetchMaps() {
+            const mapsFromPOD = session.info.webId !== "" ? await getMaps(session) : undefined;
+            if (mapsFromPOD) {
+                setMaps(mapsFromPOD);
+                setSelectedMap(mapsFromPOD[0])
+            }
+        }
+        fetchMaps()
+    }, [session.info.webId,session]);
 
     function createNotification() {
         setShowNotification(true);
@@ -44,74 +34,61 @@ function MapSelector(props: {setItem: Function }) {
         }, 4000); // hide notification after 5 seconds
     }
 
-    useEffect(() => {
-        async function fetchMaps() {
-            const mapsFromPOD = session.info.webId !== "" ? await getMaps(session) : undefined;
-            if (mapsFromPOD) {
-                setMaps(mapsFromPOD);
-                setSelectedMap(mapsFromPOD[0])
-                const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
-                root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={[mapsFromPOD[0]]}
-                                     setItem={props.setItem}/>);
-            }
-        }
-        fetchMaps()
-    }, [session.info.webId,session]);
+    const handleCloseNotification = () => {
+        setShowNotification(false);
+    };
 
     function beautifyMapName(mapName: string): string {
+        let uri = session.info.webId!.split("/").slice(0, 3).join("/").concat("/private/");
         let shortName = mapName.replace(uri, "").replace(".jsonld", "");
         return shortName.replace(shortName.charAt(0), shortName.charAt(0).toUpperCase()).replace("%20", "");
     }
-
-
-
-    function changeSelectMap(){
+    function changeMap(){
         let select = (document.getElementById("selectMap") as HTMLSelectElement).value
         setSelectedMap(select);
-        console.log(select)
         const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
         root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={[select]}
                              setItem={props.setItem}/>);
-
     }
-
     async function createMap(){
-        if(checkSession(session)){
-            await createNewMap(session,mapName)
-            let newMaps = await getMaps(session)
+        let mapName = (document.getElementById("newMapTitle")as HTMLInputElement).value
+        await createNewMap(session,mapName)
+        await getMaps(session).then(newMaps =>{
             setMaps(newMaps)
+            let uri = session.info.webId!.split("/").slice(0, 3).join("/").concat("/private/");
+            let fileUrl = (uri + mapName).trim();
+            setSelectedMap(fileUrl)
+            const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
+            root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={[fileUrl]}
+                                 setItem={props.setItem}/>);
+            (document.getElementById("newMapTitle") as HTMLInputElement).value=""
             createNotification();
-        }
-    }
-
-    function updateMap() {
+        })
 
     }
 
-    return (
-        <div>
-            <div>
+    return(
+        <div id="differentMaps">
+            <div id="mapSelector">
                 <h2>{t("mapSelector")}</h2>
                 {
                     (maps.length > 0) ?
-                        <select value={selectedMap} id="selectMap" onChange={changeSelectMap}>
+                        <select value={selectedMap} onChange={changeMap} id="selectMap">
                             {
-                                maps.map(m => <option key={m} value={m}> {beautifyMapName(m)} </option>)
+                                maps.map(map => (
+                                    <option value={map} key={map}>{beautifyMapName(map)}</option>
+                                ))
                             }
                         </select>
                         :
                         <p className="no-content">You don't have created maps</p>
                 }
+
             </div>
-            <div>
+            <div id="mapCreator">
                 <h2>{t("createNewMap")}</h2>
-                <form id="newMapButtonPanel">
-                    <input type="text" id="newMapTitle" placeholder={t("placesNamePlaceholder") ?? ""}
-                           onChange={(e) => {
-                               setMapName(e.target.value)
-                           }} value={mapName} required/>
-                    <input type="button" id="createButton" value={t("create") ?? ""} onClick={createMap}/>
-                </form>
+                <input type="text" id="newMapTitle" placeholder={t("placesNamePlaceholder") ?? ""}/>
+                <button id="createButton" onClick={createMap}>{t("create")}</button>
             </div>
             {
                 showNotification &&
@@ -126,7 +103,6 @@ function MapSelector(props: {setItem: Function }) {
                 )
             }
         </div>
-    );
+    )
 }
-
-export default MapSelector;
+export default MapSelector
