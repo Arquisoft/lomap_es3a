@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useSession} from "@inrupt/solid-ui-react";
-import {findPersonData, PersonData} from "./FriendsPOD";
+import {findPersonData, FriendMaps, getMaps, PersonData} from "./FriendsPOD";
 import botonRojo from "../../img/botonRojo.png";
 import botonVerde from "../../img/botonVerde.png";
 import {initReactI18next, useTranslation} from "react-i18next";
@@ -8,6 +8,7 @@ import i18n from "../../i18n";
 import ReactDOM from "react-dom/client";
 import MapView from "../map/MapView";
 import Filter from "../map/options/Filter";
+import {Dropdown} from "react-bootstrap";
 
 i18n.use(initReactI18next)
 
@@ -18,6 +19,8 @@ function FriendList(props: {setItem : Function}){
     const [friends, setFriendList] = useState<PersonData[]>([]);
     const {t} = useTranslation();
     let friendSelected: string[] = [];
+    const [friendsMaps,setFriendsMaps] = useState<FriendMaps[]>([]);
+
 
     useEffect(() => {
         async function loadPersonData() {
@@ -39,10 +42,27 @@ function FriendList(props: {setItem : Function}){
                     personData.friends.map((friend) => findPersonData(session, friend))
                 );
                 setFriendList(names);
+                fetchFriendsMaps(names);
             }
         }
         fetchFriends()
     }, [personData.friends, session])
+
+    async function fetchFriendsMaps(friends:PersonData[]){
+        let result = []
+        for(const friend of friends){
+            let maps = await getMaps(friend.webId,session)
+            const friendMaps : FriendMaps = {webId: friend.webId,name:friend.name,maps:maps}
+            result.push(friendMaps)
+        }
+        setFriendsMaps(result)
+    }
+
+    function beautifyMapName(mapName: string,webId:string): string {
+        let uri = webId.split("/").slice(0, 3).join("/").concat("/private/");
+        let shortName = mapName.replace(uri, "").replace(".jsonld", "");
+        return shortName.replace(shortName.charAt(0), shortName.charAt(0).toUpperCase()).replace("%20", "");
+    }
 
     function getMarkers(id: string, friendWebId: string) {
         if (webId !== undefined) {
@@ -82,11 +102,23 @@ function FriendList(props: {setItem : Function}){
             <h2>{t("friends")}</h2>
             <div id="friendsList">
                 {
-                    friends.map(friend => (
+                    friendsMaps.map(friend => (
                         <div key={friend.webId}>
-                            <button onClick={() => getMarkers("button-" + friend.webId, friend.webId)}>{friend.name}
-                                <img id={"button-" + friend.webId} src={botonRojo} alt="botonRojo" width={15}
-                                     height={15}/></button>
+                            <Dropdown className="dropdown">
+                                <Dropdown.Toggle className="dropdown-toggle">
+                                    {friend.name}
+                                </Dropdown.Toggle>
+                                <Dropdown.Menu>
+                                    {
+                                        friend.maps.map(map => (
+                                            <div className="dropdown-item" key={map}>
+                                                <h3>{beautifyMapName(map,friend.webId)}</h3>
+                                                <button>Mostrar mapa</button>
+                                            </div>
+                                        ))
+                                    }
+                                </Dropdown.Menu>
+                            </Dropdown>
                         </div>
                     ))
 

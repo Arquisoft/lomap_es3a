@@ -32,6 +32,12 @@ export interface PersonData {
     friends: string[]
 }
 
+export interface FriendMaps{
+    webId:string
+    name:string
+    maps:string[]
+}
+
 async function findFullPersonProfile(webId: string, session: Session, response: SolidDataset[] = []){
     try {
         const dataset = await getSolidDataset(webId, {fetch: session.fetch})
@@ -148,14 +154,13 @@ export async function changePermissions(webId: string, friendWebId: string,sessi
     await saveAclFor(myDatasetWithAcl, updatedAcl, {fetch: session.fetch});
 }
 
-export async function getMaps(session:Session): Promise<string[]> {
-    if (session.info.webId === undefined || session.info.webId === null || session.info.webId === "") {
+export async function getMaps(webId:string,session:Session): Promise<string[]> {
+    if (webId === undefined || webId === null || webId === "") {
         return [];
     }
-    let uri = session.info.webId.split("/").slice(0, 3).join("/").concat("/private/");
+    let uri = webId.split("/").slice(0, 3).join("/").concat("/private/");
     let dataset = await getSolidDataset(uri, {fetch: session.fetch});
-    let result = await getContainedResourceUrlAll(dataset);
-    return result;
+    return getContainedResourceUrlAll(dataset);
 }
 
 export async function createNewMap(session:Session,mapName:string) {

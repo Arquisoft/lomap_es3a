@@ -19,7 +19,7 @@ function MapSelector(props: {setItem: Function }){
 
     useEffect(() => {
         async function fetchMaps() {
-            const mapsFromPOD = session.info.webId !== "" ? await getMaps(session) : undefined;
+            const mapsFromPOD = session.info.webId !== "" ? await getMaps(session.info.webId!,session) : undefined;
             if (mapsFromPOD) {
                 setMaps(mapsFromPOD);
                 setSelectedMap(mapsFromPOD[0])
@@ -66,7 +66,7 @@ function MapSelector(props: {setItem: Function }){
     async function createMap(){
         let mapName = (document.getElementById("newMapTitle")as HTMLInputElement).value
         await createNewMap(session,mapName)
-        await getMaps(session).then(newMaps =>{
+        await getMaps(session.info.webId!,session).then(newMaps =>{
             setMaps(newMaps)
             let uri = session.info.webId!.split("/").slice(0, 3).join("/").concat("/private/");
             let fileUrl = (uri + mapName+".jsonld").trim();
