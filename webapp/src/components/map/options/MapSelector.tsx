@@ -81,7 +81,11 @@ function MapSelector(props: {setItem: Function }){
             render(fileUrl,"filter");
             setSelectedMap(fileUrl);
         })
-
+        const mapNameItems = document.querySelectorAll('[id="mapNameItem"]');
+        mapNameItems.forEach(item => {
+            item.setAttribute('aria-selected', 'false');
+            item.classList.remove(item.classList.item(1)!);
+        });
     }
 
     return(
