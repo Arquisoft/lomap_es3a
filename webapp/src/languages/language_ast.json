@@ -33,6 +33,7 @@
   "notificationMessageMap": "El to mapa foi creadu correutamente!",
   "notificationErrorNoMap": "Vous devez créer une carte pour ajouter des marqueurs",
   "notificationErrorNoMapTitle": "Aucune carte créée",
+  "notificationNoMaps": "Nun tien creadu nengún mapa",
 
   "footer": "© Arquisoft - UNIOVI",
   "homeInfo1": "GOMap!® ye una aplicación onde los usuarios puen tener mapes personalizaos tocante llugares y negocios locales na so ciudá, como tiendes, bares, restaurantes, monumentos, cines...",

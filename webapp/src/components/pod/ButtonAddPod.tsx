@@ -113,6 +113,7 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
 
     const handleCloseNotification = () => {
         setShowNotification(false);
+        setError(false)
     };
 
     const [showNotification, setShowNotification] = useState(false);
@@ -194,8 +195,8 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
 
             {error && (
                 <Notification
-                    title={t("notificationMarkerAdded")}
-                    message={"debes crear un mapa"}
+                    title={t("notificationErrorNoMapTitle")}
+                    message={t("notificationErrorNoMap")}
                     time={t("notificationTime")}
                     icon={Icon}
                     onClose={handleCloseNotification}
@@ -205,8 +206,8 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
 
             {showNotification && (
                 <Notification
-                    title={t("notificationErrorNoMapTitle")}
-                    message={t("notificationErrorNoMap")}
+                    title={t("notificationMarkerAdded")}
+                    message={t("notificationMessageMarker")}
                     time={t("notificationTime")}
                     icon={Icon}
                     onClose={handleCloseNotification}

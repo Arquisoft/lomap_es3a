@@ -93,7 +93,7 @@ function MapSelector(props: {setItem: Function }){
                             }
                         </select>
                         :
-                        <p className="no-content">You don't have created maps</p>
+                        <p className="no-content">{t("notificationNoMaps")}</p>
                 }
 
             </div>
