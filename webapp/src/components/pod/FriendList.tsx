@@ -1,8 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useSession} from "@inrupt/solid-ui-react";
 import {findPersonData, FriendMaps, getMaps, PersonData} from "./FriendsPOD";
-import botonRojo from "../../img/botonRojo.png";
-import botonVerde from "../../img/botonVerde.png";
 import {initReactI18next, useTranslation} from "react-i18next";
 import i18n from "../../i18n";
 import ReactDOM from "react-dom/client";
@@ -64,36 +62,14 @@ function FriendList(props: {setItem : Function}){
         return shortName.replace(shortName.charAt(0), shortName.charAt(0).toUpperCase()).replace("%20", "");
     }
 
-    function getMarkers(id: string, friendWebId: string) {
+    function getMarkers(friendMap: string) {
         if (webId !== undefined) {
-            let webIdFriend = friendWebId.slice(0, -15) + 'private/locations.json'
-            let webIdUser = webId.slice(0, -15) + 'private/locations.json'
-            if (friendSelected.indexOf(webIdFriend) === -1) {
-                (document.getElementById(id) as HTMLImageElement).src = botonVerde;
-                if (friendSelected.indexOf(webIdUser) !== -1) {
-                    friendSelected.pop()
-                }
-                friendSelected.push(webIdFriend)
-                const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
-                root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={friendSelected}
-                                     setItem={props.setItem}/>);
-                const root2 = ReactDOM.createRoot(document.getElementById("filterDiv") as HTMLElement);
-                root2.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={friendSelected}
-                                     setItem={props.setItem}/>);
-            } else {
-                (document.getElementById(id) as HTMLImageElement).src = botonRojo;
-                friendSelected = friendSelected.filter(friend => friend !== webIdFriend)
-                if (friendSelected.length === 0) {
-                    friendSelected.push(webIdUser);
-                }
-                const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
-                root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={friendSelected}
-                                     setItem={props.setItem}/>);
-                const root2 = ReactDOM.createRoot(document.getElementById("filterDiv") as HTMLElement);
-                root2.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={friendSelected}
-                                     setItem={props.setItem}/>);
-            }
-
+            const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
+            root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={[friendMap]}
+                                 setItem={props.setItem}/>);
+            const root2 = ReactDOM.createRoot(document.getElementById("filterDiv") as HTMLElement);
+            root2.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={[friendMap]}
+                                setItem={props.setItem}/>);
         }
     }
 
@@ -105,15 +81,17 @@ function FriendList(props: {setItem : Function}){
                     friendsMaps.map(friend => (
                         <div key={friend.webId}>
                             <Dropdown className="dropdown">
-                                <Dropdown.Toggle className="dropdown-toggle">
+                                <Dropdown.Toggle className="dropdown-toggle-friend">
                                     {friend.name}
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu>
                                     {
                                         friend.maps.map(map => (
                                             <div className="dropdown-item" key={map}>
-                                                <h3>{beautifyMapName(map,friend.webId)}</h3>
-                                                <button>Mostrar mapa</button>
+                                                <Dropdown.Item onClick={() => getMarkers(map)}>
+                                                    {beautifyMapName(map,friend.webId)}
+                                                </Dropdown.Item>
+                                                <button onClick={() => getMarkers(map)}>Mostrar mapa</button>
                                             </div>
                                         ))
                                     }

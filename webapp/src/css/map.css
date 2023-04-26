@@ -365,3 +365,15 @@ select, option {
     max-height: 100%;
     object-fit: contain;
 }
+
+.dropdown-toggle-friend {
+    font-size: 1.4em !important;
+    text-decoration: none !important;
+    color: white !important;
+    background-color: #232269 !important;
+    border: none !important;
+}
+
+.dropdown-item > button{
+    font-size: 0.9em !important;
+}
