@@ -173,7 +173,8 @@ export async function getMaps(session:Session): Promise<string[]> {
     }
     let uri = session.info.webId.split("/").slice(0, 3).join("/").concat("/private/");
     let dataset = await getSolidDataset(uri, {fetch: session.fetch});
-    return getContainedResourceUrlAll(dataset);
+    let result = await getContainedResourceUrlAll(dataset);
+    return result;
 }
 
 export async function createNewMap(session:Session,mapName:string) {

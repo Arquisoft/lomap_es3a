@@ -69,12 +69,12 @@ function MapSelector(props: {setItem: Function }){
         await getMaps(session).then(newMaps =>{
             setMaps(newMaps)
             let uri = session.info.webId!.split("/").slice(0, 3).join("/").concat("/private/");
-            let fileUrl = (uri + mapName).trim();
-            setSelectedMap(fileUrl);
-            render(fileUrl,"mapView");
-            render(fileUrl,"filter");
+            let fileUrl = (uri + mapName+".jsonld").trim();
             (document.getElementById("newMapTitle") as HTMLInputElement).value=""
             createNotification();
+            render(fileUrl,"mapView");
+            render(fileUrl,"filter");
+            setSelectedMap(fileUrl);
         })
 
     }
