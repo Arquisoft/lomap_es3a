@@ -31,6 +31,8 @@
   "notificationPermissionsFriendTitle": "Permissions de lecture attribuées",
   "notificationMapAdded": "Nouvelle carte !",
   "notificationMessageMap": "Votre carte a été créée correctement !",
+  "notificationErrorNoMap": "Vous devez créer une carte pour ajouter des marqueurs",
+  "notificationErrorNoMapTitle": "Aucune carte créée",
 
   "footer": "© Arquisoft - UNIOVI",
   "homeInfo1": "GOMap!® est une application qui permet aux utilisateurs d'avoir des cartes personnalisées sur les lieux et les commerces locaux de leur ville, tels que des magasins, des bars, des restaurants, des monuments, des cinémas...",

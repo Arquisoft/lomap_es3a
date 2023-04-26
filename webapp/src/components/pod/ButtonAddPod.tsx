@@ -205,8 +205,8 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
 
             {showNotification && (
                 <Notification
-                    title={t("notificationMarkerAdded")}
-                    message={t("notificationMessageMarker")}
+                    title={t("notificationErrorNoMapTitle")}
+                    message={t("notificationErrorNoMap")}
                     time={t("notificationTime")}
                     icon={Icon}
                     onClose={handleCloseNotification}
