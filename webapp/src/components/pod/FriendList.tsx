@@ -16,7 +16,7 @@ function FriendList(props: {setItem : Function}){
     const {webId} = session.info;
     const [friends, setFriendList] = useState<PersonData[]>([]);
     const {t} = useTranslation();
-    let friendSelected: string[] = [];
+    const [friendSelected,setFriendSelected] = useState("")
     const [friendsMaps,setFriendsMaps] = useState<FriendMaps[]>([]);
 
 
@@ -70,6 +70,7 @@ function FriendList(props: {setItem : Function}){
             const root2 = ReactDOM.createRoot(document.getElementById("filterDiv") as HTMLElement);
             root2.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={[friendMap]}
                                 setItem={props.setItem}/>);
+            setFriendSelected(friendMap)
         }
     }
 
@@ -87,11 +88,11 @@ function FriendList(props: {setItem : Function}){
                                 <Dropdown.Menu>
                                     {
                                         friend.maps.map(map => (
-                                            <div className="dropdown-item" key={map}>
-                                                <Dropdown.Item onClick={() => getMarkers(map)}>
+                                            <div className="dropdown-item" key={map} onClick={() => getMarkers(map)}>
+                                                <Dropdown.Item active={friendSelected === map}>
                                                     {beautifyMapName(map,friend.webId)}
                                                 </Dropdown.Item>
-                                                <button onClick={() => getMarkers(map)}>Mostrar mapa</button>
+                                                <button>Mostrar mapa</button>
                                             </div>
                                         ))
                                     }
