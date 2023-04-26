@@ -91,6 +91,7 @@ function FriendList(props: {setItem : Function}){
                                 <Dropdown.Menu>
                                     <div className="dropdown-friends">
                                     {
+                                        friend.maps.length > 0 ?
                                         friend.maps.map(map => (
                                             <div className="dropdown-item" key={map} onClick={() => getMarkers(map)}>
                                                 <Dropdown.Item active={friendSelected === map} id="mapNameItem">
@@ -99,6 +100,10 @@ function FriendList(props: {setItem : Function}){
                                                 <button>{t("buttonShowMap")}</button>
                                             </div>
                                         ))
+                                            :
+                                            <div id="noFriendMaps">
+                                                <p>{t("notificationNoFriendMaps")}</p>
+                                            </div>
                                     }
                                     </div>
                                 </Dropdown.Menu>
