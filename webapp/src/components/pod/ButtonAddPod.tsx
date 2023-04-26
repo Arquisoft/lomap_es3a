@@ -59,7 +59,7 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
             "name": name,
             "author": {
                 "@type":"Person",
-                "identifier": fileURL
+                "identifier": identifier
             },
             "additionalType": category,
             "latitude": latitude,
