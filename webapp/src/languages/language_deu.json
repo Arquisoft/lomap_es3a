@@ -31,6 +31,16 @@
   "notificationPermissionsFriendTitle": "Leseberechtigungen zugewiesen",
   "notificationMapAdded": "Neue Karte!",
   "notificationMessageMap": "Ihre Karte wurde erfolgreich erstellt!",
+  "notificationErrorNoMap": "Sie müssen eine Karte erstellen, um Marker hinzuzufügen",
+  "notificationErrorNoMapTitle": "Keine Karte erstellt",
+  "notificationNoMaps": "Sie haben keine Karten erstellt",
+  "notificationNoFriendMaps": "Ihr Freund hat keine Karten erstellt",
+  "notificationNoFriendPermissions": "Sie haben keine Berechtigungen, auf die Karten Ihres Freundes zuzugreifen",
+  "notificationNoMapSelected": "You must select a map to add a marker",
+  "notificationNoMapSelectedTitle": "Keine Karte ausgewählt",
+  "notificationNoFriends": "Sie haben keine Freunde zu Ihrem Konto hinzugefügt",
+  "notificationEmptyNameMapTitle": "Leerer Kartenname",
+  "notificationEmptyNameMap": "Sie müssen einen Namen für die Karte eingeben",
 
   "footer": "© Arquisoft - UNIOVI",
   "homeInfo1": "GOMap!® ist eine Anwendung, bei der Benutzer personalisierte Karten über lokale Orte und Geschäfte in ihrer Stadt wie Geschäfte, Bars, Restaurants, Monumente, Kinos usw. haben können.",
@@ -108,6 +118,7 @@
   "options-profile": "Optionen öffnen",
   "profile": "Benutzerprofil",
   "friends": "Freunde",
+  "buttonShowMap": "Karte anzeigen",
   "upload": "Bild hochladen",
   "registered-as": "registriert als"
 

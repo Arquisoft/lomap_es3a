@@ -1,7 +1,7 @@
 #friendsConfiguration{
     display: flex;
     flex-direction: column;
-    height: auto;
+    height: 80vh;
     width: 100vw;
     justify-content: center;
     align-items: center;

@@ -122,43 +122,49 @@ function ManageFriends(){
                 )
 
                 }
-
-                <div id="friendsTable" >
-                    <table>
-                        <thead>
-                            <tr>
-                                <th scope="col">{t("friendName")}</th>
-                                <th scope="col">{t("friendPermissions")}</th>
-                                <th scope="col">{t("removeFriend")}</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                    {
-                        friends.map(friend => (
-                                <tr key={friend.webId}>
-                                    <th scope="row">
-                                        <div id="friendNamePhoto">
-                                            <CombinedDataProvider datasetUrl={friend.webId} thingUrl={friend.webId}>
-                                                <Avatar id="friendPhoto" alt="Remy Sharp" sx={{ width: 65, height: 65, mb: 2 }}>
-                                                    {
-                                                        friend.photo!=='' && <Image property={VCARD.hasPhoto.iri.value} width={65}/>
-                                                    }
-                                                    {
-                                                        friend.photo==='' && <img src={profilePhoto} width={65} alt={friend.name}/>
-                                                    }
-                                                </Avatar>
-                                            </CombinedDataProvider>
-                                            {friend.name}
-                                        </div>
-                                    </th>
-                                    <td><button id="buttonPermissions" onClick={() => givePermissions(friend.webId)}>{t("buttonGivePermissions")}</button></td>
-                                    <td><button id="buttonDelete" onClick={() => removeFriend(friend.webId)}>{t("buttonRemoveFriend")}</button></td>
+                {
+                    friends.length > 0 ?
+                    <div id="friendsTable" >
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">{t("friendName")}</th>
+                                    <th scope="col">{t("friendPermissions")}</th>
+                                    <th scope="col">{t("removeFriend")}</th>
                                 </tr>
-                        ))
-                    }
-                        </tbody>
-                    </table>
-                </div>
+                            </thead>
+                            <tbody>
+                        {
+                            friends.map(friend => (
+                                    <tr key={friend.webId}>
+                                        <th scope="row">
+                                            <div id="friendNamePhoto">
+                                                <CombinedDataProvider datasetUrl={friend.webId} thingUrl={friend.webId}>
+                                                    <Avatar id="friendPhoto" alt="Remy Sharp" sx={{ width: 65, height: 65, mb: 2 }}>
+                                                        {
+                                                            friend.photo!=='' && <Image property={VCARD.hasPhoto.iri.value} width={65}/>
+                                                        }
+                                                        {
+                                                            friend.photo==='' && <img src={profilePhoto} width={65} alt={friend.name}/>
+                                                        }
+                                                    </Avatar>
+                                                </CombinedDataProvider>
+                                                {friend.name}
+                                            </div>
+                                        </th>
+                                        <td><button id="buttonPermissions" onClick={() => givePermissions(friend.webId)}>{t("buttonGivePermissions")}</button></td>
+                                        <td><button id="buttonDelete" onClick={() => removeFriend(friend.webId)}>{t("buttonRemoveFriend")}</button></td>
+                                    </tr>
+                            ))
+                        }
+                            </tbody>
+                        </table>
+                    </div>
+                        :
+                        <div className="no-content" id="noFriendsProfile">
+                            <p>{t("notificationNoFriends")}</p>
+                        </div>
+                }
             </div>
             {error && (
                 <Notification

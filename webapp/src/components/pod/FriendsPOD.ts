@@ -16,10 +16,11 @@ import {
     createAclFromFallbackAcl,
     getResourceAcl,
     setAgentResourceAccess,
-    setAgentDefaultAccess, saveAclFor,
+    setAgentDefaultAccess, saveAclFor, getContainedResourceUrlAll, overwriteFile,
 } from '@inrupt/solid-client'
 import { foaf, vcard, owl, rdfs } from 'rdf-namespaces'
 import {Session,fetch} from "@inrupt/solid-client-authn-browser";
+import {v4 as uuidv4} from "uuid";
 
 
 
@@ -31,40 +32,27 @@ export interface PersonData {
     friends: string[]
 }
 
-const findFullPersonProfile = async (
-    webId: IriString,
-    session: Session,
-    visited = new Set<IriString>(),
-    response: SolidDataset[] = [],
-    fail = true,
-    iri = webId,
-): Promise<SolidDataset[]> => {
+export interface FriendMaps{
+    webId:string
+    name:string
+    maps:string[]
+}
+
+async function findFullPersonProfile(webId: string, session: Session, response: SolidDataset[] = []){
     try {
-        visited.add(iri)
-        const dataset = await getSolidDataset(iri, {fetch: session.fetch})
+        const dataset = await getSolidDataset(webId, {fetch: session.fetch})
         const person = getThing(dataset, webId)
         if (person) {
             response.push(dataset)
-            const same: string[] = getTermAll(person, owl.sameAs).map(a => a.value)
-            const see: string[] = getTermAll(person, rdfs.seeAlso).map(a => a.value)
-
-            for (const uri of [...same, ...see]) {
-                console.log('extending', uri)
-                if (!visited.has(uri))
-                    await findFullPersonProfile(webId, session, visited, response, false, uri)
-            }
         }
     } catch (e) {
-        if (fail) throw e
+        throw e
     }
     return response
 }
 
 
-
-
-
-export const findPersonData = async (session: Session,webId: IriString): Promise<PersonData> => {
+export async function findPersonData(session: Session,webId: IriString){
     const data: PersonData = { webId: webId, photo:'',name: '', friends: [] }
     if (webId) {
         const dataset = await findFullPersonProfile(webId, session)
@@ -165,3 +153,49 @@ export async function changePermissions(webId: string, friendWebId: string,sessi
     // Now save the ACL:
     await saveAclFor(myDatasetWithAcl, updatedAcl, {fetch: session.fetch});
 }
+
+export async function getMaps(webId:string,session:Session) {
+    let uri = webId.split("/").slice(0, 3).join("/").concat("/private/");
+    try{
+        let dataset = await getSolidDataset(uri, {fetch: session.fetch});
+        return getContainedResourceUrlAll(dataset);
+    }catch(e){
+        return ["User Unauthorized"]
+    }
+
+}
+
+export async function createNewMap(session:Session,mapName:string) {
+
+        if (mapName !== undefined && mapName !== null && mapName.trim().toString() !== "") {
+            try {
+                let author = {
+                    "@type": "Person",
+                    "identifier": session.info.webId
+                }
+
+                let map = {
+                    "@context": "https://schema.org/",
+                    "@type": "Map",
+                    "id": uuidv4(),
+                    "name": mapName,
+                    "author": author,
+                    "spatialCoverage": []
+                }
+
+                const blob = new Blob([JSON.stringify(map, null, 2)], {type: "application/ld+json"});
+                let file = new File([blob], map.name + ".jsonld", {type: blob.type});
+                let uri = session.info.webId!.split("/").slice(0, 3).join("/").concat("/private/");
+                let fileUrl = (uri + file.name).trim();
+                await overwriteFile(
+                    fileUrl,
+                    file,
+                    {contentType: file.type, fetch: session.fetch}
+                );
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+}
+

@@ -62,7 +62,7 @@ async function readFileFromPod(fileURL: string[], session: Session) {
             );
             let fileContent = await file.text()
             let fileJSON = JSON.parse(fileContent)
-            for (const element of fileJSON) {
+            for (const element of fileJSON.spatialCoverage) {
                 let review=[];
                 let images=[];
                 let latitude = Number(element.latitude);

@@ -30,32 +30,14 @@ interface ButtonAddPodType {
 }
 
 // Componente para añadir marcadores al POD
-function ButtonAddPod({
-                          idName,
-                          idCategory,
-                          idComment,
-                          idScore,
-                          idLatitude,
-                          idLongitude,
-                          setItem
-                      }: ButtonAddPodType) {
+function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLongitude, setItem}: ButtonAddPodType) {
     const {session} = useSession();
-    const {webId} = session.info;
-    const webIdStore = webId?.slice(0, -15) + "private/locations.jsonld";
-    const user: string[] = [webIdStore]
-
     const {t} = useTranslation();
+    const [error,setError] = useState(false)
+    const[noSelectedMap,setNoSelectedMap] = useState(false)
 
-    const createMarker = async (
-        nameFile: string,
-        idName: string,
-        idCategory: string,
-        idComment: string,
-        idScore: string,
-        idLatitude: string,
-        idLongitude: string,
-        fileURL: string
-    ) => {
+    async function createMarker(nameFile: string, idName: string, idCategory: string, idComment: string, idScore: string,
+                                idLatitude: string, idLongitude: string, fileURL: string)  {
         let name = (document.getElementById(idName) as HTMLInputElement).value;
         let category = (document.getElementById(
             idCategory
@@ -69,9 +51,11 @@ function ButtonAddPod({
         let longitude = (document.getElementById(
             idLongitude
         ) as HTMLInputElement).value;
+
         let imgUrl = (document.getElementById(
             "upload-img"
         ) as HTMLInputElement).src;
+
 
         let json = {
             "@context": "https://schema.org/",
@@ -80,7 +64,7 @@ function ButtonAddPod({
             "name": name,
             "author": {
                 "@type":"Person",
-                "identifier": webId
+                "identifier": fileURL
             },
             "additionalType": category,
             "latitude": latitude,
@@ -106,8 +90,8 @@ function ButtonAddPod({
                     });
                     return new File([blob], nameFile, {type: blob.type});
                 } else {
-                    let fileContent = Array.from(JSON.parse(file));
-                    fileContent.push(json);
+                    let fileContent = JSON.parse(file);
+                    fileContent.spatialCoverage.push(json);
                     const blob = new Blob([JSON.stringify(fileContent, null, 2)], {
                         type: "application/ld+json",
                     });
@@ -117,7 +101,7 @@ function ButtonAddPod({
         );
     };
 
-    const readFileFromPod = async (fileURL: string, session: Session) => {
+    async function readFileFromPod(fileURL: string, session: Session){
         try {
             const file = await getFile(
                 fileURL,
@@ -129,7 +113,7 @@ function ButtonAddPod({
         }
     }
 
-    const createData = async (url: string, file: File, session: Session) => {
+    async function createData(url: string, file: File, session: Session){
         try {
             await overwriteFile(
                 url,
@@ -143,6 +127,8 @@ function ButtonAddPod({
 
     const handleCloseNotification = () => {
         setShowNotification(false);
+        setError(false)
+        setNoSelectedMap(false)
     };
 
     const [showNotification, setShowNotification] = useState(false);
@@ -153,40 +139,40 @@ function ButtonAddPod({
         }, 4000); // hide notification after 5 seconds
     };
 
-    const handleClick = async () => {
-        createMarker(
-            "locations.jsonld",
-            idName,
-            idCategory,
-            idComment,
-            idScore,
-            idLatitude,
-            idLongitude,
-            webIdStore,
-        )
-            .then((file) => createData(webIdStore, file, session))
-            .then(createNotification)
-            .then(() => {
-                if (webId !== undefined) {
-                    const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
-                    root.render(<MapView
-                        lat={Number((document.getElementById(idLatitude) as HTMLInputElement).value)}
-                        lng={Number((document.getElementById(idLongitude) as HTMLInputElement).value)}
-                        webId={user} setItem={setItem}/>);
+    async function handleClick() {
+        if(document.getElementById("selectMap")===null){
+            setError(true)
+        }else{
+            let route = (document.getElementById("selectMap") as HTMLSelectElement).value
+            if(route===""){
+                setNoSelectedMap(true)
+            }else{
+                createMarker("locations.jsonld", idName, idCategory, idComment, idScore, idLatitude, idLongitude, route)
+                    .then((file) => createData(route, file, session))
+                    .then(createNotification)
+                    .then(() => {
+                        if (route !== undefined) {
+                            const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
+                            root.render(<MapView
+                                lat={Number((document.getElementById(idLatitude) as HTMLInputElement).value)}
+                                lng={Number((document.getElementById(idLongitude) as HTMLInputElement).value)}
+                                webId={[route]} setItem={setItem}/>);
+                        }
+                    });
+                let rootFriends = ReactDOM.createRoot(document.getElementById("friendDiv") as HTMLElement);
+                rootFriends.render(<FriendList setItem={setItem}/>)
+                const rootFilter = ReactDOM.createRoot(document.getElementById("filterDiv") as HTMLElement);
+                rootFilter.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={[route]}
+                                          setItem={setItem}/>);
+                let optionsMenu = document.getElementById("markersMenu");
+                if (optionsMenu !== null) {
+                    const width = optionsMenu.style.width;
+                    if (width.toString().length !== 0) {
+                        optionsMenu.style.borderStyle = "";
+                        optionsMenu.style.width = "";
+                        optionsMenu.style.minWidth = "0px";
+                    }
                 }
-            });
-        let rootFriends = ReactDOM.createRoot(document.getElementById("friendDiv") as HTMLElement);
-        rootFriends.render(<FriendList setItem={setItem}/>)
-        const rootFilter = ReactDOM.createRoot(document.getElementById("filterDiv") as HTMLElement);
-        rootFilter.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={user}
-                                  setItem={setItem}/>);
-        let optionsMenu = document.getElementById("markersMenu");
-        if (optionsMenu !== null) {
-            const width = optionsMenu.style.width;
-            if (width.toString().length !== 0) {
-                optionsMenu.style.borderStyle = "";
-                optionsMenu.style.width = "";
-                optionsMenu.style.minWidth = "0px";
             }
         }
     };
@@ -216,6 +202,29 @@ function ButtonAddPod({
             <Button variant="contained" color="primary" onClick={handleClick}>
                 {t("confirm")}
             </Button>
+
+
+            {error && (
+                <Notification
+                    title={t("notificationErrorNoMapTitle")}
+                    message={t("notificationErrorNoMap")}
+                    time={t("notificationTime")}
+                    icon={Icon}
+                    onClose={handleCloseNotification}
+                />
+            )}
+
+            {noSelectedMap && (
+                <Notification
+                    title={t("notificationNoMapSelectedTitle")}
+                    message={t("notificationNoMapSelected")}
+                    time={t("notificationTime")}
+                    icon={Icon}
+                    onClose={handleCloseNotification}
+                />
+            )}
+
+
             {showNotification && (
                 <Notification
                     title={t("notificationMarkerAdded")}
