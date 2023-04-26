@@ -92,7 +92,7 @@ function FriendList(props: {setItem : Function}){
                                                 <Dropdown.Item active={friendSelected === map}>
                                                     {beautifyMapName(map,friend.webId)}
                                                 </Dropdown.Item>
-                                                <button>Mostrar mapa</button>
+                                                <button>{t("buttonShowMap")}</button>
                                             </div>
                                         ))
                                     }
