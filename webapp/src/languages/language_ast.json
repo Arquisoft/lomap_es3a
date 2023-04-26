@@ -36,6 +36,8 @@
   "notificationNoMaps": "Nun tien creadu nengún mapa",
   "notificationNoFriendMaps": "El so amigu nun tien creadu nengún mapa",
   "notificationNoFriendPermissions": "Nun tien permisos pa acesar a los mapes del so amigu",
+  "notificationNoMapSelected": "Tien que esbillar un mapa pa amestar un marcador",
+  "notificationNoMapSelectedTitle": "Nun hai nengún mapa esbilláu",
 
   "footer": "© Arquisoft - UNIOVI",
   "homeInfo1": "GOMap!® ye una aplicación onde los usuarios puen tener mapes personalizaos tocante llugares y negocios locales na so ciudá, como tiendes, bares, restaurantes, monumentos, cines...",

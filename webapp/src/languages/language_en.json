@@ -36,6 +36,8 @@
   "notificationNoMaps": "You don't have any created maps",
   "notificationNoFriendMaps": "Your friend hasn't created any maps",
   "notificationNoFriendPermissions": "You don't have permissions to access your friend's maps",
+  "notificationNoMapSelected": "You must select a map to add a marker",
+  "notificationNoMapSelectedTitle": "No map selected",
 
   "footer": "© Arquisoft - UNIOVI",
   "homeInfo1": "GOMap!® is an application where users can have custom maps about places and local business in their city like shops, bars, restaurants, monuments, cinemas...",
