@@ -38,6 +38,7 @@
   "notificationNoFriendPermissions": "No tiene permisos para acceder a los mapas de su amigo",
   "notificationNoMapSelectedTitle": "No hay un mapa seleccionado",
   "notificationNoMapSelected": "Debe seleccionar un mapa para añadir un marcador",
+  "notificationNoFriends": "No tiene ningún amigo añadido a su cuenta",
 
   "footer": "© Arquisoft - UNIOVI",
   "homeInfo1": "GOMap!® es una aplicación en la que los usuarios pueden tener mapas personalizados sobre lugares y negocios locales en su ciudad, como tiendas, bares, restaurantes, monumentos, cines...",

@@ -83,6 +83,7 @@ function FriendList(props: {setItem : Function}){
             <h2>{t("friends")}</h2>
             <div id="friendsList">
                 {
+                    friendsMaps.length > 0 ?
                     friendsMaps.map(friend => (
                         <div key={friend.webId}>
                             <Dropdown className="dropdown">
@@ -117,7 +118,10 @@ function FriendList(props: {setItem : Function}){
                             </Dropdown>
                         </div>
                     ))
-
+                    :
+                        <div className="no-content" id="noFriends">
+                            <p>{t("notificationNoFriends")}</p>
+                        </div>
                 }
 
             </div>
