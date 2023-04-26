@@ -39,6 +39,8 @@
   "notificationNoMapSelected": "Vous devez sélectionner une carte pour ajouter un marqueur",
   "notificationNoMapSelectedTitle": "Aucune carte sélectionnée",
   "notificationNoFriends": "Vous n'avez ajouté aucun ami à votre compte",
+  "notificationEmptyNameMapTitle": "Nom de carte vide",
+  "notificationEmptyNameMap": "Vous devez entrer un nom pour la carte",
 
   "footer": "© Arquisoft - UNIOVI",
   "homeInfo1": "GOMap!® est une application qui permet aux utilisateurs d'avoir des cartes personnalisées sur les lieux et les commerces locaux de leur ville, tels que des magasins, des bars, des restaurants, des monuments, des cinémas...",

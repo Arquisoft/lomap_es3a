@@ -39,6 +39,8 @@
   "notificationNoMapSelected": "You must select a map to add a marker",
   "notificationNoMapSelectedTitle": "No map selected",
   "notificationNoFriends": "You don't have any friends added to your account",
+  "notificationEmptyNameMapTitle": "Empty map name",
+  "notificationEmptyNameMap": "You must enter a name for the map",
 
   "footer": "© Arquisoft - UNIOVI",
   "homeInfo1": "GOMap!® is an application where users can have custom maps about places and local business in their city like shops, bars, restaurants, monuments, cinemas...",

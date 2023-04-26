@@ -15,6 +15,7 @@ function MapSelector(props: {setItem: Function }){
     const[selectedMap,setSelectedMap] = useState("")
     const {session} = useSession()
     const [showNotification, setShowNotification] = useState(false);
+    const [errorEmptyName,setErrorEmptyName] = useState(false)
 
 
     useEffect(() => {
@@ -39,6 +40,7 @@ function MapSelector(props: {setItem: Function }){
 
     const handleCloseNotification = () => {
         setShowNotification(false);
+        setErrorEmptyName(false)
     };
 
     function render(route:string,element:string){
@@ -70,22 +72,27 @@ function MapSelector(props: {setItem: Function }){
     }
     async function createMap(){
         let mapName = (document.getElementById("newMapTitle")as HTMLInputElement).value
-        await createNewMap(session,mapName)
-        await getMaps(session.info.webId!,session).then(newMaps =>{
-            setMaps(newMaps)
-            let uri = session.info.webId!.split("/").slice(0, 3).join("/").concat("/private/");
-            let fileUrl = (uri + mapName+".jsonld").trim();
-            (document.getElementById("newMapTitle") as HTMLInputElement).value=""
-            createNotification();
-            render(fileUrl,"mapView");
-            render(fileUrl,"filter");
-            setSelectedMap(fileUrl);
-        })
-        const mapNameItems = document.querySelectorAll('[id="mapNameItem"]');
-        mapNameItems.forEach(item => {
-            item.setAttribute('aria-selected', 'false');
-            item.classList.remove(item.classList.item(1)!);
-        });
+        if(mapName.trim()!==""){
+            await createNewMap(session,mapName)
+            await getMaps(session.info.webId!,session).then(newMaps =>{
+                setMaps(newMaps)
+                let uri = session.info.webId!.split("/").slice(0, 3).join("/").concat("/private/");
+                let fileUrl = (uri + mapName+".jsonld").trim();
+                (document.getElementById("newMapTitle") as HTMLInputElement).value=""
+                createNotification();
+                render(fileUrl,"mapView");
+                render(fileUrl,"filter");
+                setSelectedMap(fileUrl);
+            })
+            const mapNameItems = document.querySelectorAll('[id="mapNameItem"]');
+            mapNameItems.forEach(item => {
+                item.setAttribute('aria-selected', 'false');
+                item.classList.remove(item.classList.item(1)!);
+            });
+        }else{
+            setErrorEmptyName(true)
+        }
+
     }
 
     return(
@@ -117,6 +124,18 @@ function MapSelector(props: {setItem: Function }){
                     <Notification
                         title={t("notificationMapAdded")}
                         message={t("notificationMessageMap")}
+                        time={t("notificationTime")}
+                        icon={Icon}
+                        onClose={handleCloseNotification}
+                    />
+                )
+            }
+            {
+                errorEmptyName &&
+                (
+                    <Notification
+                        title={t("notificationEmptyNameMapTitle")}
+                        message={t("notificationEmptyNameMap")}
                         time={t("notificationTime")}
                         icon={Icon}
                         onClose={handleCloseNotification}
