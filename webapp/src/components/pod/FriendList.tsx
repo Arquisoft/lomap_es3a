@@ -89,16 +89,18 @@ function FriendList(props: {setItem : Function}){
                                     {friend.name}
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu>
+                                    <div className="dropdown-friends">
                                     {
                                         friend.maps.map(map => (
                                             <div className="dropdown-item" key={map} onClick={() => getMarkers(map)}>
-                                                <Dropdown.Item active={friendSelected === map}>
+                                                <Dropdown.Item active={friendSelected === map} id="mapNameItem">
                                                     {beautifyMapName(map,friend.webId)}
                                                 </Dropdown.Item>
                                                 <button>{t("buttonShowMap")}</button>
                                             </div>
                                         ))
                                     }
+                                    </div>
                                 </Dropdown.Menu>
                             </Dropdown>
                         </div>

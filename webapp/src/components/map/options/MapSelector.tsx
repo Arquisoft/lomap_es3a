@@ -62,6 +62,11 @@ function MapSelector(props: {setItem: Function }){
         setSelectedMap(select);
         render(select,"mapView");
         render(select,"filter");
+        const mapNameItems = document.querySelectorAll('[id="mapNameItem"]');
+        mapNameItems.forEach(item => {
+            item.setAttribute('aria-selected', 'false');
+            item.classList.remove(item.classList.item(1)!);
+        });
     }
     async function createMap(){
         let mapName = (document.getElementById("newMapTitle")as HTMLInputElement).value
