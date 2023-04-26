@@ -70,7 +70,10 @@ function FriendList(props: {setItem : Function}){
             const root2 = ReactDOM.createRoot(document.getElementById("filterDiv") as HTMLElement);
             root2.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={[friendMap]}
                                 setItem={props.setItem}/>);
-            setFriendSelected(friendMap)
+            setFriendSelected(friendMap);
+            if(document.getElementById("selectMap")!==null){
+                (document.getElementById("selectMap") as HTMLSelectElement).value=""
+            }
         }
     }
 
