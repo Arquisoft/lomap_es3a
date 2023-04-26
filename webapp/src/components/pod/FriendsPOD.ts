@@ -154,13 +154,15 @@ export async function changePermissions(webId: string, friendWebId: string,sessi
     await saveAclFor(myDatasetWithAcl, updatedAcl, {fetch: session.fetch});
 }
 
-export async function getMaps(webId:string,session:Session): Promise<string[]> {
-    if (webId === undefined || webId === null || webId === "") {
-        return [];
-    }
+export async function getMaps(webId:string,session:Session) {
     let uri = webId.split("/").slice(0, 3).join("/").concat("/private/");
-    let dataset = await getSolidDataset(uri, {fetch: session.fetch});
-    return getContainedResourceUrlAll(dataset);
+    try{
+        let dataset = await getSolidDataset(uri, {fetch: session.fetch});
+        return getContainedResourceUrlAll(dataset);
+    }catch(e){
+        return ["User Unauthorized"]
+    }
+
 }
 
 export async function createNewMap(session:Session,mapName:string) {

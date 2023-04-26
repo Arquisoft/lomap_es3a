@@ -8,6 +8,7 @@ import MapView from "../map/MapView";
 import Filter from "../map/options/Filter";
 import {Dropdown} from "react-bootstrap";
 
+
 i18n.use(initReactI18next)
 
 function FriendList(props: {setItem : Function}){
@@ -92,14 +93,20 @@ function FriendList(props: {setItem : Function}){
                                     <div className="dropdown-friends">
                                     {
                                         friend.maps.length > 0 ?
-                                        friend.maps.map(map => (
-                                            <div className="dropdown-item" key={map} onClick={() => getMarkers(map)}>
-                                                <Dropdown.Item active={friendSelected === map} id="mapNameItem">
-                                                    {beautifyMapName(map,friend.webId)}
-                                                </Dropdown.Item>
-                                                <button>{t("buttonShowMap")}</button>
-                                            </div>
-                                        ))
+                                            (friend.maps[0]!=="User Unauthorized" ?
+                                                friend.maps.map(map => (
+                                                    <div className="dropdown-item" key={map} onClick={() => getMarkers(map)}>
+                                                        <Dropdown.Item active={friendSelected === map} id="mapNameItem">
+                                                            {beautifyMapName(map,friend.webId)}
+                                                        </Dropdown.Item>
+                                                        <button>{t("buttonShowMap")}</button>
+                                                    </div>
+                                                ))
+                                            :
+                                                <div id="noFriendPermissions">
+                                                    <p>{t("notificationNoFriendPermissions")}</p>
+                                                </div>
+                                            )
                                             :
                                             <div id="noFriendMaps">
                                                 <p>{t("notificationNoFriendMaps")}</p>
@@ -112,6 +119,7 @@ function FriendList(props: {setItem : Function}){
                     ))
 
                 }
+
             </div>
         </div>
     )
