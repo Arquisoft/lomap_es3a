@@ -33,6 +33,7 @@ interface ButtonAddPodType {
 function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLongitude, setItem}: ButtonAddPodType) {
     const {session} = useSession();
     const {t} = useTranslation();
+    const [error,setError] = useState(false)
 
     async function createMarker(nameFile: string, idName: string, idCategory: string, idComment: string, idScore: string,
                                 idLatitude: string, idLongitude: string, fileURL: string)  {
@@ -123,33 +124,38 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
     };
 
     async function handleClick() {
-        let route = (document.getElementById("selectMap") as HTMLSelectElement).value
-        createMarker("locations.jsonld", idName, idCategory, idComment, idScore, idLatitude, idLongitude, route)
-            .then((file) => createData(route, file, session))
-            .then(createNotification)
-            .then(() => {
-                if (route !== undefined) {
-                    const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
-                    root.render(<MapView
-                        lat={Number((document.getElementById(idLatitude) as HTMLInputElement).value)}
-                        lng={Number((document.getElementById(idLongitude) as HTMLInputElement).value)}
-                        webId={[route]} setItem={setItem}/>);
+        if(document.getElementById("selectMap")===null){
+            setError(true)
+        }else{
+            let route = (document.getElementById("selectMap") as HTMLSelectElement).value
+            createMarker("locations.jsonld", idName, idCategory, idComment, idScore, idLatitude, idLongitude, route)
+                .then((file) => createData(route, file, session))
+                .then(createNotification)
+                .then(() => {
+                    if (route !== undefined) {
+                        const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
+                        root.render(<MapView
+                            lat={Number((document.getElementById(idLatitude) as HTMLInputElement).value)}
+                            lng={Number((document.getElementById(idLongitude) as HTMLInputElement).value)}
+                            webId={[route]} setItem={setItem}/>);
+                    }
+                });
+            let rootFriends = ReactDOM.createRoot(document.getElementById("friendDiv") as HTMLElement);
+            rootFriends.render(<FriendList setItem={setItem}/>)
+            const rootFilter = ReactDOM.createRoot(document.getElementById("filterDiv") as HTMLElement);
+            rootFilter.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={[route]}
+                                      setItem={setItem}/>);
+            let optionsMenu = document.getElementById("markersMenu");
+            if (optionsMenu !== null) {
+                const width = optionsMenu.style.width;
+                if (width.toString().length !== 0) {
+                    optionsMenu.style.borderStyle = "";
+                    optionsMenu.style.width = "";
+                    optionsMenu.style.minWidth = "0px";
                 }
-            });
-        let rootFriends = ReactDOM.createRoot(document.getElementById("friendDiv") as HTMLElement);
-        rootFriends.render(<FriendList setItem={setItem}/>)
-        const rootFilter = ReactDOM.createRoot(document.getElementById("filterDiv") as HTMLElement);
-        rootFilter.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={[route]}
-                                  setItem={setItem}/>);
-        let optionsMenu = document.getElementById("markersMenu");
-        if (optionsMenu !== null) {
-            const width = optionsMenu.style.width;
-            if (width.toString().length !== 0) {
-                optionsMenu.style.borderStyle = "";
-                optionsMenu.style.width = "";
-                optionsMenu.style.minWidth = "0px";
             }
         }
+
     };
 
     const [imageUrl, setImageUrl] = useState("");
@@ -186,6 +192,15 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
                 {t("confirm")}
             </Button>
 
+            {error && (
+                <Notification
+                    title={t("notificationMarkerAdded")}
+                    message={"debes crear un mapa"}
+                    time={t("notificationTime")}
+                    icon={Icon}
+                    onClose={handleCloseNotification}
+                />
+            )}
 
 
             {showNotification && (
