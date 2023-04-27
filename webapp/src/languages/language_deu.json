@@ -120,6 +120,11 @@
   "friends": "Freunde",
   "buttonShowMap": "Karte anzeigen",
   "upload": "Bild hochladen",
-  "registered-as": "registriert als"
+  "registered-as": "registriert als",
+  "pod-profile": " Ihr POD-Profil",
 
+  "edit-name": "NAME BEARBEITEN",
+  "confirm-name": "BESTÄTIGEN SIE DIE BEARBEITUNG",
+  "have-friends": "Du hast",
+  "text-friend": "Freunde"
 }

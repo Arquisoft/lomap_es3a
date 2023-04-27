@@ -19,7 +19,7 @@ function FriendList(props: {setItem : Function}){
     const {t} = useTranslation();
     const [friendSelected,setFriendSelected] = useState("")
     const [friendsMaps,setFriendsMaps] = useState<FriendMaps[]>([]);
-
+    const [edit, setEdit] = useState(false)
 
     useEffect(() => {
         async function loadPersonData() {
