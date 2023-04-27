@@ -76,7 +76,7 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
                 "@type": "ImageObject",
                 "author": {
                     "@type": "Person",
-                    "identifier": webId
+                    "identifier": identifier
                 },
                 "contentUrl": imgUrl
             }],
