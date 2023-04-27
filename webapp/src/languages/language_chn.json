@@ -119,5 +119,11 @@
   "friends": "朋友们",
   "buttonShowMap": "显示地图",
   "upload": "上传图片",
-  "registered-as": "注册为"
+  "registered-as": "注册为",
+  "pod-profile": " 你的 POD 配置文件",
+
+  "edit-name": "编辑名称",
+  "confirm-name": "确认编辑",
+  "have-friends": "你有",
+  "text-friend": "朋友"
 }

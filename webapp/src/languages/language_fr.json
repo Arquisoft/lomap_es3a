@@ -119,5 +119,11 @@
   "friends": "Amis",
   "buttonShowMap": "Afficher la carte",
   "upload": "Télécharger l'image",
-  "registered-as": "enregistré en tant que"
+  "registered-as": "enregistré en tant que",
+  "pod-profile": " Votre profil de POD",
+
+  "edit-name": "ÉDITER LE NOM",
+  "confirm-name": "CONFIRMER L'ÉDITION",
+  "have-friends": "Tu as",
+  "text-friend": "des amis"
 }
