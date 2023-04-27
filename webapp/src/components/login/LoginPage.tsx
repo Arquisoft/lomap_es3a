@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {useTranslation} from "react-i18next";
-import {Button, SvgIcon} from "@mui/material";
+import {Button} from "@mui/material";
 import {LoginButton} from "@inrupt/solid-ui-react";
 import "../../css/login.css";
 import Logo from "../../img/FullLogo.png";
@@ -39,9 +39,7 @@ function LoginPage() {
                     <div id="loginButton">
                         <LoginButton oidcIssuer={idp} redirectUrl={url}>
                             <Button variant="contained" color="primary" id="login">
-                                <SvgIcon>
-                                    {LoginIcon}
-                                </SvgIcon>
+                                <LoginIcon />
                                 {t("login")}
                             </Button>
                         </LoginButton>

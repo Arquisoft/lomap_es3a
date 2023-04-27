@@ -140,7 +140,7 @@ function ManageFriends() {
                                                 <div id="friendNamePhoto">
                                                     <CombinedDataProvider datasetUrl={friend.webId}
                                                                           thingUrl={friend.webId}>
-                                                        <Avatar id="friendPhoto" alt="Remy Sharp"
+                                                        <Avatar id="friendPhoto" alt="Friend photo"
                                                                 sx={{width: 65, height: 65, mb: 2}}>
                                                             {
                                                                 friend.photo !== '' &&

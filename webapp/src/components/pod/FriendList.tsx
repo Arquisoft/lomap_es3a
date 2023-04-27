@@ -8,9 +8,9 @@ import MapView from "../map/MapView";
 import Filter from "../map/options/Filter";
 import {Collapse} from "react-bootstrap";
 import {List, ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
-import {ExpandLess, ExpandMore, StarBorder} from "@mui/icons-material";
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-
+import {ExpandLess, ExpandMore} from "@mui/icons-material";
+import PersonIcon from '@mui/icons-material/Person';
+import MapIcon from '@mui/icons-material/Map';
 
 i18n.use(initReactI18next)
 
@@ -20,7 +20,7 @@ function FriendList(props: { setItem: Function }) {
     const {webId} = session.info;
     const {t} = useTranslation();
     const [friendsMaps, setFriendsMaps] = useState<FriendMaps[]>([]);
-    const [open, setOpen] = React.useState(true);
+    const [open, setOpen] = React.useState(false);
 
     const handleClick = () => {
         setOpen(!open);
@@ -94,7 +94,7 @@ function FriendList(props: { setItem: Function }) {
                                 <div key={friend.webId}>
                                     <ListItemButton onClick={handleClick}>
                                         <ListItemIcon>
-                                            <InboxIcon/>
+                                            <PersonIcon color="primary"/>
                                         </ListItemIcon>
                                         <ListItemText primary={friend.name}/>
                                         {open ? <ExpandLess/> : <ExpandMore/>}
@@ -108,10 +108,9 @@ function FriendList(props: { setItem: Function }) {
                                                                         onClick={() => getMarkers(map)}
                                                                         id="mapNameItem">
                                                             <ListItemIcon>
-                                                                <StarBorder/>
+                                                                <MapIcon color="primary"/>
                                                             </ListItemIcon>
                                                             <ListItemText primary={beautifyMapName(map, friend.webId)}/>
-                                                            <button>{t("buttonShowMap")}</button>
                                                         </ListItemButton>
                                                     ))
                                                 ) : (

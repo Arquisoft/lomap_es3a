@@ -36,8 +36,8 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
     const [error, setError] = useState(false)
     const [noSelectedMap, setNoSelectedMap] = useState(false)
 
-    async function createMarker(nameFile: string, idName: string, idCategory: string, idComment: string, idScore: string,
-                                idLatitude: string, idLongitude: string, fileURL: string) {
+    async function createMarker(idName: string, idCategory: string, idComment: string, idScore: string,
+                                idLatitude: string, idLongitude: string, fileURL: string)  {
         let name = (document.getElementById(idName) as HTMLInputElement).value;
         let identifier = fileURL.split("private")[0] + "profile/card#me"
         let category = (document.getElementById(
@@ -55,13 +55,12 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
 
         let imgUrl = (document.getElementById(
             "upload-img"
-        ) as HTMLInputElement).src;
-
+        ) as HTMLInputElement)?.src;
 
         let json = {
             "@context": "https://schema.org/",
             "@type": "Place",
-            "identifier": uuidv4(),
+            "identifier":uuidv4(),
             "name": name,
             "author": {
                 "@type":"Person",
@@ -83,26 +82,30 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
             "dateCreated": new Date().valueOf()
         };
 
+        if (imgUrl === null || imgUrl === undefined) {
+            json.image = [];
+        }
+
         return await readFileFromPod(fileURL, session).then(file => {
                 if (file === "") {
                     let fileContent = [json]
                     const blob = new Blob([JSON.stringify(fileContent, null, 2)], {
                         type: "application/ld+json",
                     });
-                    return new File([blob], nameFile, {type: blob.type});
+                    return new File([blob], fileURL, {type: blob.type});
                 } else {
                     let fileContent = JSON.parse(file);
                     fileContent.spatialCoverage.push(json);
                     const blob = new Blob([JSON.stringify(fileContent, null, 2)], {
                         type: "application/ld+json",
                     });
-                    return new File([blob], nameFile, {type: blob.type});
+                    return new File([blob], fileURL, {type: blob.type});
                 }
             }
         );
-    }
+    };
 
-    async function readFileFromPod(fileURL: string, session: Session) {
+    async function readFileFromPod(fileURL: string, session: Session){
         try {
             const file = await getFile(
                 fileURL,
@@ -114,7 +117,7 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
         }
     }
 
-    async function createData(url: string, file: File, session: Session) {
+    async function createData(url: string, file: File, session: Session){
         try {
             await overwriteFile(
                 url,
@@ -141,14 +144,14 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
     };
 
     async function handleClick() {
-        if (document.getElementById("selectMap") === null) {
+        if(document.getElementById("selectMap")===null){
             setError(true)
-        } else {
+        }else{
             let route = (document.getElementById("selectMap") as HTMLSelectElement).value
-            if (route === "") {
+            if(route===""){
                 setNoSelectedMap(true)
-            } else {
-                createMarker("locations.jsonld", idName, idCategory, idComment, idScore, idLatitude, idLongitude, route)
+            }else{
+                createMarker(idName, idCategory, idComment, idScore, idLatitude, idLongitude, route)
                     .then((file) => createData(route, file, session))
                     .then(createNotification)
                     .then(() => {

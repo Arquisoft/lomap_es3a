@@ -21,8 +21,6 @@ const UserProfile: React.FC<UserProfileProps> = () => {
         <span>
             <CombinedDataProvider datasetUrl={webId} thingUrl={webId}>
                 <Text property={FOAF.name.iri.value} autosave/>
-
-
             </CombinedDataProvider>
         </span>
     );

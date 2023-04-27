@@ -19,7 +19,6 @@ import {Link} from 'react-router-dom';
 import {FOAF, VCARD} from "@inrupt/lit-generated-vocab-common";
 import {CombinedDataProvider, Image, LogoutButton, Text} from '@inrupt/solid-ui-react';
 import {GroupAdd, Person} from "@mui/icons-material";
-import SvgIcon from "@mui/icons-material/Login";
 import LogoutIcon from '@mui/icons-material/Logout';
 
 interface AvatarType {
@@ -102,9 +101,7 @@ const OurAvatar = ({webId}: AvatarType) => {
                         <MenuItem>
                             <LogoutButton>
                                 <Button variant="contained" color="error" id="logout">
-                                    <SvgIcon>
-                                        {LogoutIcon}
-                                    </SvgIcon>
+                                    <LogoutIcon/>
                                     {t('logout')}
                                 </Button>
                             </LogoutButton>

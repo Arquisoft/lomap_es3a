@@ -405,3 +405,7 @@ select, option {
     border-width: 0.1em;
     color: white;
 }
+
+#mapNameItem:hover {
+    background-color: #3e3e8f;
+}
