@@ -28,7 +28,7 @@ test('Notification call onClose when close button is clicked', async () => {
     };
 
     render(<Notification {...props} />);
-    const closeButton = screen.getByRole('close');
+    const closeButton = screen.getByRole('button');
     fireEvent.click(closeButton);
     expect(props.onClose).toHaveBeenCalled();
 });
@@ -43,7 +43,7 @@ test('Notification should disappear after closing', async () => {
     };
 
     const { container } = render(<Notification {...props} />);
-    const closeButton = screen.getByRole('close');
+    const closeButton = screen.getByRole('button');
     fireEvent.click(closeButton);
     expect(container.firstChild).not.toBeInTheDocument();
 });
