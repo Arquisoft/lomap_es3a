@@ -33,10 +33,10 @@ interface ButtonAddPodType {
 function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLongitude, setItem}: ButtonAddPodType) {
     const {session} = useSession();
     const {t} = useTranslation();
-    const [error,setError] = useState(false)
-    const[noSelectedMap,setNoSelectedMap] = useState(false)
+    const [error, setError] = useState(false)
+    const [noSelectedMap, setNoSelectedMap] = useState(false)
 
-    async function createMarker(nameFile: string, idName: string, idCategory: string, idComment: string, idScore: string,
+    async function createMarker(idName: string, idCategory: string, idComment: string, idScore: string,
                                 idLatitude: string, idLongitude: string, fileURL: string)  {
         let name = (document.getElementById(idName) as HTMLInputElement).value;
         let identifier = fileURL.split("private")[0] + "profile/card#me"
@@ -55,8 +55,7 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
 
         let imgUrl = (document.getElementById(
             "upload-img"
-        ) as HTMLInputElement).src;
-
+        ) as HTMLInputElement)?.src;
 
         let json = {
             "@context": "https://schema.org/",
@@ -83,20 +82,24 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
             "dateCreated": new Date().valueOf()
         };
 
+        if (imgUrl === null || imgUrl === undefined) {
+            json.image = [];
+        }
+
         return await readFileFromPod(fileURL, session).then(file => {
                 if (file === "") {
                     let fileContent = [json]
                     const blob = new Blob([JSON.stringify(fileContent, null, 2)], {
                         type: "application/ld+json",
                     });
-                    return new File([blob], nameFile, {type: blob.type});
+                    return new File([blob], fileURL, {type: blob.type});
                 } else {
                     let fileContent = JSON.parse(file);
                     fileContent.spatialCoverage.push(json);
                     const blob = new Blob([JSON.stringify(fileContent, null, 2)], {
                         type: "application/ld+json",
                     });
-                    return new File([blob], nameFile, {type: blob.type});
+                    return new File([blob], fileURL, {type: blob.type});
                 }
             }
         );
@@ -148,7 +151,7 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
             if(route===""){
                 setNoSelectedMap(true)
             }else{
-                createMarker("locations.jsonld", idName, idCategory, idComment, idScore, idLatitude, idLongitude, route)
+                createMarker(idName, idCategory, idComment, idScore, idLatitude, idLongitude, route)
                     .then((file) => createData(route, file, session))
                     .then(createNotification)
                     .then(() => {

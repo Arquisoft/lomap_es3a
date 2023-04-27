@@ -34,7 +34,7 @@ function AddMarkerPanel(props: { setItem: Function }) {
                 <div id="addMarkerToPODButton">
                     <ButtonAddPod idName={"namePlace"} idCategory={"categoryMarker"} idComment={"comment"}
                                   idScore={"scoreNewMarker"}
-                                  idLatitude={"latitude"} idLongitude={"longitude"} setItem={props.setItem} />
+                                  idLatitude={"latitude"} idLongitude={"longitude"} setItem={props.setItem}/>
                 </div>
             </form>
         </div>

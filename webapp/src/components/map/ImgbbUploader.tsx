@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import IconButton from "@mui/material/IconButton";
-import { PhotoCamera } from "@mui/icons-material";
+import {PhotoCamera} from "@mui/icons-material";
 import "../../css/map.css";
 import {useTranslation} from "react-i18next";
+
 interface ImgbbUploaderProps {
     apiKey: string;
     onUploadSuccess: (imageUrl: string) => void;
@@ -11,7 +12,7 @@ interface ImgbbUploaderProps {
 
 function ImgbbUploader(props: ImgbbUploaderProps) {
     const {t} = useTranslation();
-    const { apiKey, onUploadSuccess, onUploadFailure } = props;
+    const {apiKey, onUploadSuccess, onUploadFailure} = props;
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
     const [isChecked, setIsChecked] = useState<boolean>(false);
 
@@ -72,16 +73,16 @@ function ImgbbUploader(props: ImgbbUploaderProps) {
                         accept="image/*"
                         type="file"
                         onChange={handleFileChange}
-                        style={{ display: "none" }}
+                        style={{display: "none"}}
                     />
-                    <PhotoCamera />
-                    <div className="icon-button-overlay" style={{ marginLeft: "8px" }}>
+                    <PhotoCamera/>
+                    <div className="icon-button-overlay" style={{marginLeft: "8px"}}>
                         {t("upload")}
                     </div>
                 </IconButton>
             </label>
             {selectedFile && (
-                <span style={{ marginLeft: "8px", color: "#1E88E5" }}>
+                <span style={{marginLeft: "8px", color: "#1E88E5"}}>
           {selectedFile.name}
         </span>
             )}
@@ -100,7 +101,7 @@ function ImgbbUploader(props: ImgbbUploaderProps) {
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                     >
-                        <circle cx="12" cy="12" r="10" fill="#4CAF50" />
+                        <circle cx="12" cy="12" r="10" fill="#4CAF50"/>
                         <path
                             d="M7 13L9 15L17 7"
                             stroke="white"

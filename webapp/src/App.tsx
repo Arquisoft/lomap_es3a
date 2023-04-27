@@ -26,23 +26,9 @@ function App(): JSX.Element {
                     <Route path='/profile' element={<UserProfile/>}/>
                     <Route path="*" element={<Navigate to="/"/>}/>
                 </Routes>
-                {/*<LocationUpdater/>*/}
             </Router>
         </SessionProvider>
     );
 }
-
-// function LocationUpdater(): JSX.Element {
-//     const location = useLocation();
-//
-//     useEffect(() => {
-//         if (location.pathname !== "/login") {
-//             const url = window.location.origin + location.pathname;
-//             sessionStorage.setItem("sessionRedirectUrl", url);
-//         }
-//     }, [location]);
-//
-//     return (<></>);
-// }
 
 export default App;

@@ -84,6 +84,7 @@ nav a:active {
     border-color: white;
     border-width: 0.1875em;
     cursor: pointer;
+    gap: 0.5em;
 }
 
 #login {
