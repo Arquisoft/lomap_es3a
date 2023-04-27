@@ -123,7 +123,7 @@ function ManageFriends(){
 
                 }
                 {
-                    friends.length > 0 ?
+                    personData.friends.length > 0 ?
                     <div id="friendsTable" >
                         <table>
                             <thead>
