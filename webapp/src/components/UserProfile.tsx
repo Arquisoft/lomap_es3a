@@ -13,8 +13,10 @@ import StarIcon from "@mui/icons-material/Star";
 import Diversity3Icon from '@mui/icons-material/Diversity3';
 import IconButton from "@mui/material/IconButton";
 import styled from "@emotion/styled";
-
-
+import RecentActorsIcon from '@mui/icons-material/RecentActors';
+import {Fingerprint, Link} from "@mui/icons-material";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import ContactEmergencyIcon from '@mui/icons-material/ContactEmergency';
 
 function ManageFriends(){
     const { session } = useSession();
@@ -102,7 +104,9 @@ function ManageFriends(){
         margin-left: 10px;
       }
     `;
-
+    function handleButtonClick() {
+        window.open(webId, '_blank');
+    }
 
     return(
 
@@ -118,8 +122,13 @@ function ManageFriends(){
             >
                 <CombinedDataProvider datasetUrl={webId} thingUrl={webId}>
                     <Avatar sx={{width: 200, height: 200, mb: 2}}> <Image property={VCARD.hasPhoto.iri.value} width={200}/></Avatar>
+                    <IconButton onClick={handleButtonClick}>
+                        <ContactEmergencyIcon />{t("pod-profile")}
 
+                    </IconButton>
                 </CombinedDataProvider>
+
+
 
                 <Typography variant="h4" gutterBottom textAlign="center">
                     {dropdownTitle}
@@ -146,14 +155,17 @@ function ManageFriends(){
                                     <td>
                                         <div id="friend-name-photo">
                                             <CombinedDataProvider datasetUrl={friend.webId} thingUrl={friend.webId}>
+                                                <div className="friendName">{friend.name}</div>
                                                 <div className="friend-photo">
+
                                                     {friend.photo !== "" ? (
+
                                                         <Image property={VCARD.hasPhoto.iri.value} width={65}/>
                                                     ) : (
                                                         <img src={profilePhoto} width={65} alt={friend.name}/>
                                                     )}
                                                 </div>
-                                                <div className="friendName">{friend.name}</div>
+
                                             </CombinedDataProvider>
 
                                         </div>
