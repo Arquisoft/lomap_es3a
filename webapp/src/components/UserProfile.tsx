@@ -1,16 +1,17 @@
-import {CombinedDataProvider, Image, useSession} from "@inrupt/solid-ui-react";
+import {CombinedDataProvider, Image, Text, useSession} from "@inrupt/solid-ui-react";
 import React, {useEffect, useState} from "react";
 import {addFriendToPod, changePermissions, findPersonData, PersonData, removeFriendFromPOD} from "./pod/FriendsPOD";
 import {useTranslation} from "react-i18next";
 import "../css/profile.css"
-import Avatar from "@mui/material/Avatar";
-import {VCARD} from "@inrupt/lit-generated-vocab-common";
+import {Avatar, Box, Button, Typography} from '@mui/material';
+import {FOAF, VCARD} from "@inrupt/lit-generated-vocab-common";
 import Icon from "../img/symbols/GOMapSymbol.png";
 import Notification from "./Notification";
 import profilePhoto from "../img/profile.png";
 import {Badge} from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import Diversity3Icon from '@mui/icons-material/Diversity3';
+
 
 
 function ManageFriends(){
@@ -21,7 +22,7 @@ function ManageFriends(){
     const [friendRemove, setFriendRemove] = useState(false)
     const [friendPermissions,setFriendPermissions] = useState(false)
     const [personData, setPersonData] = useState<PersonData>({ webId: '',photo: '', name: '', friends: [] })
-    const {webId} = session.info;
+    let {webId} = session.info;
     const [friends, setFriendList] = useState<PersonData[]>([]);
     const [showButtonAdd,setShowButtonAdd] = useState(true)
     const { t } = useTranslation();
@@ -30,6 +31,20 @@ function ManageFriends(){
         { name: "Inrupt", value: "https://inrupt.net" },
         { name: "SolidCommunity", value: "https://solidcommunity.net" },
     ];
+
+
+    if (webId==null){
+        webId = "";
+    }
+    const dropdownTitle = (
+        <span>
+            <CombinedDataProvider datasetUrl={webId} thingUrl={webId}>
+                <Text property={FOAF.name.iri.value} edit={true} autosave/>
+
+
+            </CombinedDataProvider>
+        </span>
+    );
 
 
     useEffect(() => {
@@ -66,9 +81,29 @@ function ManageFriends(){
 
 
     return(
+
         <div id="friends-configuration">
+            <Box
+                display="flex"
+                flexDirection="column"
+                alignItems="center"
+                justifyContent="center"
+                minHeight="100vh"
+                px={2}
+            >
+                <CombinedDataProvider datasetUrl={webId} thingUrl={webId}>
+                    <Avatar sx={{width: 200, height: 200, mb: 2}}> <Image property={VCARD.hasPhoto.iri.value} width={200}/></Avatar>
+                </CombinedDataProvider>
+                <Typography variant="h4" gutterBottom textAlign="center">
+                    {dropdownTitle}
+                </Typography>
+
+                <Box mt={4}>
+                    <Button variant="contained">Editar Nombre</Button>
+                </Box>
+
+            </Box>
             <div id="friends-configuration-body">
-                <h1>{t("profile")}</h1>
                 {friends.length > 0 ? (
                     <div id="friends-table">
                         <table>
