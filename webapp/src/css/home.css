@@ -3,57 +3,61 @@
 }
 
 #city {
-    border-radius: 30px;
-    margin-top: 20px;
+    border-radius: 1.875em;
+    margin-top: 1.25em;
 }
 
-#screen {
+#homeScreen {
+    display: flex;
+    flex-direction: column;
     text-align: center;
 }
 
 #symbolsPanel {
     display: inline-block;
-
     background-color: #a8bcd8;
-    border-radius: 5px;
-    padding: 10px;
+    border-radius: 0.3125em;
+    padding: 0.625em;
 }
 
 .techButtons {
-    margin: 15px;
+    margin: 0.9375em;
 }
 
 #documentButton {
     display: inline-block;
     color: white;
     background-color: #0063fd;
-    border-radius: 30px;
+    border-radius: 1.875em;
     border-color: black;
     border-style: solid;
-    border-width: 2px;
+    border-width: 0.0625em;
     cursor: pointer;
     text-decoration: none;
-    margin: 1em;
-    font-size: 25px;
-    padding: 0.2em 0.5em 0.2em 1em;
+    margin: 0.0625em 0.0625em 1em 0.0625em;
+    font-size: 1.5625em;
+    padding: 0.3em;
 }
 
 #documentButton:hover {
-    background-color: #00a6fb;
+    background-color: #4f558f;
 }
 
 #documentButton:active {
-    background-color: #007ffd;
+    background-color: #232269;
 }
 
 #documentation p {
-    margin-top: 1em;
+    margin-bottom: 0;
     color: black;
-    padding: 0;
     cursor: auto;
     font-family: "Corbel Light", serif;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 1.5625em;
+}
+
+#documentation {
+    margin-bottom: 1.25em;
 }
 
 #symbolsPanel > p {
@@ -62,5 +66,32 @@
     cursor: auto;
     font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 1.25em;
+}
+
+@media only screen and (max-width: 768px) {
+    #city {
+        margin-top: 0.625em;
+    }
+
+    #symbolsPanel {
+        display: block;
+        margin-top: 1.25em;
+    }
+
+    .techButtons {
+        margin: 0.625em;
+    }
+
+    #documentButton {
+        font-size: 1.25em;
+    }
+
+    #documentation p {
+        font-size: 1.25em;
+    }
+
+    #symbolsPanel > p {
+        font-size: 1.125em;
+    }
 }

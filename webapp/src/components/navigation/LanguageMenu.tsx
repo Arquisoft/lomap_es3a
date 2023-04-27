@@ -12,7 +12,7 @@ import AsturiasFlag from "../../img/flags/AsturiasFlag.png";
 i18n.use(initReactI18next)
 
 function LanguageMenu() {
-    const [selectedLanguage, setSelectedLanguage] = useState('en');
+    const [selectedLanguage, setSelectedLanguage] = useState(sessionStorage.getItem("language") || "en");
 
     const {t} = useTranslation();
 
@@ -24,8 +24,8 @@ function LanguageMenu() {
     };
 
     return (
-        <Dropdown className="nav-item dropdown">
-            <Dropdown.Toggle className="nav-link dropdown-toggle">
+        <Dropdown className="dropdown">
+            <Dropdown.Toggle className="dropdown-toggle">
                 {t("language")}
             </Dropdown.Toggle>
 

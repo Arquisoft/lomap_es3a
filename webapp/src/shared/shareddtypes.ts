@@ -3,11 +3,6 @@ export type User = {
     email: string;
 }
 
-export type NavItemType = {
-    to: string;
-    text: string;
-}
-
 export type TechButtonType = {
     href: string;
     img: string;
@@ -15,10 +10,6 @@ export type TechButtonType = {
 }
 
 export type SearchType = {
-    title: string;
-}
-
-export type FilterType = {
     title: string;
 }
 
@@ -32,19 +23,5 @@ export type CommentType = {
 
 export type ScoreType = {
     title: string;
-}
-
-export type ButtonAddPodType = {
-    idName: string;
-    idCategory: string;
-    idComment: string;
-    idScore: string;
-    idLatitude: string;
-    idLongitude: string;
-}
-
-export type SliderType = {
-    title: string;
-    min: number;
-    max: number;
+    id:string
 }

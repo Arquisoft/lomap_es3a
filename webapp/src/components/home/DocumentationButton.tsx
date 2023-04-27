@@ -5,11 +5,11 @@ i18n.use(initReactI18next)
 
 function DocumentationButton() {
 
-    const { t } = useTranslation();
+    const {t} = useTranslation();
 
     return (
         <a href="https://arquisoft.github.io/lomap_es3a/" id="documentButton">
-            {t("docs_button")}
+            {t("docsButton")}
         </a>
     )
 

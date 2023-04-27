@@ -6,15 +6,15 @@ i18n.use(initReactI18next)
 
 function DescriptionText() {
 
-    const { t } = useTranslation();
+    const {t} = useTranslation();
 
     return (
         <div id="documentation">
             <p>
-                {t("home_info1")}
+                {t("homeInfo1")}
             </p>
             <p>
-                {t("home_info2")}
+                {t("homeInfo2")}
             </p>
         </div>
     );

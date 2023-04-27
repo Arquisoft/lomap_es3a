@@ -1,7 +1,11 @@
+import "../../css/help.css";
+import React from "react";
+import ContactUs from "./ContactUs";
+
 function HelpPage() {
     return (
-        <div>
-
+        <div id="helpPage">
+            <ContactUs/>
         </div>
     )
 }

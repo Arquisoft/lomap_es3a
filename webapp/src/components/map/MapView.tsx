@@ -5,17 +5,17 @@ import LocationMarker from "./LocationMarker";
 import MarkersPOD from "../pod/MarkersPOD";
 import React from "react";
 
-function MapView(props: { lat: number; lng:number; }) {
-    const position ={lat: props.lat, lng:props.lng}
+function MapView(props: { lat: number; lng: number; webId: string[]; setItem: Function }) {
+    const position = {lat: props.lat, lng: props.lng}
 
     return (
-        <MapContainer center={position} zoom={13} scrollWheelZoom={true} zoomControl={false}>
+        <MapContainer center={position} zoom={13} scrollWheelZoom={true} zoomControl={true}>
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             <LocationMarker/>
-            <MarkersPOD/>
+            <MarkersPOD webId={props.webId} setItem={props.setItem}/>
         </MapContainer>
     );
 }
