@@ -39,6 +39,7 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
     async function createMarker(nameFile: string, idName: string, idCategory: string, idComment: string, idScore: string,
                                 idLatitude: string, idLongitude: string, fileURL: string)  {
         let name = (document.getElementById(idName) as HTMLInputElement).value;
+        let identifier = fileURL.split("private")[0] + "profile/card#me"
         let category = (document.getElementById(
             idCategory
         ) as HTMLInputElement).value;
@@ -64,7 +65,7 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
             "name": name,
             "author": {
                 "@type":"Person",
-                "identifier": fileURL
+                "identifier": identifier
             },
             "additionalType": category,
             "latitude": latitude,
@@ -75,7 +76,7 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
                 "@type": "ImageObject",
                 "author": {
                     "@type": "Person",
-                    "identifier": webId
+                    "identifier": identifier
                 },
                 "contentUrl": imgUrl
             }],

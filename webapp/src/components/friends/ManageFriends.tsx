@@ -67,7 +67,7 @@ function ManageFriends(){
     }
 
     function changeProvider(){
-        let provider = (document.getElementById("selectProvider") as HTMLSelectElement).value;
+        let provider = (document.getElementById("selectProviderFriend") as HTMLSelectElement).value;
         setIdp(provider)
     }
 
@@ -123,7 +123,7 @@ function ManageFriends(){
 
                 }
                 {
-                    friends.length > 0 ?
+                    personData.friends.length > 0 ?
                     <div id="friendsTable" >
                         <table>
                             <thead>
