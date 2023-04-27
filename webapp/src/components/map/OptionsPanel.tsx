@@ -17,7 +17,6 @@ function OptionsPanel(props: { setItem: Function }) {
 
     const {t} = useTranslation();
 
-
     return (
         <div>
             <div id="optionsMenu">
