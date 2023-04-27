@@ -2,7 +2,7 @@ import {CombinedDataProvider, Image, useSession} from "@inrupt/solid-ui-react";
 import React, {useEffect, useState} from "react";
 import {addFriendToPod, changePermissions, findPersonData, PersonData, removeFriendFromPOD} from "./pod/FriendsPOD";
 import {useTranslation} from "react-i18next";
-import "../css/friends.css"
+import "../css/profile.css"
 import Avatar from "@mui/material/Avatar";
 import {VCARD} from "@inrupt/lit-generated-vocab-common";
 import Icon from "../img/symbols/GOMapSymbol.png";
@@ -64,11 +64,11 @@ function ManageFriends(){
 
 
     return(
-        <div id="friendsConfiguration">
-            <div id="friendsConfigurationBody">
+        <div id="friends-configuration">
+            <div id="friends-configuration-body">
                 <h1>{t("friends")}</h1>
                 {friends.length > 0 ? (
-                    <div id="friendsTable">
+                    <div id="friends-table">
                         <table>
                             <thead>
                             <tr>
@@ -79,9 +79,9 @@ function ManageFriends(){
                             {friends.map((friend) => (
                                 <tr key={friend.webId}>
                                     <td>
-                                        <div id="friendNamePhoto">
+                                        <div id="friend-name-photo">
                                             <CombinedDataProvider datasetUrl={friend.webId} thingUrl={friend.webId}>
-                                                <div className="friendAvatar">
+                                                <div className="friend-photo">
                                                     {friend.photo !== "" ? (
                                                         <Image property={VCARD.hasPhoto.iri.value} width={65}/>
                                                     ) : (
@@ -98,7 +98,7 @@ function ManageFriends(){
                         </table>
                     </div>
                 ) : (
-                    <div className="no-content" id="noFriendsProfile">
+                    <div className="no-content" id="no-friends-profile">
                         <p>{t("notificationNoFriends")}</p>
                     </div>
                 )}
@@ -131,6 +131,9 @@ function ManageFriends(){
                     onClose={handleCloseNotification}
                 />
             )}
+            <div className="friend-counter">
+                <p>Tienes {friends.length} amigos</p>
+            </div>
             {friendPermissions && (
                 <Notification
                     title={t("notificationPermissionsFriendTitle")}
