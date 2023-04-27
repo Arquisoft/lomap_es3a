@@ -1,6 +1,6 @@
 import {CombinedDataProvider, Image, Text, useSession} from "@inrupt/solid-ui-react";
 import React, {useEffect, useState} from "react";
-import {addFriendToPod, changePermissions, findPersonData, PersonData, removeFriendFromPOD} from "./pod/FriendsPOD";
+import {findPersonData, PersonData} from "./pod/FriendsPOD";
 import {useTranslation} from "react-i18next";
 import "../css/profile.css"
 import {Avatar, Box, Button, Typography} from '@mui/material';
@@ -9,18 +9,15 @@ import Icon from "../img/symbols/GOMapSymbol.png";
 import Notification from "./Notification";
 import profilePhoto from "../img/profile.png";
 import {Badge} from "@mui/material";
-import StarIcon from "@mui/icons-material/Star";
+
 import Diversity3Icon from '@mui/icons-material/Diversity3';
 import IconButton from "@mui/material/IconButton";
-import styled from "@emotion/styled";
-import RecentActorsIcon from '@mui/icons-material/RecentActors';
-import {Fingerprint, Link} from "@mui/icons-material";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+
 import ContactEmergencyIcon from '@mui/icons-material/ContactEmergency';
 
 function ManageFriends(){
     const { session } = useSession();
-    const [idp, setIdp] = useState("https://inrupt.net");
     const [error,setError] = useState(false)
     const [friendAdd, setFriendAdd] = useState(false)
     const [friendRemove, setFriendRemove] = useState(false)
@@ -28,7 +25,6 @@ function ManageFriends(){
     const [personData, setPersonData] = useState<PersonData>({ webId: '',photo: '', name: '', friends: [] })
     let {webId} = session.info;
     const [friends, setFriendList] = useState<PersonData[]>([]);
-    const [showButtonAdd,setShowButtonAdd] = useState(true)
     const { t } = useTranslation();
 
     const [edit, setEdit] = useState(false)
@@ -36,10 +32,6 @@ function ManageFriends(){
         setEdit(!edit);
     };
 
-    const providers = [
-        { name: "Inrupt", value: "https://inrupt.net" },
-        { name: "SolidCommunity", value: "https://solidcommunity.net" },
-    ];
 
 
     if (webId==null){
@@ -90,23 +82,7 @@ function ManageFriends(){
         setFriendPermissions(false)
     }
 
-    const WebId = styled.div`
-      padding: 20px 40px 0px 40px;
-      position: relative;
-      &:after {
-        background-color: #d8d8d8;
-        display: block;
-        content: '';
-        height: 1px;
-        width: 100%;
-        margin: 25px 0 0 0;
-      }
-      a {
-        display: inline-block;
-        word-break: break-all;
-        margin-left: 10px;
-      }
-    `;
+
     function handleButtonClick() {
         window.open(webId, '_blank');
     }
