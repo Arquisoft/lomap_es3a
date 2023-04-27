@@ -67,7 +67,7 @@ function ManageFriends(){
     }
 
     function changeProvider(){
-        let provider = (document.getElementById("selectProvider") as HTMLSelectElement).value;
+        let provider = (document.getElementById("selectProviderFriend") as HTMLSelectElement).value;
         setIdp(provider)
     }
 
