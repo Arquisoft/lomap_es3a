@@ -61,7 +61,7 @@ class Notification extends Component<NotificationProps, NotificationState> {
                     <div className="notification-title">{title}</div>
                     <div className="notification-message">{message}</div>
                     <div className="notification-time">{time}</div>
-                    <button className="close-btn" onClick={this.handleClose} role="button">
+                    <button className="close-btn" onClick={this.handleClose}>
                         <i className="fas fa-times"></i>
                     </button>
                 </div>
