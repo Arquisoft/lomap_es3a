@@ -7,6 +7,7 @@
     "@cloudinary/url-gen": "^1.10.0",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@fortawesome/react-fontawesome": "github:fortawesome/react-fontawesome",
     "@inrupt/lit-generated-vocab-common": "^0.3.11",
     "@inrupt/solid-client": "^1.27.0",
     "@inrupt/solid-client-authn-browser": "^1.13.4",
