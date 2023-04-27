@@ -3,14 +3,11 @@ import React, {useState} from "react";
 import OptionsPanel from "./OptionsPanel";
 import AddMarkerPanel from "./AddMarkerPanel";
 import MapView from "./MapView";
-import {useSession} from "@inrupt/solid-ui-react";
 import ShowMarkerPanel from "./ShowMarkerPanel";
 import {Point} from "../pod/Point";
 
 function MapPage() {
     const [item, setItem] = useState<Point>();
-    const {session} = useSession();
-
 
     return (
         <div id="mapPage">

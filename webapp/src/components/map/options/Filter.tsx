@@ -37,7 +37,7 @@ function Filter({titleFilter, nameFilter, usersWebId, setItem}: IProps) {
     categories.push({value: "policeStation", text: t('policeStation')});
     categories.push({value: "transportCenter", text: t('transportCenter')});
     categories.push({value: "entertainment", text: t('entertainment')});
-    categories.push({value: "other", text: t('others')});
+    categories.push({value: "other", text: t('other')});
 
     function updateMarkers() {
         if (nameFilter !== "edit") {

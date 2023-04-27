@@ -73,9 +73,8 @@
   "policeStation": "警察局",
   "transportCenter": "交通中心",
   "entertainment": "娱乐",
-  "others": "其他",
+  "other": "其他",
   "mark": "评分",
-  "friends": "你的朋友",
 
   "addMarker": "添加标记",
   "placesName": "地点名称",

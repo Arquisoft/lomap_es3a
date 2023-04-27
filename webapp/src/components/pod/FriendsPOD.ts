@@ -1,28 +1,29 @@
 import {
-    getSolidDataset,
-    getTerm,
-    getThing,
-    getTermAll,
-    IriString,
-    SolidDataset,
-    Thing,
     buildThing,
-    setThing,
-    saveSolidDatasetAt,
+    createAclFromFallbackAcl,
+    getContainedResourceUrlAll,
+    getResourceAcl,
+    getSolidDataset,
     getSolidDatasetWithAcl,
-    hasResourceAcl,
+    getTerm,
+    getTermAll,
+    getThing,
     hasAccessibleAcl,
     hasFallbackAcl,
-    createAclFromFallbackAcl,
-    getResourceAcl,
+    hasResourceAcl,
+    IriString,
+    overwriteFile,
+    saveAclFor,
+    saveSolidDatasetAt,
+    setAgentDefaultAccess,
     setAgentResourceAccess,
-    setAgentDefaultAccess, saveAclFor, getContainedResourceUrlAll, overwriteFile,
+    setThing,
+    SolidDataset,
+    Thing,
 } from '@inrupt/solid-client'
-import { foaf, vcard, owl, rdfs } from 'rdf-namespaces'
-import {Session,fetch} from "@inrupt/solid-client-authn-browser";
+import {foaf, vcard} from 'rdf-namespaces'
+import {fetch, Session} from "@inrupt/solid-client-authn-browser";
 import {v4 as uuidv4} from "uuid";
-
-
 
 
 export interface PersonData {
@@ -32,13 +33,13 @@ export interface PersonData {
     friends: string[]
 }
 
-export interface FriendMaps{
-    webId:string
-    name:string
-    maps:string[]
+export interface FriendMaps {
+    webId: string
+    name: string
+    maps: string[]
 }
 
-async function findFullPersonProfile(webId: string, session: Session, response: SolidDataset[] = []){
+async function findFullPersonProfile(webId: string, session: Session, response: SolidDataset[] = []) {
     try {
         const dataset = await getSolidDataset(webId, {fetch: session.fetch})
         const person = getThing(dataset, webId)
@@ -52,8 +53,8 @@ async function findFullPersonProfile(webId: string, session: Session, response: 
 }
 
 
-export async function findPersonData(session: Session,webId: IriString){
-    const data: PersonData = { webId: webId, photo:'',name: '', friends: [] }
+export async function findPersonData(session: Session, webId: IriString) {
+    const data: PersonData = {webId: webId, photo: '', name: '', friends: []}
     if (webId) {
         const dataset = await findFullPersonProfile(webId, session)
         const result = dataset.reduce((data, d) => {
@@ -82,22 +83,22 @@ export async function findPersonData(session: Session,webId: IriString){
     return data;
 }
 
-export async function removeFriendFromPOD(friendWebId:string,webId:string){
+export async function removeFriendFromPOD(friendWebId: string, webId: string) {
     let solidDataset = await getSolidDataset(webId);
     let friends = getThing(solidDataset, webId) as Thing;
     friends = buildThing(friends).removeUrl(foaf.knows, friendWebId).build();
     solidDataset = setThing(solidDataset, friends);
-    await saveSolidDatasetAt(webId, solidDataset, { fetch: fetch });
+    await saveSolidDatasetAt(webId, solidDataset, {fetch: fetch});
 }
 
-export async function addFriendToPod(provider:string,friendName:string,webId:string,session:Session){
-    let friendWebId = provider.replace(/https:\/\//, "https://"+friendName+".");
+export async function addFriendToPod(provider: string, friendName: string, webId: string, session: Session) {
+    let friendWebId = provider.replace(/https:\/\//, "https://" + friendName + ".");
     friendWebId += "/profile/card#me"
 
-    try{
-        await findFullPersonProfile(friendWebId,session)
+    try {
+        await findFullPersonProfile(friendWebId, session)
 
-    }catch(e){
+    } catch (e) {
         return true
     }
 
@@ -106,11 +107,11 @@ export async function addFriendToPod(provider:string,friendName:string,webId:str
 
     friends = buildThing(friends).addUrl(foaf.knows, friendWebId).build();
     solidDataset = setThing(solidDataset, friends);
-    await saveSolidDatasetAt(webId, solidDataset, { fetch: fetch })
+    await saveSolidDatasetAt(webId, solidDataset, {fetch: fetch})
     return false
 }
 
-export async function changePermissions(webId: string, friendWebId: string,session:Session) {
+export async function changePermissions(webId: string, friendWebId: string, session: Session) {
     // Fetch the SolidDataset and its associated ACLs, if available:
     const myDatasetWithAcl = await getSolidDatasetWithAcl(webId + "private/", {fetch: session.fetch});
 
@@ -154,48 +155,48 @@ export async function changePermissions(webId: string, friendWebId: string,sessi
     await saveAclFor(myDatasetWithAcl, updatedAcl, {fetch: session.fetch});
 }
 
-export async function getMaps(webId:string,session:Session) {
+export async function getMaps(webId: string, session: Session) {
     let uri = webId.split("/").slice(0, 3).join("/").concat("/private/");
-    try{
+    try {
         let dataset = await getSolidDataset(uri, {fetch: session.fetch});
         return getContainedResourceUrlAll(dataset);
-    }catch(e){
+    } catch (e) {
         return ["User Unauthorized"]
     }
 
 }
 
-export async function createNewMap(session:Session,mapName:string) {
+export async function createNewMap(session: Session, mapName: string) {
 
-        if (mapName !== undefined && mapName !== null && mapName.trim().toString() !== "") {
-            try {
-                let author = {
-                    "@type": "Person",
-                    "identifier": session.info.webId
-                }
-
-                let map = {
-                    "@context": "https://schema.org/",
-                    "@type": "Map",
-                    "id": uuidv4(),
-                    "name": mapName,
-                    "author": author,
-                    "spatialCoverage": []
-                }
-
-                const blob = new Blob([JSON.stringify(map, null, 2)], {type: "application/ld+json"});
-                let file = new File([blob], map.name + ".jsonld", {type: blob.type});
-                let uri = session.info.webId!.split("/").slice(0, 3).join("/").concat("/private/");
-                let fileUrl = (uri + file.name).trim();
-                await overwriteFile(
-                    fileUrl,
-                    file,
-                    {contentType: file.type, fetch: session.fetch}
-                );
-            } catch (error) {
-                console.log(error);
+    if (mapName !== undefined && mapName !== null && mapName.trim().toString() !== "") {
+        try {
+            let author = {
+                "@type": "Person",
+                "identifier": session.info.webId
             }
+
+            let map = {
+                "@context": "https://schema.org/",
+                "@type": "Map",
+                "id": uuidv4(),
+                "name": mapName,
+                "author": author,
+                "spatialCoverage": []
+            }
+
+            const blob = new Blob([JSON.stringify(map, null, 2)], {type: "application/ld+json"});
+            let file = new File([blob], map.name + ".jsonld", {type: blob.type});
+            let uri = session.info.webId!.split("/").slice(0, 3).join("/").concat("/private/");
+            let fileUrl = (uri + file.name).trim();
+            await overwriteFile(
+                fileUrl,
+                file,
+                {contentType: file.type, fetch: session.fetch}
+            );
+        } catch (error) {
+            console.log(error);
         }
+    }
 
 }
 

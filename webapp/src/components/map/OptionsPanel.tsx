@@ -4,7 +4,6 @@ import FriendList from "../pod/FriendList";
 import {initReactI18next, useTranslation} from "react-i18next";
 import React from "react";
 import i18n from "../../i18n";
-import Mark from "./options/Mark";
 import {useSession} from "@inrupt/solid-ui-react";
 import MapSelector from "./options/MapSelector";
 
@@ -29,7 +28,6 @@ function OptionsPanel(props: { setItem: Function }) {
                     <Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={user}
                             setItem={props.setItem}/>
                 </div>
-                <Mark title={t("mark")} id={"scoreMarker"}/>
                 <div id="friendDiv">
                     <FriendList setItem={props.setItem}/>
                 </div>

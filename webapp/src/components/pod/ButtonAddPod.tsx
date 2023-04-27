@@ -33,11 +33,11 @@ interface ButtonAddPodType {
 function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLongitude, setItem}: ButtonAddPodType) {
     const {session} = useSession();
     const {t} = useTranslation();
-    const [error,setError] = useState(false)
-    const[noSelectedMap,setNoSelectedMap] = useState(false)
+    const [error, setError] = useState(false)
+    const [noSelectedMap, setNoSelectedMap] = useState(false)
 
     async function createMarker(nameFile: string, idName: string, idCategory: string, idComment: string, idScore: string,
-                                idLatitude: string, idLongitude: string, fileURL: string)  {
+                                idLatitude: string, idLongitude: string, fileURL: string) {
         let name = (document.getElementById(idName) as HTMLInputElement).value;
         let category = (document.getElementById(
             idCategory
@@ -60,10 +60,10 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
         let json = {
             "@context": "https://schema.org/",
             "@type": "Place",
-            "identifier":uuidv4(),
+            "identifier": uuidv4(),
             "name": name,
             "author": {
-                "@type":"Person",
+                "@type": "Person",
                 "identifier": fileURL
             },
             "additionalType": category,
@@ -75,7 +75,7 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
                 "@type": "ImageObject",
                 "author": {
                     "@type": "Person",
-                    "identifier": webId
+                    "identifier": fileURL
                 },
                 "contentUrl": imgUrl
             }],
@@ -99,9 +99,9 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
                 }
             }
         );
-    };
+    }
 
-    async function readFileFromPod(fileURL: string, session: Session){
+    async function readFileFromPod(fileURL: string, session: Session) {
         try {
             const file = await getFile(
                 fileURL,
@@ -113,7 +113,7 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
         }
     }
 
-    async function createData(url: string, file: File, session: Session){
+    async function createData(url: string, file: File, session: Session) {
         try {
             await overwriteFile(
                 url,
@@ -123,7 +123,7 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
         } catch (error) {
             console.log(error);
         }
-    };
+    }
 
     const handleCloseNotification = () => {
         setShowNotification(false);
@@ -140,13 +140,13 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
     };
 
     async function handleClick() {
-        if(document.getElementById("selectMap")===null){
+        if (document.getElementById("selectMap") === null) {
             setError(true)
-        }else{
+        } else {
             let route = (document.getElementById("selectMap") as HTMLSelectElement).value
-            if(route===""){
+            if (route === "") {
                 setNoSelectedMap(true)
-            }else{
+            } else {
                 createMarker("locations.jsonld", idName, idCategory, idComment, idScore, idLatitude, idLongitude, route)
                     .then((file) => createData(route, file, session))
                     .then(createNotification)
@@ -175,7 +175,7 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
                 }
             }
         }
-    };
+    }
 
     const [imageUrl, setImageUrl] = useState("");
 

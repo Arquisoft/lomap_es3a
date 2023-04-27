@@ -73,9 +73,8 @@
   "policeStation": "Police Station",
   "transportCenter": "Transport Center",
   "entertainment": "Entertainment",
-  "others": "Others",
+  "other": "Others",
   "mark": "Mark",
-  "friends": "Your friends",
 
   "addMarker": "Add marker",
   "placesName": "Place's name",

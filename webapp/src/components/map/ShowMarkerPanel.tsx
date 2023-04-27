@@ -49,9 +49,9 @@ function ShowMarkerPanel(props: { data: Point | undefined }) {
                 <CombinedDataProvider datasetUrl={props.data.author} thingUrl={props.data.author}>
                     <Avatar
                         alt="Profile picture"
-                        sx={{ width: 65, height: 65, mb: 2, margin: 0 }}
+                        sx={{width: 65, height: 65, mb: 2, margin: 0}}
                     >
-                        <Image property={VCARD.hasPhoto.iri.value} width={65} />
+                        <Image property={VCARD.hasPhoto.iri.value} width={65}/>
                     </Avatar>
                 </CombinedDataProvider>
                 <div id="profileMarkerData">
@@ -114,9 +114,9 @@ function ShowMarkerPanel(props: { data: Point | undefined }) {
                                     <CombinedDataProvider datasetUrl={reviewItem.author} thingUrl={reviewItem.author}>
                                         <Avatar
                                             alt="Profile picture"
-                                            sx={{ width: 65, height: 65, mb: 2, margin: 0 }}
+                                            sx={{width: 65, height: 65, mb: 2, margin: 0}}
                                         >
-                                            <Image property={VCARD.hasPhoto.iri.value} width={65} />
+                                            <Image property={VCARD.hasPhoto.iri.value} width={65}/>
                                         </Avatar>
                                     </CombinedDataProvider>
                                     <div id="nameAndDate">

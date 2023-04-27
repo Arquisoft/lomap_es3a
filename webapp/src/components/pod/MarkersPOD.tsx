@@ -4,7 +4,7 @@ import {Icon} from "leaflet";
 import {Marker} from "react-leaflet";
 import markerIconPng from "leaflet/dist/images/marker-icon.png"
 import {useSession} from "@inrupt/solid-ui-react";
-import {Point, Review,ImageMarker} from "./Point";
+import {ImageMarker, Point, Review} from "./Point";
 import * as React from "react";
 import {useEffect, useState} from "react";
 import BarIcon from "../../img/icons/bar.png";
@@ -63,8 +63,8 @@ async function readFileFromPod(fileURL: string[], session: Session) {
             let fileContent = await file.text()
             let fileJSON = JSON.parse(fileContent)
             for (const element of fileJSON.spatialCoverage) {
-                let review=[];
-                let images=[];
+                let review = [];
+                let images = [];
                 let latitude = Number(element.latitude);
                 let longitude = Number(element.longitude);
                 let identifier = element.identifier;
@@ -73,20 +73,20 @@ async function readFileFromPod(fileURL: string[], session: Session) {
                 let category = element.additionalType;
                 let description = element.description;
                 let date = element.dateCreated;
-                for(const reviewElement of element.review){
+                for (const reviewElement of element.review) {
                     review.push(new Review(reviewElement.author.identifier,
                         reviewElement.reviewRating.ratingValue,
                         reviewElement.datePublished,
                         reviewElement.reviewBody));
                 }
-                for(const imageElement of element.image){
+                for (const imageElement of element.image) {
                     images.push(new ImageMarker(imageElement.author.identifier, imageElement.contentUrl));
                 }
                 let e = document.getElementById("category") as HTMLSelectElement;
                 let text = e.options[e.selectedIndex].value;
                 if (category === text || text === "All")
-                    markers.push(new Point(identifier, author,latitude,
-                        longitude, name, category, description,date,review,images));
+                    markers.push(new Point(identifier, author, latitude,
+                        longitude, name, category, description, date, review, images));
             }
 
         }

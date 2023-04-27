@@ -336,8 +336,12 @@ select, option {
 }
 
 .no-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 2em 0 2em 0;
-    margin: 1em 0.3em 1em;
+    margin: 1em 0.75em 1em;
     font-style: italic;
     font-weight: lighter;
     border-style: solid;
@@ -382,6 +386,13 @@ select, option {
     display: flex;
     padding: 0.3em;
     color: white;
+}
+
+#friendsList {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: start;
 }
 
 #noFriendsProfile{

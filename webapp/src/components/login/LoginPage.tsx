@@ -1,9 +1,10 @@
 import React, {useState} from "react";
 import {useTranslation} from "react-i18next";
-import {Button} from "@mui/material";
+import {Button, SvgIcon} from "@mui/material";
 import {LoginButton} from "@inrupt/solid-ui-react";
 import "../../css/login.css";
 import Logo from "../../img/FullLogo.png";
+import LoginIcon from "@mui/icons-material/Login";
 
 function LoginPage() {
     const {t} = useTranslation();
@@ -21,6 +22,8 @@ function LoginPage() {
         setIdp(provider)
     }
 
+    const url = new URL(window.location.origin + "/map").toString();
+
     return (
         <div id="loginBody">
             <div id="loginForm">
@@ -34,8 +37,11 @@ function LoginPage() {
                     </select>
                     <a href={idp + "/register"}>{t("register")}</a>
                     <div id="loginButton">
-                        <LoginButton oidcIssuer={idp} redirectUrl={window.location.origin}>
+                        <LoginButton oidcIssuer={idp} redirectUrl={url}>
                             <Button variant="contained" color="primary" id="login">
+                                <SvgIcon>
+                                    {LoginIcon}
+                                </SvgIcon>
                                 {t("login")}
                             </Button>
                         </LoginButton>
