@@ -8,7 +8,9 @@ import {VCARD} from "@inrupt/lit-generated-vocab-common";
 import Icon from "../img/symbols/GOMapSymbol.png";
 import Notification from "./Notification";
 import profilePhoto from "../img/profile.png";
-
+import {Badge} from "@mui/material";
+import StarIcon from "@mui/icons-material/Star";
+import Diversity3Icon from '@mui/icons-material/Diversity3';
 
 
 function ManageFriends(){
@@ -66,7 +68,7 @@ function ManageFriends(){
     return(
         <div id="friends-configuration">
             <div id="friends-configuration-body">
-                <h1>{t("friends")}</h1>
+                <h1>{t("profile")}</h1>
                 {friends.length > 0 ? (
                     <div id="friends-table">
                         <table>
@@ -132,6 +134,9 @@ function ManageFriends(){
                 />
             )}
             <div className="friend-counter">
+                <Badge color="secondary" badgeContent={friends.length}>
+                    <Diversity3Icon />
+                </Badge>
                 <p>Tienes {friends.length} amigos</p>
             </div>
             {friendPermissions && (
