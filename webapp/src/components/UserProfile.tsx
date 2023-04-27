@@ -27,6 +27,11 @@ function ManageFriends(){
     const [showButtonAdd,setShowButtonAdd] = useState(true)
     const { t } = useTranslation();
 
+    const [edit, setEdit] = useState(false)
+    const handleEdit = () => {
+        setEdit(!edit);
+    };
+
     const providers = [
         { name: "Inrupt", value: "https://inrupt.net" },
         { name: "SolidCommunity", value: "https://solidcommunity.net" },
@@ -39,9 +44,7 @@ function ManageFriends(){
     const dropdownTitle = (
         <span>
             <CombinedDataProvider datasetUrl={webId} thingUrl={webId}>
-                <Text property={FOAF.name.iri.value} edit={true} autosave/>
-
-
+                <Text property={FOAF.name.iri.value} edit={edit} autosave />
             </CombinedDataProvider>
         </span>
     );
@@ -99,9 +102,10 @@ function ManageFriends(){
                 </Typography>
 
                 <Box mt={4}>
-                    <Button variant="contained">Editar Nombre</Button>
+                    <Button variant="contained" onClick={handleEdit}>
+                        {edit ? 'Cancelar Edición' : 'Editar Nombre'}
+                    </Button>
                 </Box>
-
             </Box>
             <div id="friends-configuration-body">
                 {friends.length > 0 ? (
@@ -109,7 +113,7 @@ function ManageFriends(){
                         <table>
                             <thead>
                             <tr>
-                                <th>{t("friendName")}</th>
+                                <th>{t("friends")}</th>
                             </tr>
                             </thead>
                             <tbody>
