@@ -11,6 +11,8 @@ import profilePhoto from "../img/profile.png";
 import {Badge} from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import Diversity3Icon from '@mui/icons-material/Diversity3';
+import IconButton from "@mui/material/IconButton";
+import styled from "@emotion/styled";
 
 
 
@@ -45,6 +47,7 @@ function ManageFriends(){
         <span>
             <CombinedDataProvider datasetUrl={webId} thingUrl={webId}>
                 <Text property={FOAF.name.iri.value} edit={edit} autosave />
+
             </CombinedDataProvider>
         </span>
     );
@@ -82,11 +85,30 @@ function ManageFriends(){
         setFriendPermissions(false)
     }
 
+    const WebId = styled.div`
+      padding: 20px 40px 0px 40px;
+      position: relative;
+      &:after {
+        background-color: #d8d8d8;
+        display: block;
+        content: '';
+        height: 1px;
+        width: 100%;
+        margin: 25px 0 0 0;
+      }
+      a {
+        display: inline-block;
+        word-break: break-all;
+        margin-left: 10px;
+      }
+    `;
+
 
     return(
 
         <div id="friends-configuration">
-            <Box
+            <Box id="box"
+
                 display="flex"
                 flexDirection="column"
                 alignItems="center"
@@ -96,7 +118,9 @@ function ManageFriends(){
             >
                 <CombinedDataProvider datasetUrl={webId} thingUrl={webId}>
                     <Avatar sx={{width: 200, height: 200, mb: 2}}> <Image property={VCARD.hasPhoto.iri.value} width={200}/></Avatar>
+
                 </CombinedDataProvider>
+
                 <Typography variant="h4" gutterBottom textAlign="center">
                     {dropdownTitle}
                 </Typography>
@@ -129,14 +153,21 @@ function ManageFriends(){
                                                         <img src={profilePhoto} width={65} alt={friend.name}/>
                                                     )}
                                                 </div>
+                                                <div className="friendName">{friend.name}</div>
                                             </CombinedDataProvider>
-                                            <div className="friendName">{friend.name}</div>
+
                                         </div>
                                     </td>
                                 </tr>
                             ))}
                             </tbody>
                         </table>
+                        <div className="friend-counter">
+                            <Badge color="secondary" badgeContent={friends.length}>
+                                <Diversity3Icon />
+                            </Badge>
+                            <p>Tienes {friends.length} amigos</p>
+                        </div>
                     </div>
                 ) : (
                     <div className="no-content" id="no-friends-profile">
@@ -172,12 +203,7 @@ function ManageFriends(){
                     onClose={handleCloseNotification}
                 />
             )}
-            <div className="friend-counter">
-                <Badge color="secondary" badgeContent={friends.length}>
-                    <Diversity3Icon />
-                </Badge>
-                <p>Tienes {friends.length} amigos</p>
-            </div>
+
             {friendPermissions && (
                 <Notification
                     title={t("notificationPermissionsFriendTitle")}

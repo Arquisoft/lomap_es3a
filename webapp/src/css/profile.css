@@ -1,4 +1,38 @@
-#friends-table table {
+#friends-configuration {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#box {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#friends-configuration-body {
+    width: 50%;
+    padding: 0 16px;
+}
+
+#friends-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    max-width: 800px;
+    border-radius: 10px;
+
+
+
+
+    margin-top: 14em;
+    align-items: center;
+    justify-content: center;
+}
+
+table {
     border-collapse: separate;
     border-spacing: 0;
     width: 100%;
@@ -7,9 +41,11 @@
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+
 }
 
-#friends-table th {
+th {
+
     text-align: left;
     padding: 20px;
     font-weight: 700;
@@ -18,48 +54,10 @@
 }
 
 #friends-table td {
+    background-color: #ffffff;
     border-top: 1px solid #dddddd;
 }
 
-#friends-table td:first-of-type {
-    border-left: 1px solid #dddddd;
-}
-
-#friends-table td:last-of-type {
-    border-right: 1px solid #dddddd;
-}
-
-#friends-table td:nth-of-type(even) {
-    background-color: #f8f8f8;
-}
-
-#friends-table td:nth-of-type(odd) {
-    background-color: #ffffff;
-}
-
-#friend-name-photo {
-    display: flex;
-    align-items: center;
-}
-
-.friend-photo {
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-right: 20px;
-}
-
-.friend-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.friendName {
-    font-size: 18px;
-    color: #222222;
-}
 .friend-counter {
     background-color: #f5f5f5;
     margin: 0 auto;
@@ -76,15 +74,26 @@
     font-weight: bold;
     margin: 0;
 }
-#friends-configuration {
-    padding: 1rem;
-    border-radius: 0.5rem;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+.friend-counter p {
+    margin-left: 8px;
 }
 
-#friends-configuration h1 {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    color: #333;
+.friend-photo {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20px;
+}
+
+.friend-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.friendName {
+    align-content: center;
+    font-size: 18px;
+    color: #222222;
 }
