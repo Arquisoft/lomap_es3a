@@ -39,10 +39,6 @@ function ManageFriends() {
         <span>
             <CombinedDataProvider datasetUrl={webId} thingUrl={webId}>
                 <Text property={FOAF.name.iri.value} edit={edit} autosave/>
-
-
-
-
             </CombinedDataProvider>
         </span>
     );
