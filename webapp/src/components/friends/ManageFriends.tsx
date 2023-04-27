@@ -24,8 +24,8 @@ function ManageFriends() {
     const {t} = useTranslation();
 
     const providers = [
-        {name: "Inrupt", value: "https://inrupt.net"},
-        {name: "SolidCommunity", value: "https://solidcommunity.net"},
+        { name: "Inrupt", value: "https://inrupt.net" },
+        { name: "SolidCommunity", value: "https://solidcommunity.net" },
     ];
 
 
@@ -51,7 +51,6 @@ function ManageFriends() {
                 setFriendList(names);
             }
         }
-
         fetchFriends()
     }, [personData.friends, session])
 
@@ -66,8 +65,8 @@ function ManageFriends() {
         setFriendPermissions(false)
     }
 
-    function changeProvider() {
-        let provider = (document.getElementById("selectProvider") as HTMLSelectElement).value;
+    function changeProvider(){
+        let provider = (document.getElementById("selectProviderFriend") as HTMLSelectElement).value;
         setIdp(provider)
     }
 
@@ -123,10 +122,10 @@ function ManageFriends() {
 
                 }
                 {
-                    friends.length > 0 ?
-                        <div id="friendsTable">
-                            <table>
-                                <thead>
+                    personData.friends.length > 0 ?
+                    <div id="friendsTable" >
+                        <table>
+                            <thead>
                                 <tr>
                                     <th scope="col">{t("friendName")}</th>
                                     <th scope="col">{t("friendPermissions")}</th>
@@ -215,5 +214,4 @@ function ManageFriends() {
         </div>
     )
 }
-
 export default ManageFriends
