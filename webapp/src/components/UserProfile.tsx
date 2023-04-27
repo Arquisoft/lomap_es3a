@@ -50,6 +50,9 @@ function ManageFriends(){
             <CombinedDataProvider datasetUrl={webId} thingUrl={webId}>
                 <Text property={FOAF.name.iri.value} edit={edit} autosave />
 
+
+
+
             </CombinedDataProvider>
         </span>
     );
@@ -136,7 +139,7 @@ function ManageFriends(){
 
                 <Box mt={4}>
                     <Button variant="contained" onClick={handleEdit}>
-                        {edit ? 'Cancelar Edición' : 'Editar Nombre'}
+                        {edit ? t("edit-name") : t("confirm-name")}
                     </Button>
                 </Box>
             </Box>
@@ -178,7 +181,7 @@ function ManageFriends(){
                             <Badge color="secondary" badgeContent={friends.length}>
                                 <Diversity3Icon />
                             </Badge>
-                            <p>Tienes {friends.length} amigos</p>
+                            <p>{t("have-friends")} {friends.length} {t("text-friend")}</p>
                         </div>
                     </div>
                 ) : (

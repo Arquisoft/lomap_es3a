@@ -121,5 +121,10 @@
   "buttonShowMap": "Show map",
   "upload": "Upload the image",
   "registered-as": "registered as",
-  "pod-profile": " Your POD profile"
+  "pod-profile": " Your POD profile",
+
+  "edit-name": "EDIT NAME",
+  "confirm-name": "CONFIRM EDIT",
+  "have-friends": "You have",
+  "text-friend": "friends"
 }
