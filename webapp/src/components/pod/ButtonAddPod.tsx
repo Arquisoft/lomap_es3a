@@ -52,6 +52,12 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
         let longitude = (document.getElementById(
             idLongitude
         ) as HTMLInputElement).value;
+
+        let imgUrl = (document.getElementById(
+            "upload-img"
+        ) as HTMLInputElement).src;
+
+
         let json = {
             "@context": "https://schema.org/",
             "@type": "Place",
@@ -66,7 +72,14 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
             "longitude": longitude,
             "description": comment,
             "review": [],
-            "image": [],
+            "image": [{
+                "@type": "ImageObject",
+                "author": {
+                    "@type": "Person",
+                    "identifier": webId
+                },
+                "contentUrl": imgUrl
+            }],
             "dateCreated": new Date().valueOf()
         };
 
@@ -176,28 +189,21 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
     }
 
     return (
-
         <div id="addPanel">
-
             <div>
                 <ImgbbUploader
                     apiKey="7e17d052e1f665b83d3addfe291f8047"
                     onUploadSuccess={handleUploadSuccess}
                     onUploadFailure={handleUploadFailure}
                 />
-
                 <Container id="imgContainer">
-                    {imageUrl && <img src={imageUrl} alt="Uploaded" width="100%" height="100%"/>}
+                    {imageUrl && <img src={imageUrl} alt="Uploaded" width="100%" height="100%" id="upload-img"/>}
                 </Container>
-
-
-
             </div>
-
-
             <Button variant="contained" color="primary" onClick={handleClick}>
                 {t("confirm")}
             </Button>
+
 
             {error && (
                 <Notification
@@ -218,6 +224,7 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
                     onClose={handleCloseNotification}
                 />
             )}
+
 
             {showNotification && (
                 <Notification
