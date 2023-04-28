@@ -1,17 +1,17 @@
 import {CombinedDataProvider, Image, Text, useSession} from "@inrupt/solid-ui-react";
 import React, {useEffect, useState} from "react";
 import {findPersonData, PersonData} from "./pod/FriendsPOD";
-import {useTranslation} from "react-i18next";
+import {initReactI18next, useTranslation} from "react-i18next";
 import "../css/profile.css"
 import {Avatar, Badge, Box, Button, Typography} from '@mui/material';
 import {FOAF, VCARD} from "@inrupt/lit-generated-vocab-common";
 import profilePhoto from "../img/profile.png";
-
 import Diversity3Icon from '@mui/icons-material/Diversity3';
 import IconButton from "@mui/material/IconButton";
-
-
 import ContactEmergencyIcon from '@mui/icons-material/ContactEmergency';
+import i18n from "../i18n";
+
+i18n.use(initReactI18next)
 
 function UserProfile() {
     const {session} = useSession();
@@ -24,7 +24,6 @@ function UserProfile() {
     const handleEdit = () => {
         setEdit(!edit);
     };
-
 
     if (webId == null) {
         webId = "";
@@ -85,42 +84,44 @@ function UserProfile() {
 
                 <Box mt={4}>
                     <Button variant="contained" onClick={handleEdit}>
-                        {edit ? t("edit-name") : t("confirm-name")}
+                        {edit ? t("confirm-name") : t("edit-name")}
                     </Button>
                 </Box>
             </Box>
             <div id="friends-configuration-body">
                 {friends.length > 0 ? (
-                    <div id="friends-table">
-                        <table>
-                            <thead>
-                            <tr>
-                                <th>{t("friends")}</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {friends.map((friend) => (
-                                <tr key={friend.webId}>
-                                    <td>
-                                        <div id="friend-name-photo">
-                                            <CombinedDataProvider datasetUrl={friend.webId} thingUrl={friend.webId}>
-                                                <div className="friend-photo">
-                                                    {friend.photo !== "" ? (
-
-                                                        <Image property={VCARD.hasPhoto.iri.value} width={65}/>
-                                                    ) : (
-                                                        <img src={profilePhoto} width={65} alt={friend.name}/>
-                                                    )}
-                                                </div>
-                                                <div className="friendName">{friend.name}</div>
-                                            </CombinedDataProvider>
-
-                                        </div>
-                                    </td>
+                    <div id="friends-data">
+                        <div id="friends-table">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>{t("friends")}</th>
                                 </tr>
-                            ))}
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                {friends.map((friend) => (
+                                    <tr key={friend.webId}>
+                                        <td>
+                                            <div id="friend-name-photo">
+                                                <CombinedDataProvider datasetUrl={friend.webId} thingUrl={friend.webId}>
+                                                    <div className="friend-photo">
+                                                        {friend.photo !== "" ? (
+
+                                                            <Image property={VCARD.hasPhoto.iri.value} width={65}/>
+                                                        ) : (
+                                                            <img src={profilePhoto} width={65} alt={friend.name}/>
+                                                        )}
+                                                    </div>
+                                                    <div className="friendName">{friend.name}</div>
+                                                </CombinedDataProvider>
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                                ))}
+                                </tbody>
+                            </table>
+                        </div>
                         <div className="friend-counter">
                             <Badge color="secondary" badgeContent={friends.length}>
                                 <Diversity3Icon/>
