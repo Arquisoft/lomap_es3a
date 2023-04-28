@@ -56,37 +56,39 @@ async function readFileFromPod(fileURL: string[], session: Session) {
     try {
         let markers = []
         for (const element of fileURL) {
-            const file = await getFile(
-                element,
-                {fetch: session.fetch}
-            );
-            let fileContent = await file.text()
-            let fileJSON = JSON.parse(fileContent)
-            for (const element of fileJSON.spatialCoverage) {
-                let review = [];
-                let images = [];
-                let latitude = Number(element.latitude);
-                let longitude = Number(element.longitude);
-                let identifier = element.identifier;
-                let author = element.author.identifier;
-                let name = element.name;
-                let category = element.additionalType;
-                let description = element.description;
-                let date = element.dateCreated;
-                for (const reviewElement of element.review) {
-                    review.push(new Review(reviewElement.author.identifier,
-                        reviewElement.reviewRating.ratingValue,
-                        reviewElement.datePublished,
-                        reviewElement.reviewBody));
+            if(element !== undefined){
+                const file = await getFile(
+                    element,
+                    {fetch: session.fetch}
+                );
+                let fileContent = await file.text()
+                let fileJSON = JSON.parse(fileContent)
+                for (const element of fileJSON.spatialCoverage) {
+                    let review = [];
+                    let images = [];
+                    let latitude = Number(element.latitude);
+                    let longitude = Number(element.longitude);
+                    let identifier = element.identifier;
+                    let author = element.author.identifier;
+                    let name = element.name;
+                    let category = element.additionalType;
+                    let description = element.description;
+                    let date = element.dateCreated;
+                    for (const reviewElement of element.review) {
+                        review.push(new Review(reviewElement.author.identifier,
+                            reviewElement.reviewRating.ratingValue,
+                            reviewElement.datePublished,
+                            reviewElement.reviewBody));
+                    }
+                    for (const imageElement of element.image) {
+                        images.push(new ImageMarker(imageElement.author.identifier, imageElement.contentUrl));
+                    }
+                    let e = document.getElementById("category") as HTMLSelectElement;
+                    let text = e.options[e.selectedIndex].value;
+                    if (category === text || text === "All")
+                        markers.push(new Point(identifier, author, latitude,
+                            longitude, name, category, description, date, review, images));
                 }
-                for (const imageElement of element.image) {
-                    images.push(new ImageMarker(imageElement.author.identifier, imageElement.contentUrl));
-                }
-                let e = document.getElementById("category") as HTMLSelectElement;
-                let text = e.options[e.selectedIndex].value;
-                if (category === text || text === "All")
-                    markers.push(new Point(identifier, author, latitude,
-                        longitude, name, category, description, date, review, images));
             }
 
         }

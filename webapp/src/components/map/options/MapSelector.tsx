@@ -1,7 +1,7 @@
 import {useTranslation} from "react-i18next";
 import React, {useEffect, useState} from "react";
 import {useSession} from "@inrupt/solid-ui-react";
-import {createNewMap, getMaps} from "../../pod/FriendsPOD";
+import {checkIfFolderExists, createNewMap, getMaps} from "../../pod/FriendsPOD";
 import ReactDOM from "react-dom/client";
 import MapView from "../MapView";
 import Notification from "../../Notification";
@@ -9,10 +9,9 @@ import Icon from "../../../img/symbols/GOMapSymbol.png";
 import Filter from "./Filter";
 
 
-function MapSelector(props: { setItem: Function }) {
+function MapSelector(props: { setItem: Function,setSelectedMap:Function,selectedMap:string }) {
     const {t} = useTranslation();
     const [maps, setMaps] = useState<string[]>([])
-    const [selectedMap, setSelectedMap] = useState("")
     const {session} = useSession()
     const [showNotification, setShowNotification] = useState(false);
     const [errorEmptyName, setErrorEmptyName] = useState(false)
@@ -20,10 +19,12 @@ function MapSelector(props: { setItem: Function }) {
 
     useEffect(() => {
         async function fetchMaps() {
+            await checkIfFolderExists(session.info.webId!,session);
+
             const mapsFromPOD = session.info.webId !== "" ? await getMaps(session.info.webId!, session) : undefined;
             if (mapsFromPOD) {
                 setMaps(mapsFromPOD);
-                setSelectedMap(mapsFromPOD[0])
+                props.setSelectedMap(mapsFromPOD[0])
                 render(mapsFromPOD[0], "mapView")
                 render(mapsFromPOD[0], "filter")
             }
@@ -47,25 +48,25 @@ function MapSelector(props: { setItem: Function }) {
 
     function render(route: string, element: string) {
         if (element === "filter") {
-            const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
-            root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={[route]}
-                                 setItem={props.setItem}/>);
-        } else if (element === "mapView") {
             const root = ReactDOM.createRoot(document.getElementById("filterDiv") as HTMLElement);
             root.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={[route]}
                                 setItem={props.setItem}/>);
+        } else if (element === "mapView") {
+            const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
+            root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={[route]}
+                                 setItem={props.setItem}/>);
         }
     }
 
     function beautifyMapName(mapName: string): string {
-        let uri = session.info.webId!.split("/").slice(0, 3).join("/").concat("/private/");
+        let uri = session.info.webId!.split("/").slice(0, 3).join("/").concat("/lomap/");
         let shortName = mapName.replace(uri, "").replace(".jsonld", "");
         return shortName.replace(shortName.charAt(0), shortName.charAt(0).toUpperCase()).replace("%20", "");
     }
 
     function changeMap() {
         let select = (document.getElementById("selectMap") as HTMLSelectElement).value
-        setSelectedMap(select);
+        props.setSelectedMap(select);
         render(select, "mapView");
         render(select, "filter");
         const mapNameItems = document.querySelectorAll('[id="mapNameItem"]');
@@ -81,13 +82,13 @@ function MapSelector(props: { setItem: Function }) {
             await createNewMap(session, mapName)
             await getMaps(session.info.webId!, session).then(newMaps => {
                 setMaps(newMaps)
-                let uri = session.info.webId!.split("/").slice(0, 3).join("/").concat("/private/");
+                let uri = session.info.webId!.split("/").slice(0, 3).join("/").concat("/lomap/");
                 let fileUrl = (uri + mapName + ".jsonld").trim();
                 (document.getElementById("newMapTitle") as HTMLInputElement).value = ""
                 createNotification();
                 render(fileUrl, "mapView");
                 render(fileUrl, "filter");
-                setSelectedMap(fileUrl);
+                props.setSelectedMap(fileUrl);
             })
             const mapNameItems = document.querySelectorAll('[id="mapNameItem"]');
             mapNameItems.forEach(item => {
@@ -106,7 +107,8 @@ function MapSelector(props: { setItem: Function }) {
                 <h2>{t("mapSelector")}</h2>
                 {
                     (maps.length > 0) ?
-                        <select value={selectedMap} onChange={changeMap} id="selectMap">
+                        <select value={props.selectedMap} onChange={changeMap} id="selectMap">
+                            <option hidden={true}></option>
                             {
                                 maps.map(map => (
                                     <option value={map} key={map}>{beautifyMapName(map)}</option>
