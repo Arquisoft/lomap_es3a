@@ -1,4 +1,4 @@
-import {useTranslation} from "react-i18next";
+import {initReactI18next, useTranslation} from "react-i18next";
 import * as React from 'react';
 import {useState} from 'react';
 import {
@@ -20,6 +20,9 @@ import {FOAF, VCARD} from "@inrupt/lit-generated-vocab-common";
 import {CombinedDataProvider, Image, LogoutButton, Text} from '@inrupt/solid-ui-react';
 import {GroupAdd, Person} from "@mui/icons-material";
 import LogoutIcon from '@mui/icons-material/Logout';
+import i18n from "../../i18n";
+
+i18n.use(initReactI18next)
 
 interface AvatarType {
     webId: string;
@@ -41,8 +44,6 @@ const OurAvatar = ({webId}: AvatarType) => {
         <span>
             <CombinedDataProvider datasetUrl={webId} thingUrl={webId}>
                 <Text property={FOAF.name.iri.value} autosave/>
-
-
             </CombinedDataProvider>
         </span>
     );
@@ -82,21 +83,25 @@ const OurAvatar = ({webId}: AvatarType) => {
                     >
                         <MenuItem onClick={handleCloseUserMenu} component={Link} to="/profile">
                             <Typography textAlign="center">{t("registered-as")}
-                                <strong><em>{dropdownTitle}</em></strong></Typography>
-
+                                <strong><em>{dropdownTitle}</em></strong>
+                            </Typography>
                         </MenuItem>
                         <Divider style={{borderColor: "#333"}}/>
                         <MenuItem onClick={handleCloseUserMenu} component={Link} to="/profile">
                             <ListItemIcon>
                                 <Person fontSize="small"/>
                             </ListItemIcon>
-                            <Typography textAlign="center">{t("profile")}</Typography>
+                            <Typography textAlign="center">
+                                {t("profile")}
+                            </Typography>
                         </MenuItem>
                         <MenuItem onClick={handleCloseUserMenu} component={Link} to="/friends">
                             <ListItemIcon>
                                 <GroupAdd fontSize="small"/>
                             </ListItemIcon>
-                            <Typography textAlign="center">{t("friends")}</Typography>
+                            <Typography textAlign="center">
+                                {t("friends")}
+                            </Typography>
                         </MenuItem>
                         <MenuItem>
                             <LogoutButton>
