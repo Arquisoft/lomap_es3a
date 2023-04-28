@@ -12,6 +12,7 @@ import {ExpandLess, ExpandMore} from "@mui/icons-material";
 import PersonIcon from '@mui/icons-material/Person';
 import MapIcon from '@mui/icons-material/Map';
 
+
 i18n.use(initReactI18next)
 
 function FriendList(props: { setItem: Function,setSelectedMap:Function }) {
@@ -20,10 +21,10 @@ function FriendList(props: { setItem: Function,setSelectedMap:Function }) {
     const {webId} = session.info;
     const {t} = useTranslation();
     const [friendsMaps, setFriendsMaps] = useState<FriendMaps[]>([]);
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState<Record<string, boolean>>({});
 
-    const handleClick = () => {
-        setOpen(!open);
+    function handleClick(id: string )  {
+        setOpen((prevState) => ({ ...prevState, [id]: !prevState[id] }));
     };
 
     useEffect(() => {
@@ -90,14 +91,14 @@ function FriendList(props: { setItem: Function,setSelectedMap:Function }) {
                         <List>
                             {friendsMaps.map((friend) => (
                                 <div key={friend.webId}>
-                                    <ListItemButton onClick={handleClick}>
+                                    <ListItemButton onClick={() => handleClick(friend.name)}>
                                         <ListItemIcon>
                                             <PersonIcon color="primary"/>
                                         </ListItemIcon>
                                         <ListItemText primary={friend.name}/>
-                                        {open ? <ExpandLess/> : <ExpandMore/>}
+                                        {open[friend.name] ? <ExpandLess/> : <ExpandMore/>}
                                     </ListItemButton>
-                                    <Collapse in={open} timeout={5} unmountOnExit>
+                                    <Collapse in={open[friend.name]} timeout={5}>
                                         <List component="div" disablePadding>
                                             {friend.maps.length > 0 ? (
                                                 friend.maps[0] !== "User Unauthorized" ? (
@@ -121,7 +122,6 @@ function FriendList(props: { setItem: Function,setSelectedMap:Function }) {
                                                     <p>{t("notificationNoFriendMaps")}</p>
                                                 </div>
                                             )}
-
                                         </List>
                                     </Collapse>
                                 </div>
