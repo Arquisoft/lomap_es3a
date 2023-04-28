@@ -45,10 +45,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --coverage",
+    "test": "react-scripts test --coverage --env=jsdom --watchAll",
     "eject": "react-scripts eject",
     "prod": "ts-node-dev ./server.ts"
   },
+
   "eslintConfig": {
     "extends": [
       "react-app",
