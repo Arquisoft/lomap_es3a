@@ -26,13 +26,14 @@
     "cloudinary": "^1.36.1",
     "cloudinary-core": "^2.13.0",
     "express": "^4.18.2",
+    "fullscreen": "^1.1.1",
     "http-browserify": "^1.7.0",
     "i18next": "^22.4.14",
     "leaflet": "^1.9.3",
     "msw": "^1.2.1",
     "path-browserify": "^1.0.1",
     "rdf-namespaces": "^1.10.1",
-    "react": "^18.0.0",
+    "react": "^18.2.0",
     "react-bootstrap": "^2.7.2",
     "react-dom": "^18.0.0",
     "react-i18next": "^12.2.0",
@@ -45,11 +46,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --coverage --env=jsdom --watchAll",
+    "test": "react-scripts test --coverage --env=jsdom",
     "eject": "react-scripts eject",
     "prod": "ts-node-dev ./server.ts"
   },
-
   "eslintConfig": {
     "extends": [
       "react-app",

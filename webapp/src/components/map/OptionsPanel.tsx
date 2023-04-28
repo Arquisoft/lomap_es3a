@@ -1,5 +1,4 @@
 import Filter from "./options/Filter";
-import Search from "./options/Search";
 import FriendList from "../pod/FriendList";
 import {initReactI18next, useTranslation} from "react-i18next";
 import React from "react";
@@ -21,7 +20,6 @@ function OptionsPanel(props: { setItem: Function }) {
         <div>
             <div id="optionsMenu">
                 <h1>{t("optionsMenu")}</h1>
-                <Search title={t("search")}/>
                 <MapSelector setItem={props.setItem}/>
                 <div id="filterDiv">
                     <Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={user}
