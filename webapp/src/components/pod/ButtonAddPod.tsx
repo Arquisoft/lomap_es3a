@@ -39,7 +39,7 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
     async function createMarker(idName: string, idCategory: string, idComment: string, idScore: string,
                                 idLatitude: string, idLongitude: string, fileURL: string)  {
         let name = (document.getElementById(idName) as HTMLInputElement).value;
-        let identifier = fileURL.split("private")[0] + "profile/card#me"
+        let identifier = fileURL.split("lomap")[0] + "profile/card#me"
         let category = (document.getElementById(
             idCategory
         ) as HTMLInputElement).value;
@@ -163,8 +163,7 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
                                 webId={[route]} setItem={setItem}/>);
                         }
                     });
-                let rootFriends = ReactDOM.createRoot(document.getElementById("friendDiv") as HTMLElement);
-                rootFriends.render(<FriendList setItem={setItem}/>)
+
                 const rootFilter = ReactDOM.createRoot(document.getElementById("filterDiv") as HTMLElement);
                 rootFilter.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={[route]}
                                           setItem={setItem}/>);

@@ -1,6 +1,6 @@
 import {
     buildThing,
-    createAclFromFallbackAcl,
+    createAclFromFallbackAcl, createContainerAt, createSolidDataset,
     getContainedResourceUrlAll,
     getResourceAcl,
     getSolidDataset,
@@ -113,7 +113,7 @@ export async function addFriendToPod(provider: string, friendName: string, webId
 
 export async function changePermissions(webId: string, friendWebId: string, session: Session) {
     // Fetch the SolidDataset and its associated ACLs, if available:
-    const myDatasetWithAcl = await getSolidDatasetWithAcl(webId + "private/", {fetch: session.fetch});
+    const myDatasetWithAcl = await getSolidDatasetWithAcl(webId + "lomap/", {fetch: session.fetch});
 
     // Obtain the SolidDataset's own ACL, if available,
     // or initialise a new one, if possible:
@@ -155,8 +155,17 @@ export async function changePermissions(webId: string, friendWebId: string, sess
     await saveAclFor(myDatasetWithAcl, updatedAcl, {fetch: session.fetch});
 }
 
+export async function checkIfFolderExists(webId: string, session: Session){
+    let uri = webId.split("/").slice(0, 3).join("/").concat("/lomap/");
+    try {
+        await getSolidDataset(uri);
+    } catch (error) {
+        await createContainerAt(uri, {fetch: session.fetch});
+    }
+}
+
 export async function getMaps(webId: string, session: Session) {
-    let uri = webId.split("/").slice(0, 3).join("/").concat("/private/");
+    let uri = webId.split("/").slice(0, 3).join("/").concat("/lomap/");
     try {
         let dataset = await getSolidDataset(uri, {fetch: session.fetch});
         return getContainedResourceUrlAll(dataset);
@@ -186,7 +195,7 @@ export async function createNewMap(session: Session, mapName: string) {
 
             const blob = new Blob([JSON.stringify(map, null, 2)], {type: "application/ld+json"});
             let file = new File([blob], map.name + ".jsonld", {type: blob.type});
-            let uri = session.info.webId!.split("/").slice(0, 3).join("/").concat("/private/");
+            let uri = session.info.webId!.split("/").slice(0, 3).join("/").concat("/lomap/");
             let fileUrl = (uri + file.name).trim();
             await overwriteFile(
                 fileUrl,
