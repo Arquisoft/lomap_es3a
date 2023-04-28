@@ -1,7 +1,7 @@
 import {useTranslation} from "react-i18next";
 import React, {useEffect, useState} from "react";
 import {useSession} from "@inrupt/solid-ui-react";
-import {createNewMap, getMaps} from "../../pod/FriendsPOD";
+import {checkIfFolderExists, createNewMap, getMaps} from "../../pod/FriendsPOD";
 import ReactDOM from "react-dom/client";
 import MapView from "../MapView";
 import Notification from "../../Notification";
@@ -19,6 +19,7 @@ function MapSelector(props: { setItem: Function,setSelectedMap:Function,selected
 
     useEffect(() => {
         async function fetchMaps() {
+            await checkIfFolderExists(session.info.webId!,session);
             const mapsFromPOD = session.info.webId !== "" ? await getMaps(session.info.webId!, session) : undefined;
             if (mapsFromPOD) {
                 setMaps(mapsFromPOD);
@@ -57,7 +58,7 @@ function MapSelector(props: { setItem: Function,setSelectedMap:Function,selected
     }
 
     function beautifyMapName(mapName: string): string {
-        let uri = session.info.webId!.split("/").slice(0, 3).join("/").concat("/private/");
+        let uri = session.info.webId!.split("/").slice(0, 3).join("/").concat("/lomap/");
         let shortName = mapName.replace(uri, "").replace(".jsonld", "");
         return shortName.replace(shortName.charAt(0), shortName.charAt(0).toUpperCase()).replace("%20", "");
     }
@@ -80,7 +81,7 @@ function MapSelector(props: { setItem: Function,setSelectedMap:Function,selected
             await createNewMap(session, mapName)
             await getMaps(session.info.webId!, session).then(newMaps => {
                 setMaps(newMaps)
-                let uri = session.info.webId!.split("/").slice(0, 3).join("/").concat("/private/");
+                let uri = session.info.webId!.split("/").slice(0, 3).join("/").concat("/lomap/");
                 let fileUrl = (uri + mapName + ".jsonld").trim();
                 (document.getElementById("newMapTitle") as HTMLInputElement).value = ""
                 createNotification();

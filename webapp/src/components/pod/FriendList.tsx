@@ -64,7 +64,7 @@ function FriendList(props: { setItem: Function,setSelectedMap:Function }) {
 
 
     function beautifyMapName(mapName: string, webId: string): string {
-        let uri = webId.split("/").slice(0, 3).join("/").concat("/private/");
+        let uri = webId.split("/").slice(0, 3).join("/").concat("/lomap/");
         let shortName = mapName.replace(uri, "").replace(".jsonld", "");
         return shortName.replace(shortName.charAt(0), shortName.charAt(0).toUpperCase()).replace("%20", "");
     }
