@@ -1,15 +1,15 @@
-import {act, cleanup, render} from '@testing-library/react';
+import {act, render} from '@testing-library/react';
 import UserProfile from '../components/UserProfile';
 
 describe("UserProfile", () => {
     let component : any;
-    
+
     beforeEach(() => {
         component = render(<UserProfile />);
     })
 
     afterEach(() =>{
-        cleanup();
+        component.unmount();
     })
     
     it('renders the user profile header', () => {        
