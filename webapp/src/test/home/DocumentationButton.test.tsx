@@ -1,4 +1,4 @@
-import {fireEvent, render} from "@testing-library/react";
+import {render} from "@testing-library/react";
 import DocumentationButton from "../../components/home/DocumentationButton";
 
 test("Documentation button renders correctly", async () => {
