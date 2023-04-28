@@ -1,26 +1,12 @@
 import {Session} from "@inrupt/solid-client-authn-browser";
 import {getFile} from "@inrupt/solid-client";
 import {Icon} from "leaflet";
-import {Marker, Popup} from "react-leaflet";
+import {Marker} from "react-leaflet";
 import markerIconPng from "leaflet/dist/images/marker-icon.png"
 import {useSession} from "@inrupt/solid-ui-react";
-import {Point} from "./Point";
-import {v4 as uuidv4} from 'uuid';
+import {ImageMarker, Point, Review} from "./Point";
+import * as React from "react";
 import {useEffect, useState} from "react";
-import * as React from 'react';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import {Avatar, CardActionArea, CardActions, CardHeader} from '@mui/material';
-import Rijksmuseum from "../../img/Rijksmuseum.png";
-import Rating from "@mui/material/Rating";
-import {red} from "@mui/material/colors";
-import IconButton, {} from '@mui/material/IconButton';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import {ExpandMore} from "@mui/icons-material";
 import BarIcon from "../../img/icons/bar.png";
 import RestaurantIcon from "../../img/icons/restaurant.png";
 import ShopIcon from "../../img/icons/shop.png";
@@ -33,6 +19,12 @@ import SportIcon from "../../img/icons/sport.png";
 import MuseumIcon from "../../img/icons/museum.png";
 import ParkIcon from "../../img/icons/park.png";
 import OtherIcon from "../../img/icons/other.png";
+import LandscapeIcon from "../../img/icons/landscape.png";
+import MonumentIcon from "../../img/icons/monument.png";
+import HospitalIcon from "../../img/icons/hospital.png";
+import PoliceIcon from "../../img/icons/police.png";
+import TransportIcon from "../../img/icons/transport.png";
+import EntertainmentIcon from "../../img/icons/entertainment.png";
 
 interface IDictionary {
     [index: string]: string;
@@ -40,43 +32,65 @@ interface IDictionary {
 
 let categories = {
     All: markerIconPng,
-    Bars: BarIcon,
-    Restaurants: RestaurantIcon,
-    Shops: ShopIcon,
-    Supermarkets: SupermarketIcon,
-    Hotels: HotelIcon,
-    Cinemas: CinemaIcon,
-    Academic_Institution: AcademicIcon,
-    Public_Institution: PublicIcon,
-    Sports_Club: SportIcon,
-    Museum: MuseumIcon,
-    Parks: ParkIcon,
-    Others: OtherIcon
+    bar: BarIcon,
+    restaurant: RestaurantIcon,
+    shop: ShopIcon,
+    supermarket: SupermarketIcon,
+    hotel: HotelIcon,
+    cinema: CinemaIcon,
+    academicInstitution: AcademicIcon,
+    publicInstitution: PublicIcon,
+    sportsClub: SportIcon,
+    museum: MuseumIcon,
+    park: ParkIcon,
+    landscape: LandscapeIcon,
+    monument: MonumentIcon,
+    hospital: HospitalIcon,
+    policeStation: PoliceIcon,
+    transportCenter: TransportIcon,
+    entertainment: EntertainmentIcon,
+    other: OtherIcon
 } as IDictionary
 
-async function readFileFromPod(fileURL: string, session: Session) {
+async function readFileFromPod(fileURL: string[], session: Session) {
     try {
-        const file = await getFile(
-            fileURL,
-            {fetch: session.fetch}
-        );
-        let fileContent = await file.text()
-        let fileJSON = JSON.parse(fileContent)
         let markers = []
-        for (let i = 0; i < fileJSON.length; i++) {
-            let latitude = Number(fileJSON[i].latitude);
-            let longitude = Number(fileJSON[i].longitude);
-            let name = fileJSON[i].name;
-            let category = fileJSON[i].category;
-            let score = fileJSON[i].score;
-            let comment = fileJSON[i].comment;
-            var e = document.getElementById("category");
-            // @ts-ignore
-            // var value = e.value;
-            // @ts-ignore
-            var text = e.options[e.selectedIndex].value;
-            if (category === text  || text ==="All")
-                markers.push(new Point(uuidv4(), latitude, longitude, name, category, comment, score))
+        for (const element of fileURL) {
+            if(element !== undefined){
+                const file = await getFile(
+                    element,
+                    {fetch: session.fetch}
+                );
+                let fileContent = await file.text()
+                let fileJSON = JSON.parse(fileContent)
+                for (const element of fileJSON.spatialCoverage) {
+                    let review = [];
+                    let images = [];
+                    let latitude = Number(element.latitude);
+                    let longitude = Number(element.longitude);
+                    let identifier = element.identifier;
+                    let author = element.author.identifier;
+                    let name = element.name;
+                    let category = element.additionalType;
+                    let description = element.description;
+                    let date = element.dateCreated;
+                    for (const reviewElement of element.review) {
+                        review.push(new Review(reviewElement.author.identifier,
+                            reviewElement.reviewRating.ratingValue,
+                            reviewElement.datePublished,
+                            reviewElement.reviewBody));
+                    }
+                    for (const imageElement of element.image) {
+                        images.push(new ImageMarker(imageElement.author.identifier, imageElement.contentUrl));
+                    }
+                    let e = document.getElementById("category") as HTMLSelectElement;
+                    let text = e.options[e.selectedIndex].value;
+                    if (category === text || text === "All")
+                        markers.push(new Point(identifier, author, latitude,
+                            longitude, name, category, description, date, review, images));
+                }
+            }
+
         }
         return markers
     } catch (err) {
@@ -85,22 +99,20 @@ async function readFileFromPod(fileURL: string, session: Session) {
 }
 
 
-function MarkersPOD() {
+function MarkersPOD(props: { webId: string[], setItem: Function }) {
     const {session} = useSession();
-    const {webId} = session.info;
-    let webIdStore = webId?.slice(0, -15) + 'private/locations.json';
     const [points, setPoints] = useState<Point[]>([]);
 
     useEffect(() => {
         async function fetchPoints() {
-            const newPoints = webId !== undefined ? await readFileFromPod(webIdStore, session) : undefined;
+            const newPoints = props.webId !== undefined ? await readFileFromPod(props.webId, session) : undefined;
             if (newPoints) {
                 setPoints(newPoints);
             }
         }
 
         fetchPoints();
-    }, [webId, webIdStore, session]);
+    }, [props.webId, session]);
 
     return (
         <div>
@@ -108,57 +120,22 @@ function MarkersPOD() {
                 points.map((item) => (
                     <Marker key={item.id} position={{lat: item.latitude, lng: item.longitude}}
                             icon={new Icon({
-                                iconUrl: categories[item.category]
-                            })}>
-                        <Popup>
-                            <CardHeader
-                                avatar={
-                                    <Avatar sx={{bgcolor: red[500]}} aria-label="recipe">
-                                        R
-                                    </Avatar>
+                                iconUrl: categories[item.category] !== undefined ? categories[item.category] : markerIconPng
+                            })}
+                            eventHandlers={{
+                                click: (e) => {
+                                    const addMarkerPanel = document.getElementById("addMarkerPanel");
+                                    if (addMarkerPanel !== null) {
+                                        addMarkerPanel.style.width = "0";
+                                    }
+
+                                    const showMarkerPanel = document.getElementById("showMarkerPanel");
+                                    if (showMarkerPanel !== null) {
+                                        showMarkerPanel.style.width = "25vw";
+                                    }
+                                    props.setItem(item);
                                 }
-                                action={
-                                    <IconButton aria-label="settings">
-                                        <MoreVertIcon/>
-                                    </IconButton>
-                                }
-                                title="Rodrigo Alvarez"
-                                subheader="April 08, 2023"
-                            />
-                            <CardActionArea>
-                                <CardMedia
-                                    component="img"
-                                    height="140"
-                                    image={Rijksmuseum}
-                                    alt="green iguana"
-                                />
-                                <CardContent>
-                                    <Typography gutterBottom variant="h5" component="div">
-                                        {item.name}
-                                    </Typography>
-                                    <Typography gutterBottom variant="h6" component="div">
-                                        {item.category}
-                                    </Typography>
-                                    <Typography variant="body2" color="text.secondary">
-                                        {item.comment}
-                                    </Typography>
-                                    <Typography component="legend"></Typography>
-                                    <Rating name="read-only" value={item.score} readOnly/>
-                                    <CardActions disableSpacing>
-                                        <IconButton aria-label="add to favorites">
-                                            <FavoriteIcon/>
-                                        </IconButton>
-                                        <IconButton aria-label="share">
-                                            <ShareIcon/>
-                                        </IconButton>
-                                        <ExpandMore
-                                        >
-                                            <ExpandMoreIcon/>
-                                        </ExpandMore>
-                                    </CardActions>
-                                </CardContent>
-                            </CardActionArea>
-                        </Popup>
+                            }}>
                     </Marker>
                 ))
             }

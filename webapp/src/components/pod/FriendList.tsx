@@ -1,121 +1,142 @@
 import React, {useEffect, useState} from "react";
 import {useSession} from "@inrupt/solid-ui-react";
-import {findPersonData, PersonData} from "./FriendsPOD";
-import botonRojo from "../../img/botonRojo.png";
-import botonVerde from "../../img/botonVerde.png";
-import {
-    createAclFromFallbackAcl, getResourceAcl,
-    getSolidDatasetWithAcl,
-    hasAccessibleAcl,
-    hasFallbackAcl,
-    hasResourceAcl, saveAclFor, setAgentResourceAccess,setAgentDefaultAccess
-} from "@inrupt/solid-client";
+import {findPersonData, FriendMaps, getMaps, PersonData} from "./FriendsPOD";
 import {initReactI18next, useTranslation} from "react-i18next";
 import i18n from "../../i18n";
+import ReactDOM from "react-dom/client";
+import MapView from "../map/MapView";
+import Filter from "../map/options/Filter";
+import {Collapse} from "react-bootstrap";
+import {List, ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
+import {ExpandLess, ExpandMore} from "@mui/icons-material";
+import PersonIcon from '@mui/icons-material/Person';
+import MapIcon from '@mui/icons-material/Map';
+
 
 i18n.use(initReactI18next)
 
-function FriendList(){
-    const { session } = useSession();
-    const [personData, setPersonData] = useState<PersonData>({ webId: '', name: '', friends: [] })
+function FriendList(props: { setItem: Function,setSelectedMap:Function }) {
+    const {session} = useSession();
+    const [personData, setPersonData] = useState<PersonData>({webId: '', photo: '', name: '', friends: []})
     const {webId} = session.info;
-    const [friends, setFriendList] = useState<PersonData[]>([]);
+    const {t} = useTranslation();
+    const [friendsMaps, setFriendsMaps] = useState<FriendMaps[]>([]);
+    const [open, setOpen] = useState<Record<string, boolean>>({});
 
-    const { t } = useTranslation();
+    function handleClick(id: string )  {
+        setOpen((prevState) => ({ ...prevState, [id]: !prevState[id] }));
+    };
 
     useEffect(() => {
         async function loadPersonData() {
             if (webId !== undefined) {
-                const data = await findPersonData(session,webId)
-                if(data){
+                const data = await findPersonData(session, webId)
+                if (data) {
                     setPersonData(data)
                 }
             }
         }
 
         loadPersonData()
-    }, [webId,session])
+    }, [webId, session])
 
     useEffect(() => {
+        async function fetchFriendsMaps(friends: PersonData[]) {
+            let result = []
+            for (const friend of friends) {
+                let maps = await getMaps(friend.webId, session)
+                const friendMaps: FriendMaps = {webId: friend.webId, name: friend.name, maps: maps}
+                result.push(friendMaps)
+            }
+            setFriendsMaps(result)
+        }
+
         async function fetchFriends() {
             if (personData.friends.length > 0) {
                 const names = await Promise.all(
-                    personData.friends.map((friend) => findPersonData(session,friend))
+                    personData.friends.map((friend) => findPersonData(session, friend))
                 );
-                setFriendList(names);
+                fetchFriendsMaps(names);
             }
         }
+
         fetchFriends()
     }, [personData.friends, session])
 
-    function getMarkers(id:string,friendWebId:string){
-        (document.getElementById(id) as HTMLImageElement).src = botonVerde;
-        if(webId!==undefined){
-            let target = webId.split("profile")[0]
-            console.log(friendWebId)
-            changePermissions(target,friendWebId);
+
+    function beautifyMapName(mapName: string, webId: string): string {
+        let uri = webId.split("/").slice(0, 3).join("/").concat("/lomap/");
+        let shortName = mapName.replace(uri, "").replace(".jsonld", "");
+        return shortName.replace(shortName.charAt(0), shortName.charAt(0).toUpperCase()).replace("%20", "");
+    }
+
+    function getMarkers(friendMap: string) {
+        if (webId !== undefined) {
+            const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
+            root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={[friendMap]}
+                                 setItem={props.setItem}/>);
+            const root2 = ReactDOM.createRoot(document.getElementById("filterDiv") as HTMLElement);
+            root2.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={[friendMap]}
+                                 setItem={props.setItem}/>);
+            props.setSelectedMap("")
         }
     }
 
-    async function changePermissions(webId:string,friendWebId:string){
-        // Fetch the SolidDataset and its associated ACLs, if available:
-        const myDatasetWithAcl = await getSolidDatasetWithAcl(webId+"private/",{fetch:session.fetch});
-
-        // Obtain the SolidDataset's own ACL, if available,
-        // or initialise a new one, if possible:
-        let resourceAcl;
-        if (!hasResourceAcl(myDatasetWithAcl)) {
-            if (!hasAccessibleAcl(myDatasetWithAcl)) {
-                throw new Error(
-                    "The current user does not have permission to change access rights to this Resource."
-                );
-            }
-            if (!hasFallbackAcl(myDatasetWithAcl)) {
-                throw new Error(
-                    "The current user does not have permission to see who currently has access to this Resource."
-                );
-                // Alternatively, initialise a new empty ACL as follows,
-                // but be aware that if you do not give someone Control access,
-                // **nobody will ever be able to change Access permissions in the future**:
-                // resourceAcl = createAcl(myDatasetWithAcl);
-            }
-            resourceAcl = createAclFromFallbackAcl(myDatasetWithAcl);
-        } else {
-            resourceAcl = getResourceAcl(myDatasetWithAcl);
-        }
-
-        // Give someone Control access to the given Resource:
-        let updatedAcl = setAgentResourceAccess(
-            resourceAcl,
-            friendWebId,
-            { read: true, append: false, write: false, control: false }
-        );
-        updatedAcl = setAgentDefaultAccess(
-            updatedAcl,
-            friendWebId,
-            { read: true, append: false, write: false,control:false }
-        )
-
-
-        // Now save the ACL:
-        await saveAclFor(myDatasetWithAcl, updatedAcl,{fetch:session.fetch});
-    }
-
-    return(
-        <div id="friends" >
+    return (
+        <div id="friends">
             <h2>{t("friends")}</h2>
             <div id="friendsList">
                 {
-                    friends.map(friend => (
-                        <div key={friend.webId}>
-                            <button onClick={() =>getMarkers("button-"+friend.webId,friend.webId)}>{friend.name} <img id={"button-"+friend.webId} src={botonRojo} alt="botonRojo" width={15} height={15}/></button>
+                    friendsMaps.length > 0 ? (
+                        <List>
+                            {friendsMaps.map((friend) => (
+                                <div key={friend.webId}>
+                                    <ListItemButton onClick={() => handleClick(friend.name)}>
+                                        <ListItemIcon>
+                                            <PersonIcon color="primary"/>
+                                        </ListItemIcon>
+                                        <ListItemText primary={friend.name}/>
+                                        {open[friend.name] ? <ExpandLess/> : <ExpandMore/>}
+                                    </ListItemButton>
+                                    <Collapse in={open[friend.name]} timeout={5}>
+                                        <List component="div" disablePadding>
+                                            {friend.maps.length > 0 ? (
+                                                friend.maps[0] !== "User Unauthorized" ? (
+                                                    friend.maps.map((map) => (
+                                                        <ListItemButton key={map} sx={{pl: 4}}
+                                                                        onClick={() => getMarkers(map)}
+                                                                        id="mapNameItem">
+                                                            <ListItemIcon>
+                                                                <MapIcon color="primary"/>
+                                                            </ListItemIcon>
+                                                            <ListItemText primary={beautifyMapName(map, friend.webId)}/>
+                                                        </ListItemButton>
+                                                    ))
+                                                ) : (
+                                                    <div id="noFriendPermissions">
+                                                        <p>{t("notificationNoFriendPermissions")}</p>
+                                                    </div>
+                                                )
+                                            ) : (
+                                                <div id="noFriendMaps">
+                                                    <p>{t("notificationNoFriendMaps")}</p>
+                                                </div>
+                                            )}
+                                        </List>
+                                    </Collapse>
+                                </div>
+                            ))}
+                        </List>
+                    ) : (
+                        <div className="no-content" id="noFriends">
+                            <p>{t("notificationNoFriends")}</p>
                         </div>
-                    ))
-
+                    )
                 }
             </div>
         </div>
     )
 
 }
+
 export default FriendList

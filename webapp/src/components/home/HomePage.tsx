@@ -13,7 +13,7 @@ import FooterInfo from "./FooterInfo";
 i18n.use(initReactI18next)
 
 function HomePage() {
-    const { t } = useTranslation();
+    const {t} = useTranslation();
 
     const [showWelcomeNotification, setShowWelcomeNotification] = useState(false);
 
@@ -41,9 +41,9 @@ function HomePage() {
                 <FooterInfo/>
                 {showWelcomeNotification && (
                     <Notification
-                        title={t("notification_welcome")}
-                        message={t("notification_message_home")}
-                        time={t("notification_time")}
+                        title={t("notificationWelcome")}
+                        message={t("notificationMessageHome")}
+                        time={t("notificationTime")}
                         icon={Icon}
                         onClose={handleDismissWelcomeNotification}
                     />

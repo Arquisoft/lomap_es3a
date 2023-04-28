@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import StarIcon from '@mui/icons-material/Star';
 
 
-function Mark({title}: ScoreType) {
+function Mark({title, id}: ScoreType) {
     const [value, setValue] = React.useState<number | null>(0);
     const [hover, setHover] = React.useState(-1);
 
@@ -28,7 +28,7 @@ function Mark({title}: ScoreType) {
                     emptyIcon={<StarIcon style={{opacity: 0.55}} fontSize="inherit"/>}
                 />
                 {value !== null && (
-                    <Box id="score" sx={{ml: 3}}>{hover !== -1 ? hover : value}</Box>
+                    <Box id={id} sx={{ml: 3}}>{hover !== -1 ? hover : value}</Box>
                 )}
             </div>
         </div>

@@ -13,11 +13,11 @@ import i18n from "../../i18n";
 i18n.use(initReactI18next)
 
 function TechStack() {
-    const { t } = useTranslation();
+    const {t} = useTranslation();
 
     return (
         <div id="symbolsPanel">
-            <h2>{t("tech_stack")}</h2>
+            <h2>{t("techStack")}</h2>
             <TechButton href={"https://reactjs.org/"} img={ReactSymbol} text={"React Symbol"}/>
             <TechButton href={"https://solidproject.org/"} img={SOLIDProjectSymbol} text={"SOLID Project Symbol"}/>
             <TechButton href={"https://www.typescriptlang.org/"} img={TypeScriptSymbol} text={"TypeScript Symbol"}/>

@@ -1,6 +1,6 @@
 h1 {
     font-family: 'Lato', sans-serif;
-    font-size: 2.5em;
+    font-size: 2.25em;
     color: #92b5f5;
     padding: 0.625em;
     margin: 0;
@@ -8,7 +8,7 @@ h1 {
 
 h2 {
     font-family: "Corbel Light", serif;
-    font-size: 1.563em;
+    font-size: 1.75em !important;
     margin: 0.625em;
 }
 
@@ -16,10 +16,14 @@ select, option {
     font-size: 1.25em;
     font-weight: lighter;
     color: white;
-    background-color: rgba(15, 94, 197, 0.8);
+    background-color: rgba(35, 34, 105, 0.6);
     padding: 0.313em;
     border-radius: 0.313em;
     width: 90%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 0.125em solid #91b4f3;
 }
 
 #rating {
@@ -32,40 +36,40 @@ select, option {
     font-size: 1.5em;
 }
 
-#searchPanel {
-    display: flex;
-    justify-content: center;
-}
-
-#searchText {
-    width: 70%;
-    border-bottom-left-radius: 0.313em;
-    border-top-left-radius: 0.313em;
-}
-
-#searchButton {
+#namePlace, #comment, #latitude, #longitude, #newMapTitle {
     font-size: 1.25em;
     font-weight: lighter;
     color: white;
-    background-color: rgba(15, 94, 197, 0.8);
     padding: 0.313em;
-    border-bottom-right-radius: 0.313em;
-    border-top-right-radius: 0.313em;
-    width: 20%;
+    background-color: rgba(35, 34, 105, 0.6);
+    margin-bottom: 0.15em;
+    border-radius: 0.1em;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 0.125em solid #91b4f3;
 }
 
-#searchText, #namePlace, #comment, #latitude, #longitude {
-    font-size: 1.25em;
-    font-weight: lighter;
-    color: white;
-    background-color: rgba(15, 94, 197, 0.8);
-    padding: 0.313em;
-
-}
-
-#namePlace, #comment, #latitude, #longitude {
+#namePlace, #comment, #latitude, #longitude  {
     width: 90%;
     border-radius: 0.313em;
+}
+
+#newMapTitle {
+    width: 55%;
+    border-radius: 0.313em;
+}
+
+#createButton {
+    width: 35%;
+}
+
+#newMapButtonPanel {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25em;
 }
 
 #mapPage {
@@ -74,7 +78,7 @@ select, option {
 }
 
 #mapView {
-    height: 85vh;
+    height: 90vh;
     width: 80vw;
     border-top-left-radius: 0.625em;
     overflow: hidden;
@@ -85,12 +89,12 @@ select, option {
     color: white;
     background-color: rgb(35, 34, 105);
     text-align: center;
-    height: 85vh;
+    height: 90vh;
     width: 20vw;
     overflow-x: hidden;
 }
 
-#markersMenu .cross {
+#addMarkerPanel .cross, #showMarkerPanel .cross {
     padding: 0.5em 0.5em 0.5em 2em;
     background: none;
     border: none;
@@ -99,18 +103,18 @@ select, option {
     transition: 0.3s;
     position: absolute;
     top: 0;
-    right: 1.563em;
+    right: 0.2em;
     font-size: 2.25em;
     margin-left: 3.125em;
 }
 
-#markersMenu {
+#addMarkerPanel, #showMarkerPanel {
     color: white;
     font-size: 0.938em;
     font-weight: bold;
     background-color: rgba(35, 34, 105, 0.8);
     text-align: center;
-    height: 85vh;
+    height: 90vh;
     width: 0;
     right: 0;
     position: absolute;
@@ -138,4 +142,239 @@ select, option {
     border-radius: 0.5em;
     cursor: pointer;
     margin-bottom: 0.3em;
+}
+
+#profileMarkerAuthor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#profileMarkerData h3 {
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#profileMarkerData h4 {
+    margin: 0;
+    font-size: 1.15em;
+    font-weight: lighter;
+    font-style: italic;
+}
+
+#showMarkerPanel .carousel-item img {
+    width: 22.5vw;
+    height: 17.5vh;
+
+    border-radius: 0.3125em;
+    text-align: center;
+}
+
+#markerData {
+    text-align: start;
+    align-items: center;
+    margin-left: 1.5em;
+}
+
+#markerData h3 {
+    font-size: 2em;
+}
+
+#showMarkerScore {
+    display: flex;
+    flex-direction: row;
+    text-align: start;
+    align-items: center;
+    gap: 0.5em;
+}
+
+#totalReviews, #totalScore, #ratingScore {
+    margin-bottom: 0 !important;
+}
+
+#totalScore {
+    font-size: 1.5em;
+    color: #000000;
+    background-color: #b9bcd0;
+    border-radius: 0.1em;
+    padding: 0.25em;
+}
+
+#showMarkerCategory {
+    font-size: 1.25em;
+    font-style: italic;
+    font-weight: lighter;
+}
+
+#showMarkerDescription {
+    font-size: 1em;
+    font-weight: lighter;
+}
+
+#showMarkerCoords {
+    font-size: 0.9em;
+    font-style: italic;
+    font-weight: lighter;
+}
+
+#reviewsTitle {
+    text-decoration: underline;
+    font-style: italic;
+}
+
+#addReview {
+    margin: 0 1em 1em 0;
+    text-align: end;
+}
+
+#addReview #rating{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-bottom: 0.25em;
+}
+
+#reviewComment {
+    font-size: 1.15em;
+    width: 100%;
+    font-weight: lighter;
+    color: white;
+    background-color: rgba(35, 34, 105, 0.6);
+    margin-bottom: 0.15em;
+    border-radius: 0.2em;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 0.125em solid #91b4f3;
+}
+
+#reviewButton, #createButton {
+    font-size: 1.15em;
+    font-weight: bold;
+    color: white;
+    padding: 0.3em;
+    border: none;
+    cursor: pointer;
+    margin-top: 0.625em;
+    border-radius: 0.2em;
+    background-color: #0063fd;
+}
+
+#reviewButton:hover, #createButton:hover {
+    background-color: #00a6fb;
+}
+
+#reviewButton:active, #createButton:active {
+    background-color: #007ffd;
+}
+
+.profileReview {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+}
+
+#nameAndDate h5 {
+    margin: 0;
+    font-size: 1.15em;
+    font-weight: bold;
+}
+
+#nameAndDate p {
+    margin: 0;
+    font-size: 0.9em;
+    font-weight: lighter;
+    font-style: italic;
+}
+
+#ratingReview {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+}
+
+#ratingScore {
+    color: white;
+    font-size: 1.15em;
+    background-color: #273572;
+    padding: 0.4em;
+    border-radius: 0.2em;
+}
+
+.no-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2em 0 2em 0;
+    margin: 1em 0.75em 1em;
+    font-style: italic;
+    font-weight: lighter;
+    border-style: solid;
+    border-radius: 0.3em;
+    border-width: 0.1em;
+}
+
+.icon-button-container {
+    margin-top: 1em;
+}
+
+#imgContainer {
+    margin-top: 0.5em;
+    border: 2px solid white;
+    border-radius: 1em;
+    width: 15em;
+    height: 15em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.dropdown-toggle-friend {
+    font-size: 1.4em !important;
+    text-decoration: none !important;
+    color: white !important;
+    background-color: #232269 !important;
+    border: none !important;
+}
+
+.dropdown-item > button{
+    font-size: 0.9em !important;
+}
+
+#noFriendMaps, #noFriendPermissions{
+    display: flex;
+    padding: 0.3em;
+    color: white;
+}
+
+#friendsList {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: start;
+}
+
+#noFriendsProfile{
+    padding: 2em 0 2em 0;
+    margin: 1em 0.3em 1em;
+    font-style: italic;
+    font-weight: lighter;
+    border-style: solid;
+    border-radius: 0.3em;
+    border-width: 0.1em;
+    color: white;
+}
+
+#mapNameItem:hover {
+    background-color: #3e3e8f;
 }

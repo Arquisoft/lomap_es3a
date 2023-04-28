@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Dropdown} from 'react-bootstrap';
 import {initReactI18next, useTranslation} from 'react-i18next';
-import i18n from 'i18next';
+import i18n from '../../i18n';
 import UKFlag from "../../img/flags/UKFlag.png";
 import SpainFlag from "../../img/flags/SpainFlag.png";
 import FranceFlag from "../../img/flags/FranceFlag.png";
@@ -16,7 +16,7 @@ function LanguageMenu() {
 
     const {t} = useTranslation();
 
-    const handleLanguageChange = (language: string) => {
+    function handleLanguageChange(language: string)  {
         i18n.changeLanguage(language).then(() => {
             console.log("Language changed correctly");
         });
@@ -24,7 +24,7 @@ function LanguageMenu() {
     };
 
     return (
-        <Dropdown className="nav-item dropdown">
+        <Dropdown className="dropdown">
             <Dropdown.Toggle className="dropdown-toggle">
                 {t("language")}
             </Dropdown.Toggle>
