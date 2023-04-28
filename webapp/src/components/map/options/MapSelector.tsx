@@ -20,6 +20,7 @@ function MapSelector(props: { setItem: Function,setSelectedMap:Function,selected
     useEffect(() => {
         async function fetchMaps() {
             await checkIfFolderExists(session.info.webId!,session);
+
             const mapsFromPOD = session.info.webId !== "" ? await getMaps(session.info.webId!, session) : undefined;
             if (mapsFromPOD) {
                 setMaps(mapsFromPOD);
@@ -47,13 +48,13 @@ function MapSelector(props: { setItem: Function,setSelectedMap:Function,selected
 
     function render(route: string, element: string) {
         if (element === "filter") {
-            const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
-            root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={[route]}
-                                 setItem={props.setItem}/>);
-        } else if (element === "mapView") {
             const root = ReactDOM.createRoot(document.getElementById("filterDiv") as HTMLElement);
             root.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={[route]}
                                 setItem={props.setItem}/>);
+        } else if (element === "mapView") {
+            const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
+            root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={[route]}
+                                 setItem={props.setItem}/>);
         }
     }
 
