@@ -9,10 +9,9 @@ import Icon from "../../../img/symbols/GOMapSymbol.png";
 import Filter from "./Filter";
 
 
-function MapSelector(props: { setItem: Function }) {
+function MapSelector(props: { setItem: Function,setSelectedMap:Function,selectedMap:string }) {
     const {t} = useTranslation();
     const [maps, setMaps] = useState<string[]>([])
-    const [selectedMap, setSelectedMap] = useState("")
     const {session} = useSession()
     const [showNotification, setShowNotification] = useState(false);
     const [errorEmptyName, setErrorEmptyName] = useState(false)
@@ -23,7 +22,7 @@ function MapSelector(props: { setItem: Function }) {
             const mapsFromPOD = session.info.webId !== "" ? await getMaps(session.info.webId!, session) : undefined;
             if (mapsFromPOD) {
                 setMaps(mapsFromPOD);
-                setSelectedMap(mapsFromPOD[0])
+                props.setSelectedMap(mapsFromPOD[0])
                 render(mapsFromPOD[0], "mapView")
                 render(mapsFromPOD[0], "filter")
             }
@@ -65,7 +64,7 @@ function MapSelector(props: { setItem: Function }) {
 
     function changeMap() {
         let select = (document.getElementById("selectMap") as HTMLSelectElement).value
-        setSelectedMap(select);
+        props.setSelectedMap(select);
         render(select, "mapView");
         render(select, "filter");
         const mapNameItems = document.querySelectorAll('[id="mapNameItem"]');
@@ -87,7 +86,7 @@ function MapSelector(props: { setItem: Function }) {
                 createNotification();
                 render(fileUrl, "mapView");
                 render(fileUrl, "filter");
-                setSelectedMap(fileUrl);
+                props.setSelectedMap(fileUrl);
             })
             const mapNameItems = document.querySelectorAll('[id="mapNameItem"]');
             mapNameItems.forEach(item => {
@@ -106,7 +105,8 @@ function MapSelector(props: { setItem: Function }) {
                 <h2>{t("mapSelector")}</h2>
                 {
                     (maps.length > 0) ?
-                        <select value={selectedMap} onChange={changeMap} id="selectMap">
+                        <select value={props.selectedMap} onChange={changeMap} id="selectMap">
+                            <option hidden={true}></option>
                             {
                                 maps.map(map => (
                                     <option value={map} key={map}>{beautifyMapName(map)}</option>

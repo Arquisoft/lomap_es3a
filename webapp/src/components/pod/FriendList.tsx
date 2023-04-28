@@ -14,7 +14,7 @@ import MapIcon from '@mui/icons-material/Map';
 
 i18n.use(initReactI18next)
 
-function FriendList(props: { setItem: Function }) {
+function FriendList(props: { setItem: Function,setSelectedMap:Function }) {
     const {session} = useSession();
     const [personData, setPersonData] = useState<PersonData>({webId: '', photo: '', name: '', friends: []})
     const {webId} = session.info;
@@ -77,9 +77,7 @@ function FriendList(props: { setItem: Function }) {
             const root2 = ReactDOM.createRoot(document.getElementById("filterDiv") as HTMLElement);
             root2.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={[friendMap]}
                                  setItem={props.setItem}/>);
-            if (document.getElementById("selectMap") !== null) {
-                (document.getElementById("selectMap") as HTMLSelectElement).value = ""
-            }
+            props.setSelectedMap("")
         }
     }
 

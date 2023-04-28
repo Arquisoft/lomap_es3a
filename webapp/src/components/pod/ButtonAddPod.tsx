@@ -163,8 +163,7 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
                                 webId={[route]} setItem={setItem}/>);
                         }
                     });
-                let rootFriends = ReactDOM.createRoot(document.getElementById("friendDiv") as HTMLElement);
-                rootFriends.render(<FriendList setItem={setItem}/>)
+
                 const rootFilter = ReactDOM.createRoot(document.getElementById("filterDiv") as HTMLElement);
                 rootFilter.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={[route]}
                                           setItem={setItem}/>);
