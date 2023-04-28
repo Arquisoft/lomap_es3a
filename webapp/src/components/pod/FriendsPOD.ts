@@ -1,6 +1,6 @@
 import {
     buildThing,
-    createAclFromFallbackAcl, createContainerAt, createSolidDataset,
+    createAclFromFallbackAcl, createContainerAt,
     getContainedResourceUrlAll,
     getResourceAcl,
     getSolidDataset,
@@ -25,7 +25,6 @@ import {foaf, vcard} from 'rdf-namespaces'
 import {fetch, Session} from "@inrupt/solid-client-authn-browser";
 import {v4 as uuidv4} from "uuid";
 
-
 export interface PersonData {
     webId: string
     photo: string
@@ -47,7 +46,7 @@ async function findFullPersonProfile(webId: string, session: Session, response: 
             response.push(dataset)
         }
     } catch (e) {
-        throw e
+        console.log(e);
     }
     return response
 }

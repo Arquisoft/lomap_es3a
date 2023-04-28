@@ -10,7 +10,6 @@ import MapView from "../map/MapView";
 import Icon from "../../img/symbols/GOMapSymbol.png";
 import {initReactI18next, useTranslation} from "react-i18next";
 import i18n from "../../i18n";
-import FriendList from "./FriendList";
 import Filter from "../map/options/Filter";
 
 import {v4 as uuidv4} from "uuid";
