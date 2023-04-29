@@ -4,18 +4,12 @@ import FriendList from "../pod/FriendList";
 import {initReactI18next, useTranslation} from "react-i18next";
 import React, {useState} from "react";
 import i18n from "../../i18n";
-import {useSession} from "@inrupt/solid-ui-react";
 import MapSelector from "./options/MapSelector";
 
 i18n.use(initReactI18next)
 
 function OptionsPanel(props: { setItem: Function }) {
-    const {session} = useSession();
-    const {webId} = session.info;
-    let webIdStore = webId?.slice(0, -15) + 'private/locations.json';
-    let user: string[] = [webIdStore]
     const [selectedMap, setSelectedMap] = useState("")
-
     const {t} = useTranslation();
 
     return (
@@ -25,7 +19,7 @@ function OptionsPanel(props: { setItem: Function }) {
                 <Search title={t("search")}/>
                 <MapSelector setItem={props.setItem} setSelectedMap={setSelectedMap} selectedMap={selectedMap}/>
                 <div id="filterDiv">
-                    <Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={user}
+                    <Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={[]}
                             setItem={props.setItem}/>
                 </div>
                 <div id="friendDiv">

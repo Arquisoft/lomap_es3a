@@ -5,11 +5,12 @@ import markerIconPng from "leaflet/dist/images/marker-icon.png"
 import {Icon} from 'leaflet'
 import React, {useState} from "react";
 
-function LocationMarker() {
+function LocationMarker(props:{setShowLocationMarker:Function,showLocationMarker:boolean}) {
     const [position, setPosition] = useState({lat: 43.35470393256756, lng: -5.85129134167161})
 
     useMapEvents({
         click(e) {
+            props.setShowLocationMarker(true)
             setPosition(e.latlng);
 
             const showMarkerPanel = document.getElementById("showMarkerPanel");
@@ -27,8 +28,11 @@ function LocationMarker() {
     (document.getElementById("longitude") as HTMLInputElement).value = position.lng.toString();
 
     return (
-        <Marker position={position} icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})}>
-        </Marker>
+        props.showLocationMarker ?
+            <Marker position={position} icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})}>
+            </Marker>
+        :
+        <div></div>
     )
 }
 
