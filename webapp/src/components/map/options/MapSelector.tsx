@@ -15,6 +15,7 @@ function MapSelector(props: { setItem: Function,setSelectedMap:Function,selected
     const {session} = useSession()
     const [showNotification, setShowNotification] = useState(false);
     const [errorEmptyName, setErrorEmptyName] = useState(false)
+    const [errorSameName, setErrorSameName] = useState(false)
 
 
     useEffect(() => {
@@ -44,6 +45,7 @@ function MapSelector(props: { setItem: Function,setSelectedMap:Function,selected
     const handleCloseNotification = () => {
         setShowNotification(false);
         setErrorEmptyName(false)
+        setErrorSameName(false)
     };
 
     function render(route: string, element: string) {
@@ -82,24 +84,29 @@ function MapSelector(props: { setItem: Function,setSelectedMap:Function,selected
     async function createMap() {
         let mapName = (document.getElementById("newMapTitle") as HTMLInputElement).value
         if (mapName.trim() !== "") {
-            await createNewMap(session, mapName)
-            await getMaps(session.info.webId!, session).then(newMaps => {
-                setMaps(newMaps)
-                let uri = session.info.webId!.split("/").slice(0, 3).join("/").concat("/lomap/");
-                let fileUrl = (uri + mapName + ".jsonld").trim();
-                (document.getElementById("newMapTitle") as HTMLInputElement).value = ""
-                createNotification();
-                render(fileUrl, "mapView");
-                render(fileUrl, "filter");
-                props.setSelectedMap(fileUrl);
-            })
-            const showMarkerPanel = document.getElementById("showMarkerPanel");
-            if (showMarkerPanel !== null) {
-                showMarkerPanel.style.width = "0";
-            }
-            const addMarkerPanel = document.getElementById("addMarkerPanel");
-            if (addMarkerPanel !== null) {
-                addMarkerPanel.style.width = "0";
+            let existsMap = maps.filter(map => beautifyMapName(map)===beautifyMapName(mapName))
+            if(existsMap.length === 0){
+                await createNewMap(session, mapName)
+                await getMaps(session.info.webId!, session).then(newMaps => {
+                    setMaps(newMaps)
+                    let uri = session.info.webId!.split("/").slice(0, 3).join("/").concat("/lomap/");
+                    let fileUrl = (uri + mapName + ".jsonld").trim();
+                    (document.getElementById("newMapTitle") as HTMLInputElement).value = ""
+                    createNotification();
+                    render(fileUrl, "mapView");
+                    render(fileUrl, "filter");
+                    props.setSelectedMap(fileUrl);
+                })
+                const showMarkerPanel = document.getElementById("showMarkerPanel");
+                if (showMarkerPanel !== null) {
+                    showMarkerPanel.style.width = "0";
+                }
+                const addMarkerPanel = document.getElementById("addMarkerPanel");
+                if (addMarkerPanel !== null) {
+                    addMarkerPanel.style.width = "0";
+                }
+            }else{
+                setErrorSameName(true)
             }
         } else {
             setErrorEmptyName(true)
@@ -152,6 +159,18 @@ function MapSelector(props: { setItem: Function,setSelectedMap:Function,selected
                     <Notification
                         title={t("notificationEmptyNameMapTitle")}
                         message={t("notificationEmptyNameMap")}
+                        time={t("notificationTime")}
+                        icon={Icon}
+                        onClose={handleCloseNotification}
+                    />
+                )
+            }
+            {
+                errorSameName &&
+                (
+                    <Notification
+                        title={t("notificationSameNameMapTitle")}
+                        message={t("notificationSameNameMap")}
                         time={t("notificationTime")}
                         icon={Icon}
                         onClose={handleCloseNotification}
