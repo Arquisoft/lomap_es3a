@@ -1,10 +1,10 @@
-import {render} from "@testing-library/react";
+import {render, RenderResult} from "@testing-library/react";
 import TechButton from "../../components/home/TechButton";
 import ReactSymbol from "../../img/symbols/ReactSymbol.png";
 import WebStormSymbol from "../../img/symbols/WebStormSymbol.png";
 
 describe("TechButton", () => {
-    let component: any;
+    let component: RenderResult;
 
     beforeEach(() => {
         component = render(<TechButton href="https://reactjs.org/" img={ReactSymbol} text="React Symbol"/>);

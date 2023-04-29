@@ -1,7 +1,7 @@
 import {MapContainer, Marker, Popup, TileLayer} from "react-leaflet";
 import {Icon} from "leaflet";
 import React from "react";
-import markerIconPng from "leaflet/dist/images/marker-icon.png";
+import GOMapSymbol from "../../img/symbols/GOMapSymbol.png";
 import {initReactI18next, useTranslation} from "react-i18next";
 import i18n from "../../i18n";
 
@@ -21,9 +21,9 @@ function ContactMap() {
             <Marker
                 position={position}
                 icon={new Icon({
-                    iconUrl: markerIconPng,
-                    iconSize: [25, 41],
-                    iconAnchor: [12, 41],
+                    iconUrl: GOMapSymbol,
+                    iconSize: [48, 48],
+                    iconAnchor: [24, 24],
                 })}
             >
                 <Popup>{t("office")}</Popup>

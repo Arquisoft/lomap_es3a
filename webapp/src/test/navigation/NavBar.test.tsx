@@ -1,9 +1,8 @@
-import {act, fireEvent, render, screen} from '@testing-library/react';
+import {act, fireEvent, render, RenderResult, screen} from '@testing-library/react';
 import NavBar from '../../components/navigation/NavBar';
 import {BrowserRouter as Router} from "react-router-dom";
-
 describe('NavBar', () => {
-    let component: any;
+    let component: RenderResult;
 
     beforeEach(() => {
         component = render(
@@ -51,5 +50,20 @@ describe('NavBar', () => {
     it('displays the login button when not logged in', () => {
         const loginButton = component.getByRole('link', {name: 'Log in'});
         expect(loginButton).toBeInTheDocument();
+    });
+
+    it('navbar collapses when window is resized', () => {
+        const nav = component.container.querySelector('.navbar');
+
+        // initially, navbar is not expanded
+        expect(nav?.classList).toContain('nav-normal');
+        expect(nav?.classList).not.toContain('nav-expanded');
+
+        // simulate window resize
+        fireEvent(window, new Event('resize'));
+
+        // navbar should collapse
+        expect(nav?.classList).toContain('nav-normal');
+        expect(nav?.classList).not.toContain('nav-expanded');
     });
 });

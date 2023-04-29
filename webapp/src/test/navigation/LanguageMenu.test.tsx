@@ -1,9 +1,9 @@
 import React from 'react';
-import {render, fireEvent, act, screen} from '@testing-library/react';
+import {render, fireEvent, act, screen, RenderResult} from '@testing-library/react';
 import LanguageMenu from '../../components/navigation/LanguageMenu';
 
 describe('LanguageMenu component', () => {
-    let component: any;
+    let component: RenderResult;
 
     beforeEach(() => {
 
@@ -70,5 +70,22 @@ describe('LanguageMenu component', () => {
         expect(screen.getByText('Asturianu')).toBeInTheDocument();
         fireEvent.click(component.getByText('Español'));
         expect(screen.getByText('Idioma')).toBeInTheDocument();
+    });
+
+    it('changes all languages', () => {
+        fireEvent.click(component.getByText('Idioma'));
+        fireEvent.click(component.getByText('Español'));
+        expect(sessionStorage.getItem('language')).toBe('es');
+        fireEvent.click(component.getByText('English'));
+        expect(sessionStorage.getItem('language')).toBe('en');
+        fireEvent.click(component.getByText('French'));
+        expect(sessionStorage.getItem('language')).toBe('fr');
+        fireEvent.click(component.getByText('Deutsch'));
+        expect(sessionStorage.getItem('language')).toBe('deu');
+        fireEvent.click(component.getByText('中文在此'));
+        expect(sessionStorage.getItem('language')).toBe('chn');
+        fireEvent.click(component.getByText('Asturianu'));
+        expect(sessionStorage.getItem('language')).toBe('ast');
+        component.unmount();
     });
 });
