@@ -1,8 +1,8 @@
-import {fireEvent, render} from "@testing-library/react";
+import {render, RenderResult} from "@testing-library/react";
 import ImgCarousel from "../../components/home/ImgCarousel";
 
 describe("ImgCarousel", () => {
-    let component: any;
+    let component: RenderResult;
 
     beforeEach(() => {
         component = render(<ImgCarousel />);
