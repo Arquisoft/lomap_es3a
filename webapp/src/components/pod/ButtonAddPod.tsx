@@ -143,6 +143,11 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
         }, 4000); // hide notification after 5 seconds
     };
 
+    function removeContent(){
+        (document.getElementById("namePlace") as HTMLInputElement).value="";
+        (document.getElementById("comment") as HTMLTextAreaElement).value="";
+    }
+
     async function handleClick() {
         if(document.getElementById("selectMap")===null){
             setError(true)
@@ -180,6 +185,7 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
                 if (addMarkerPanel !== null) {
                     addMarkerPanel.style.width = "0";
                 }
+                removeContent()
             }
         }
     };
