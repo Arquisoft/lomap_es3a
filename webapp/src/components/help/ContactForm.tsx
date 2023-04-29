@@ -12,7 +12,7 @@ function ContactForm() {
 
     const {t} = useTranslation();
 
-    const handleSubmit = () => {
+    function handleSubmit() {
         console.log(`Nombre: ${name}, Email: ${email}, Mensaje: ${message}`);
         setName("");
         setEmail("");
