@@ -1,9 +1,9 @@
 import React from 'react';
-import {render, fireEvent, act, screen} from '@testing-library/react';
+import {render, fireEvent, act, screen, RenderResult} from '@testing-library/react';
 import LanguageMenu from '../../components/navigation/LanguageMenu';
 
 describe('LanguageMenu component', () => {
-    let component: any;
+    let component: RenderResult;
 
     beforeEach(() => {
 
