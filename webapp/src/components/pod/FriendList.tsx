@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useSession} from "@inrupt/solid-ui-react";
-import {findPersonData, FriendMaps, getMaps, PersonData} from "./FriendsPOD";
+import {findPersonData, FriendMaps, getMaps, PersonData} from "./PODsInteraction";
 import {initReactI18next, useTranslation} from "react-i18next";
 import i18n from "../../i18n";
 import ReactDOM from "react-dom/client";
@@ -79,6 +79,14 @@ function FriendList(props: { setItem: Function,setSelectedMap:Function }) {
             root2.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={[friendMap]}
                                  setItem={props.setItem}/>);
             props.setSelectedMap("")
+        }
+        const showMarkerPanel = document.getElementById("showMarkerPanel");
+        if (showMarkerPanel !== null) {
+            showMarkerPanel.style.width = "0";
+        }
+        const addMarkerPanel = document.getElementById("addMarkerPanel");
+        if (addMarkerPanel !== null) {
+            addMarkerPanel.style.width = "0";
         }
     }
 
