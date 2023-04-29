@@ -69,11 +69,6 @@ function MapSelector(props: { setItem: Function,setSelectedMap:Function,selected
         props.setSelectedMap(select);
         render(select, "mapView");
         render(select, "filter");
-        const mapNameItems = document.querySelectorAll('[id="mapNameItem"]');
-        mapNameItems.forEach(item => {
-            item.setAttribute('aria-selected', 'false');
-            item.classList.remove(item.classList.item(1)!);
-        });
         const showMarkerPanel = document.getElementById("showMarkerPanel");
         if (showMarkerPanel !== null) {
             showMarkerPanel.style.width = "0";
@@ -98,11 +93,6 @@ function MapSelector(props: { setItem: Function,setSelectedMap:Function,selected
                 render(fileUrl, "filter");
                 props.setSelectedMap(fileUrl);
             })
-            const mapNameItems = document.querySelectorAll('[id="mapNameItem"]');
-            mapNameItems.forEach(item => {
-                item.setAttribute('aria-selected', 'false');
-                item.classList.remove(item.classList.item(1)!);
-            });
             const showMarkerPanel = document.getElementById("showMarkerPanel");
             if (showMarkerPanel !== null) {
                 showMarkerPanel.style.width = "0";

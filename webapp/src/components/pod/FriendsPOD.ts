@@ -1,6 +1,6 @@
 import {
     buildThing,
-    createAclFromFallbackAcl, createContainerAt, createSolidDataset,
+    createAclFromFallbackAcl, createContainerAt,
     getContainedResourceUrlAll,
     getResourceAcl,
     getSolidDataset,
@@ -47,7 +47,7 @@ async function findFullPersonProfile(webId: string, session: Session, response: 
             response.push(dataset)
         }
     } catch (e) {
-        throw e
+        console.log(e)
     }
     return response
 }
