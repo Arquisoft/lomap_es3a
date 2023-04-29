@@ -176,6 +176,10 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
                         optionsMenu.style.minWidth = "0px";
                     }
                 }
+                const addMarkerPanel = document.getElementById("addMarkerPanel");
+                if (addMarkerPanel !== null) {
+                    addMarkerPanel.style.width = "0";
+                }
             }
         }
     };
