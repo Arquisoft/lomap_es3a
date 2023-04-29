@@ -10,7 +10,7 @@
    </a>
 </p>
 
-# <img src="https://user-images.githubusercontent.com/91057639/218590043-d4243147-e5c0-4f7b-8fed-12ed8d290490.png" width="1024" height="512">
+<h1 align="center"><img src="https://user-images.githubusercontent.com/91057639/218590043-d4243147-e5c0-4f7b-8fed-12ed8d290490.png" width="1024" height="512"></h1>
 
 <p align="center">
    <a href="https://arquisoft.github.io/lomap_es3a/">
@@ -23,6 +23,18 @@
    ·
    <a href="https://github.com/Arquisoft/lomap_es3a/wiki">
       Wiki
+   </a>
+   ·
+   <a href="https://github.com/Arquisoft/lomap_es3a/issues/new?assignees=&labels=&template=bug_report.md&title=">
+      Reportar un bug
+   </a>
+   ·
+   <a href="https://github.com/Arquisoft/lomap_es3a/issues/new?assignees=&labels=&template=feature_request.md&title=">
+      Solicitar una funcionalidad
+   </a>
+   ·
+   <a href="https://github.com/Arquisoft/lomap_es3a/projects?query=is%3Aopen">
+      Proyectos
    </a>
 </p>
 
