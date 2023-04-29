@@ -1,6 +1,6 @@
 import {CombinedDataProvider, Image, Text, useSession} from "@inrupt/solid-ui-react";
 import React, {useEffect, useState} from "react";
-import {findPersonData, PersonData} from "./pod/FriendsPOD";
+import {findPersonData, PersonData} from "./pod/PODsInteraction";
 import {useTranslation} from "react-i18next";
 import "../css/profile.css"
 import {Avatar, Badge, Box, Button, Typography} from '@mui/material';

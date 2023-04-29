@@ -1,7 +1,7 @@
 import {
     buildThing,
     createAclFromFallbackAcl, createContainerAt,
-    getContainedResourceUrlAll,
+    getContainedResourceUrlAll, getFile,
     getResourceAcl,
     getSolidDataset,
     getSolidDatasetWithAcl,
@@ -24,6 +24,7 @@ import {
 import {foaf, vcard} from 'rdf-namespaces'
 import {fetch, Session} from "@inrupt/solid-client-authn-browser";
 import {v4 as uuidv4} from "uuid";
+import {ImageMarker, Point, Review} from "./Point";
 
 
 export interface PersonData {
@@ -207,5 +208,144 @@ export async function createNewMap(session: Session, mapName: string) {
         }
     }
 
+}
+
+export async function readFileFromPod(fileURL: string, session: Session){
+    try {
+        const file = await getFile(
+            fileURL,
+            {fetch: session.fetch}
+        );
+        return file.text();
+    } catch (err) {
+        return "";
+    }
+}
+
+export async function createData(url: string, file: File, session: Session){
+    try {
+        await overwriteFile(
+            url,
+            file,
+            {contentType: file.type, fetch: session.fetch}
+        );
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export async function createMarker(idName: string, idCategory: string, idComment: string, idScore: string,
+                                   idLatitude: string, idLongitude: string, fileURL: string,session:Session)  {
+    let name = (document.getElementById(idName) as HTMLInputElement).value;
+    let identifier = fileURL.split("lomap")[0] + "profile/card#me"
+    let category = (document.getElementById(
+        idCategory
+    ) as HTMLInputElement).value;
+    let comment = (document.getElementById(
+        idComment
+    ) as HTMLInputElement).value;
+    let latitude = (document.getElementById(
+        idLatitude
+    ) as HTMLInputElement).value;
+    let longitude = (document.getElementById(
+        idLongitude
+    ) as HTMLInputElement).value;
+
+    let imgUrl = (document.getElementById(
+        "upload-img"
+    ) as HTMLInputElement)?.src;
+
+    let json = {
+        "@context": "https://schema.org/",
+        "@type": "Place",
+        "identifier":uuidv4(),
+        "name": name,
+        "author": {
+            "@type":"Person",
+            "identifier": identifier
+        },
+        "additionalType": category,
+        "latitude": latitude,
+        "longitude": longitude,
+        "description": comment,
+        "review": [],
+        "image": [{
+            "@type": "ImageObject",
+            "author": {
+                "@type": "Person",
+                "identifier": identifier
+            },
+            "contentUrl": imgUrl
+        }],
+        "dateCreated": new Date().valueOf()
+    };
+
+    if (imgUrl === null || imgUrl === undefined) {
+        json.image = [];
+    }
+
+    return await readFileFromPod(fileURL, session).then(file => {
+            if (file === "") {
+                let fileContent = [json]
+                const blob = new Blob([JSON.stringify(fileContent, null, 2)], {
+                    type: "application/ld+json",
+                });
+                return new File([blob], fileURL, {type: blob.type});
+            } else {
+                let fileContent = JSON.parse(file);
+                fileContent.spatialCoverage.push(json);
+                const blob = new Blob([JSON.stringify(fileContent, null, 2)], {
+                    type: "application/ld+json",
+                });
+                return new File([blob], fileURL, {type: blob.type});
+            }
+        }
+    );
+};
+
+export async function readFile(fileURL: string[], session: Session) {
+    try {
+        let markers = []
+        for (const element of fileURL) {
+            if(element !== undefined){
+                const file = await getFile(
+                    element,
+                    {fetch: session.fetch}
+                );
+                let fileContent = await file.text()
+                let fileJSON = JSON.parse(fileContent)
+                for (const element of fileJSON.spatialCoverage) {
+                    let review = [];
+                    let images = [];
+                    let latitude = Number(element.latitude);
+                    let longitude = Number(element.longitude);
+                    let identifier = element.identifier;
+                    let author = element.author.identifier;
+                    let name = element.name;
+                    let category = element.additionalType;
+                    let description = element.description;
+                    let date = element.dateCreated;
+                    for (const reviewElement of element.review) {
+                        review.push(new Review(reviewElement.author.identifier,
+                            reviewElement.reviewRating.ratingValue,
+                            reviewElement.datePublished,
+                            reviewElement.reviewBody));
+                    }
+                    for (const imageElement of element.image) {
+                        images.push(new ImageMarker(imageElement.author.identifier, imageElement.contentUrl));
+                    }
+                    let e = document.getElementById("category") as HTMLSelectElement;
+                    let text = e.options[e.selectedIndex].value;
+                    if (category === text || text === "All")
+                        markers.push(new Point(identifier, author, latitude,
+                            longitude, name, category, description, date, review, images));
+                }
+            }
+
+        }
+        return markers
+    } catch (err) {
+        console.log(err);
+    }
 }
 

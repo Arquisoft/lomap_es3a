@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useSession} from "@inrupt/solid-ui-react";
-import {findPersonData, FriendMaps, getMaps, PersonData} from "./FriendsPOD";
+import {findPersonData, FriendMaps, getMaps, PersonData} from "./PODsInteraction";
 import {initReactI18next, useTranslation} from "react-i18next";
 import i18n from "../../i18n";
 import ReactDOM from "react-dom/client";

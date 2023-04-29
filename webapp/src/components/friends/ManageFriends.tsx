@@ -1,6 +1,6 @@
 import {CombinedDataProvider, Image, useSession} from "@inrupt/solid-ui-react";
 import React, {useEffect, useState} from "react";
-import {addFriendToPod, changePermissions, findPersonData, PersonData, removeFriendFromPOD} from "../pod/FriendsPOD";
+import {addFriendToPod, changePermissions, findPersonData, PersonData, removeFriendFromPOD} from "../pod/PODsInteraction";
 import {useTranslation} from "react-i18next";
 import "../../css/friends.css"
 import Avatar from "@mui/material/Avatar";

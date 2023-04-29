@@ -1,7 +1,7 @@
 import {useTranslation} from "react-i18next";
 import React, {useEffect, useState} from "react";
 import {useSession} from "@inrupt/solid-ui-react";
-import {checkIfFolderExists, createNewMap, getMaps} from "../../pod/FriendsPOD";
+import {checkIfFolderExists, createNewMap, getMaps} from "../../pod/PODsInteraction";
 import ReactDOM from "react-dom/client";
 import MapView from "../MapView";
 import Notification from "../../Notification";

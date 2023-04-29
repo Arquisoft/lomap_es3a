@@ -1,10 +1,8 @@
-import {Session} from "@inrupt/solid-client-authn-browser";
-import {getFile} from "@inrupt/solid-client";
 import {Icon} from "leaflet";
 import {Marker} from "react-leaflet";
 import markerIconPng from "leaflet/dist/images/marker-icon.png"
 import {useSession} from "@inrupt/solid-ui-react";
-import {ImageMarker, Point, Review} from "./Point";
+import {Point} from "./Point";
 import * as React from "react";
 import {useEffect, useState} from "react";
 import BarIcon from "../../img/icons/bar.png";
@@ -26,6 +24,7 @@ import PoliceIcon from "../../img/icons/police.png";
 import TransportIcon from "../../img/icons/transport.png";
 import EntertainmentIcon from "../../img/icons/entertainment.png";
 import LocationMarker from "../map/LocationMarker";
+import {readFile} from "./PODsInteraction";
 
 interface IDictionary {
     [index: string]: string;
@@ -53,51 +52,7 @@ let categories = {
     other: OtherIcon
 } as IDictionary
 
-async function readFileFromPod(fileURL: string[], session: Session) {
-    try {
-        let markers = []
-        for (const element of fileURL) {
-            if(element !== undefined){
-                const file = await getFile(
-                    element,
-                    {fetch: session.fetch}
-                );
-                let fileContent = await file.text()
-                let fileJSON = JSON.parse(fileContent)
-                for (const element of fileJSON.spatialCoverage) {
-                    let review = [];
-                    let images = [];
-                    let latitude = Number(element.latitude);
-                    let longitude = Number(element.longitude);
-                    let identifier = element.identifier;
-                    let author = element.author.identifier;
-                    let name = element.name;
-                    let category = element.additionalType;
-                    let description = element.description;
-                    let date = element.dateCreated;
-                    for (const reviewElement of element.review) {
-                        review.push(new Review(reviewElement.author.identifier,
-                            reviewElement.reviewRating.ratingValue,
-                            reviewElement.datePublished,
-                            reviewElement.reviewBody));
-                    }
-                    for (const imageElement of element.image) {
-                        images.push(new ImageMarker(imageElement.author.identifier, imageElement.contentUrl));
-                    }
-                    let e = document.getElementById("category") as HTMLSelectElement;
-                    let text = e.options[e.selectedIndex].value;
-                    if (category === text || text === "All")
-                        markers.push(new Point(identifier, author, latitude,
-                            longitude, name, category, description, date, review, images));
-                }
-            }
 
-        }
-        return markers
-    } catch (err) {
-        console.log(err);
-    }
-}
 
 
 function MarkersPOD(props: { webId: string[], setItem: Function }) {
@@ -107,7 +62,7 @@ function MarkersPOD(props: { webId: string[], setItem: Function }) {
 
     useEffect(() => {
         async function fetchPoints() {
-            const newPoints = props.webId !== undefined ? await readFileFromPod(props.webId, session) : undefined;
+            const newPoints = props.webId !== undefined ? await readFile(props.webId, session) : undefined;
             if (newPoints) {
                 setPoints(newPoints);
             }
