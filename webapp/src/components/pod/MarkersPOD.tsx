@@ -25,6 +25,7 @@ import HospitalIcon from "../../img/icons/hospital.png";
 import PoliceIcon from "../../img/icons/police.png";
 import TransportIcon from "../../img/icons/transport.png";
 import EntertainmentIcon from "../../img/icons/entertainment.png";
+import LocationMarker from "../map/LocationMarker";
 
 interface IDictionary {
     [index: string]: string;
@@ -102,6 +103,7 @@ async function readFileFromPod(fileURL: string[], session: Session) {
 function MarkersPOD(props: { webId: string[], setItem: Function }) {
     const {session} = useSession();
     const [points, setPoints] = useState<Point[]>([]);
+    const [showLocationMarker, setShowLocationMarker] = useState(true);
 
     useEffect(() => {
         async function fetchPoints() {
@@ -134,11 +136,13 @@ function MarkersPOD(props: { webId: string[], setItem: Function }) {
                                         showMarkerPanel.style.width = "25vw";
                                     }
                                     props.setItem(item);
+                                    setShowLocationMarker(false);
                                 }
                             }}>
                     </Marker>
                 ))
             }
+             <LocationMarker setShowLocationMarker={setShowLocationMarker} showLocationMarker={showLocationMarker}/>
         </div>
     )
 }

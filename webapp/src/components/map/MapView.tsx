@@ -14,7 +14,6 @@ function MapView(props: { lat: number; lng: number; webId: string[]; setItem: Fu
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            <LocationMarker/>
             <MarkersPOD webId={props.webId} setItem={props.setItem}/>
         </MapContainer>
     );
