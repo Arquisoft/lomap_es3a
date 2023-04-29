@@ -30,7 +30,6 @@ function ManageFriends() {
         { name: "SolidCommunity", value: "https://solidcommunity.net" },
     ];
 
-
     useEffect(() => {
         async function loadPersonData() {
             if (webId !== undefined) {
