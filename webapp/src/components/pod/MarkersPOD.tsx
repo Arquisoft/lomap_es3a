@@ -103,7 +103,7 @@ async function readFileFromPod(fileURL: string[], session: Session) {
 function MarkersPOD(props: { webId: string[], setItem: Function }) {
     const {session} = useSession();
     const [points, setPoints] = useState<Point[]>([]);
-    const [showLocationMarker, setShowLocationMarker] = useState(true);
+    const [showLocationMarker, setShowLocationMarker] = useState(false);
 
     useEffect(() => {
         async function fetchPoints() {
