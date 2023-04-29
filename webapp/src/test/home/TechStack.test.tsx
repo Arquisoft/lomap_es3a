@@ -1,8 +1,8 @@
-import {render} from "@testing-library/react";
+import {render, RenderResult} from "@testing-library/react";
 import TechStack from "../../components/home/TechStack";
 
 describe("TechStack", () => {
-    let component: any;
+    let component: RenderResult;
 
     beforeEach(() => {
         component = render(<TechStack/>);

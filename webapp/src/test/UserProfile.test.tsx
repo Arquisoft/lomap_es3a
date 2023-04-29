@@ -1,8 +1,8 @@
-import {act, render} from '@testing-library/react';
+import {act, render, RenderResult} from '@testing-library/react';
 import UserProfile from '../components/UserProfile';
 
 describe("UserProfile", () => {
-    let component : any;
+    let component : RenderResult;
 
     beforeEach(() => {
         component = render(<UserProfile />);
