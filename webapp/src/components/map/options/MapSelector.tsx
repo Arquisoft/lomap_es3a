@@ -74,6 +74,14 @@ function MapSelector(props: { setItem: Function,setSelectedMap:Function,selected
             item.setAttribute('aria-selected', 'false');
             item.classList.remove(item.classList.item(1)!);
         });
+        const showMarkerPanel = document.getElementById("showMarkerPanel");
+        if (showMarkerPanel !== null) {
+            showMarkerPanel.style.width = "0";
+        }
+        const addMarkerPanel = document.getElementById("addMarkerPanel");
+        if (addMarkerPanel !== null) {
+            addMarkerPanel.style.width = "0";
+        }
     }
 
     async function createMap() {
@@ -95,6 +103,14 @@ function MapSelector(props: { setItem: Function,setSelectedMap:Function,selected
                 item.setAttribute('aria-selected', 'false');
                 item.classList.remove(item.classList.item(1)!);
             });
+            const showMarkerPanel = document.getElementById("showMarkerPanel");
+            if (showMarkerPanel !== null) {
+                showMarkerPanel.style.width = "0";
+            }
+            const addMarkerPanel = document.getElementById("addMarkerPanel");
+            if (addMarkerPanel !== null) {
+                addMarkerPanel.style.width = "0";
+            }
         } else {
             setErrorEmptyName(true)
         }

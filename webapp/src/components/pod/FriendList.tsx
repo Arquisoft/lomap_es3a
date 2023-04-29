@@ -80,6 +80,14 @@ function FriendList(props: { setItem: Function,setSelectedMap:Function }) {
                                  setItem={props.setItem}/>);
             props.setSelectedMap("")
         }
+        const showMarkerPanel = document.getElementById("showMarkerPanel");
+        if (showMarkerPanel !== null) {
+            showMarkerPanel.style.width = "0";
+        }
+        const addMarkerPanel = document.getElementById("addMarkerPanel");
+        if (addMarkerPanel !== null) {
+            addMarkerPanel.style.width = "0";
+        }
     }
 
     return (
