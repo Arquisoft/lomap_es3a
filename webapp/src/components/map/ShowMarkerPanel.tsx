@@ -83,7 +83,7 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
             for (const element of reviews) {
                 total += Number(element.reviewRating);
             }
-            return Number(total / reviews.length);
+            return Number((total / reviews.length).toFixed(1));
         }
         return 0;
     }
