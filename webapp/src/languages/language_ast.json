@@ -43,6 +43,10 @@
   "notificationEmptyNameMap": "Tien que introducir un nome pal mapa",
   "notificationSameNameMapTitle": "Nome del mapa esistente",
   "notificationSameNameMap": "El mapa que quier crear yá esiste na so cuenta",
+  "notificationCommentAdded": "Comentariu amestáu",
+  "notificationMessageComment": "El comentariu s'amestó correchamente",
+  "notificationCommentError": "Nun se pudo amestar el comentariu",
+  "notificationCommentErrorMessage": "Hebo un fallu al amestar el comentariu",
 
   "footer": "© Arquisoft - UNIOVI",
   "homeInfo1": "GOMap!® ye una aplicación onde los usuarios puen tener mapes personalizaos tocante llugares y negocios locales na so ciudá, como tiendes, bares, restaurantes, monumentos, cines...",
