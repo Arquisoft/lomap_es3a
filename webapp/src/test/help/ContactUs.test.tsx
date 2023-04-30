@@ -7,7 +7,6 @@ jest.mock('../../components/help/ContactMap', () => {
     };
 });
 
-
 describe("ContactUs", () => {
     let component: RenderResult;
 

@@ -1,6 +1,6 @@
 import {CombinedDataProvider, Image, useSession} from "@inrupt/solid-ui-react";
 import React, {useEffect, useState} from "react";
-import {addFriendToPod, changePermissions, findPersonData, PersonData, removeFriendFromPOD} from "../pod/FriendsPOD";
+import {addFriendToPod, changePermissions, findPersonData, PersonData, removeFriendFromPOD} from "../pod/PODsInteraction";
 import {initReactI18next, useTranslation} from "react-i18next";
 import "../../css/friends.css"
 import Avatar from "@mui/material/Avatar";
@@ -39,7 +39,6 @@ function ManageFriends() {
                 }
             }
         }
-
         loadPersonData()
     }, [webId, session])
 
@@ -124,7 +123,7 @@ function ManageFriends() {
                 }
                 {
                     personData.friends.length > 0 ?
-                    <div id="friendsTable">
+                    <div id="friendsTable" >
                         <table>
                             <thead>
                                 <tr>

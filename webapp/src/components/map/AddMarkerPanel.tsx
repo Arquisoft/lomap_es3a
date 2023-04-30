@@ -1,5 +1,5 @@
 import Filter from "./options/Filter";
-import ButtonAddPod from "../pod/ButtonAddPod";
+import ButtonAddPod from "./ButtonAddPod";
 import React from "react";
 import {initReactI18next, useTranslation} from "react-i18next";
 import i18n from "../../i18n";

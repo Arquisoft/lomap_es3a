@@ -18,14 +18,12 @@ function ShowMarkerPanel(props: { data: Point | undefined }) {
     const {t} = useTranslation();
 
     function closeMenu() {
-        const showMarkerPanel = document.getElementById("showMarkerPanel");
-        if (showMarkerPanel !== null) {
-            showMarkerPanel.style.width = "0";
-        }
+        const showMarkerPanel = document.getElementById("showMarkerPanel") as HTMLElement;
+        showMarkerPanel.style.width = "0";
     }
 
     if (!props.data) {
-        return null
+        return null;
     }
 
     function calculateTotal(): number {
@@ -94,7 +92,7 @@ function ShowMarkerPanel(props: { data: Point | undefined }) {
                 <h3>{props.data.name}</h3>
                 <div id="showMarkerScore">
                     <p id="totalReviews">
-                        ({props.data.review.length})
+                        ({props.data.review ? props.data.review.length : 0})
                     </p>
                     <Rating
                         name="size-medium"
@@ -125,7 +123,7 @@ function ShowMarkerPanel(props: { data: Point | undefined }) {
                         </button>
                     </div>
                     {
-                        props.data.review.map((reviewItem) => (
+                        props.data.review?.map((reviewItem) => (
                             <div className="review" key={reviewItem.author}>
                                 <div className="profileReview">
                                     <CombinedDataProvider datasetUrl={reviewItem.author} thingUrl={reviewItem.author}>

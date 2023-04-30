@@ -1,5 +1,5 @@
 import React from 'react';
-import {render, screen, fireEvent} from '@testing-library/react';
+import {act, fireEvent, render, screen} from '@testing-library/react';
 import Notification from '../components/Notification';
 
 jest.useFakeTimers();
@@ -36,7 +36,9 @@ describe("Notification", () => {
 
         render(<Notification {...props} />);
         const closeButton = screen.getByRole('button');
-        fireEvent.click(closeButton);
+        act(() => {
+            fireEvent.click(closeButton);
+        });
         expect(props.onClose).toHaveBeenCalled();
     });
 
@@ -49,9 +51,11 @@ describe("Notification", () => {
             onClose: jest.fn(),
         };
 
-        const { container } = render(<Notification {...props} />);
+        const {container} = render(<Notification {...props} />);
         const closeButton = screen.getByRole('button');
-        fireEvent.click(closeButton);
+        act(() => {
+            fireEvent.click(closeButton);
+        });
         expect(container.firstChild).not.toBeInTheDocument();
     });
 
@@ -65,9 +69,12 @@ describe("Notification", () => {
             onClose: onCloseMock,
         };
 
-        const { container } = render(<Notification {...props} />);
+        const {container} = render(<Notification {...props} />);
         const closeButton = screen.getByRole('button');
-        fireEvent.click(closeButton);
+
+        act(() => {
+            fireEvent.click(closeButton);
+        })
 
         expect(onCloseMock).toHaveBeenCalled();
         expect(container.firstChild).not.toBeInTheDocument();
@@ -75,9 +82,12 @@ describe("Notification", () => {
 
     it("calls handleClose when close button is clicked", () => {
         const onClose = jest.fn();
-        render(<Notification title="Test Title" message="Test Message" time="Test Time" icon="GOMapSymbol" onClose={onClose} />);
+        render(<Notification title="Test Title" message="Test Message" time="Test Time" icon="GOMapSymbol"
+                             onClose={onClose}/>);
 
-        fireEvent.click(screen.getByRole("button"));
+        act(() => {
+            fireEvent.click(screen.getByRole("button"));
+        });
 
         expect(onClose).toHaveBeenCalledTimes(1);
     });

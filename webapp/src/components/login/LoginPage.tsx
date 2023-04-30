@@ -27,6 +27,8 @@ function LoginPage() {
 
     const url = new URL(window.location.origin + "/map").toString();
 
+    const registerUrl = new URL(idp + "/register").toString();
+
     return (
         <div id="loginBody">
             <div id="loginForm">
@@ -38,7 +40,7 @@ function LoginPage() {
                         <option value={providers[0].value}>{providers[0].name}</option>
                         <option value={providers[1].value}>{providers[1].name}</option>
                     </select>
-                    <a href={idp + "/register"}>{t("register")}</a>
+                    <a href={registerUrl}>{t("register")}</a>
                     <div id="loginButton">
                         <LoginButton oidcIssuer={idp} redirectUrl={url}>
                             <Button variant="contained" color="primary" id="login">

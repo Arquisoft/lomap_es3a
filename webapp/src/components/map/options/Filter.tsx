@@ -20,6 +20,7 @@ function Filter({titleFilter, nameFilter, usersWebId, setItem}: IProps) {
     if (nameFilter !== "edit") {
         categories.push({value: "All", text: t('all')});
     }
+
     categories.push({value: "bar", text: t('bar')});
     categories.push({value: "restaurant", text: t('restaurant')});
     categories.push({value: "shop", text: t('shop')});
@@ -44,6 +45,14 @@ function Filter({titleFilter, nameFilter, usersWebId, setItem}: IProps) {
             if (usersWebId !== undefined) {
                 const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
                 root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={usersWebId} setItem={setItem}/>);
+            }
+            const showMarkerPanel = document.getElementById("showMarkerPanel");
+            if (showMarkerPanel !== null) {
+                showMarkerPanel.style.width = "0";
+            }
+            const addMarkerPanel = document.getElementById("addMarkerPanel");
+            if (addMarkerPanel !== null) {
+                addMarkerPanel.style.width = "0";
             }
         }
     }
