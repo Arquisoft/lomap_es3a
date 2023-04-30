@@ -52,9 +52,6 @@ let categories = {
     other: OtherIcon
 } as IDictionary
 
-
-
-
 function MarkersPOD(props: { webId: string[], setItem: Function }) {
     const {session} = useSession();
     const [points, setPoints] = useState<Point[]>([]);

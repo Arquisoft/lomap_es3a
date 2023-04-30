@@ -11,6 +11,7 @@ import {List, ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
 import {ExpandLess, ExpandMore} from "@mui/icons-material";
 import PersonIcon from '@mui/icons-material/Person';
 import MapIcon from '@mui/icons-material/Map';
+import {uuid} from "rdf-namespaces/dist/fhir";
 
 
 i18n.use(initReactI18next)
@@ -98,7 +99,7 @@ function FriendList(props: { setItem: Function,setSelectedMap:Function }) {
                     friendsMaps.length > 0 ? (
                         <List>
                             {friendsMaps.map((friend) => (
-                                <div key={friend.webId}>
+                                <div key={uuid}>
                                     <ListItemButton onClick={() => handleClick(friend.name)}>
                                         <ListItemIcon>
                                             <PersonIcon color="primary"/>

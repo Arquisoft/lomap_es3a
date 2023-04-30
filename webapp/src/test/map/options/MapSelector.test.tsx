@@ -1,7 +1,5 @@
 import MapSelector from "../../../components/map/options/MapSelector";
-import {render, waitFor} from "@testing-library/react";
-import {checkIfFolderExists, getMaps} from "../../../components/pod/PODsInteraction";
-
+import {render} from "@testing-library/react";
 
 jest.mock('../../../components/map/MapView', () => {
     return function MockContactMap() {
