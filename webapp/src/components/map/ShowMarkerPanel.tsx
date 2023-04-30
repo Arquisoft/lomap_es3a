@@ -1,75 +1,65 @@
 import i18n from "../../i18n";
 import {initReactI18next, useTranslation} from "react-i18next";
-import React from "react";
+import React, {useState} from "react";
 import {Carousel} from "react-bootstrap";
 import {Point} from "../pod/Point";
 import Rating from "@mui/material/Rating";
 import Mark from "./options/Mark";
 import {v4 as uuidv4} from "uuid";
-import {CombinedDataProvider, Image, Text,useSession} from "@inrupt/solid-ui-react";
+import {CombinedDataProvider, Image, Text, useSession} from "@inrupt/solid-ui-react";
 import {Avatar} from "@mui/material";
 import {FOAF, VCARD} from "@inrupt/lit-generated-vocab-common";
 import profilePhoto from "../../img/profile.png";
-import {Session} from "@inrupt/solid-client-authn-browser";
-import {readFileFromPod, createData} from "../pod/Utils";
 import MapView from "./MapView";
 import ReactDOM from "react-dom/client";
+import {uploadComment} from "../pod/PODsInteraction";
+import Notification from "../Notification";
+import Icon from "../../img/symbols/GOMapSymbol.png";
 
 i18n.use(initReactI18next)
 
 function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) {
     const {session} = useSession();
-    const {webId} = session.info;
-    const webIdStore = webId?.slice(0, -15) + "private/locations.jsonld";
-    const user: string[] = [webIdStore]
     const {t} = useTranslation();
-    const nameFile = "locations.jsonld";
+    const [showNotification, setShowNotification] = useState(false);
+    const [errorComment, setErrorComment] = useState(false)
 
-    const fileURL = webId?.slice(0, -15) + "private/" + nameFile;
+    function createNotification() {
+        setShowNotification(true);
+        setTimeout(() => {
+            setShowNotification(false);
+        }, 4000);
+    }
 
-    function uploadComment(fileURL: string, session: Session) {
+    const handleCloseNotification = () => {
+        setShowNotification(false);
+        setErrorComment(false)
+    };
+
+    function removeContent(){
+        (document.getElementById("reviewComment") as HTMLInputElement).value="";
         let score = (document.getElementById("reviewScore") as HTMLInputElement).textContent;
-        console.log(score)
-        let comment = (document.getElementById("reviewComment") as HTMLInputElement).value;
-        readFileFromPod(fileURL, session).then(fileContent => {
-                let fileJSON = JSON.parse(fileContent);
-                for (const element of fileJSON) {
-                    if (element.identifier === props.data?.id) {
-                        element.review.push(
-                            {
-                                "@type": "Review",
-                                "author": {
-                                    "@type": "Person",
-                                    "identifier": webId
-                                },
-                                "reviewRating": {
-                                    "@type": "Rating",
-                                    "ratingValue": score
-                                },
-                                "datePublished": new Date().valueOf(),
-                                "reviewBody": comment
-                            }
-                        );
-                    }
-                }
-                let blob = new Blob([JSON.stringify(fileJSON, null, 3)], {
-                    type: "application/ld+json",
-                });
-                createData(fileURL, new File([blob], nameFile, {type: blob.type}), session).then(() => {
-                    closeMenu();
-                    const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
-                    root.render(<MapView lat={Number(props.data?.latitude)}
-                                             lng={Number(props.data?.longitude)}
-                                             setItem={props.setItem}
-                                             webId={user}/>);
-                });
-            }
-        );
-
+        (document.getElementsByClassName("MuiRating-visuallyHidden")[Number(score)] as HTMLInputElement).click();
     }
 
     function handleClick(): void {
-        uploadComment(fileURL, session);
+        let nameFile = props.data?.mapName + ".jsonld";
+        let route= props.data?.author !== undefined ? props.data?.author.slice(0, -15).concat("lomap/" + nameFile) :
+                (document.getElementById("selectMap") as HTMLSelectElement).value;
+        uploadComment(route, props.data, nameFile, session).then((result) => {
+            createNotification();
+            if (result) {
+                closeMenu();
+                removeContent();
+                const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
+                root.render(<MapView lat={Number(props.data?.latitude)}
+                                     lng={Number(props.data?.longitude)}
+                                     setItem={props.setItem}
+                                     webId={[route]}/>);
+            } else {
+                setErrorComment(true);
+            }
+        })
     }
 
     function closeMenu() {
@@ -211,6 +201,31 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
                     }
                 </div>
             </div>
+            {
+                showNotification &&
+                (
+                    <Notification
+                        title={t("notificationCommentAdded")}
+                        message={t("notificationMessageComment")}
+                        time={t("notificationTime")}
+                        icon={Icon}
+                        onClose={handleCloseNotification}
+                    />
+                )
+            }
+            {
+                errorComment &&
+                (
+                    <Notification
+                        title={t("notificationCommentError")}
+                        message={t("notificationCommentErrorMessage")}
+                        time={t("notificationTime")}
+                        icon={Icon}
+                        onClose={handleCloseNotification}
+                    />
+                )
+            }
+
         </div>
     )
 }

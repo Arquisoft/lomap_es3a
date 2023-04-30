@@ -9,10 +9,11 @@ export class Point {
     review: Review[]
     image: ImageMarker[]
     dateCreated: number
+    mapName: string
 
     constructor(id: string, author: string, latitude: number, longitude: number,
                 name: string, category: string,
-                description: string, date: number, review: Review[], image: ImageMarker[]) {
+                description: string, date: number, review: Review[], image: ImageMarker[], mapName: string) {
         this.id = id;
         this.author = author;
         this.latitude = latitude;
@@ -23,6 +24,7 @@ export class Point {
         this.dateCreated = date;
         this.review = review;
         this.image = image;
+        this.mapName = mapName;
     }
 }
 
