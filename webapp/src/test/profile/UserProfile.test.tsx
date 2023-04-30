@@ -1,5 +1,5 @@
 import {act, render, RenderResult} from '@testing-library/react';
-import UserProfile from '../components/UserProfile';
+import UserProfile from '../../components/profile/UserProfile';
 
 describe("UserProfile", () => {
     let component : RenderResult;

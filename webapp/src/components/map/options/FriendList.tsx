@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
 import {useSession} from "@inrupt/solid-ui-react";
-import {findPersonData, FriendMaps, getMaps, PersonData} from "./FriendsPOD";
+import {findPersonData, FriendMaps, getMaps, PersonData} from "../../pod/PODsInteraction";
 import {initReactI18next, useTranslation} from "react-i18next";
-import i18n from "../../i18n";
+import i18n from "../../../i18n";
 import ReactDOM from "react-dom/client";
-import MapView from "../map/MapView";
-import Filter from "../map/options/Filter";
+import MapView from "../MapView";
+import Filter from "./Filter";
 import {Collapse} from "react-bootstrap";
 import {List, ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
 import {ExpandLess, ExpandMore} from "@mui/icons-material";
@@ -79,6 +79,14 @@ function FriendList(props: { setItem: Function,setSelectedMap:Function }) {
             root2.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={[friendMap]}
                                  setItem={props.setItem}/>);
             props.setSelectedMap("")
+        }
+        const showMarkerPanel = document.getElementById("showMarkerPanel");
+        if (showMarkerPanel !== null) {
+            showMarkerPanel.style.width = "0";
+        }
+        const addMarkerPanel = document.getElementById("addMarkerPanel");
+        if (addMarkerPanel !== null) {
+            addMarkerPanel.style.width = "0";
         }
     }
 

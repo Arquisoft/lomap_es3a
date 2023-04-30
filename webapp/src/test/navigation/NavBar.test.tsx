@@ -13,7 +13,6 @@ describe('NavBar', () => {
     })
 
     afterEach(() => {
-        jest.clearAllMocks();
         component.unmount();
     })
 
@@ -55,14 +54,13 @@ describe('NavBar', () => {
     it('navbar collapses when window is resized', () => {
         const nav = component.container.querySelector('.navbar');
 
-        // initially, navbar is not expanded
         expect(nav?.classList).toContain('nav-normal');
         expect(nav?.classList).not.toContain('nav-expanded');
 
-        // simulate window resize
-        fireEvent(window, new Event('resize'));
+        act(() => {
+            fireEvent(window, new Event('resize'));
+        });
 
-        // navbar should collapse
         expect(nav?.classList).toContain('nav-normal');
         expect(nav?.classList).not.toContain('nav-expanded');
     });

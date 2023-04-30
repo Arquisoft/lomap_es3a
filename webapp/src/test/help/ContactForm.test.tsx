@@ -1,6 +1,12 @@
 import ContactForm from "../../components/help/ContactForm";
 import {render, fireEvent, RenderResult, getByPlaceholderText} from "@testing-library/react";
 
+jest.mock('../../components/map/MapView', () => {
+    return function MockContactMap() {
+        return <div data-testid="mapMock">Mock</div>;
+    };
+});
+
 describe("ContactForm", () => {
     let component: RenderResult;
 
