@@ -1,7 +1,9 @@
 import {
     buildThing,
-    createAclFromFallbackAcl, createContainerAt,
-    getContainedResourceUrlAll, getFile,
+    createAclFromFallbackAcl,
+    createContainerAt,
+    getContainedResourceUrlAll,
+    getFile,
     getResourceAcl,
     getSolidDataset,
     getSolidDatasetWithAcl,
@@ -11,7 +13,6 @@ import {
     hasAccessibleAcl,
     hasFallbackAcl,
     hasResourceAcl,
-    IriString,
     overwriteFile,
     saveAclFor,
     saveSolidDatasetAt,
@@ -24,6 +25,7 @@ import {
 import {foaf, vcard} from 'rdf-namespaces'
 import {fetch, Session} from "@inrupt/solid-client-authn-browser";
 import {v4 as uuidv4} from "uuid";
+import {ImageMarker, Point, Review} from "./Point";
 
 
 export interface PersonData {
@@ -47,17 +49,17 @@ async function findFullPersonProfile(webId: string, session: Session, response: 
             response.push(dataset)
         }
     } catch (e) {
-        throw e
+        console.log(e);
     }
     return response
 }
 
 
-export async function findPersonData(session: Session, webId: IriString) {
+export async function findPersonData(session: Session, webId: string) {
     const data: PersonData = {webId: webId, photo: '', name: '', friends: []}
     if (webId) {
         const dataset = await findFullPersonProfile(webId, session)
-        const result = dataset.reduce((data, d) => {
+        return dataset.reduce((data, d) => {
             const person = getThing(d, webId)
             if (person) {
                 const friends = getTermAll(person, foaf.knows).map(a => a.value)
@@ -77,9 +79,7 @@ export async function findPersonData(session: Session, webId: IriString) {
             }
             return data
         }, data)
-        return result
     }
-
     return data;
 }
 
@@ -234,7 +234,7 @@ export async function createData(url: string, file: File, session: Session){
 };
 
 export async function createMarker(idName: string, idCategory: string, idComment: string, idScore: string,
-                                   idLatitude: string, idLongitude: string, fileURL: string,session:Session)  {
+                                   idLatitude: string, idLongitude: string, fileURL: string, session:Session)  {
     let name = (document.getElementById(idName) as HTMLInputElement).value;
     let identifier = fileURL.split("lomap")[0] + "profile/card#me"
     let category = (document.getElementById(

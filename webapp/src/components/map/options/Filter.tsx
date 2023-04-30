@@ -20,6 +20,7 @@ function Filter({titleFilter, nameFilter, usersWebId, setItem}: IProps) {
     if (nameFilter !== "edit") {
         categories.push({value: "All", text: t('all')});
     }
+
     categories.push({value: "bar", text: t('bar')});
     categories.push({value: "restaurant", text: t('restaurant')});
     categories.push({value: "shop", text: t('shop')});

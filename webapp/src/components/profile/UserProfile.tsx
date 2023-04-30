@@ -1,18 +1,18 @@
 import {CombinedDataProvider, Image, Text, useSession} from "@inrupt/solid-ui-react";
 import React, {useEffect, useState} from "react";
-import {findPersonData, PersonData} from "./pod/FriendsPOD";
-import {useTranslation} from "react-i18next";
-import "../css/profile.css"
+import {initReactI18next, useTranslation} from "react-i18next";
+import "../../css/profile.css"
 import {Avatar, Badge, Box, Button, Typography} from '@mui/material';
 import {FOAF, VCARD} from "@inrupt/lit-generated-vocab-common";
-import profilePhoto from "../img/profile.png";
+import profilePhoto from "../../img/profile.png";
 
 import Diversity3Icon from '@mui/icons-material/Diversity3';
 import IconButton from "@mui/material/IconButton";
 
 
 import ContactEmergencyIcon from '@mui/icons-material/ContactEmergency';
-import i18n from "../i18n";
+import i18n from "../../i18n";
+import {findPersonData, PersonData} from "../pod/PODsInteraction";
 
 i18n.use(initReactI18next)
 
@@ -58,7 +58,7 @@ function UserProfile() {
         async function fetchFriends() {
             if (personData.friends.length > 0) {
                 const names = await Promise.all(
-                    personData.friends.map((friend) => findPersonData(session, friend))
+                    personData.friends.map((friend: string) => findPersonData(session, friend))
                 );
                 setFriendList(names);
             }
@@ -88,7 +88,7 @@ function UserProfile() {
 
                 <Box mt={4}>
                     <Button variant="contained" onClick={handleEdit}>
-                        {edit ? t("edit-name") : t("confirm-name")}
+                        {edit ? t("confirm-name") : t("edit-name")}
                     </Button>
                 </Box>
             </Box>

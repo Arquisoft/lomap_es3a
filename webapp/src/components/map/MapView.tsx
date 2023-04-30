@@ -1,8 +1,7 @@
 import {MapContainer, TileLayer} from 'react-leaflet';
 import "../../css/react-leaflet.css";
 import 'leaflet/dist/leaflet.css';
-import LocationMarker from "./LocationMarker";
-import MarkersPOD from "../pod/MarkersPOD";
+import MarkersPOD from "./MarkersPOD";
 import React from "react";
 
 function MapView(props: { lat: number; lng: number; webId: string[]; setItem: Function }) {

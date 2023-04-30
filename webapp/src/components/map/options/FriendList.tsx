@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
 import {useSession} from "@inrupt/solid-ui-react";
-import {findPersonData, FriendMaps, getMaps, PersonData} from "./PODsInteraction";
+import {findPersonData, FriendMaps, getMaps, PersonData} from "../../pod/PODsInteraction";
 import {initReactI18next, useTranslation} from "react-i18next";
-import i18n from "../../i18n";
+import i18n from "../../../i18n";
 import ReactDOM from "react-dom/client";
-import MapView from "../map/MapView";
-import Filter from "../map/options/Filter";
+import MapView from "../MapView";
+import Filter from "./Filter";
 import {Collapse} from "react-bootstrap";
 import {List, ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
 import {ExpandLess, ExpandMore} from "@mui/icons-material";

@@ -1,5 +1,5 @@
 import Filter from "./options/Filter";
-import FriendList from "../pod/FriendList";
+import FriendList from "./options/FriendList";
 import {initReactI18next, useTranslation} from "react-i18next";
 import React, {useState} from "react";
 import i18n from "../../i18n";

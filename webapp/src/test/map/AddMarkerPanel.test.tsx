@@ -1,4 +1,4 @@
-import {render, fireEvent, RenderResult} from "@testing-library/react";
+import {fireEvent, render, RenderResult, waitFor} from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import AddMarkerPanel from "../../components/map/AddMarkerPanel";
 
@@ -12,31 +12,44 @@ describe("AddMarkerPanel component", () => {
     let component: RenderResult;
 
     beforeEach(() => {
-       component = render(<AddMarkerPanel setItem={null}/>);
+        const setItem = () => {
+        };
+        component = render(<AddMarkerPanel setItem={setItem}/>);
     });
 
     afterEach(() => {
         component.unmount();
     })
 
-    it("renders the component", () => {
+    it("renders the component", async () => {
         expect(component.getByText("Add marker")).toBeInTheDocument();
     });
 
-    it("closes the menu on click", () => {
-        fireEvent.click(component.getByRole("button", {name : "×"}));
-        expect(component).not.toBeVisible();
+    it("clicking close button hides the component", async () => {
+        const closeButton = component.getByText("×");
+
+        fireEvent.click(closeButton);
+
+        expect(component.container.firstChild).toHaveStyle({width: "0"});
     });
 
-    it("fills out the form", () => {
-        const nameInput = component.getByPlaceholderText("Type to set name...") as HTMLInputElement;
-        const categoryFilter = component.getByLabelText("category") as HTMLInputElement;
-        const descriptionInput = component.getByPlaceholderText("descriptionPlaceholder") as HTMLInputElement;
-        fireEvent.change(nameInput, { target: { value: "Test place" } });
-        fireEvent.change(categoryFilter, { target: { value: "test category" } });
-        fireEvent.change(descriptionInput, { target: { value: "Test description" } });
-        expect(nameInput.value).toBe("Test place");
-        expect(categoryFilter.value).toBe("test category");
-        expect(descriptionInput.value).toBe("Test description");
+    it("renders all necessary elements", async () => {
+        expect(component.getByText("Add marker")).toBeInTheDocument();
+        expect(component.getByText("Place's name")).toBeInTheDocument();
+        expect(component.getByText("Category")).toBeInTheDocument();
+        expect(component.getByText("Description")).toBeInTheDocument();
+        expect(component.getByText("Upload the image")).toBeInTheDocument();
+    });
+
+    it("change category", () => {
+        const filterTitle = component.getByText("Bar");
+        fireEvent.click(filterTitle);
+
+        const categoryOption = component.getByText("Cinema");
+        fireEvent.click(categoryOption);
+
+
+        const categoryInput = component.getByRole("combobox");
+        expect(categoryInput).toHaveTextContent("Cinema");
     });
 });

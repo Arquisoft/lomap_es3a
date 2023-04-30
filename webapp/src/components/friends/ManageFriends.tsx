@@ -1,13 +1,14 @@
 import {CombinedDataProvider, Image, useSession} from "@inrupt/solid-ui-react";
 import React, {useEffect, useState} from "react";
 import {addFriendToPod, changePermissions, findPersonData, PersonData, removeFriendFromPOD} from "../pod/PODsInteraction";
-import {useTranslation} from "react-i18next";
+import {initReactI18next, useTranslation} from "react-i18next";
 import "../../css/friends.css"
 import Avatar from "@mui/material/Avatar";
 import {VCARD} from "@inrupt/lit-generated-vocab-common";
 import Icon from "../../img/symbols/GOMapSymbol.png";
 import Notification from "../Notification";
 import profilePhoto from "../../img/profile.png";
+import i18n from "../../i18n";
 
 i18n.use(initReactI18next)
 
@@ -29,7 +30,6 @@ function ManageFriends() {
         { name: "SolidCommunity", value: "https://solidcommunity.net" },
     ];
 
-
     useEffect(() => {
         async function loadPersonData() {
             if (webId !== undefined) {
@@ -39,7 +39,6 @@ function ManageFriends() {
                 }
             }
         }
-
         loadPersonData()
     }, [webId, session])
 
