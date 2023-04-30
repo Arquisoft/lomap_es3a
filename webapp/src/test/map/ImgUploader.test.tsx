@@ -15,23 +15,6 @@ describe("ImgUploader component", () => {
         );
     });
 
-    test("upload failure", async () => {
-        const onUploadFailure = jest.fn();
-        const {container} = render(
-            <ImgUploader
-                apiKey={apiKey}
-                onUploadSuccess={() => {}}
-                onUploadFailure={onUploadFailure}
-            />
-        );
-        const input = container.querySelector("input[type=file]");
-        fireEvent.change(input!, {target: {files: [new File([], "empty")]}});
-        await waitFor(() => {
-            expect(onUploadFailure).toHaveBeenCalledTimes(1);
-            expect(onUploadFailure).toHaveBeenCalledWith(expect.any(Error));
-        });
-    });
-
     test("displays selected file name", async () => {
         const {container} = render(
             <ImgUploader

@@ -1,6 +1,15 @@
 import {render} from "@testing-library/react";
 import OptionsPanel from "../../components/map/OptionsPanel";
 
+jest.mock("@inrupt/solid-ui-react", () => ({
+    useSession: () => ({
+        session: {
+            info: {
+                webId: "https://omitg.inrupt.net/profile/card#me",
+            },
+        },
+    }),
+}));
 
 jest.mock('../../components/map/MapView', () => {
     return function MockContactMap() {
