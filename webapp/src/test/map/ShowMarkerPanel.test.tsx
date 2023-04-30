@@ -2,6 +2,18 @@ import {act, fireEvent, render} from '@testing-library/react';
 import ShowMarkerPanel from "../../components/map/ShowMarkerPanel";
 import {Point} from "../../components/pod/Point";
 
+jest.mock('../../components/map/MapView', () => {
+    return function MockContactMap() {
+        return <div data-testid="mapMock">Mock</div>;
+    };
+});
+
+jest.mock("../../components/pod/PODsInteraction", () => {
+    return {
+        uploadComment: jest.fn()
+    };
+})
+
 describe('ShowMarkerPanel', () => {
     const markerDefault: Point = {
         latitude: 0,
@@ -23,11 +35,12 @@ describe('ShowMarkerPanel', () => {
             author: "Omar",
             contentUrl: "https://upload.wikimedia.org/wikipedia/commons/6/64/Ejemplo.png"
         }],
-        dateCreated: new Date().getTime()
+        dateCreated: new Date().getTime(),
+        mapName: "Prueba mapa"
     };
 
     it('should render marker details', () => {
-        const component = render(<ShowMarkerPanel data={markerDefault}/>);
+        const component = render(<ShowMarkerPanel data={markerDefault} setItem={jest.fn()}/>);
         expect(component.getByAltText("Omar")).toBeInTheDocument();
         expect(component.getByAltText("Omar")).toHaveAttribute("src", "https://upload.wikimedia.org/wikipedia/commons/6/64/Ejemplo.png");
         expect(component.getByText("Prueba nombre")).toBeInTheDocument();
@@ -51,9 +64,10 @@ describe('ShowMarkerPanel', () => {
             author: "Omar",
             review: [],
             image: [],
-            dateCreated: new Date().getTime()
+            dateCreated: new Date().getTime(),
+            mapName: "Prueba mapa"
         };
-        const component = render(<ShowMarkerPanel data={marker2}/>);
+        const component = render(<ShowMarkerPanel data={marker2} setItem={jest.fn()}/>);
         expect(component.getByText("There are no images for this marker")).toBeInTheDocument();
         expect(component.getByText("Prueba nombre")).toBeInTheDocument();
         expect(component.getByText("Prueba categoria")).toBeInTheDocument();
@@ -62,7 +76,7 @@ describe('ShowMarkerPanel', () => {
     });
 
     it("clicking close button hides the component", async () => {
-        const component = render(<ShowMarkerPanel data={markerDefault}/>);
+        const component = render(<ShowMarkerPanel data={markerDefault} setItem={jest.fn()}/>);
         const closeButton = component.getByText("×");
 
         act(() => {
@@ -73,7 +87,23 @@ describe('ShowMarkerPanel', () => {
     });
 
     it('returns null when data is null', () => {
-        const {container} = render(<ShowMarkerPanel data={undefined}/>);
+        const {container} = render(<ShowMarkerPanel data={undefined} setItem={jest.fn()}/>);
         expect(container.firstChild).toBeNull();
     });
+
+    // it("adds a review", async () => {
+    //     (uploadComment as jest.Mock).mockImplementation(() => {
+    //         return Promise.resolve("Nueva review")
+    //     })
+    //
+    //     const component = render(<ShowMarkerPanel data={markerDefault} setItem={jest.fn()}/>);
+    //     const reviewInput = component.getByPlaceholderText("Add your review...");
+    //     fireEvent.change(reviewInput, {target: {value: "Nueva review"}});
+    //
+    //     fireEvent.click(component.getByText("Add"));
+    //
+    //     await waitFor(() => {
+    //         expect(uploadComment).toHaveBeenCalled();
+    //     })
+    // });
 });

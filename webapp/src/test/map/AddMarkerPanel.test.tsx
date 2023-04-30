@@ -4,7 +4,7 @@ import AddMarkerPanel from "../../components/map/AddMarkerPanel";
 
 jest.mock('../../components/map/MapView', () => {
     return function MockContactMap() {
-        return <div data-testid="contactMapMock">Mock</div>;
+        return <div data-testid="mapMock">Mock</div>;
     };
 });
 
