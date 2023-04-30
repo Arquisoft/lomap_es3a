@@ -6,9 +6,10 @@ import {Point} from "../pod/Point";
 import Rating from "@mui/material/Rating";
 import Mark from "./options/Mark";
 import {v4 as uuidv4} from "uuid";
-import {CombinedDataProvider, Image, useSession} from "@inrupt/solid-ui-react";
+import {CombinedDataProvider, Image, Text,useSession} from "@inrupt/solid-ui-react";
 import {Avatar} from "@mui/material";
-import {VCARD} from "@inrupt/lit-generated-vocab-common";
+import {FOAF, VCARD} from "@inrupt/lit-generated-vocab-common";
+import profilePhoto from "../../img/profile.png";
 import {Session} from "@inrupt/solid-client-authn-browser";
 import {readFileFromPod, createData} from "../pod/Utils";
 import MapView from "./MapView";
@@ -97,6 +98,14 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
         return 0;
     }
 
+    const dropdownTitle = (
+        <span>
+            <CombinedDataProvider datasetUrl={props.data.author} thingUrl={props.data.author}>
+                <Text property={FOAF.name.iri.value} autosave/>
+            </CombinedDataProvider>
+        </span>
+    );
+
     return (
         <div id="showMarkerPanel">
             <input type="button" className="cross" onClick={closeMenu} value="&times;"/>
@@ -104,13 +113,19 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
                 <CombinedDataProvider datasetUrl={props.data.author} thingUrl={props.data.author}>
                     <Avatar
                         alt="Profile picture"
-                        sx={{width: 65, height: 65, mb: 2, margin: 0}}
-                    >
-                        <Image property={VCARD.hasPhoto.iri.value} width={65}/>
+                        sx={{width: 65, height: 65, mb: 2, margin: 0}}>
+                        {
+                            VCARD.hasPhoto.iri.value !== '' &&
+                            <Image property={VCARD.hasPhoto.iri.value} width={65}/>
+                        }
+                        {
+                            VCARD.hasPhoto.iri.value === '' &&
+                            <img src={profilePhoto} width={65} alt={props.data.author}/>
+                        }
                     </Avatar>
                 </CombinedDataProvider>
                 <div id="profileMarkerData">
-                    <h3>{props.data.author.slice(8, -27).toLocaleUpperCase(sessionStorage.getItem("language") || "en")}</h3>
+                    <h3>{dropdownTitle}</h3>
                     <h4>{new Date(props.data.dateCreated).toLocaleDateString(sessionStorage.getItem("language") || "en")}</h4>
                 </div>
             </div>

@@ -31,6 +31,18 @@
   "notificationPermissionsFriendTitle": "Permisos de lectura asignados",
   "notificationMapAdded": "¡Nuevo mapa!",
   "notificationMessageMap": "¡Tu mapa ha sido creado correctamente!",
+  "notificationErrorNoMap": "Debe crear un mapa para añadir marcadores",
+  "notificationErrorNoMapTitle": "No hay ningún mapa creado",
+  "notificationNoMaps": "No tiene creado ningún mapa",
+  "notificationNoFriendMaps": "Su amigo no tiene creado ningún mapa",
+  "notificationNoFriendPermissions": "No tiene permisos para acceder a los mapas de su amigo",
+  "notificationNoMapSelectedTitle": "No hay un mapa seleccionado",
+  "notificationNoMapSelected": "Debe seleccionar un mapa para añadir un marcador",
+  "notificationNoFriends": "No tiene ningún amigo añadido a su cuenta",
+  "notificationEmptyNameMapTitle": "Nombre del mapa vacío",
+  "notificationEmptyNameMap": "Debe introducir un nombre para el mapa",
+  "notificationSameNameMapTitle": "Nombre del mapa existente",
+  "notificationSameNameMap": "El mapa que desea crear ya existe en su cuenta",
 
   "footer": "© Arquisoft - UNIOVI",
   "homeInfo1": "GOMap!® es una aplicación en la que los usuarios pueden tener mapas personalizados sobre lugares y negocios locales en su ciudad, como tiendas, bares, restaurantes, monumentos, cines...",
@@ -63,9 +75,8 @@
   "policeStation": "Estación de Policía",
   "transportCenter": "Centro de Transporte",
   "entertainment": "Entretenimiento",
-  "others": "Otros",
+  "other": "Otros",
   "mark": "Valoración",
-  "friends": "Tus amigos",
 
   "addMarker": "Añadir marcador",
   "placesName": "Nombre del lugar",
@@ -108,6 +119,13 @@
   "options-profile": "Abrir opciones",
   "profile": "Perfil de usuario",
   "friends": "Amigos",
+  "buttonShowMap": "Mostrar mapa",
   "upload": "Subir la imagen",
-  "registered-as": "registrado como"
+  "registered-as": "registrado como",
+  "pod-profile": " Tu perfil de POD",
+
+  "edit-name": "EDITAR NOMBRE",
+  "confirm-name": "CONFIRMAR EDICIÓN",
+  "have-friends": "Tienes",
+  "text-friend": "amigos"
 }

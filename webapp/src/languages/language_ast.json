@@ -31,6 +31,18 @@
   "notificationPermissionsFriendTitle": "Permisos de llectura asignaos",
   "notificationMapAdded": "¡Nuevu mapa!",
   "notificationMessageMap": "El to mapa foi creadu correutamente!",
+  "notificationErrorNoMap": "Vous devez créer une carte pour ajouter des marqueurs",
+  "notificationErrorNoMapTitle": "Aucune carte créée",
+  "notificationNoMaps": "Nun tien creadu nengún mapa",
+  "notificationNoFriendMaps": "El so amigu nun tien creadu nengún mapa",
+  "notificationNoFriendPermissions": "Nun tien permisos pa acesar a los mapes del so amigu",
+  "notificationNoMapSelected": "Tien que esbillar un mapa pa amestar un marcador",
+  "notificationNoMapSelectedTitle": "Nun hai nengún mapa esbilláu",
+  "notificationNoFriends": "Nun tien nengún amigu amestáu a la so cuenta",
+  "notificationEmptyNameMapTitle": "Nome del mapa vacíu",
+  "notificationEmptyNameMap": "Tien que introducir un nome pal mapa",
+  "notificationSameNameMapTitle": "Nome del mapa esistente",
+  "notificationSameNameMap": "El mapa que quier crear yá esiste na so cuenta",
 
   "footer": "© Arquisoft - UNIOVI",
   "homeInfo1": "GOMap!® ye una aplicación onde los usuarios puen tener mapes personalizaos tocante llugares y negocios locales na so ciudá, como tiendes, bares, restaurantes, monumentos, cines...",
@@ -63,9 +75,8 @@
   "policeStation": "Estación de Policia",
   "transportCenter": "Centru de Transporte",
   "entertainment": "Entretenimientu",
-  "others": "Otros",
+  "other": "Otros",
   "mark": "Valoración",
-  "friends": "Tus amigos",
 
   "addMarker": "Añadir marcador",
   "placesName": "Nome del llugar",
@@ -108,6 +119,12 @@
   "options-profile": "Abrir opciones",
   "profile": "Perfil d'usuariu",
   "friends": "Collacios",
+  "buttonShowMap": "Amosar mapa",
   "upload": "Xube la semeya",
-  "registered-as": "rexistráu como"
+  "registered-as": "rexistráu como",
+  "pod-profile": " El to perfil de POD",
+  "edit-name": "EDITAR NOME",
+  "confirm-name": "CONFIRMAR EDICIÓN",
+  "have-friends": "Tienes",
+  "text-friend": "amigos"
 }
