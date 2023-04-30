@@ -1,9 +1,7 @@
 import "../../css/navigation.css";
 import {useSession} from "@inrupt/solid-ui-react";
-import {getFile, overwriteFile} from "@inrupt/solid-client";
 import {Button, Container} from "@mui/material";
 import React, {useState} from "react";
-import {Session} from "@inrupt/solid-client-authn-browser";
 import Notification from "../Notification";
 import ReactDOM from "react-dom/client";
 import MapView from "../map/MapView";
@@ -15,6 +13,7 @@ import Filter from "../map/options/Filter";
 
 import {v4 as uuidv4} from "uuid";
 import ImgbbUploader from "../map/ImgbbUploader";
+import {createData, readFileFromPod} from "./Utils";
 
 
 i18n.use(initReactI18next)
@@ -115,30 +114,6 @@ function ButtonAddPod({
                 }
             }
         );
-    };
-
-    const readFileFromPod = async (fileURL: string, session: Session) => {
-        try {
-            const file = await getFile(
-                fileURL,
-                {fetch: session.fetch}
-            );
-            return file.text();
-        } catch (err) {
-            return "";
-        }
-    }
-
-    const createData = async (url: string, file: File, session: Session) => {
-        try {
-            await overwriteFile(
-                url,
-                file,
-                {contentType: file.type, fetch: session.fetch}
-            );
-        } catch (error) {
-            console.log(error);
-        }
     };
 
     const handleCloseNotification = () => {

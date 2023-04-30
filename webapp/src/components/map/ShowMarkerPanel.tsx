@@ -6,15 +6,70 @@ import {Point} from "../pod/Point";
 import Rating from "@mui/material/Rating";
 import Mark from "./options/Mark";
 import {v4 as uuidv4} from "uuid";
-import {CombinedDataProvider, Image} from "@inrupt/solid-ui-react";
+import {CombinedDataProvider, Image, useSession} from "@inrupt/solid-ui-react";
 import {Avatar} from "@mui/material";
 import {VCARD} from "@inrupt/lit-generated-vocab-common";
+import {Session} from "@inrupt/solid-client-authn-browser";
+import {readFileFromPod, createData} from "../pod/Utils";
+import MapView from "./MapView";
+import ReactDOM from "react-dom/client";
 
 i18n.use(initReactI18next)
 
-function ShowMarkerPanel(props: { data: Point | undefined }) {
-
+function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) {
+    const {session} = useSession();
+    const {webId} = session.info;
+    const webIdStore = webId?.slice(0, -15) + "private/locations.jsonld";
+    const user: string[] = [webIdStore]
     const {t} = useTranslation();
+    const nameFile = "locations.jsonld";
+
+    const fileURL = webId?.slice(0, -15) + "private/" + nameFile;
+
+    function uploadComment(fileURL: string, session: Session) {
+        let score = (document.getElementById("reviewScore") as HTMLInputElement).textContent;
+        console.log(score)
+        let comment = (document.getElementById("reviewComment") as HTMLInputElement).value;
+        readFileFromPod(fileURL, session).then(fileContent => {
+                let fileJSON = JSON.parse(fileContent);
+                for (const element of fileJSON) {
+                    if (element.identifier === props.data?.id) {
+                        element.review.push(
+                            {
+                                "@type": "Review",
+                                "author": {
+                                    "@type": "Person",
+                                    "identifier": webId
+                                },
+                                "reviewRating": {
+                                    "@type": "Rating",
+                                    "ratingValue": score
+                                },
+                                "datePublished": new Date().valueOf(),
+                                "reviewBody": comment
+                            }
+                        );
+                    }
+                }
+                let blob = new Blob([JSON.stringify(fileJSON, null, 3)], {
+                    type: "application/ld+json",
+                });
+                createData(fileURL, new File([blob], nameFile, {type: blob.type}), session).then(() => {
+                    closeMenu();
+                    const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
+                    root.render(<MapView lat={Number(props.data?.latitude)}
+                                             lng={Number(props.data?.longitude)}
+                                             setItem={props.setItem}
+                                             webId={user}/>);
+                });
+            }
+        );
+
+    }
+
+    function handleClick(): void {
+        uploadComment(fileURL, session);
+    }
 
     function closeMenu() {
         const showMarkerPanel = document.getElementById("showMarkerPanel");
@@ -49,9 +104,9 @@ function ShowMarkerPanel(props: { data: Point | undefined }) {
                 <CombinedDataProvider datasetUrl={props.data.author} thingUrl={props.data.author}>
                     <Avatar
                         alt="Profile picture"
-                        sx={{ width: 65, height: 65, mb: 2, margin: 0 }}
+                        sx={{width: 65, height: 65, mb: 2, margin: 0}}
                     >
-                        <Image property={VCARD.hasPhoto.iri.value} width={65} />
+                        <Image property={VCARD.hasPhoto.iri.value} width={65}/>
                     </Avatar>
                 </CombinedDataProvider>
                 <div id="profileMarkerData">
@@ -105,18 +160,18 @@ function ShowMarkerPanel(props: { data: Point | undefined }) {
                     <div id="addReview">
                         <Mark title={""} id={"reviewScore"}/>
                         <textarea id="reviewComment" placeholder={t("addReview") ?? ""}/>
-                        <button id="reviewButton">{t("add")}</button>
+                        <button id="reviewButton" onClick={handleClick}>{t("add")}</button>
                     </div>
                     {
                         props.data.review.map((reviewItem) => (
-                            <div className="review" key={reviewItem.author}>
+                            <div className="review" key={uuidv4()}>
                                 <div className="profileReview">
                                     <CombinedDataProvider datasetUrl={reviewItem.author} thingUrl={reviewItem.author}>
                                         <Avatar
                                             alt="Profile picture"
-                                            sx={{ width: 65, height: 65, mb: 2, margin: 0 }}
+                                            sx={{width: 65, height: 65, mb: 2, margin: 0}}
                                         >
-                                            <Image property={VCARD.hasPhoto.iri.value} width={65} />
+                                            <Image property={VCARD.hasPhoto.iri.value} width={65}/>
                                         </Avatar>
                                     </CombinedDataProvider>
                                     <div id="nameAndDate">

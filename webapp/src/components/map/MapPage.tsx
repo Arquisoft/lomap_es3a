@@ -21,7 +21,7 @@ function MapPage() {
                 <MapView lat={43.3548057} lng={-5.8534646} webId={user} setItem={setItem}/>
             </div>
             <AddMarkerPanel setItem={setItem}/>
-            <ShowMarkerPanel data={item}/>
+            <ShowMarkerPanel data={item} setItem={setItem}/>
         </div>
     )
 }
