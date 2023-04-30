@@ -1,5 +1,5 @@
 import ContactForm from "../../components/help/ContactForm";
-import {render, fireEvent, RenderResult, getByPlaceholderText} from "@testing-library/react";
+import {render, fireEvent, RenderResult, getByPlaceholderText, act} from "@testing-library/react";
 
 jest.mock('../../components/map/MapView', () => {
     return function MockContactMap() {
@@ -34,23 +34,29 @@ describe("ContactForm", () => {
 
     it("requires name and email fields to be filled before submit", () => {
         const sendButton = component.getByText("Send");
-        fireEvent.click(sendButton);
-        expect(component.getByLabelText("Your name:")).toBeInvalid();
-        expect(component.getByLabelText("Your email:")).toBeInvalid();
+        act(() => {
+            fireEvent.click(sendButton);
+            expect(component.getByLabelText("Your name:")).toBeInvalid();
+            expect(component.getByLabelText("Your email:")).toBeInvalid();
+        })
     });
 
     it("handles name input correctly", () => {
         const nameInput = component.getByLabelText("Your name:") as HTMLInputElement;
         const newName = "Omar Teixeira";
-        fireEvent.change(nameInput, {target: {value: newName}});
-        expect(nameInput.value).toEqual(newName);
+        act(() => {
+            fireEvent.change(nameInput, {target: {value: newName}});
+            expect(nameInput.value).toEqual(newName);
+        })
     });
 
     it("handles email input correctly", () => {
         const emailInput = component.getByLabelText("Your email:") as HTMLInputElement;
         const newEmail = "uo281847@gmail.com";
-        fireEvent.change(emailInput, {target: {value: newEmail}});
-        expect(emailInput.value).toEqual(newEmail);
+        act(() => {
+            fireEvent.change(emailInput, {target: {value: newEmail}});
+            expect(emailInput.value).toEqual(newEmail);
+        })
     });
 
     it("handles message input correctly", () => {

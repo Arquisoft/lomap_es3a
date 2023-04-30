@@ -116,7 +116,7 @@ function ShowMarkerPanel(props: { data: Point | undefined }) {
                 <div id="reviews">
                     <h4 id="reviewsTitle">{t("reviews")}</h4>
                     <div id="addReview">
-                        <Mark title={""} id={"reviewScore"}/>
+                        <Mark/>
                         <textarea id="reviewComment" placeholder={t("addReview") ?? ""}/>
                         <button id="reviewButton">
                             {t("add")}

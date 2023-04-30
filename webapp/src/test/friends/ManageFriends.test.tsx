@@ -1,8 +1,7 @@
 import ManageFriends from "../../components/friends/ManageFriends";
 import {findPersonData} from "../../components/pod/PODsInteraction";
 import React from "react";
-import {fireEvent, render, RenderResult, screen, waitFor} from "@testing-library/react";
-import {Session} from "@inrupt/solid-client-authn-browser";
+import {fireEvent, render, waitFor, screen} from "@testing-library/react";
 
 jest.mock("@inrupt/solid-ui-react", () => ({
     useSession: () => ({
@@ -59,6 +58,14 @@ describe("ManageFriends", () => {
             };
         }).mockImplementationOnce(() => {
             return {
+                webId: "https://omitg.inrupt.net/profile/card#me",
+                photo: "https://omitg.inrupt.net/profile/card#me/avatar",
+                name: "Omar",
+                friends: ["https://carlosuo284373.inrupt.net/profile/card#me",
+                    "https://uo278968.inrupt.net/profile/card#me"]
+            };
+        }).mockImplementationOnce(() => {
+            return {
                 webId: "https://carlosuo284373.inrupt.net/profile/card#me",
                 photo: "https://carlosuo284373.inrupt.net/profile/card#me/avatar",
                 name: "Carlos",
@@ -75,12 +82,10 @@ describe("ManageFriends", () => {
             };
         });
 
-        const component = render(<ManageFriends/>);
+        render(<ManageFriends/>);
 
-        // await waitFor(() => {
-        //     expect(findPersonData).toHaveBeenCalledTimes(3);
-        //     expect(component.getByText("Carlos")).toBeInTheDocument();
-        //     expect(component.getByText("David")).toBeInTheDocument();
-        // })
+        await waitFor(() => {
+            expect(findPersonData).toHaveBeenCalled();
+        })
     });
 });
