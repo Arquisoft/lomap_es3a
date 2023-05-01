@@ -31,7 +31,7 @@ function ContactFooter() {
             <div className="contactMedia">
                 <img src={BlueEmail} alt={"Blue email"}/>
                 <h3>{t("panelEmail")}</h3>
-                <p><a href="mailto:support@lomapes3a.com">support@lomapes3a.com</a></p>
+                <p><a href="mailto:LoMapES3A@europe.com">LoMapES3A@europe.com</a></p>
             </div>
         </footer>
     )
