@@ -338,7 +338,7 @@ export async function readFile(fileURL: string[], session: Session) {
                     let text = e.options[e.selectedIndex].value;
                     if (category === text || text === "All")
                         markers.push(new Point(identifier, author, latitude,
-                            longitude, name, category, description, date, review, images, fileJSON.name));
+                            longitude, name, category, description, date, review, images, fileJSON.name,[30,35]));
                 }
             }
 
