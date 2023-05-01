@@ -15,7 +15,7 @@ import ReactDOM from "react-dom/client";
 import {uploadComment, uploadImage} from "../pod/PODsInteraction";
 import Notification from "../Notification";
 import Icon from "../../img/symbols/GOMapSymbol.png";
-import ImgbbUploader from "./ImgbbUploader";
+import ImgUploader from "./ImgUploader";
 
 i18n.use(initReactI18next)
 
@@ -197,7 +197,7 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
                     </div>
                     <div id="image-upload-container">
                         <div id="container_upload">
-                            <ImgbbUploader
+                            <ImgUploader
                                 apiKey="7e17d052e1f665b83d3addfe291f8047"
                                 onUploadSuccess={handleUploadSuccessImage}
                                 onUploadFailure={handleUploadFailureImage}
