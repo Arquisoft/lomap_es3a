@@ -21,16 +21,18 @@ function ContactForm() {
         // Definir los datos del correo electrónico
         const emailData = {
             from_name: "LoMapES3A",
-            to_name: "Soporte de LoMapES3A",
+            to_name: name,
             to_email: email,
-            message_html: `Estimado/a ${name},<br/><br/>Le informamos que hemos recibido su solicitud y nos pondremos en contacto con usted a la brevedad posible.<br/><br/>Atentamente,<br/>Equipo de Soporte`,
+
+            message_html: message,
             subject: "Solicitud de Soporte",
         };
 
         try {
+            console.log(email);
             const response = await emailjs.send(
                 "service_tpdbggk",
-                "template_gi441m8",
+                "template_xtu75gd",
                 emailData
             );
             console.log(response);
