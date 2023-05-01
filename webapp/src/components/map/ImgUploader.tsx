@@ -11,6 +11,7 @@ interface ImgbbUploaderProps {
     apiKey: string;
     onUploadSuccess: (imageUrl: string) => void;
     onUploadFailure: (error: Error) => void;
+    buttonId: string;
 }
 
 function ImgUploader(props: ImgbbUploaderProps) {
@@ -56,7 +57,7 @@ function ImgUploader(props: ImgbbUploaderProps) {
 
     return (
         <div className="icon-button-container">
-            <label htmlFor="file-input">
+            <label htmlFor={props?.buttonId}>
                 <IconButton
                     color="primary"
                     aria-label="upload picture"
@@ -72,7 +73,7 @@ function ImgUploader(props: ImgbbUploaderProps) {
                     }}
                 >
                     <input
-                        id="file-input"
+                        id={props?.buttonId}
                         accept="image/*"
                         type="file"
                         onChange={handleFileChange}

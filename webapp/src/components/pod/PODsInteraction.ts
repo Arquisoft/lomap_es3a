@@ -142,12 +142,12 @@ export async function changePermissions(webId: string, friendWebId: string, sess
     let updatedAcl = setAgentResourceAccess(
         resourceAcl,
         friendWebId,
-        {read: true, append: false, write: false, control: false}
+        {read: true, append: false, write: true, control: false}
     );
     updatedAcl = setAgentDefaultAccess(
         updatedAcl,
         friendWebId,
-        {read: true, append: false, write: false, control: false}
+        {read: true, append: false, write: true, control: false}
     )
 
 
@@ -371,6 +371,36 @@ export async function uploadComment(fileURL: string, item: Point | undefined, na
                                 },
                                 "datePublished": new Date().valueOf(),
                                 "reviewBody": comment
+                            }
+                        );
+                    }
+                }
+                let blob = new Blob([JSON.stringify(fileJSON, null, 3)], {
+                    type: "application/ld+json",
+                });
+                createData(fileURL, new File([blob], nameFile, {type: blob.type}), session);
+                return true;
+            } catch (err) {
+                return false;
+            }
+        }
+    );
+}
+
+export async function uploadImage(fileURL: string, item: Point | undefined, nameFile: string, imageURl:string,session: Session) {
+    return await readFileFromPod(fileURL, session).then(fileContent => {
+            try {
+                let fileJSON = JSON.parse(fileContent);
+                for (const element of fileJSON.spatialCoverage) {
+                    if (element.identifier === item?.id) {
+                        element.image.push(
+                            {
+                                "@type": "ImageObject",
+                                "author": {
+                                    "@type": "Person",
+                                    "identifier": session.info.webId
+                                },
+                                "contentUrl": imageURl
                             }
                         );
                     }
