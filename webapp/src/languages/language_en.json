@@ -135,5 +135,11 @@
   "edit-name": "EDIT NAME",
   "confirm-name": "CONFIRM EDIT",
   "have-friends": "You have",
-  "text-friend": "friends"
+  "text-friend": "friends",
+
+  "our-developers": "Our Developers",
+  "about-web": "About the website",
+  "about-subject": "About the subject",
+  "about-sub": "The Software Architecture course aims to teach students the concepts, techniques, and methods necessary for designing and building complex, robust, and scalable software systems. Throughout the course, students will learn to identify system requirements, analyze and design architectures, and implement them using appropriate design patterns, frameworks, and tools. Emphasis will also be placed on aspects related to software quality, efficiency, security, and maintainability. Students will have the opportunity to work on practical team projects to apply the concepts learned and develop skills in teamwork, effective communication, and managing the software lifecycle.",
+  "about-webcon": "GoMap is an innovative web platform that allows you to register your user account using SOLID technology, which ensures that your personal information is completely safe and private. With GoMap, you can create customized maps with different categories and add points with images and comments. You can share these maps with your SOLID friends and they can also add comments to your points. This tool is especially useful for travel planning, exploring unknown places, organizing group activities, and much more. With GoMap, you have total control over your maps and personal data, allowing you to enjoy a safe and personalized online experience."
 }

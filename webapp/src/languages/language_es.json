@@ -135,5 +135,11 @@
   "edit-name": "EDITAR NOMBRE",
   "confirm-name": "CONFIRMAR EDICIÓN",
   "have-friends": "Tienes",
-  "text-friend": "amigos"
+  "text-friend": "amigos",
+
+  "our-developers": "Nuestros Desarrolladores",
+  "about-web": "Acerca de la página web",
+  "about-subject": "Acerca del tema",
+  "about-sub": "El curso de Arquitectura de Software tiene como objetivo enseñar a los estudiantes los conceptos, técnicas y metodologías necesarias para diseñar y construir sistemas de software complejos, robustos y escalables. A lo largo del curso, los estudiantes aprenderán a identificar los requisitos del sistema, a analizar y diseñar arquitecturas, y a implementarlas utilizando patrones de diseño, frameworks y herramientas adecuados. También se hará hincapié en aspectos relacionados con la calidad del software, la eficiencia, la seguridad y la facilidad de mantenimiento. Los estudiantes tendrán la oportunidad de trabajar en proyectos prácticos en equipo para aplicar los conceptos aprendidos y desarrollar habilidades en trabajo en equipo, comunicación efectiva y gestión del ciclo de vida del software.",
+  "about-webcon": "GoMap es una plataforma web innovadora que te permite registrar tu cuenta de usuario utilizando la tecnología SOLID, lo que garantiza que tu información personal esté completamente segura y privada. Con GoMap, puedes crear mapas personalizados con distintas categorías y añadir puntos con imágenes y comentarios. Puedes compartir estos mapas con tus amigos de SOLID y ellos también pueden añadir comentarios a tus puntos. Esta herramienta es especialmente útil para la planificación de viajes, explorar lugares desconocidos, organizar actividades en grupo, y mucho más. Con GoMap, tienes control total sobre tus mapas y datos personales, lo que te permite disfrutar de una experiencia en línea segura y personalizada."
 }

@@ -135,5 +135,11 @@
   "edit-name": "NAME BEARBEITEN",
   "confirm-name": "BESTÄTIGEN SIE DIE BEARBEITUNG",
   "have-friends": "Du hast",
-  "text-friend": "Freunde"
+  "text-friend": "Freunde",
+
+  "our-developers": "Unsere Entwickler",
+  "about-web": "Über die Website",
+  "about-subject": "Über das Thema",
+  "about-sub": "Das Fach Softwarearchitektur zielt darauf ab, den Studierenden die für die Gestaltung und Konstruktion komplexer, robuster und skalierbarer Softwaresysteme erforderlichen Konzepte, Techniken und Methoden zu vermitteln. Im Laufe des Kurses lernen die Studierenden, Systemanforderungen zu identifizieren, Architekturen zu analysieren und zu entwerfen sowie sie mithilfe geeigneter Designmuster, Frameworks und Tools zu implementieren. Es wird auch besonderer Wert auf Aspekte wie Softwarequalität, Effizienz, Sicherheit und Wartbarkeit gelegt. Die Studierenden haben die Möglichkeit, an praktischen Projekten im Team zu arbeiten, um die erlernten Konzepte anzuwenden und Fähigkeiten in der Teamarbeit, der effektiven Kommunikation und im Umgang mit dem Software-Lebenszyklus zu entwickeln.",
+  "about-webcon": "GoMap ist eine innovative Webplattform, die es dir ermöglicht, dein Benutzerkonto mithilfe der SOLID-Technologie zu registrieren, um sicherzustellen, dass deine persönlichen Informationen vollständig sicher und privat sind. Mit GoMap kannst du personalisierte Karten mit verschiedenen Kategorien erstellen und Punkte mit Bildern und Kommentaren hinzufügen. Du kannst diese Karten mit deinen SOLID-Freunden teilen und sie können auch Kommentare zu deinen Punkten hinzufügen. Diese Werkzeug ist besonders nützlich für Reiseplanung, Erkundung unbekannter Orte, Organisation von Gruppenaktivitäten und vieles mehr. Mit GoMap hast du die volle Kontrolle über deine Karten und deine persönlichen Daten, was dir ein sicheres und personalisiertes Online-Erlebnis ermöglicht."
 }
