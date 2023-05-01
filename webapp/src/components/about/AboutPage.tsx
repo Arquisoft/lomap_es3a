@@ -81,7 +81,14 @@ const AboutPage = () => {
                     </DeveloperBox>
                 </Box>
             </Box>
+            <Box mt={6}
+                sx={{
+                    backgroundColor: 'rgba(255, 255, 255, 0.6)',
+                    borderRadius: '12px',
+                    padding: '16px'
 
+                }}
+            >
             <Box mt={6}>
                 <Typography variant="h4" align="center">
                     Acerca de la web
@@ -99,6 +106,7 @@ const AboutPage = () => {
                     </Typography>
                 </Box>
             </Box>
+
 
             <Box mt={6}>
                 <Typography variant="h4" align="center">
@@ -120,7 +128,7 @@ const AboutPage = () => {
                     </Typography>
 
                 </Box>
-
+            </Box>
             </Box>
             <Box display="flex" justifyContent="center">
                 <IconButton

@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import Globe from "react-globe.gl";
-
+import "../../css/globe.css"
 import  globeTexture  from "../../img/globe.svg";
 
 
@@ -13,8 +13,8 @@ const GlobeComponent = () => {
     </svg>`;
     const N = 1;
     const globeData = Array.from({ length: N }, () => ({
-        lat: 48.0,
-        lng: 11.0,
+        lat: 43.3587531,
+        lng: -5.8550996,
         size: 20,
         color: "red",
     }));
@@ -33,7 +33,7 @@ const GlobeComponent = () => {
     }, []);
 
     useEffect(() => {
-        globeEl.current.controls().autoRotate = false;
+        globeEl.current.controls().autoRotate = true;
         globeEl.current.controls().autoRotateSpeed = 0.7;
         globeEl.current.pointOfView({ lat: 11.0, lng: 9.0, altitude: 3 }, 4000);
         globeEl.current.controls().enableZoom = false;
@@ -42,7 +42,7 @@ const GlobeComponent = () => {
     return (
         <div className="flex items-center justify-center cursor-grab">
             <Globe
-
+                className="my-globe"
                 ref={globeEl}
                 backgroundColor="rgba(0,0,0,0)"
                 globeImageUrl={globeTexture}
