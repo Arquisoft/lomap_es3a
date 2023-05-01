@@ -103,6 +103,7 @@ const AboutPage = () => {
             <Box mt={6}>
                 <Typography variant="h4" align="center">
                     Acerca de la asignatura
+
                 </Typography>
 
                 <Box mt={4}>
@@ -117,20 +118,25 @@ const AboutPage = () => {
                         trabajar en proyectos prácticos en equipo para aplicar los conceptos aprendidos y desarrollar habilidades para
                         trabajar en equipo, comunicarse de manera efectiva y manejar el ciclo de vida del software.
                     </Typography>
-                </Box>
-            </Box>
-            <IconButton
-                aria-label={`View s GitHub profile`}
-                component="a"
-                href={'https://github.com/'}
-                target="_blank"
-                rel="noopener"
 
-            >
-                <img src={Arquisoft} alt="icono personalizado" />
-            </IconButton>
+                </Box>
+
+            </Box>
+            <Box display="flex" justifyContent="center">
+                <IconButton
+                    aria-label={`Arquisoft web`}
+                    component="a"
+                    href={'https://arquisoft.github.io/'}
+                    target="_blank"
+                    rel="noopener"
+                >
+                    <img src={Arquisoft} alt="icono personalizado" style={{ width: '75px', height: '75px' }} />
+                </IconButton>
+            </Box>
+
 
         </Box>
+
     );
 }
 export default AboutPage;
