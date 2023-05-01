@@ -99,7 +99,7 @@ function FriendList(props: { setItem: Function,setSelectedMap:Function }) {
                     friendsMaps.length > 0 ? (
                         <List>
                             {friendsMaps.map((friend) => (
-                                <div key={uuidv4}>
+                                <div key={uuidv4()}>
                                     <ListItemButton onClick={() => handleClick(friend.name)}>
                                         <ListItemIcon>
                                             <PersonIcon color="primary"/>
