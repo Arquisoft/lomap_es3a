@@ -114,6 +114,7 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
                     apiKey="7e17d052e1f665b83d3addfe291f8047"
                     onUploadSuccess={handleUploadSuccess}
                     onUploadFailure={handleUploadFailure}
+                    buttonId={"uploadAddButton"}
                 />
                 <Container id="imgContainer">
                     {imageUrl && <img src={imageUrl} alt="Uploaded" width="100%" height="100%" id="upload-img"/>}

@@ -388,3 +388,33 @@ export async function uploadComment(fileURL: string, item: Point | undefined, na
     );
 }
 
+export async function uploadImage(fileURL: string, item: Point | undefined, nameFile: string, imageURl:string,session: Session) {
+    return await readFileFromPod(fileURL, session).then(fileContent => {
+            try {
+                let fileJSON = JSON.parse(fileContent);
+                for (const element of fileJSON.spatialCoverage) {
+                    if (element.identifier === item?.id) {
+                        element.image.push(
+                            {
+                                "@type": "ImageObject",
+                                "author": {
+                                    "@type": "Person",
+                                    "identifier": session.info.webId
+                                },
+                                "contentUrl": imageURl
+                            }
+                        );
+                    }
+                }
+                let blob = new Blob([JSON.stringify(fileJSON, null, 3)], {
+                    type: "application/ld+json",
+                });
+                createData(fileURL, new File([blob], nameFile, {type: blob.type}), session);
+                return true;
+            } catch (err) {
+                return false;
+            }
+        }
+    );
+}
+

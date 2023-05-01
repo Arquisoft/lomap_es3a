@@ -45,10 +45,12 @@
   "notificationSameNameMap": "El mapa que desea crear ya existe en su cuenta",
   "notificationCommentAdded": "Review añadida",
   "notificationMessageComment": "La review se ha añadido correctamente",
-  "notificationCommentError": "No se ha añadir la review",
+  "notificationCommentError": "No se ha podido añadir la review",
   "notificationCommentErrorMessage": "Se ha producido un error al añadir la review",
   "notificationNoMarkerNameTitle": "No ha introducido nombre al marcador",
   "notificationNoMarkerName": "El marcador que desea añadir debe tener un nombre",
+  "notificationImageError": "Imagen no añadida",
+  "notificationImageErrorMessage": "No se ha podido añadir la imagen",
 
   "footer": "© Arquisoft - UNIOVI",
   "homeInfo1": "GOMap!® es una aplicación en la que los usuarios pueden tener mapas personalizados sobre lugares y negocios locales en su ciudad, como tiendas, bares, restaurantes, monumentos, cines...",
