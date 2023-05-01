@@ -8,6 +8,7 @@ describe("ImgUploader component", () => {
     test("renders without errors", () => {
         render(
             <ImgUploader
+                buttonId={"input"}
                 apiKey={apiKey}
                 onUploadSuccess={() => {}}
                 onUploadFailure={() => {}}
@@ -18,6 +19,7 @@ describe("ImgUploader component", () => {
     test("displays selected file name", async () => {
         const {container} = render(
             <ImgUploader
+                buttonId={"input"}
                 apiKey={apiKey}
                 onUploadSuccess={() => {}}
                 onUploadFailure={() => {}}

@@ -36,7 +36,8 @@ describe('ShowMarkerPanel', () => {
             contentUrl: "https://upload.wikimedia.org/wikipedia/commons/6/64/Ejemplo.png"
         }],
         dateCreated: new Date().getTime(),
-        mapName: "Prueba mapa"
+        mapName: "Prueba mapa",
+        iconSize: [30,35]
     };
 
     it('should render marker details', () => {
@@ -65,7 +66,8 @@ describe('ShowMarkerPanel', () => {
             review: [],
             image: [],
             dateCreated: new Date().getTime(),
-            mapName: "Prueba mapa"
+            mapName: "Prueba mapa",
+            iconSize:[30,35]
         };
         const component = render(<ShowMarkerPanel data={marker2} setItem={jest.fn()}/>);
         expect(component.getByText("There are no images for this marker")).toBeInTheDocument();
