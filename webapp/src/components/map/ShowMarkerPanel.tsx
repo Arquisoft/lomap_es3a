@@ -23,6 +23,7 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
     const {session} = useSession();
     const {t} = useTranslation();
     const [showNotification, setShowNotification] = useState(false);
+    const [showNotificationImage, setShowNotificationImage] = useState(false);
     const [errorComment, setErrorComment] = useState(false);
     const [errorImage, setErrorImage] = useState(false);
     const [imageUploadUrl, setImageUploadUrl] = useState("");
@@ -31,6 +32,13 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
         setShowNotification(true);
         setTimeout(() => {
             setShowNotification(false);
+        }, 4000);
+    }
+
+    function createNotificationImage() {
+        setShowNotificationImage(true);
+        setTimeout(() => {
+            setShowNotificationImage(false);
         }, 4000);
     }
 
@@ -74,6 +82,7 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
 
     function handleClickImage(): void {
         uploadImage(getRoute(), props.data, props.data?.mapName + ".jsonld", imageUploadUrl, session).then((result) => {
+            createNotificationImage();
             if (result) {
                 closeMenu();
                 removeContent();
@@ -246,6 +255,18 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
                     }
                 </div>
             </div>
+            {
+                showNotificationImage &&
+                (
+                    <Notification
+                        title={t("notificationImageAdded")}
+                        message={t("notificationMessageImage")}
+                        time={t("notificationTime")}
+                        icon={Icon}
+                        onClose={handleCloseNotification}
+                    />
+                )
+            }
             {
                 showNotification &&
                 (
