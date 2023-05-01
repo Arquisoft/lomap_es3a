@@ -15,7 +15,7 @@ import ReactDOM from "react-dom/client";
 import {uploadComment, uploadImage} from "../pod/PODsInteraction";
 import Notification from "../Notification";
 import Icon from "../../img/symbols/GOMapSymbol.png";
-import ImgbbUploader from "./ImgbbUploader";
+import ImgUploader from "./ImgUploader";
 
 i18n.use(initReactI18next)
 
@@ -23,6 +23,7 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
     const {session} = useSession();
     const {t} = useTranslation();
     const [showNotification, setShowNotification] = useState(false);
+    const [showNotificationImage, setShowNotificationImage] = useState(false);
     const [errorComment, setErrorComment] = useState(false);
     const [errorImage, setErrorImage] = useState(false);
     const [imageUploadUrl, setImageUploadUrl] = useState("");
@@ -31,6 +32,13 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
         setShowNotification(true);
         setTimeout(() => {
             setShowNotification(false);
+        }, 4000);
+    }
+
+    function createNotificationImage() {
+        setShowNotificationImage(true);
+        setTimeout(() => {
+            setShowNotificationImage(false);
         }, 4000);
     }
 
@@ -74,6 +82,7 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
 
     function handleClickImage(): void {
         uploadImage(getRoute(), props.data, props.data?.mapName + ".jsonld", imageUploadUrl, session).then((result) => {
+            createNotificationImage();
             if (result) {
                 closeMenu();
                 removeContent();
@@ -85,14 +94,12 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
     }
 
     function closeMenu() {
-        const showMarkerPanel = document.getElementById("showMarkerPanel");
-        if (showMarkerPanel !== null) {
-            showMarkerPanel.style.width = "0";
-        }
+        const showMarkerPanel = document.getElementById("showMarkerPanel") as HTMLElement;
+        showMarkerPanel.style.width = "0";
     }
 
     if (!props.data) {
-        return null
+        return null;
     }
 
     function calculateTotal(): number {
@@ -169,7 +176,7 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
                 <h3>{props.data.name}</h3>
                 <div id="showMarkerScore">
                     <p id="totalReviews">
-                        ({props.data.review.length})
+                        ({props.data.review ? props.data.review.length : 0})
                     </p>
                     <Rating
                         name="size-medium"
@@ -193,13 +200,13 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
                 <div id="reviews">
                     <h4 id="reviewsTitle">{t("reviews")}</h4>
                     <div id="addReview">
-                        <Mark title={""} id={"reviewScore"}/>
+                        <Mark/>
                         <textarea id="reviewComment" placeholder={t("addReview") ?? ""}/>
                         <button id="reviewButton" onClick={handleClick}>{t("add")}</button>
                     </div>
                     <div id="image-upload-container">
                         <div id="container_upload">
-                            <ImgbbUploader
+                            <ImgUploader
                                 apiKey="7e17d052e1f665b83d3addfe291f8047"
                                 onUploadSuccess={handleUploadSuccessImage}
                                 onUploadFailure={handleUploadFailureImage}
@@ -215,7 +222,7 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
                         </div>
                     </div>
                     {
-                        props.data.review.map((reviewItem) => (
+                        props.data.review?.map((reviewItem) => (
                             <div className="review" key={uuidv4()}>
                                 <div className="profileReview">
                                     <CombinedDataProvider datasetUrl={reviewItem.author} thingUrl={reviewItem.author}>
@@ -248,6 +255,18 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
                     }
                 </div>
             </div>
+            {
+                showNotificationImage &&
+                (
+                    <Notification
+                        title={t("notificationImageAdded")}
+                        message={t("notificationMessageImage")}
+                        time={t("notificationTime")}
+                        icon={Icon}
+                        onClose={handleCloseNotification}
+                    />
+                )
+            }
             {
                 showNotification &&
                 (

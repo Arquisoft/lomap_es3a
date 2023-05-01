@@ -2,7 +2,7 @@ import {Icon} from "leaflet";
 import {Marker} from "react-leaflet";
 import markerIconPng from "leaflet/dist/images/marker-icon.png"
 import {useSession} from "@inrupt/solid-ui-react";
-import {Point} from "./Point";
+import {Point} from "../pod/Point";
 import * as React from "react";
 import {useEffect, useState} from "react";
 import BarIcon from "../../img/icons/bar.png";
@@ -23,8 +23,8 @@ import HospitalIcon from "../../img/icons/hospital.png";
 import PoliceIcon from "../../img/icons/police.png";
 import TransportIcon from "../../img/icons/transport.png";
 import EntertainmentIcon from "../../img/icons/entertainment.png";
-import LocationMarker from "../map/LocationMarker";
-import {readFile} from "./PODsInteraction";
+import LocationMarker from "./LocationMarker";
+import {readFile} from "../pod/PODsInteraction";
 
 interface IDictionary {
     [index: string]: string;
@@ -52,13 +52,11 @@ let categories = {
     other: OtherIcon
 } as IDictionary
 
-
-
-
 function MarkersPOD(props: { webId: string[], setItem: Function }) {
     const {session} = useSession();
     const [points, setPoints] = useState<Point[]>([]);
     const [showLocationMarker, setShowLocationMarker] = useState(false);
+    const [activeMarker, setActiveMarker] = useState<Point | null>(null);
 
     useEffect(() => {
         async function fetchPoints() {
@@ -71,16 +69,32 @@ function MarkersPOD(props: { webId: string[], setItem: Function }) {
         fetchPoints();
     }, [props.webId, session]);
 
+    function handleMarkerClick(marker: { id: string; iconSize: [number, number] }) {
+        if (activeMarker !== null) {
+            const prevMarker = points.find((p) => p.id === activeMarker.id);
+            if (prevMarker) {
+                prevMarker.iconSize = [30,35];
+            }
+        }
+        const newMarker = points.find((p) => p.id === marker.id);
+        if (newMarker) {
+            newMarker.iconSize = [50, 55];
+        }
+        setActiveMarker(newMarker!);
+    }
+
     return (
         <div>
             {
                 points.map((item) => (
                     <Marker key={item.id} position={{lat: item.latitude, lng: item.longitude}}
                             icon={new Icon({
-                                iconUrl: categories[item.category] !== undefined ? categories[item.category] : markerIconPng
+                                iconUrl: categories[item.category] !== undefined ? categories[item.category] : markerIconPng,
+                                iconSize: item.iconSize
                             })}
                             eventHandlers={{
                                 click: (e) => {
+                                    handleMarkerClick({ id: item.id, iconSize: item.iconSize });
                                     const addMarkerPanel = document.getElementById("addMarkerPanel");
                                     if (addMarkerPanel !== null) {
                                         addMarkerPanel.style.width = "0";
@@ -97,7 +111,9 @@ function MarkersPOD(props: { webId: string[], setItem: Function }) {
                     </Marker>
                 ))
             }
-             <LocationMarker setShowLocationMarker={setShowLocationMarker} showLocationMarker={showLocationMarker}/>
+            {props.webId.length>0 &&
+                <LocationMarker setShowLocationMarker={setShowLocationMarker} showLocationMarker={showLocationMarker} activeMarker={activeMarker}/>
+            }
         </div>
     )
 }

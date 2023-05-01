@@ -12,8 +12,6 @@ h2 {
     margin: 0.625em;
 }
 
-
-
 select, option {
     font-size: 1.25em;
     font-weight: lighter;
@@ -38,36 +36,7 @@ select, option {
     font-size: 1.5em;
 }
 
-#searchPanel {
-    display: flex;
-    justify-content: center;
-}
-
-#searchText {
-    width: 70%;
-}
-
-#searchButton {
-    font-size: 1.25em;
-    font-weight: lighter;
-    color: white;
-    padding: 0.313em;
-    width: 20%;
-    background-color: rgba(35, 34, 105, 0.6);
-    margin-bottom: 0.15em;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 0.125em solid #91b4f3;
-}
-
-#searchButton:hover {
-    border-top-right-radius: 0.2em;
-    border-top-left-radius: 0.2em;
-    background-color: rgba(0, 127, 253, 0.7);
-}
-
-#searchText, #namePlace, #comment, #latitude, #longitude, #newMapTitle {
+#namePlace, #comment, #latitude, #longitude, #newMapTitle {
     font-size: 1.25em;
     font-weight: lighter;
     color: white;

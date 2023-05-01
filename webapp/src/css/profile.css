@@ -13,20 +13,27 @@
     justify-content: center;
 }
 
-#friends-table {
+#friends-data {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow: auto;
+}
+
+#friends-table {
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: 0.5em;
+    max-height: 50vh;
+    overflow-y: auto;
+    overflow-x: clip;
+    margin: 0 auto;
+    background-color: #ffffff;
 }
 
 table {
-    max-width: 50vw;
-    max-height: 60vh;
-    margin: 0 auto;
-    background-color: #ffffff;
-    overflow: hidden;
-    border: none;
+    width: 30vw;
 }
 
 th {

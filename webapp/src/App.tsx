@@ -8,7 +8,7 @@ import LoginPage from "./components/login/LoginPage";
 import MapPage from "./components/map/MapPage";
 import HelpPage from "./components/help/HelpPage";
 import AboutPage from "./components/about/AboutPage";
-import UserProfile from "./components/UserProfile";
+import UserProfile from "./components/profile/UserProfile";
 import ManageFriends from "./components/friends/ManageFriends";
 
 function App(): JSX.Element {

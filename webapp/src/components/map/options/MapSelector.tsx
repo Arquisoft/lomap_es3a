@@ -50,12 +50,12 @@ function MapSelector(props: { setItem: Function,setSelectedMap:Function,selected
 
     function render(route: string, element: string) {
         if (element === "filter") {
-            const root = ReactDOM.createRoot(document.getElementById("filterDiv") as HTMLElement);
-            root.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={[route]}
+            ReactDOM.createRoot(document.getElementById("filterDiv") as HTMLElement)
+                .render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={[route]}
                                 setItem={props.setItem}/>);
         } else if (element === "mapView") {
-            const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
-            root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={[route]}
+            ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement)
+                .render(<MapView lat={43.3548057} lng={-5.8534646} webId={[route]}
                                  setItem={props.setItem}/>);
         }
     }
@@ -63,7 +63,7 @@ function MapSelector(props: { setItem: Function,setSelectedMap:Function,selected
     function beautifyMapName(mapName: string): string {
         let uri = session.info.webId!.split("/").slice(0, 3).join("/").concat("/lomap/");
         let shortName = mapName.replace(uri, "").replace(".jsonld", "");
-        return shortName.replace(shortName.charAt(0), shortName.charAt(0).toUpperCase()).replace("%20", "");
+        return shortName.replace(shortName.charAt(0), shortName.charAt(0).toUpperCase()).trim();
     }
 
     function changeMap() {

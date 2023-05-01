@@ -3,10 +3,10 @@ import TechButton from "./TechButton";
 import ReactSymbol from "../../img/symbols/ReactSymbol.png";
 import SOLIDProjectSymbol from "../../img/symbols/SOLIDProjectSymbol.png";
 import TypeScriptSymbol from "../../img/symbols/TypeScriptSymbol.png";
-import OpenStreetMap from "../../img/symbols/Openstreetmap_logo.png";
+import OpenStreetMap from "../../img/symbols/OpenStreetMapSymbol.png";
 import NodeJSSymbol from "../../img/symbols/NodeJSSymbol.png";
 import WebStormSymbol from "../../img/symbols/WebStormSymbol.png";
-import Bootstrap from "../../img/symbols/Bootstrap_logo.png";
+import Bootstrap from "../../img/symbols/BootStrapSymbol.png";
 import React from "react";
 import i18n from "../../i18n";
 

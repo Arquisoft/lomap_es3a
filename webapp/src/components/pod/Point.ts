@@ -10,10 +10,11 @@ export class Point {
     image: ImageMarker[]
     dateCreated: number
     mapName: string
+    iconSize:[number,number]
 
     constructor(id: string, author: string, latitude: number, longitude: number,
                 name: string, category: string,
-                description: string, date: number, review: Review[], image: ImageMarker[], mapName: string) {
+                description: string, date: number, review: Review[], image: ImageMarker[], mapName: string,iconSize:[number,number]) {
         this.id = id;
         this.author = author;
         this.latitude = latitude;
@@ -25,6 +26,7 @@ export class Point {
         this.review = review;
         this.image = image;
         this.mapName = mapName;
+        this.iconSize = [30,35]
     }
 }
 
