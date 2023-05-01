@@ -43,6 +43,8 @@
   "notificationEmptyNameMap": "You must enter a name for the map",
   "notificationSameNameMapTitle": "Existing map name",
   "notificationSameNameMap": "The map you want to create already exists in your account",
+  "notificationNoMarkerNameTitle": "No marker name entered",
+  "notificationNoMarkerName": "The marker you want to add must have a name",
 
   "footer": "© Arquisoft - UNIOVI",
   "homeInfo1": "GOMap!® is an application where users can have custom maps about places and local business in their city like shops, bars, restaurants, monuments, cinemas...",

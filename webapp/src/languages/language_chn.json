@@ -43,6 +43,8 @@
   "notificationEmptyNameMap": "您必须为地图输入名称",
   "notificationSameNameMapTitle": "已存在的地图名称",
   "notificationSameNameMap": "您要创建的地图已经存在于您的帐户中",
+  "notificationNoMarkerNameTitle": "未输入标记名称",
+  "notificationNoMarkerName": "您要添加的标记必须具有名称",
 
   "footer": "© Arquisoft - UNIOVI",
   "homeInfo1": "GOMap!®是一个应用程序，用户可以在其中创建个性化地图，显示他们城市中的本地商家和场所，如商店、酒吧、餐厅、纪念碑、电影院等等。",
