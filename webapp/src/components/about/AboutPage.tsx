@@ -9,6 +9,10 @@ import OmarImg from "../../img/OmarImg.jpg";
 import DavidImg from "../../img/DavidImg.jpg";
 import RaulImg from "../../img/RaulImg.jpeg"
 import Arquisoft from "../../img/Arquisoft.png"
+import {useTranslation} from "react-i18next";
+
+
+
 const DeveloperBox = styled(Box)({
     display: "flex",
     flexDirection: "column",
@@ -46,6 +50,7 @@ const David = {
 
 
 const AboutPage = () => {
+    const { t } = useTranslation();
     return (
 
 
@@ -55,7 +60,7 @@ const AboutPage = () => {
             <div id="globe">
                 <GlobeComponent/>
             </div>
-            <Typography variant="h1" align="center">OUR DEVELOPERS:</Typography>
+            <Typography variant="h1" align="center"> {t("our-developers")}</Typography>
             <Box mt={6}>
                 <Box
                     display="flex"
@@ -91,18 +96,12 @@ const AboutPage = () => {
             >
             <Box mt={6}>
                 <Typography variant="h4" align="center">
-                    Acerca de la web
+                    {t("about-web")}
                 </Typography>
 
                 <Box mt={4}>
                     <Typography variant="body1" align="justify">
-                        GoMap es una innovadora plataforma web que te permite registrar tu cuenta de usuario utilizando la tecnología SOLID,
-                        lo que garantiza que tu información personal esté completamente segura y privada. Con GoMap,
-                        puedes crear mapas personalizados con distintas categorías y añadir puntos con imágenes y comentarios.
-                        Puedes compartir estos mapas con tus amigos de SOLID y ellos también pueden añadir comentarios a tus puntos.
-                        Esta herramienta es especialmente útil para la planificación de viajes, para la exploración de lugares desconocidos,
-                        para organizar actividades en grupo, y mucho más. Con GoMap, tienes el control total sobre tus mapas y tus datos personales,
-                        lo que te permite disfrutar de una experiencia en línea segura y personalizada.
+                        {t("about-webcon")}
                     </Typography>
                 </Box>
             </Box>
@@ -110,21 +109,13 @@ const AboutPage = () => {
 
             <Box mt={6}>
                 <Typography variant="h4" align="center">
-                    Acerca de la asignatura
+                    {t("about-subject")}
 
                 </Typography>
 
                 <Box mt={4}>
                     <Typography variant="body1" align="justify">
-                        La asignatura de Arquitectura del Software se enfoca en enseñar a los estudiantes los conceptos,
-                        técnicas y metodologías necesarias para diseñar y construir sistemas de software complejos, robustos y escalables.
-                        A lo largo del curso, los estudiantes aprenderán a identificar los requisitos del sistema, a analizar y diseñar la
-                        arquitectura, y a implementarla utilizando patrones de diseño, frameworks y herramientas adecuados.
-
-                        También se hará hincapié en los aspectos relacionados con la calidad del software,
-                        la eficiencia, la seguridad y la facilidad de mantenimiento. Los estudiantes tendrán la oportunidad de
-                        trabajar en proyectos prácticos en equipo para aplicar los conceptos aprendidos y desarrollar habilidades para
-                        trabajar en equipo, comunicarse de manera efectiva y manejar el ciclo de vida del software.
+                        {t("about-sub")}
                     </Typography>
 
                 </Box>
