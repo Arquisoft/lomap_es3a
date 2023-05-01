@@ -56,10 +56,7 @@ function MarkersPOD(props: { webId: string[], setItem: Function }) {
     const {session} = useSession();
     const [points, setPoints] = useState<Point[]>([]);
     const [showLocationMarker, setShowLocationMarker] = useState(false);
-    const [activeMarker, setActiveMarker] = useState<{
-        id: string;
-        iconSize: [number, number];
-    } | null>(null);
+    const [activeMarker, setActiveMarker] = useState<Point | null>(null);
 
     useEffect(() => {
         async function fetchPoints() {
@@ -83,7 +80,7 @@ function MarkersPOD(props: { webId: string[], setItem: Function }) {
         if (newMarker) {
             newMarker.iconSize = [50, 55];
         }
-        setActiveMarker(marker);
+        setActiveMarker(newMarker!);
     }
 
     return (
@@ -115,7 +112,7 @@ function MarkersPOD(props: { webId: string[], setItem: Function }) {
                 ))
             }
             {props.webId.length>0 &&
-                <LocationMarker setShowLocationMarker={setShowLocationMarker} showLocationMarker={showLocationMarker}/>
+                <LocationMarker setShowLocationMarker={setShowLocationMarker} showLocationMarker={showLocationMarker} activeMarker={activeMarker}/>
             }
         </div>
     )
