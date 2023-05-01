@@ -33,11 +33,13 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
     const [noSelectedMap, setNoSelectedMap] = useState(false)
     const [showNotification, setShowNotification] = useState(false);
     const [imageUrl, setImageUrl] = useState("");
+    const [errorNoMarkerName,setErrorNoMarkerName] = useState(false)
 
     const handleCloseNotification = () => {
         setShowNotification(false);
         setError(false)
         setNoSelectedMap(false)
+        setErrorNoMarkerName(false)
     };
 
 
@@ -56,6 +58,8 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
     async function handleClick() {
         if(document.getElementById("selectMap")===null){
             setError(true)
+        }else if((document.getElementById(idName) as HTMLInputElement).value==="") {
+            setErrorNoMarkerName(true)
         }else{
             let route = (document.getElementById("selectMap") as HTMLSelectElement).value
             if(route===""){
@@ -140,6 +144,15 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
                 />
             )}
 
+            {errorNoMarkerName && (
+                <Notification
+                    title={t("notificationNoMarkerNameTitle")}
+                    message={t("notificationNoMarkerName")}
+                    time={t("notificationTime")}
+                    icon={Icon}
+                    onClose={handleCloseNotification}
+                />
+            )}
 
             {showNotification && (
                 <Notification

@@ -143,12 +143,12 @@ export async function changePermissions(webId: string, friendWebId: string, sess
     let updatedAcl = setAgentResourceAccess(
         resourceAcl,
         friendWebId,
-        {read: true, append: false, write: false, control: false}
+        {read: true, append: false, write: true, control: false}
     );
     updatedAcl = setAgentDefaultAccess(
         updatedAcl,
         friendWebId,
-        {read: true, append: false, write: false, control: false}
+        {read: true, append: false, write: true, control: false}
     )
 
 
