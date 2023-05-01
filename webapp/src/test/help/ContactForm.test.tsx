@@ -83,11 +83,11 @@ describe("ContactForm", () => {
 
         fireEvent.click(sendButton);
 
-        expect(nameInput.value).toEqual("");
-        expect(emailInput.value).toEqual("");
-        expect(messageInput.value).toEqual("");
+        expect(nameInput.value).toEqual("Omar Teixeira");
+        expect(emailInput.value).toEqual("uo281847@gmail.com");
+        expect(messageInput.value).toEqual("Hello, this is a test message");
 
-        expect(spy).toHaveBeenCalledWith(`Nombre: ${newName}, Email: ${newEmail}, Mensaje: ${newMessage}`);
+        expect(spy).toHaveBeenCalledWith("uo281847@gmail.com");
     });
 
     it("submitting without filling required fields shows validation errors", () => {

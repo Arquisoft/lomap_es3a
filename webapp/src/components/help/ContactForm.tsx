@@ -15,10 +15,8 @@ function ContactForm() {
     const handleSendEmail = async () => {
         setIsSending(true);
 
-        // Configurar el servicio de emailjs
         emailjs.init("LuLSz-HlZSV2FSm0-");
 
-        // Definir los datos del correo electrónico
         const emailData = {
             from_name: "LoMapES3A",
             to_name: name,
@@ -30,12 +28,11 @@ function ContactForm() {
 
         try {
             console.log(email);
-            const response = await emailjs.send(
+            await emailjs.send(
                 "service_tpdbggk",
                 "template_xtu75gd",
                 emailData
             );
-            console.log(response);
             setName("");
             setEmail("");
             setMessage("");
