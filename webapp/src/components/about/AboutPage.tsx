@@ -10,7 +10,6 @@ import DavidImg from "../../img/DavidImg.jpg";
 import RaulImg from "../../img/RaulImg.jpeg"
 import Arquisoft from "../../img/Arquisoft.png"
 import {useTranslation} from "react-i18next";
-import sgMail from '@sendgrid/mail';
 
 
 const DeveloperBox = styled(Box)({

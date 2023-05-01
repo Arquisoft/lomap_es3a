@@ -28,7 +28,7 @@ function ContactForm() {
 
         try {
             console.log(email);
-            const response = await emailjs.send(
+            await emailjs.send(
                 "service_tpdbggk",
                 "template_xtu75gd",
                 emailData
