@@ -1,0 +1,52 @@
+== Testing
+
+=== Unitary testing (TDD)
+
+We used _Jest_ and _Testing Library_ by React for testing our webapp, we followed the structure that we learned in our labs and https://jestjs.io/docs/getting-started[Jest docs]. 
+
+We created separate tests for each component, in order to test isolated parts and check if every aspect of our app worked, but we faced some problems in the process, as it ended up being almost impossible to check everything, mostly due to compatibility issues with libraries and problems with the react testing library itself (which is not suited to test the useState hook).
+
+We reached a total coverage of 58.2% (at the momment of writing this document) with 106 tests in 25 suites, we had to mock the session and functions that interact with the PODs, but sometimes it wasn't enought, due to the reasons we commented before.
+
+=== Integration testing (BDD)
+
+We used Jest and Cucumber to perform integration testing in our app. Following cucumber gherkin language, we designed tests and User Stories with the structure: "Given, When, Then", which resulted in a lot of facilities when implementing them.
+
+As GOMap! uses external technology, such as a Session Provider (Inrupt, SOLID Community, ...) or SOLID PODs, we had to test with some default values, written to test if this external techs worked propperly in our app context.
+
+In the end we manage to have 2 e2e features, with 4 general tests:
+
+====
+
+Feature: Access the app
+
+  Scenario: First time a new user enters the app
+    Given User has never entered to the app
+    When User sees all main page elements
+    Then User can interact with the app
+
+====
+
+====
+
+Feature: Login to an account
+
+  Scenario: Displays login button when user is not logged in
+    Given User is not logged in
+    When User opens up the page
+    Then User can see the login button
+
+  Scenario: User goes to login page and can access to its selected provider login form
+    Given User is not logged in
+    When User opens up login page
+    Then User is able to select a provider and be redirected to the login form
+
+  Scenario: User logs into the app
+    Given User is not logged in
+    When User access to provider's login form
+    Then User is logged in
+
+====
+
+=== Load testing
+

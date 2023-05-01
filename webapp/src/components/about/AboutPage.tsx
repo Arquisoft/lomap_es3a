@@ -1,5 +1,5 @@
 import React from "react";
-import {Box, Typography, Avatar, Card, CardMedia, CardContent, CardActions, Button, IconButton} from "@mui/material";
+import {Box, Typography, IconButton} from "@mui/material";
 import { styled } from "@mui/material/styles";
 import GlobeComponent from "./Globe";
 import {PersonCard} from "./PersonCard";
@@ -12,7 +12,6 @@ import Arquisoft from "../../img/Arquisoft.png"
 import {useTranslation} from "react-i18next";
 
 
-
 const DeveloperBox = styled(Box)({
     display: "flex",
     flexDirection: "column",
@@ -23,28 +22,28 @@ const DeveloperBox = styled(Box)({
 const Carlos = {
     name: "Carlos Diez Fernández",
     image: CarlosImg,
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dignissim, libero eget mattis dignissim, quam orci ullamcorper nibh, id hendrerit elit eros ut lorem.",
+    description: "I am a 21-year-old boy who studies computer engineering at the University of Oviedo. That's why I love programming.",
     github: "uo284373",
 };
 
 const Raul = {
     name: "Raúl Fernández España",
     image: RaulImg,
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dignissim, libero eget mattis dignissim, quam orci ullamcorper nibh, id hendrerit elit eros ut lorem.",
+    description: "I am a 22-year-old software engineering student who has a particular interest in front-end development and video games. Over the past few months, I have been focusing on developing my skills in React.",
     github: "UO278036",
 };
 
 const Omar = {
     name: "Omar Teixeira González",
     image: OmarImg,
-    description: "I'm a spanish 20 yo who is very interested in everything related to Technology, I love learning new things about software (or hardware, which I'm tend to learn for myself).",
+    description: "I'm a spanish 21 yo who is very interested in everything related to Technology, I love learning new things about software (or hardware, which I'm tend to learn for myself).",
     github: "Omitg24",
 };
 
 const David = {
     name: "David Warzynski Abril",
     image: DavidImg,
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dignissim, libero eget mattis dignissim, quam orci ullamcorper nibh, id hendrerit elit eros ut lorem.",
+    description: "I am a 21-year-old male studying computer engineering at the University of Oviedo, and as such, I have developed a passion for programming.",
     github: "UO278968",
 };
 

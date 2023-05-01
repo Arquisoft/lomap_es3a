@@ -28,7 +28,7 @@ describe("ContactFooter", () => {
     });
 
     it("renders panelEmail text correctly", () => {
-        const panelEmailElement = component.getByText("support@lomapes3a.com");
+        const panelEmailElement = component.getByText("LoMapES3A@europe.com");
         expect(panelEmailElement).toBeInTheDocument();
     });
 });

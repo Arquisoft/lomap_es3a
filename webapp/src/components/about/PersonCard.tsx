@@ -1,7 +1,6 @@
 import { Avatar, Box, Card, CardContent, CardHeader, IconButton, styled, Typography } from "@mui/material";
 import React, { useRef } from "react";
 import { GitHub as GitHubIcon } from "@mui/icons-material";
-import  Arquisoft  from "../../img/Arquisoft.png";
 class Person {
     name: string;
     image: string;

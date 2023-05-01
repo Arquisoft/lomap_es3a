@@ -49,7 +49,6 @@ async function findFullPersonProfile(webId: string, session: Session, response: 
             response.push(dataset)
         }
     } catch (e) {
-        console.log(e);
     }
     return response
 }
@@ -231,7 +230,7 @@ export async function createData(url: string, file: File, session: Session) {
     } catch (error) {
         console.log(error);
     }
-};
+}
 
 export async function createMarker(idName: string, idCategory: string, idComment: string, idScore: string,
                                    idLatitude: string, idLongitude: string, fileURL: string, session: Session) {
@@ -300,7 +299,7 @@ export async function createMarker(idName: string, idCategory: string, idComment
             }
         }
     );
-};
+}
 
 export async function readFile(fileURL: string[], session: Session) {
     try {
