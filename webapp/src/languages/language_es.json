@@ -51,6 +51,8 @@
   "notificationNoMarkerName": "El marcador que desea añadir debe tener un nombre",
   "notificationImageError": "Imagen no añadida",
   "notificationImageErrorMessage": "No se ha podido añadir la imagen",
+  "notificationImageAdded": "Imagen añadida",
+  "notificationMessageImage": "Se ha añadido la imagen correctamente",
 
   "footer": "© Arquisoft - UNIOVI",
   "homeInfo1": "GOMap!® es una aplicación en la que los usuarios pueden tener mapas personalizados sobre lugares y negocios locales en su ciudad, como tiendas, bares, restaurantes, monumentos, cines...",
