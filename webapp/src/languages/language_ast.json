@@ -43,6 +43,10 @@
   "notificationEmptyNameMap": "Tien que introducir un nome pal mapa",
   "notificationSameNameMapTitle": "Nome del mapa esistente",
   "notificationSameNameMap": "El mapa que quier crear yá esiste na so cuenta",
+  "notificationCommentAdded": "Comentariu amestáu",
+  "notificationMessageComment": "El comentariu s'amestó correchamente",
+  "notificationCommentError": "Nun se pudo amestar el comentariu",
+  "notificationCommentErrorMessage": "Hebo un fallu al amestar el comentariu",
   "notificationNoMarkerNameTitle": "Nun se introdució nome pal marcador",
   "notificationNoMarkerName": "El marcador que quier añadir ha de tener un nome",
 

@@ -43,6 +43,10 @@
   "notificationEmptyNameMap": "您必须为地图输入名称",
   "notificationSameNameMapTitle": "已存在的地图名称",
   "notificationSameNameMap": "您要创建的地图已经存在于您的帐户中",
+  "notificationCommentAdded": "评论已添加",
+  "notificationMessageComment": "评论已成功添加",
+  "notificationCommentError": "无法添加评论",
+  "notificationCommentErrorMessage": "添加评论时出错",
   "notificationNoMarkerNameTitle": "未输入标记名称",
   "notificationNoMarkerName": "您要添加的标记必须具有名称",
 

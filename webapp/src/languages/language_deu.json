@@ -43,6 +43,10 @@
   "notificationEmptyNameMap": "Sie müssen einen Namen für die Karte eingeben",
   "notificationSameNameMapTitle": "Vorhandener Kartenname",
   "notificationSameNameMap": "Die von Ihnen erstellte Karte ist bereits in Ihrem Konto vorhanden",
+  "notificationCommentAdded": "Bewertung hinzugefügt",
+  "notificationMessageComment": "Die Bewertung wurde erfolgreich hinzugefügt",
+  "notificationCommentError": "Die Bewertung konnte nicht hinzugefügt werden",
+  "notificationCommentErrorMessage": "Beim Hinzufügen der Bewertung ist ein Fehler aufgetreten",
   "notificationNoMarkerNameTitle": "Kein Markernamen eingegeben",
   "notificationNoMarkerName": "Der Marker, den Sie hinzufügen möchten, muss einen Namen haben",
 

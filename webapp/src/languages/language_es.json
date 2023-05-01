@@ -43,6 +43,10 @@
   "notificationEmptyNameMap": "Debe introducir un nombre para el mapa",
   "notificationSameNameMapTitle": "Nombre del mapa existente",
   "notificationSameNameMap": "El mapa que desea crear ya existe en su cuenta",
+  "notificationCommentAdded": "Review añadida",
+  "notificationMessageComment": "La review se ha añadido correctamente",
+  "notificationCommentError": "No se ha añadir la review",
+  "notificationCommentErrorMessage": "Se ha producido un error al añadir la review",
   "notificationNoMarkerNameTitle": "No ha introducido nombre al marcador",
   "notificationNoMarkerName": "El marcador que desea añadir debe tener un nombre",
 

@@ -156,7 +156,7 @@ export async function changePermissions(webId: string, friendWebId: string, sess
     await saveAclFor(myDatasetWithAcl, updatedAcl, {fetch: session.fetch});
 }
 
-export async function checkIfFolderExists(webId: string, session: Session){
+export async function checkIfFolderExists(webId: string, session: Session) {
     let uri = webId.split("/").slice(0, 3).join("/").concat("/lomap/");
     try {
         await getSolidDataset(uri);
@@ -210,7 +210,7 @@ export async function createNewMap(session: Session, mapName: string) {
 
 }
 
-export async function readFileFromPod(fileURL: string, session: Session){
+export async function readFileFromPod(fileURL: string, session: Session) {
     try {
         const file = await getFile(
             fileURL,
@@ -222,7 +222,7 @@ export async function readFileFromPod(fileURL: string, session: Session){
     }
 }
 
-export async function createData(url: string, file: File, session: Session){
+export async function createData(url: string, file: File, session: Session) {
     try {
         await overwriteFile(
             url,
@@ -235,7 +235,7 @@ export async function createData(url: string, file: File, session: Session){
 };
 
 export async function createMarker(idName: string, idCategory: string, idComment: string, idScore: string,
-                                   idLatitude: string, idLongitude: string, fileURL: string,session:Session)  {
+                                   idLatitude: string, idLongitude: string, fileURL: string, session: Session) {
     let name = (document.getElementById(idName) as HTMLInputElement).value;
     let identifier = fileURL.split("lomap")[0] + "profile/card#me"
     let category = (document.getElementById(
@@ -258,10 +258,10 @@ export async function createMarker(idName: string, idCategory: string, idComment
     let json = {
         "@context": "https://schema.org/",
         "@type": "Place",
-        "identifier":uuidv4(),
+        "identifier": uuidv4(),
         "name": name,
         "author": {
-            "@type":"Person",
+            "@type": "Person",
             "identifier": identifier
         },
         "additionalType": category,
@@ -307,13 +307,14 @@ export async function readFile(fileURL: string[], session: Session) {
     try {
         let markers = []
         for (const element of fileURL) {
-            if(element !== undefined){
+            if (element !== undefined) {
                 const file = await getFile(
                     element,
                     {fetch: session.fetch}
                 );
                 let fileContent = await file.text()
                 let fileJSON = JSON.parse(fileContent)
+
                 for (const element of fileJSON.spatialCoverage) {
                     let review = [];
                     let images = [];
@@ -338,7 +339,7 @@ export async function readFile(fileURL: string[], session: Session) {
                     let text = e.options[e.selectedIndex].value;
                     if (category === text || text === "All")
                         markers.push(new Point(identifier, author, latitude,
-                            longitude, name, category, description, date, review, images));
+                            longitude, name, category, description, date, review, images, fileJSON.name));
                 }
             }
 
@@ -347,5 +348,43 @@ export async function readFile(fileURL: string[], session: Session) {
     } catch (err) {
         console.log(err);
     }
+}
+
+export async function uploadComment(fileURL: string, item: Point | undefined, nameFile: string, session: Session) {
+    let score = (document.getElementById("reviewScore") as HTMLInputElement).textContent;
+    let comment = (document.getElementById("reviewComment") as HTMLInputElement).value;
+
+    return await readFileFromPod(fileURL, session).then(fileContent => {
+            try {
+                let fileJSON = JSON.parse(fileContent);
+                for (const element of fileJSON.spatialCoverage) {
+                    if (element.identifier === item?.id) {
+                        element.review.push(
+                            {
+                                "@type": "Review",
+                                "author": {
+                                    "@type": "Person",
+                                    "identifier": session.info.webId
+                                },
+                                "reviewRating": {
+                                    "@type": "Rating",
+                                    "ratingValue": score
+                                },
+                                "datePublished": new Date().valueOf(),
+                                "reviewBody": comment
+                            }
+                        );
+                    }
+                }
+                let blob = new Blob([JSON.stringify(fileJSON, null, 3)], {
+                    type: "application/ld+json",
+                });
+                createData(fileURL, new File([blob], nameFile, {type: blob.type}), session);
+                return true;
+            } catch (err) {
+                return false;
+            }
+        }
+    );
 }
 
