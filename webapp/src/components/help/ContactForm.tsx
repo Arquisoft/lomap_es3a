@@ -33,7 +33,6 @@ function ContactForm() {
                 "template_xtu75gd",
                 emailData
             );
-            console.log(response);
             setName("");
             setEmail("");
             setMessage("");
