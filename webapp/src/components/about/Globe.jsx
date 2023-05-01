@@ -59,7 +59,7 @@ const GlobeComponent = () => {
                     el.onclick = () => console.info(d);
                     return el;
                 }}
-                atmosphereColor="#2929c2"
+                atmosphereColor="#4c6787"
                 width={isMobile ? 400 : 1000}
                 height={isMobile ? 400 : 1000}
             />
