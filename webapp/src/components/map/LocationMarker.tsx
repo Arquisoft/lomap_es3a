@@ -5,11 +5,14 @@ import markerIconPng from "leaflet/dist/images/marker-icon.png"
 import {Icon} from 'leaflet'
 import React, {useState} from "react";
 
-function LocationMarker(props:{setShowLocationMarker:Function,showLocationMarker:boolean}) {
+function LocationMarker(props:{setShowLocationMarker:Function,showLocationMarker:boolean, activeMarker:{id: string, iconSize: [number, number]} | null}) {
     const [position, setPosition] = useState({lat: 43.35470393256756, lng: -5.85129134167161})
 
     useMapEvents({
         click(e) {
+            if(props.activeMarker!==null){
+                props.activeMarker.iconSize = [30,35]
+            }
             props.setShowLocationMarker(true)
             setPosition(e.latlng);
 
