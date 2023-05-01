@@ -1,7 +1,7 @@
 import { Avatar, Box, Card, CardContent, CardHeader, IconButton, styled, Typography } from "@mui/material";
 import React, { useRef } from "react";
 import { GitHub as GitHubIcon } from "@mui/icons-material";
-
+import  Arquisoft  from "../../img/Arquisoft.png";
 class Person {
     name: string;
     image: string;
@@ -39,10 +39,11 @@ export const PersonCard: React.FC<PersonCardProps> = ({ person }) => {
         <Card>
             <StyledCardHeader
                 title={
-                    <Box>
+                    <Box sx={{ textAlign: "center" }}>
                         <Typography variant="h6">{person.name}</Typography>
                         <Typography variant="subtitle1">{person.github}</Typography>
                     </Box>
+
                 }
                 avatar={<StyledAvatar alt={person.name} src={person.image} />}
             />
@@ -61,6 +62,8 @@ export const PersonCard: React.FC<PersonCardProps> = ({ person }) => {
                     <GitHubIcon />
                 </IconButton>
             </div>
+
+
         </Card>
     );
 };
