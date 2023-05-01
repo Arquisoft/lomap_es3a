@@ -508,6 +508,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#section-technical-risks">11. Risks and Technical Debts</a></li>
 <li><a href="#section-glossary">12. Glossary</a></li>
+<li><a href="#_testing">13. Testing</a>
+<ul class="sectlevel2">
+<li><a href="#_unitary_testing_tdd">13.1. Unitary testing (TDD)</a></li>
+<li><a href="#_integration_testing_bdd">13.2. Integration testing (BDD)</a></li>
+<li><a href="#_load_testing">13.3. Load testing</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -1707,6 +1714,84 @@ Firstly, we had chosen <em>IntelliJ</em>, also from JetBrains, but after knowing
 </tbody>
 </table>
 <div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_testing">13. Testing</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_unitary_testing_tdd">13.1. Unitary testing (TDD)</h3>
+<div class="paragraph">
+<p>We used <em>Jest</em> and <em>Testing Library</em> by React for testing our webapp, we followed the structure that we learned in our labs and <a href="https://jestjs.io/docs/getting-started">Jest docs</a>.</p>
+</div>
+<div class="paragraph">
+<p>We created separate tests for each component, in order to test isolated parts and check if every aspect of our app worked, but we faced some problems in the process, as it ended up being almost impossible to check everything, mostly due to compatibility issues with libraries and problems with the react testing library itself (which is not suited to test the useState hook).</p>
+</div>
+<div class="paragraph">
+<p>We reached a total coverage of 58.2% (at the momment of writing this document) with 106 tests in 25 suites, we had to mock the session and functions that interact with the PODs, but sometimes it wasn&#8217;t enought, due to the reasons we commented before.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_integration_testing_bdd">13.2. Integration testing (BDD)</h3>
+<div class="paragraph">
+<p>We used Jest and Cucumber to perform integration testing in our app. Following cucumber gherkin language, we designed tests and User Stories with the structure: "Given, When, Then", which resulted in a lot of facilities when implementing them.</p>
+</div>
+<div class="paragraph">
+<p>As GOMap! uses external technology, such as a Session Provider (Inrupt, SOLID Community, &#8230;&#8203;) or SOLID PODs, we had to test with some default values, written to test if this external techs worked propperly in our app context.</p>
+</div>
+<div class="paragraph">
+<p>In the end we manage to have 2 e2e features, with 4 general tests:</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Feature: Access the app</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Scenario: First time a new user enters the app
+  Given User has never entered to the app
+  When User sees all main page elements
+  Then User can interact with the app</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Feature: Login to an account</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Scenario: Displays login button when user is not logged in
+  Given User is not logged in
+  When User opens up the page
+  Then User can see the login button</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Scenario: User goes to login page and can access to its selected provider login form
+  Given User is not logged in
+  When User opens up login page
+  Then User is able to select a provider and be redirected to the login form</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Scenario: User logs into the app
+  Given User is not logged in
+  When User access to provider's login form
+  Then User is logged in</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_load_testing">13.3. Load testing</h3>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p><strong>About arc42</strong></p>
 </div>
@@ -1729,9 +1814,10 @@ Created by Dr. Peter Hruschka &amp; Dr. Gernot Starke.</p>
 </div>
 </div>
 </div>
+</div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-03-19 19:02:43 +0100
+Last updated 2023-05-01 23:07:08 +0200
 </div>
 </div>
 </body>
