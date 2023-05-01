@@ -15,7 +15,6 @@ interface NotificationState {
 }
 
 class Notification extends Component<NotificationProps, NotificationState> {
-    private timer: ReturnType<typeof setTimeout> | null = null;
 
     constructor(props: NotificationProps) {
         super(props);
@@ -28,13 +27,7 @@ class Notification extends Component<NotificationProps, NotificationState> {
     }
 
     componentDidMount() {
-        this.timer = setTimeout(this.handleClose, 5000);
-    }
-
-    componentWillUnmount() {
-        if (this.timer) {
-            clearTimeout(this.timer);
-        }
+        setTimeout(this.handleClose, 5000);
     }
 
     handleClose() {

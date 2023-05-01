@@ -4,13 +4,13 @@ import {Button, Container} from "@mui/material";
 import React, {useState} from "react";
 import Notification from "../Notification";
 import ReactDOM from "react-dom/client";
-import MapView from "../map/MapView";
+import MapView from "./MapView";
 import Icon from "../../img/symbols/GOMapSymbol.png";
 import {initReactI18next, useTranslation} from "react-i18next";
 import i18n from "../../i18n";
-import Filter from "../map/options/Filter";
-import ImgbbUploader from "../map/ImgbbUploader";
-import {createData, createMarker} from "./PODsInteraction";
+import Filter from "./options/Filter";
+import ImgUploader from "./ImgUploader";
+import {createData, createMarker} from "../pod/PODsInteraction";
 
 
 i18n.use(initReactI18next)
@@ -110,7 +110,7 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
     return (
         <div id="addPanel">
             <div>
-                <ImgbbUploader
+                <ImgUploader
                     apiKey="7e17d052e1f665b83d3addfe291f8047"
                     onUploadSuccess={handleUploadSuccess}
                     onUploadFailure={handleUploadFailure}

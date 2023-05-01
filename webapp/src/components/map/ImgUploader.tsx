@@ -2,7 +2,10 @@ import React, {useState} from "react";
 import IconButton from "@mui/material/IconButton";
 import {PhotoCamera} from "@mui/icons-material";
 import "../../css/map.css";
-import {useTranslation} from "react-i18next";
+import {initReactI18next, useTranslation} from "react-i18next";
+import i18n from "../../i18n";
+
+i18n.use(initReactI18next)
 
 interface ImgbbUploaderProps {
     apiKey: string;
@@ -11,7 +14,7 @@ interface ImgbbUploaderProps {
     buttonId: string;
 }
 
-function ImgbbUploader(props: ImgbbUploaderProps) {
+function ImgUploader(props: ImgbbUploaderProps) {
     const {t} = useTranslation();
     const {apiKey, onUploadSuccess, onUploadFailure} = props;
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -117,4 +120,4 @@ function ImgbbUploader(props: ImgbbUploaderProps) {
     );
 }
 
-export default ImgbbUploader;
+export default ImgUploader;

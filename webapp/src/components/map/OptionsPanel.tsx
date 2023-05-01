@@ -1,6 +1,5 @@
 import Filter from "./options/Filter";
-import Search from "./options/Search";
-import FriendList from "../pod/FriendList";
+import FriendList from "./options/FriendList";
 import {initReactI18next, useTranslation} from "react-i18next";
 import React, {useState} from "react";
 import i18n from "../../i18n";
@@ -16,7 +15,6 @@ function OptionsPanel(props: { setItem: Function }) {
         <div>
             <div id="optionsMenu">
                 <h1>{t("optionsMenu")}</h1>
-                <Search title={t("search")}/>
                 <MapSelector setItem={props.setItem} setSelectedMap={setSelectedMap} selectedMap={selectedMap}/>
                 <div id="filterDiv">
                     <Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={[]}

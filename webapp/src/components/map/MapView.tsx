@@ -1,11 +1,11 @@
 import {MapContainer, TileLayer} from 'react-leaflet';
 import "../../css/react-leaflet.css";
 import 'leaflet/dist/leaflet.css';
-import MarkersPOD from "../pod/MarkersPOD";
+import MarkersPOD from "./MarkersPOD";
 import React from "react";
 
 function MapView(props: { lat: number; lng: number; webId: string[]; setItem: Function }) {
-    const position = {lat: props.lat, lng: props.lng}
+    const position = {lat: props.lat, lng: props.lng};
 
     return (
         <MapContainer center={position} zoom={13} scrollWheelZoom={true} zoomControl={true}>

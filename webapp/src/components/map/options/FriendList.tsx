@@ -1,16 +1,17 @@
 import React, {useEffect, useState} from "react";
 import {useSession} from "@inrupt/solid-ui-react";
-import {findPersonData, FriendMaps, getMaps, PersonData} from "./PODsInteraction";
+import {findPersonData, FriendMaps, getMaps, PersonData} from "../../pod/PODsInteraction";
 import {initReactI18next, useTranslation} from "react-i18next";
-import i18n from "../../i18n";
+import i18n from "../../../i18n";
 import ReactDOM from "react-dom/client";
-import MapView from "../map/MapView";
-import Filter from "../map/options/Filter";
+import MapView from "../MapView";
+import Filter from "./Filter";
 import {Collapse} from "react-bootstrap";
 import {List, ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
 import {ExpandLess, ExpandMore} from "@mui/icons-material";
 import PersonIcon from '@mui/icons-material/Person';
 import MapIcon from '@mui/icons-material/Map';
+import {uuid} from "rdf-namespaces/dist/fhir";
 
 
 i18n.use(initReactI18next)
@@ -67,7 +68,7 @@ function FriendList(props: { setItem: Function,setSelectedMap:Function }) {
     function beautifyMapName(mapName: string, webId: string): string {
         let uri = webId.split("/").slice(0, 3).join("/").concat("/lomap/");
         let shortName = mapName.replace(uri, "").replace(".jsonld", "");
-        return shortName.replace(shortName.charAt(0), shortName.charAt(0).toUpperCase()).replace("%20", "");
+        return shortName.replace(shortName.charAt(0), shortName.charAt(0).toUpperCase()).trim();
     }
 
     function getMarkers(friendMap: string) {
@@ -98,7 +99,7 @@ function FriendList(props: { setItem: Function,setSelectedMap:Function }) {
                     friendsMaps.length > 0 ? (
                         <List>
                             {friendsMaps.map((friend) => (
-                                <div key={friend.webId}>
+                                <div key={uuid}>
                                     <ListItemButton onClick={() => handleClick(friend.name)}>
                                         <ListItemIcon>
                                             <PersonIcon color="primary"/>
