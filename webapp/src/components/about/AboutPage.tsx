@@ -1,5 +1,5 @@
 import React from "react";
-import {Box, Typography, Avatar, Card, CardMedia, CardContent, CardActions, Button, IconButton} from "@mui/material";
+import {Box, Typography, IconButton} from "@mui/material";
 import { styled } from "@mui/material/styles";
 import GlobeComponent from "./Globe";
 import {PersonCard} from "./PersonCard";
