@@ -55,7 +55,8 @@ defineFeature(feature, test => {
 
             then("User is able to select a provider and be redirected to the login form", async () => {
                 await expect(page).toMatch("Log in");
-                await page.goto("https://inrupt.net/login");
+                await page.goto("http://localhost:3000/login");
+                await expect(page).toClick("#loginButton", { text: "Log in" });
                 const url = page.url();
                 expect(url).toBe("https://inrupt.net/login");
             })
@@ -66,12 +67,15 @@ defineFeature(feature, test => {
             let email: string;
             let password: string;
             given("User is not logged in", () => {
-                email = "newuser@test.com"
-                password = "newuser"
+                page.setViewport({ width: 2000, height: 900 });
+                email = "lomapes3aUser"
+                password = "@lomapes3a_Passwd"
             })
 
             when("User access to provider's login form", async () => {
-                await page.goto("https://inrupt.net/login");
+                await page.goto("http://localhost:3000/login");
+                await expect(page).toClick("#loginButton", { text: "Log in" });
+                await new Promise(resolve => setTimeout(resolve, 5000));
                 await expect(page).toFillForm(
                     'form[class="form-horizontal login-up-form"]',
                     {
@@ -79,13 +83,14 @@ defineFeature(feature, test => {
                         password: password,
                     }
                 );
+                await new Promise(resolve => setTimeout(resolve, 5000));
                 await expect(page).toClick("button", { text: "Log In" });
-                await new Promise(resolve => setTimeout(resolve, 4000));
+                await new Promise(resolve => setTimeout(resolve, 5000));
             })
 
             then("User is logged in", async () => {
-                await page.goto("http://localhost:3000");
-                await expect(page).not.toMatch("Log In");
+                await expect(page).not.toMatch("Log in");
+                await new Promise(resolve => setTimeout(resolve, 5000));
             })
         })
 })
