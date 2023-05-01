@@ -94,7 +94,9 @@ function MarkersPOD(props: { webId: string[], setItem: Function }) {
                     </Marker>
                 ))
             }
-             <LocationMarker setShowLocationMarker={setShowLocationMarker} showLocationMarker={showLocationMarker}/>
+            {props.webId.length>0 &&
+                <LocationMarker setShowLocationMarker={setShowLocationMarker} showLocationMarker={showLocationMarker}/>
+            }
         </div>
     )
 }
