@@ -37,13 +37,21 @@ function Filter({titleFilter, nameFilter, usersWebId, setItem}: IProps) {
     categories.push({value: "policeStation", text: t('policeStation')});
     categories.push({value: "transportCenter", text: t('transportCenter')});
     categories.push({value: "entertainment", text: t('entertainment')});
-    categories.push({value: "other", text: t('others')});
+    categories.push({value: "other", text: t('other')});
 
     function updateMarkers() {
         if (nameFilter !== "edit") {
             if (usersWebId !== undefined) {
                 const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
                 root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={usersWebId} setItem={setItem}/>);
+            }
+            const showMarkerPanel = document.getElementById("showMarkerPanel");
+            if (showMarkerPanel !== null) {
+                showMarkerPanel.style.width = "0";
+            }
+            const addMarkerPanel = document.getElementById("addMarkerPanel");
+            if (addMarkerPanel !== null) {
+                addMarkerPanel.style.width = "0";
             }
         }
     }

@@ -336,8 +336,12 @@ select, option {
 }
 
 .no-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 2em 0 2em 0;
-    margin: 1em 0.3em 1em;
+    margin: 1em 0.75em 1em;
     font-style: italic;
     font-weight: lighter;
     border-style: solid;
@@ -384,6 +388,13 @@ select, option {
     color: white;
 }
 
+#friendsList {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: start;
+}
+
 #noFriendsProfile{
     padding: 2em 0 2em 0;
     margin: 1em 0.3em 1em;
@@ -393,4 +404,8 @@ select, option {
     border-radius: 0.3em;
     border-width: 0.1em;
     color: white;
+}
+
+#mapNameItem:hover {
+    background-color: #3e3e8f;
 }

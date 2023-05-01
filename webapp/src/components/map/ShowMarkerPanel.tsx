@@ -1,20 +1,66 @@
 import i18n from "../../i18n";
 import {initReactI18next, useTranslation} from "react-i18next";
-import React from "react";
+import React, {useState} from "react";
 import {Carousel} from "react-bootstrap";
 import {Point} from "../pod/Point";
 import Rating from "@mui/material/Rating";
 import Mark from "./options/Mark";
 import {v4 as uuidv4} from "uuid";
-import {CombinedDataProvider, Image} from "@inrupt/solid-ui-react";
+import {CombinedDataProvider, Image, Text, useSession} from "@inrupt/solid-ui-react";
 import {Avatar} from "@mui/material";
-import {VCARD} from "@inrupt/lit-generated-vocab-common";
+import {FOAF, VCARD} from "@inrupt/lit-generated-vocab-common";
+import profilePhoto from "../../img/profile.png";
+import MapView from "./MapView";
+import ReactDOM from "react-dom/client";
+import {uploadComment} from "../pod/PODsInteraction";
+import Notification from "../Notification";
+import Icon from "../../img/symbols/GOMapSymbol.png";
 
 i18n.use(initReactI18next)
 
-function ShowMarkerPanel(props: { data: Point | undefined }) {
-
+function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) {
+    const {session} = useSession();
     const {t} = useTranslation();
+    const [showNotification, setShowNotification] = useState(false);
+    const [errorComment, setErrorComment] = useState(false)
+
+    function createNotification() {
+        setShowNotification(true);
+        setTimeout(() => {
+            setShowNotification(false);
+        }, 4000);
+    }
+
+    const handleCloseNotification = () => {
+        setShowNotification(false);
+        setErrorComment(false)
+    };
+
+    function removeContent(){
+        (document.getElementById("reviewComment") as HTMLInputElement).value="";
+        let score = (document.getElementById("reviewScore") as HTMLInputElement).textContent;
+        (document.getElementsByClassName("MuiRating-visuallyHidden")[Number(score)] as HTMLInputElement).click();
+    }
+
+    function handleClick(): void {
+        let nameFile = props.data?.mapName + ".jsonld";
+        let route= props.data?.author !== undefined ? props.data?.author.slice(0, -15).concat("lomap/" + nameFile) :
+                (document.getElementById("selectMap") as HTMLSelectElement).value;
+        uploadComment(route, props.data, nameFile, session).then((result) => {
+            createNotification();
+            if (result) {
+                closeMenu();
+                removeContent();
+                const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
+                root.render(<MapView lat={Number(props.data?.latitude)}
+                                     lng={Number(props.data?.longitude)}
+                                     setItem={props.setItem}
+                                     webId={[route]}/>);
+            } else {
+                setErrorComment(true);
+            }
+        })
+    }
 
     function closeMenu() {
         const showMarkerPanel = document.getElementById("showMarkerPanel");
@@ -37,10 +83,18 @@ function ShowMarkerPanel(props: { data: Point | undefined }) {
             for (const element of reviews) {
                 total += Number(element.reviewRating);
             }
-            return Number(total / reviews.length);
+            return Number((total / reviews.length).toFixed(1));
         }
         return 0;
     }
+
+    const dropdownTitle = (
+        <span>
+            <CombinedDataProvider datasetUrl={props.data.author} thingUrl={props.data.author}>
+                <Text property={FOAF.name.iri.value} autosave/>
+            </CombinedDataProvider>
+        </span>
+    );
 
     return (
         <div id="showMarkerPanel">
@@ -49,13 +103,19 @@ function ShowMarkerPanel(props: { data: Point | undefined }) {
                 <CombinedDataProvider datasetUrl={props.data.author} thingUrl={props.data.author}>
                     <Avatar
                         alt="Profile picture"
-                        sx={{ width: 65, height: 65, mb: 2, margin: 0 }}
-                    >
-                        <Image property={VCARD.hasPhoto.iri.value} width={65} />
+                        sx={{width: 65, height: 65, mb: 2, margin: 0}}>
+                        {
+                            VCARD.hasPhoto.iri.value !== '' &&
+                            <Image property={VCARD.hasPhoto.iri.value} width={65}/>
+                        }
+                        {
+                            VCARD.hasPhoto.iri.value === '' &&
+                            <img src={profilePhoto} width={65} alt={props.data.author}/>
+                        }
                     </Avatar>
                 </CombinedDataProvider>
                 <div id="profileMarkerData">
-                    <h3>{props.data.author.slice(8, -27).toLocaleUpperCase(sessionStorage.getItem("language") || "en")}</h3>
+                    <h3>{dropdownTitle}</h3>
                     <h4>{new Date(props.data.dateCreated).toLocaleDateString(sessionStorage.getItem("language") || "en")}</h4>
                 </div>
             </div>
@@ -105,18 +165,18 @@ function ShowMarkerPanel(props: { data: Point | undefined }) {
                     <div id="addReview">
                         <Mark title={""} id={"reviewScore"}/>
                         <textarea id="reviewComment" placeholder={t("addReview") ?? ""}/>
-                        <button id="reviewButton">{t("add")}</button>
+                        <button id="reviewButton" onClick={handleClick}>{t("add")}</button>
                     </div>
                     {
                         props.data.review.map((reviewItem) => (
-                            <div className="review" key={reviewItem.author}>
+                            <div className="review" key={uuidv4()}>
                                 <div className="profileReview">
                                     <CombinedDataProvider datasetUrl={reviewItem.author} thingUrl={reviewItem.author}>
                                         <Avatar
                                             alt="Profile picture"
-                                            sx={{ width: 65, height: 65, mb: 2, margin: 0 }}
+                                            sx={{width: 65, height: 65, mb: 2, margin: 0}}
                                         >
-                                            <Image property={VCARD.hasPhoto.iri.value} width={65} />
+                                            <Image property={VCARD.hasPhoto.iri.value} width={65}/>
                                         </Avatar>
                                     </CombinedDataProvider>
                                     <div id="nameAndDate">
@@ -141,6 +201,31 @@ function ShowMarkerPanel(props: { data: Point | undefined }) {
                     }
                 </div>
             </div>
+            {
+                showNotification &&
+                (
+                    <Notification
+                        title={t("notificationCommentAdded")}
+                        message={t("notificationMessageComment")}
+                        time={t("notificationTime")}
+                        icon={Icon}
+                        onClose={handleCloseNotification}
+                    />
+                )
+            }
+            {
+                errorComment &&
+                (
+                    <Notification
+                        title={t("notificationCommentError")}
+                        message={t("notificationCommentErrorMessage")}
+                        time={t("notificationTime")}
+                        icon={Icon}
+                        onClose={handleCloseNotification}
+                    />
+                )
+            }
+
         </div>
     )
 }
