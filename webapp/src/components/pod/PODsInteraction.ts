@@ -1,7 +1,9 @@
 import {
     buildThing,
-    createAclFromFallbackAcl, createContainerAt,
-    getContainedResourceUrlAll, getFile,
+    createAclFromFallbackAcl,
+    createContainerAt,
+    getContainedResourceUrlAll,
+    getFile,
     getResourceAcl,
     getSolidDataset,
     getSolidDatasetWithAcl,
@@ -11,7 +13,6 @@ import {
     hasAccessibleAcl,
     hasFallbackAcl,
     hasResourceAcl,
-    IriString,
     overwriteFile,
     saveAclFor,
     saveSolidDatasetAt,
@@ -48,17 +49,17 @@ async function findFullPersonProfile(webId: string, session: Session, response: 
             response.push(dataset)
         }
     } catch (e) {
-        console.log(e)
+        console.log(e);
     }
     return response
 }
 
 
-export async function findPersonData(session: Session, webId: IriString) {
+export async function findPersonData(session: Session, webId: string) {
     const data: PersonData = {webId: webId, photo: '', name: '', friends: []}
     if (webId) {
         const dataset = await findFullPersonProfile(webId, session)
-        const result = dataset.reduce((data, d) => {
+        return dataset.reduce((data, d) => {
             const person = getThing(d, webId)
             if (person) {
                 const friends = getTermAll(person, foaf.knows).map(a => a.value)
@@ -78,9 +79,7 @@ export async function findPersonData(session: Session, webId: IriString) {
             }
             return data
         }, data)
-        return result
     }
-
     return data;
 }
 
@@ -156,7 +155,7 @@ export async function changePermissions(webId: string, friendWebId: string, sess
     await saveAclFor(myDatasetWithAcl, updatedAcl, {fetch: session.fetch});
 }
 
-export async function checkIfFolderExists(webId: string, session: Session) {
+export async function checkIfFolderExists(webId: string, session: Session){
     let uri = webId.split("/").slice(0, 3).join("/").concat("/lomap/");
     try {
         await getSolidDataset(uri);

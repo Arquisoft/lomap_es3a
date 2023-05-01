@@ -63,14 +63,12 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
     }
 
     function closeMenu() {
-        const showMarkerPanel = document.getElementById("showMarkerPanel");
-        if (showMarkerPanel !== null) {
-            showMarkerPanel.style.width = "0";
-        }
+        const showMarkerPanel = document.getElementById("showMarkerPanel") as HTMLElement;
+        showMarkerPanel.style.width = "0";
     }
 
     if (!props.data) {
-        return null
+        return null;
     }
 
     function calculateTotal(): number {
@@ -139,7 +137,7 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
                 <h3>{props.data.name}</h3>
                 <div id="showMarkerScore">
                     <p id="totalReviews">
-                        ({props.data.review.length})
+                        ({props.data.review ? props.data.review.length : 0})
                     </p>
                     <Rating
                         name="size-medium"
@@ -163,12 +161,12 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
                 <div id="reviews">
                     <h4 id="reviewsTitle">{t("reviews")}</h4>
                     <div id="addReview">
-                        <Mark title={""} id={"reviewScore"}/>
+                        <Mark/>
                         <textarea id="reviewComment" placeholder={t("addReview") ?? ""}/>
                         <button id="reviewButton" onClick={handleClick}>{t("add")}</button>
                     </div>
                     {
-                        props.data.review.map((reviewItem) => (
+                        props.data.review?.map((reviewItem) => (
                             <div className="review" key={uuidv4()}>
                                 <div className="profileReview">
                                     <CombinedDataProvider datasetUrl={reviewItem.author} thingUrl={reviewItem.author}>

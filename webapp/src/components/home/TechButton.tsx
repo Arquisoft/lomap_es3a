@@ -1,4 +1,8 @@
-import {TechButtonType} from "../../shared/shareddtypes";
+interface TechButtonType {
+    href: string;
+    img: string;
+    text: string;
+}
 
 function TechButton({href, img, text}: TechButtonType) {
     return (

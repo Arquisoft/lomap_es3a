@@ -1,14 +1,22 @@
 import {CombinedDataProvider, Image, useSession} from "@inrupt/solid-ui-react";
 import React, {useEffect, useState} from "react";
-import {addFriendToPod, changePermissions, findPersonData, PersonData, removeFriendFromPOD} from "../pod/PODsInteraction";
-import {useTranslation} from "react-i18next";
+import {
+    addFriendToPod,
+    changePermissions,
+    findPersonData,
+    PersonData,
+    removeFriendFromPOD
+} from "../pod/PODsInteraction";
+import {initReactI18next, useTranslation} from "react-i18next";
 import "../../css/friends.css"
 import Avatar from "@mui/material/Avatar";
 import {VCARD} from "@inrupt/lit-generated-vocab-common";
 import Icon from "../../img/symbols/GOMapSymbol.png";
 import Notification from "../Notification";
 import profilePhoto from "../../img/profile.png";
+import i18n from "../../i18n";
 
+i18n.use(initReactI18next)
 
 function ManageFriends() {
     const {session} = useSession();
@@ -18,21 +26,19 @@ function ManageFriends() {
     const [friendRemove, setFriendRemove] = useState(false)
     const [friendPermissions, setFriendPermissions] = useState(false)
     const [personData, setPersonData] = useState<PersonData>({webId: '', photo: '', name: '', friends: []})
-    const {webId} = session.info;
     const [friends, setFriendList] = useState<PersonData[]>([]);
     const [showButtonAdd, setShowButtonAdd] = useState(true)
     const {t} = useTranslation();
 
     const providers = [
-        { name: "Inrupt", value: "https://inrupt.net" },
-        { name: "SolidCommunity", value: "https://solidcommunity.net" },
+        {name: "Inrupt", value: "https://inrupt.net"},
+        {name: "SolidCommunity", value: "https://solidcommunity.net"},
     ];
-
 
     useEffect(() => {
         async function loadPersonData() {
-            if (webId !== undefined) {
-                const data = await findPersonData(session, webId)
+            if (session.info.webId !== undefined) {
+                const data = await findPersonData(session, session.info.webId)
                 if (data) {
                     setPersonData(data)
                 }
@@ -40,7 +46,7 @@ function ManageFriends() {
         }
 
         loadPersonData()
-    }, [webId, session])
+    }, [session])
 
     useEffect(() => {
         async function fetchFriends() {
@@ -51,8 +57,9 @@ function ManageFriends() {
                 setFriendList(names);
             }
         }
+
         fetchFriends()
-    }, [personData.friends, session])
+    }, [personData, session])
 
     function showFormAddFriend() {
         setShowButtonAdd(false)
@@ -65,14 +72,14 @@ function ManageFriends() {
         setFriendPermissions(false)
     }
 
-    function changeProvider(){
+    function changeProvider() {
         let provider = (document.getElementById("selectProviderFriend") as HTMLSelectElement).value;
         setIdp(provider)
     }
 
     async function removeFriend(friendWebId: string) {
-        await removeFriendFromPOD(friendWebId, webId!)
-        const data = await findPersonData(session, webId!)
+        await removeFriendFromPOD(friendWebId, session.info.webId!)
+        const data = await findPersonData(session, session.info.webId!)
         setPersonData(data)
         setFriendRemove(true)
     }
@@ -80,17 +87,17 @@ function ManageFriends() {
     async function addFriend() {
         let provider = idp
         let friendName = (document.getElementById("inputNameFriend") as HTMLInputElement).value
-        let error = await addFriendToPod(provider, friendName, webId!, session)
+        let error = await addFriendToPod(provider, friendName, session.info.webId!, session)
         setError(error)
         if (!error) {
-            const data = await findPersonData(session, webId!)
+            const data = await findPersonData(session, session.info.webId!)
             setPersonData(data)
             setFriendAdd(true)
         }
     }
 
     async function givePermissions(friendWebId: string) {
-        let webIdWithoutProfile = webId!.split("profile")[0]
+        let webIdWithoutProfile = session.info.webId!.split("profile")[0]
         await changePermissions(webIdWithoutProfile, friendWebId, session)
         setFriendPermissions(true)
     }
@@ -112,7 +119,7 @@ function ManageFriends() {
                         </div>
                         <div id="friendName">
                             <p>{t("userName")}</p>
-                            <input type="text" id="inputNameFriend"></input>
+                            <input type="text" id="inputNameFriend" placeholder={t("placesNamePlaceholder") ?? ""}></input>
                         </div>
                         <div id="buttonAddFriendToPod">
                             <button onClick={addFriend}>{t("buttonAddFriend")}</button>
@@ -123,9 +130,9 @@ function ManageFriends() {
                 }
                 {
                     personData.friends.length > 0 ?
-                    <div id="friendsTable" >
-                        <table>
-                            <thead>
+                        <div id="friendsTable">
+                            <table>
+                                <thead>
                                 <tr>
                                     <th scope="col">{t("friendName")}</th>
                                     <th scope="col">{t("friendPermissions")}</th>
@@ -134,7 +141,7 @@ function ManageFriends() {
                                 </thead>
                                 <tbody>
                                 {
-                                    friends.map(friend => (
+                                    friends.filter(friend => friend !== undefined).map(friend => (
                                         <tr key={friend.webId}>
                                             <th scope="row">
                                                 <div id="friendNamePhoto">
@@ -214,4 +221,5 @@ function ManageFriends() {
         </div>
     )
 }
+
 export default ManageFriends
