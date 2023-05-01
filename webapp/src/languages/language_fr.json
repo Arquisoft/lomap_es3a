@@ -49,6 +49,8 @@
   "notificationCommentErrorMessage": "Une erreur s'est produite lors de l'ajout du commentaire",
   "notificationNoMarkerNameTitle": "Pas de nom de marqueur saisi",
   "notificationNoMarkerName": "Le marqueur que vous souhaitez ajouter doit avoir un nom",
+  "notificationImageError": "Image non ajoutée",
+  "notificationImageErrorMessage": "Impossible d'ajouter l'image",
 
   "footer": "© Arquisoft - UNIOVI",
   "homeInfo1": "GOMap!® est une application qui permet aux utilisateurs d'avoir des cartes personnalisées sur les lieux et les commerces locaux de leur ville, tels que des magasins, des bars, des restaurants, des monuments, des cinémas...",

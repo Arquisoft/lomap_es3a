@@ -49,6 +49,8 @@
   "notificationCommentErrorMessage": "Hebo un fallu al amestar el comentariu",
   "notificationNoMarkerNameTitle": "Nun se introdució nome pal marcador",
   "notificationNoMarkerName": "El marcador que quier añadir ha de tener un nome",
+  "notificationImageError": "Imaxe non amestada",
+  "notificationImageErrorMessage": "Nun se pudo amestar la imaxe",
 
   "footer": "© Arquisoft - UNIOVI",
   "homeInfo1": "GOMap!® ye una aplicación onde los usuarios puen tener mapes personalizaos tocante llugares y negocios locales na so ciudá, como tiendes, bares, restaurantes, monumentos, cines...",

@@ -49,6 +49,8 @@
   "notificationCommentErrorMessage": "An error occurred while adding the review",
   "notificationNoMarkerNameTitle": "No marker name entered",
   "notificationNoMarkerName": "The marker you want to add must have a name",
+  "notificationImageError": "Image not added",
+  "notificationImageErrorMessage": "Could not add the image",
 
   "footer": "© Arquisoft - UNIOVI",
   "homeInfo1": "GOMap!® is an application where users can have custom maps about places and local business in their city like shops, bars, restaurants, monuments, cinemas...",
