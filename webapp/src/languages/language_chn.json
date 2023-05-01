@@ -49,6 +49,10 @@
   "notificationCommentErrorMessage": "添加评论时出错",
   "notificationNoMarkerNameTitle": "未输入标记名称",
   "notificationNoMarkerName": "您要添加的标记必须具有名称",
+  "notificationImageError": "图片未添加",
+  "notificationImageErrorMessage": "无法添加图片",
+  "notificationImageAdded": "图片已添加",
+  "notificationMessageImage": "图片已成功添加",
 
   "footer": "© Arquisoft - UNIOVI",
   "homeInfo1": "GOMap!®是一个应用程序，用户可以在其中创建个性化地图，显示他们城市中的本地商家和场所，如商店、酒吧、餐厅、纪念碑、电影院等等。",
@@ -133,5 +137,11 @@
   "edit-name": "编辑名称",
   "confirm-name": "确认编辑",
   "have-friends": "你有",
-  "text-friend": "朋友"
+  "text-friend": "朋友",
+  "our-developers": "我们的开发人员",
+  "about-web": "关于网页",
+  "about-subject": "关于主题",
+  "about-sub": "软件架构课程的目标是教授学生设计和构建复杂、健壮、可扩展的软件系统所需的概念、技术和方法论。在课程中，学生将学习如何识别系统要求、分析和设计架构，并使用适当的设计模式、框架和工具来实现它。还将强调与软件质量、效率、安全性和易于维护相关的方面。学生将有机会在团队中参与实际项目，应用所学概念，发展团队合作、有效沟通和软件生命周期管理等技能。",
+  "about-webcon": "GoMap 是一款创新的 Web 平台，使用 SOLID 技术可以注册用户账户，确保你的个人信息完全安全和私密。使用 GoMap，可以创建具有不同分类的个性化地图，并添加带有图片和评论的点。你可以与你的 SOLID 朋友共享这些地图，他们也可以在你的点上添加评论。这个工具特别适用于旅行计划、探索未知地方、组织团体活动等。使用 GoMap，你完全控制自己的地图和个人数据，可以享受安全和个性化的在线体验。"
+
 }

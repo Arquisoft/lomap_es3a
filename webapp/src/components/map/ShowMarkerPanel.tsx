@@ -7,14 +7,15 @@ import Rating from "@mui/material/Rating";
 import Mark from "./options/Mark";
 import {v4 as uuidv4} from "uuid";
 import {CombinedDataProvider, Image, Text, useSession} from "@inrupt/solid-ui-react";
-import {Avatar} from "@mui/material";
+import {Avatar, Button, Container} from "@mui/material";
 import {FOAF, VCARD} from "@inrupt/lit-generated-vocab-common";
 import profilePhoto from "../../img/profile.png";
 import MapView from "./MapView";
 import ReactDOM from "react-dom/client";
-import {uploadComment} from "../pod/PODsInteraction";
+import {uploadComment, uploadImage} from "../pod/PODsInteraction";
 import Notification from "../Notification";
 import Icon from "../../img/symbols/GOMapSymbol.png";
+import ImgUploader from "./ImgUploader";
 
 i18n.use(initReactI18next)
 
@@ -22,7 +23,10 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
     const {session} = useSession();
     const {t} = useTranslation();
     const [showNotification, setShowNotification] = useState(false);
-    const [errorComment, setErrorComment] = useState(false)
+    const [showNotificationImage, setShowNotificationImage] = useState(false);
+    const [errorComment, setErrorComment] = useState(false);
+    const [errorImage, setErrorImage] = useState(false);
+    const [imageUploadUrl, setImageUploadUrl] = useState("");
 
     function createNotification() {
         setShowNotification(true);
@@ -31,33 +35,60 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
         }, 4000);
     }
 
+    function createNotificationImage() {
+        setShowNotificationImage(true);
+        setTimeout(() => {
+            setShowNotificationImage(false);
+        }, 4000);
+    }
+
     const handleCloseNotification = () => {
         setShowNotification(false);
-        setErrorComment(false)
+        setErrorComment(false);
+        setErrorImage(false);
     };
 
-    function removeContent(){
-        (document.getElementById("reviewComment") as HTMLInputElement).value="";
+    function removeContent() {
+        (document.getElementById("reviewComment") as HTMLInputElement).value = "";
         let score = (document.getElementById("reviewScore") as HTMLInputElement).textContent;
         (document.getElementsByClassName("MuiRating-visuallyHidden")[Number(score)] as HTMLInputElement).click();
     }
 
+    function getRoute() {
+        return props.data?.author !== undefined ? props.data?.author.split("/").slice(0, 3).join("/").concat("/lomap/" + props.data?.mapName + ".jsonld") :
+            (document.getElementById("selectMap") as HTMLSelectElement).value;
+    }
+
+    function renderMap() {
+        const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
+        root.render(<MapView lat={Number(props.data?.latitude)}
+                             lng={Number(props.data?.longitude)}
+                             setItem={props.setItem}
+                             webId={[getRoute()]}/>);
+    }
+
     function handleClick(): void {
-        let nameFile = props.data?.mapName + ".jsonld";
-        let route= props.data?.author !== undefined ? props.data?.author.slice(0, -15).concat("lomap/" + nameFile) :
-                (document.getElementById("selectMap") as HTMLSelectElement).value;
-        uploadComment(route, props.data, nameFile, session).then((result) => {
+        uploadComment(getRoute(), props.data, props.data?.mapName + ".jsonld", session).then((result) => {
             createNotification();
             if (result) {
                 closeMenu();
                 removeContent();
-                const root = ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement);
-                root.render(<MapView lat={Number(props.data?.latitude)}
-                                     lng={Number(props.data?.longitude)}
-                                     setItem={props.setItem}
-                                     webId={[route]}/>);
+                renderMap();
             } else {
                 setErrorComment(true);
+            }
+        })
+    }
+
+    function handleClickImage(): void {
+        uploadImage(getRoute(), props.data, props.data?.mapName + ".jsonld", imageUploadUrl, session).then((result) => {
+            createNotificationImage();
+            if (result) {
+                closeMenu();
+                removeContent();
+                renderMap();
+            } else {
+                setErrorImage(true);
             }
         })
     }
@@ -93,6 +124,14 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
             </CombinedDataProvider>
         </span>
     );
+
+    function handleUploadSuccessImage(imageUrl: string) {
+        setImageUploadUrl(imageUrl);
+    }
+
+    function handleUploadFailureImage(error: Error) {
+        console.error(error);
+    }
 
     return (
         <div id="showMarkerPanel">
@@ -165,6 +204,23 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
                         <textarea id="reviewComment" placeholder={t("addReview") ?? ""}/>
                         <button id="reviewButton" onClick={handleClick}>{t("add")}</button>
                     </div>
+                    <div id="image-upload-container">
+                        <div id="container_upload">
+                            <ImgUploader
+                                apiKey="7e17d052e1f665b83d3addfe291f8047"
+                                onUploadSuccess={handleUploadSuccessImage}
+                                onUploadFailure={handleUploadFailureImage}
+                                buttonId={"uploadMarkerButton"}
+                            />
+                            <Container id="imgContainer">
+                                {imageUploadUrl && <img src={imageUploadUrl} alt="Uploaded" width="100%" height="100%"
+                                                        id="upload_image"/>}
+                            </Container>
+                            <Button variant="contained" color="primary" onClick={handleClickImage}>
+                                {t("confirm")}
+                            </Button>
+                        </div>
+                    </div>
                     {
                         props.data.review?.map((reviewItem) => (
                             <div className="review" key={uuidv4()}>
@@ -200,6 +256,18 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
                 </div>
             </div>
             {
+                showNotificationImage &&
+                (
+                    <Notification
+                        title={t("notificationImageAdded")}
+                        message={t("notificationMessageImage")}
+                        time={t("notificationTime")}
+                        icon={Icon}
+                        onClose={handleCloseNotification}
+                    />
+                )
+            }
+            {
                 showNotification &&
                 (
                     <Notification
@@ -223,7 +291,18 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
                     />
                 )
             }
-
+            {
+                errorImage &&
+                (
+                    <Notification
+                        title={t("notificationImageError")}
+                        message={t("notificationImageErrorMessage")}
+                        time={t("notificationTime")}
+                        icon={Icon}
+                        onClose={handleCloseNotification}
+                    />
+                )
+            }
         </div>
     )
 }

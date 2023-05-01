@@ -13,7 +13,7 @@ import FooterInfo from "./FooterInfo";
 i18n.use(initReactI18next)
 
 function HomePage() {
-    const {t} = useTranslation();
+    const { t } = useTranslation();
 
     const [showWelcomeNotification, setShowWelcomeNotification] = useState(false);
 
