@@ -55,12 +55,25 @@
             <a href="#🛠-pila-de-tecnologías">
                Pila de tecnologías.
             </a>
+         </li>
       </ol>
     </li>
     <li>
       <a href="#📑-instrucciones-de-despliegue">
          Instrucciones de despliegue.
       </a>
+      <ol>
+         <li>
+            <a href="#despliegue-utilizando-docker">
+               Despliegue con Docker.
+            </a>
+         </li>
+         <li>
+            <a href="#despliegue-nativo-(node)">
+               Despliegue nativo (Node).
+            </a>
+         </li>
+      </ol>
     </li>
   </ol>
 </details>
@@ -98,14 +111,12 @@ La lista completa de las tecnologías empleadas, junto con sus decisiones arquit
    <li><a href="https://nodejs.org/en">NodeJS</a>.</li>
    <li><a href="https://www.typescriptlang.org/">TypeScript</a>.</li>
    <li><a href="https://solidproject.org/">SOLID</a>.</li>
-   <li><a href="https://www.mongodb.com/">MongoDB</a>.</li>
    <li><a href="https://www.openstreetmap.org/">OpenStreetMap</a>.</li>
 </ul>
 
 ## 📑 Instrucciones de despliegue:
-
 <p align="justify">
-   En primer lugar, se debe instalar Node (puede hacerse a través del enlace en la <a href="🛠-pila-de-tecnologías">pila de tecnologías</a>). En caso de que ya esté instalado, debe asegurarse que se tiene la última versión del mismo.
+   En primer lugar, se debe instalar <a href="https://nodejs.org/en">Node</a>. En caso de que ya esté instalado, debe asegurarse que se tiene la última versión del mismo.
 </p>
 <p align="justify">
    Para ejecutar el proyecto, será necesario clonarlo primero, por lo que es necesario tener git (accede a través del siguiente <a href="https://git-scm.com/downloads">enlace</a>), y posteriormente, clonar este respositorio en un directorio local, ya sea descargándo el repositoio en formato <em>.zip</em> o de la siguiente manera:
@@ -123,6 +134,8 @@ La lista completa de las tecnologías empleadas, junto con sus decisiones arquit
 <p align="justify">
    Una vez hecho esto, puede lanzarse de dos maneras, usando docker, o lanzando la aplicación en 2 partes.
 </p>
+
+### Despliegue utilizando Docker
 <p align="justify">
    En caso de que se decida emplear docker, se debe situar en la raiz del directorio del proyecto y ejecutar la siguiente orden mediante consola:
 </p>
@@ -132,26 +145,23 @@ docker-compose up --build
 ```
 
 <p align="justify">
-   Esto creará dos imágenes docker en tu sistema y lanzará la base de datos de MongoDB, también se lanzarán varias métricas donde se registrará el uso de la aplicación, sin embargo, para acceder a la aplicación, basta con ir al siguiente <a href="http://localhost:3000">enlace</a>.
+   Esto creará una imagen docker en tu sistema.
 </p>
 
+### Despliegue nativo (Node)
 <p align="justify">
    En caso de que se quiera lanzar sin emplear docker, se debe compilar el proyecto y posteriormente, a través de la raíz del directorio, ejecutar las siguientes órdenes en consola:
 </p>
 
 ```shell
-# Lanzar la restapi
-cd restapi
-npm install
-npm start
-
-cd ..
-
 # Lanzar la webapp
 cd webapp
 npm install
 npm start
 ```
+<p align="justify">
+A pesar de la distinción en cuanto a la forma de lanzar la aplicación, para acceder a esta (y una vez realizado uno de las dos ramas anteriores), basta con ir al siguiente <a href="http://localhost:3000">enlace</a>.
+</p>
 
 <footer>
    <p>
