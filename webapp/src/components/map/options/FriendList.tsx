@@ -77,7 +77,7 @@ function FriendList(props: { setItem: Function,setSelectedMap:Function }) {
             root.render(<MapView lat={43.3548057} lng={-5.8534646} webId={[friendMap]}
                                  setItem={props.setItem}/>);
             const root2 = ReactDOM.createRoot(document.getElementById("filterDiv") as HTMLElement);
-            root2.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={[friendMap]}
+            root2.render(<Filter nameFilter={"option"} usersWebId={[friendMap]}
                                  setItem={props.setItem}/>);
             props.setSelectedMap("")
         }

@@ -84,7 +84,7 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
                     });
 
                 const rootFilter = ReactDOM.createRoot(document.getElementById("filterDiv") as HTMLElement);
-                rootFilter.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={[route]}
+                rootFilter.render(<Filter nameFilter={"option"} usersWebId={[route]}
                                           setItem={setItem}/>);
                 let optionsMenu = document.getElementById("markersMenu");
                 if (optionsMenu !== null) {
