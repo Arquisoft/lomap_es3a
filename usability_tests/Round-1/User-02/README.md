@@ -6,14 +6,13 @@
 
 |             Categories              |                      Results                      |
 |:-----------------------------------:|:-------------------------------------------------:|
-|                 Age                 |                                                   |
-|                Gender               |                                                   |
-|     Level of computer expertise     |                                                   |
-|         Time spent on Task 1        |                                                   |
-|         Time spent on Task 2        |                                                   |
-|         Time spent on Task 3        |                                                   |
-|          Average time spent         |                                                   |
-|       Correct tasks completion      |                                                   |
-|          User's comments            |                                                   |
-|      User's requested changes       |                                                   |
-|          User's evaluation          |                                                   |
+|                 Age                 |                        20                         |
+|                Gender               |                      Female                       |
+|     Level of computer expertise     |                        8                          |
+|         Time spent on Task 1        |                      145,60                       |
+|         Time spent on Task 2        |                      102,23                       |
+|         Time spent on Task 3        |                      134,64                       |
+|          Average time spent         |                      127,49                       |
+|       Correct tasks completion      |                       100%                        |
+|       User's requested changes      |    Size of the app should adapt to the screen     |
+|          User's evaluation          |                        8                          |

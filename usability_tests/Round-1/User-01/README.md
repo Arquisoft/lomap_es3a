@@ -6,14 +6,13 @@
 
 |             Categories              |                      Results                      |
 |:-----------------------------------:|:-------------------------------------------------:|
-|                 Age                 |                                                   |
-|                Gender               |                                                   |
-|     Level of computer expertise     |                                                   |
-|         Time spent on Task 1        |                                                   |
-|         Time spent on Task 2        |                                                   |
-|         Time spent on Task 3        |                                                   |
-|          Average time spent         |                                                   |
-|       Correct tasks completion      |                                                   |
-|          User's comments            |                                                   |
-|      User's requested changes       |                                                   |
-|          User's evaluation          |                                                   |
+|                 Age                 |                        51                         |
+|                Gender               |                      Female                       |
+|     Level of computer expertise     |                        6                          |
+|         Time spent on Task 1        |                      189,23                       |
+|         Time spent on Task 2        |                      134,93                       |
+|         Time spent on Task 3        |                      163,45                       |
+|          Average time spent         |                      162,54                       |
+|       Correct tasks completion      |                       100%                        |
+|      User's requested changes       |   Add more options to filter the selected map     |
+|          User's evaluation          |                        7                          |

@@ -14,6 +14,5 @@
 |         Time spent on Task 3        |                                                   |
 |          Average time spent         |                                                   |
 |       Correct tasks completion      |                                                   |
-|          User's comments            |                                                   |
 |      User's requested changes       |                                                   |
 |          User's evaluation          |                                                   |
