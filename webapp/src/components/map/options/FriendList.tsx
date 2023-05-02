@@ -38,7 +38,7 @@ function FriendList(props: { setItem: Function,setSelectedMap:Function }) {
             }
         }
 
-        loadPersonData().then(() => {})
+        loadPersonData().catch(error => console.log(error))
     }, [webId, session])
 
     useEffect(() => {
@@ -61,7 +61,7 @@ function FriendList(props: { setItem: Function,setSelectedMap:Function }) {
             }
         }
 
-        fetchFriends().then(() => {})
+        fetchFriends().catch(error => console.log(error))
     }, [personData.friends, session])
 
 

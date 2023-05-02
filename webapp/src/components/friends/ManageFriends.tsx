@@ -44,7 +44,7 @@ function ManageFriends() {
                 }
             }
         }
-        loadPersonData().then(() => {})
+        loadPersonData().catch(error => console.log(error))
     }, [session])
 
     useEffect(() => {
@@ -57,7 +57,7 @@ function ManageFriends() {
             }
         }
 
-        fetchFriends().then(() => {})
+        fetchFriends().catch(error => console.log(error))
     }, [personData, session])
 
     function showFormAddFriend() {
@@ -121,7 +121,7 @@ function ManageFriends() {
                             <input type="text" id="inputNameFriend" placeholder={t("placesNamePlaceholder") ?? ""}></input>
                         </div>
                         <div id="buttonAddFriendToPod">
-                            <button onClick={addFriend}>{t("buttonAddFriend")}</button>
+                            <button onClick={() => addFriend().catch(error => console.log(error))}>{t("buttonAddFriend")}</button>
                         </div>
                     </div>
                 )
@@ -163,11 +163,11 @@ function ManageFriends() {
                                             </th>
                                             <td>
                                                 <button id="buttonPermissions"
-                                                        onClick={() => givePermissions(friend.webId)}>{t("buttonGivePermissions")}</button>
+                                                        onClick={() => givePermissions(friend.webId).catch(error => console.log(error))}>{t("buttonGivePermissions")}</button>
                                             </td>
                                             <td>
                                                 <button id="buttonDelete"
-                                                        onClick={() => removeFriend(friend.webId)}>{t("buttonRemoveFriend")}</button>
+                                                        onClick={() => removeFriend(friend.webId).catch(error => console.log(error))}>{t("buttonRemoveFriend")}</button>
                                             </td>
                                         </tr>
                                     ))
