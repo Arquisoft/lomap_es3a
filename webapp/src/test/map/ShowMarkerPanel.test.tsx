@@ -10,7 +10,8 @@ jest.mock('../../components/map/MapView', () => {
 
 jest.mock("../../components/pod/PODsInteraction", () => {
     return {
-        uploadComment: jest.fn()
+        uploadComment: jest.fn(),
+        checkPhoto: jest.fn(),
     };
 })
 
@@ -22,14 +23,14 @@ describe('ShowMarkerPanel', () => {
         category: "Prueba categoria",
         description: "Prueba descripción",
         id: "1",
-        author: "Omar",
+        author: "https://omitg.inrupt.net/profile/card#me",
         review: [{
-            author: "Omar", datePublished: new Date().getTime(), comment: "Prueba comentario 1", reviewRating: 5
+            author: "https://omitg.inrupt.net/profile/card#me", datePublished: new Date().getTime(), comment: "Prueba comentario 1", reviewRating: 5
         }, {
-            author: "Carlos", datePublished: new Date().getTime(), comment: "Prueba comentario 2", reviewRating: 3
+            author: "https://carlos.inrupt.net/profile/card#me", datePublished: new Date().getTime(), comment: "Prueba comentario 2", reviewRating: 3
         },
             {
-                author: "David", datePublished: new Date().getTime(), comment: "Prueba comentario 3", reviewRating: 4
+                author: "https://david.inrupt.net/profile/card#me", datePublished: new Date().getTime(), comment: "Prueba comentario 3", reviewRating: 4
             }],
         image: [{
             author: "Omar",
@@ -62,7 +63,7 @@ describe('ShowMarkerPanel', () => {
             category: "Prueba categoria",
             description: "Prueba descripción",
             id: "1",
-            author: "Omar",
+            author: "https://omitg.inrupt.net/profile/card#me",
             review: [],
             image: [],
             dateCreated: new Date().getTime(),
