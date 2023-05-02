@@ -212,11 +212,11 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
                                 onUploadFailure={handleUploadFailureImage}
                                 buttonId={"uploadMarkerButton"}
                             />
-                            <Container id="imgContainer">
+                            <Container id="imgContainer" hidden={true}>
                                 {imageUploadUrl && <img src={imageUploadUrl} alt="Uploaded" width="100%" height="100%"
-                                                        id="upload_image"/>}
+                                                        id="upload_image" />}
                             </Container>
-                            <Button variant="contained" color="primary" onClick={handleClickImage}>
+                            <Button variant="contained" color="primary" onClick={handleClickImage} id="buttonAddImageToPod">
                                 {t("confirm")}
                             </Button>
                         </div>
