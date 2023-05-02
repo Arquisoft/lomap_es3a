@@ -21,6 +21,7 @@ import {CombinedDataProvider, Image, LogoutButton, Text} from '@inrupt/solid-ui-
 import {GroupAdd, Person} from "@mui/icons-material";
 import LogoutIcon from '@mui/icons-material/Logout';
 import i18n from "../../i18n";
+import {checkPhoto} from "../pod/PODsInteraction";
 
 i18n.use(initReactI18next)
 
@@ -59,8 +60,10 @@ const OurAvatar = ({webId}: AvatarType) => {
                                 <Avatar
                                     alt="Profile picture"
                                     sx={{width: 65, height: 65, mb: 2, margin: 0}}
+                                    id="photoProfileNavBar"
                                 >
                                     <Image property={VCARD.hasPhoto.iri.value} width={65}/>
+                                    {checkPhoto("photoProfileNavBar")}
                                 </Avatar>
                             </CombinedDataProvider>
                         </IconButton>
@@ -105,7 +108,7 @@ const OurAvatar = ({webId}: AvatarType) => {
                         </MenuItem>
                         <MenuItem>
                             <LogoutButton>
-                                <Button variant="contained" color="error" id="logout">
+                                <Button variant="contained" color="error" id="logout" onClick={() => window.location.reload()}>
                                     <LogoutIcon/>
                                     {t('logout')}
                                 </Button>

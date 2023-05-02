@@ -12,7 +12,7 @@ import IconButton from "@mui/material/IconButton";
 
 import ContactEmergencyIcon from '@mui/icons-material/ContactEmergency';
 import i18n from "../../i18n";
-import {findPersonData, PersonData} from "../pod/PODsInteraction";
+import {checkPhoto, findPersonData, PersonData} from "../pod/PODsInteraction";
 
 i18n.use(initReactI18next)
 
@@ -62,6 +62,7 @@ function UserProfile() {
                 );
                 setFriendList(names);
             }
+
         }
 
         fetchFriends()
@@ -75,8 +76,9 @@ function UserProfile() {
         <div id="friends-configuration">
             <Box id="box">
                 <CombinedDataProvider datasetUrl={webId} thingUrl={webId}>
-                    <Avatar sx={{width: 200, height: 200, mb: 2}}>
+                    <Avatar id="photoUser" sx={{width: 200, height: 200, mb: 2}}>
                         <Image property={VCARD.hasPhoto.iri.value} width={200} alt="Profile image"/>
+                        {checkPhoto("photoUser")}
                     </Avatar>
                     <IconButton onClick={handleButtonClick}>
                         <ContactEmergencyIcon/>{t("pod-profile")}
