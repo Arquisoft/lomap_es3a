@@ -43,7 +43,7 @@ function ContactForm() {
         }
     };
 
-    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    async function handleSubmit(event: React.FormEvent<HTMLFormElement>){
         event.preventDefault();
         await handleSendEmail();
     };
@@ -51,7 +51,7 @@ function ContactForm() {
     return (
         <div>
             <h1>{t("contactUs")}</h1>
-            <form onSubmit={() => void handleSubmit}>
+            <form onSubmit={(e) => void handleSubmit(e)}>
                 <h2>
                     <label htmlFor="name">{t("name")}</label>
                 </h2>
