@@ -121,7 +121,7 @@ function ManageFriends() {
                             <input type="text" id="inputNameFriend" placeholder={t("placesNamePlaceholder") ?? ""}></input>
                         </div>
                         <div id="buttonAddFriendToPod">
-                            <button onClick={() => Promise.resolve(addFriend)}>{t("buttonAddFriend")}</button>
+                            <button onClick={() => void Promise.resolve(addFriend)}>{t("buttonAddFriend")}</button>
                         </div>
                     </div>
                 )
