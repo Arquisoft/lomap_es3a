@@ -50,7 +50,7 @@ const OurAvatar = ({webId}: AvatarType) => {
 
 
     return (
-        <Container maxWidth="xs">
+        <Container>
             <Toolbar disableGutters>
                 <Box sx={{flexGrow: 0}}>
                     <Tooltip title={t("options-profile")}>
@@ -82,8 +82,8 @@ const OurAvatar = ({webId}: AvatarType) => {
                         onClose={handleCloseUserMenu}
                     >
                         <MenuItem onClick={handleCloseUserMenu} component={Link} to="/profile">
-                            <Typography textAlign="center">{t("registered-as")}
-                                <strong><em>{dropdownTitle}</em></strong>
+                            <Typography textAlign="center">
+                                {t("registered-as")} <strong><em>{dropdownTitle}</em></strong>
                             </Typography>
                         </MenuItem>
                         <Divider style={{borderColor: "#333"}}/>

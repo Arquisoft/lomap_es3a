@@ -23,7 +23,7 @@ function ContactMap() {
                 icon={new Icon({
                     iconUrl: GOMapSymbol,
                     iconSize: [48, 48],
-                    iconAnchor: [24, 24],
+                    iconAnchor: [24, 48],
                 })}
             >
                 <Popup>{t("office")}</Popup>
