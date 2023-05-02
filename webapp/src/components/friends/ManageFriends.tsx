@@ -44,8 +44,7 @@ function ManageFriends() {
                 }
             }
         }
-
-        loadPersonData()
+        loadPersonData().then(() => {})
     }, [session])
 
     useEffect(() => {
@@ -58,7 +57,7 @@ function ManageFriends() {
             }
         }
 
-        fetchFriends()
+        fetchFriends().then(() => {})
     }, [personData, session])
 
     function showFormAddFriend() {

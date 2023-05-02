@@ -16,8 +16,8 @@ function LanguageMenu() {
 
     const {t} = useTranslation();
 
-    function handleLanguageChange(language: string)  {
-        i18n.changeLanguage(language).then(() => {
+    async function handleLanguageChange(language: string)  {
+        await i18n.changeLanguage(language).then(() => {
             console.log("Language changed correctly");
         });
         setSelectedLanguage(language);
