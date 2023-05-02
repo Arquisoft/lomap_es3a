@@ -1,25 +1,19 @@
-import { Avatar, Box, Card, CardContent, CardHeader, IconButton, styled, Typography } from "@mui/material";
-import React, { useRef } from "react";
-import { GitHub as GitHubIcon } from "@mui/icons-material";
-class Person {
+import {Avatar, Box, Card, CardContent, CardHeader, IconButton, styled, Typography} from "@mui/material";
+import React, {useRef} from "react";
+import {GitHub as GitHubIcon} from "@mui/icons-material";
+
+interface Person {
     name: string;
     image: string;
     description: string;
     github: string;
-
-    constructor(name: string, image: string, description: string, github: string) {
-        this.name = name;
-        this.image = image;
-        this.description = description;
-        this.github = github;
-    }
 }
 
 interface PersonCardProps {
     person: Person;
 }
 
-export const PersonCard: React.FC<PersonCardProps> = ({ person }) => {
+export const PersonCard: React.FC<PersonCardProps> = ({person}) => {
     const StyledAvatar = styled(Avatar)({
         width: 100,
         height: 100,
@@ -38,18 +32,18 @@ export const PersonCard: React.FC<PersonCardProps> = ({ person }) => {
         <Card>
             <StyledCardHeader
                 title={
-                    <Box sx={{ textAlign: "center" }}>
+                    <Box sx={{textAlign: "center"}}>
                         <Typography variant="h6">{person.name}</Typography>
                         <Typography variant="subtitle1">{person.github}</Typography>
                     </Box>
 
                 }
-                avatar={<StyledAvatar alt={person.name} src={person.image} />}
+                avatar={<StyledAvatar alt={person.name} src={person.image}/>}
             />
             <CardContent>
-                <Typography variant="body1">{person.description}</Typography>
+                <Typography variant="body1" sx={{textAlign: "center"}}>{person.description}</Typography>
             </CardContent>
-            <div style={{ display: "flex", justifyContent: "center" }}>
+            <div style={{display: "flex", justifyContent: "center"}}>
                 <IconButton
                     aria-label={`View ${person.name}'s GitHub profile`}
                     component="a"
@@ -58,7 +52,7 @@ export const PersonCard: React.FC<PersonCardProps> = ({ person }) => {
                     rel="noopener"
                     ref={buttonRef}
                 >
-                    <GitHubIcon />
+                    <GitHubIcon/>
                 </IconButton>
             </div>
 
