@@ -417,13 +417,5 @@ export async function uploadImage(fileURL: string, item: Point | undefined, name
     );
 }
 
-export function checkPhoto(id:string){
-    let photo = document.getElementById(id)
-    if (photo?.querySelector('img') === null) {
-        let spanElement = photo.querySelector('span');
-        if (spanElement !== null) {
-            photo.removeChild(spanElement);
-        }
-    }
-}
+
 

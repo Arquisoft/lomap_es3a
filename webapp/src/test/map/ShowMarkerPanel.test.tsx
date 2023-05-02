@@ -10,8 +10,7 @@ jest.mock('../../components/map/MapView', () => {
 
 jest.mock("../../components/pod/PODsInteraction", () => {
     return {
-        uploadComment: jest.fn(),
-        checkPhoto: jest.fn(),
+        uploadComment: jest.fn()
     };
 })
 

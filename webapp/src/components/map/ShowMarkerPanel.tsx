@@ -11,7 +11,7 @@ import {Avatar, Button, Container} from "@mui/material";
 import {FOAF, VCARD} from "@inrupt/lit-generated-vocab-common";
 import MapView from "./MapView";
 import ReactDOM from "react-dom/client";
-import {checkPhoto, uploadComment, uploadImage} from "../pod/PODsInteraction";
+import { uploadComment, uploadImage} from "../pod/PODsInteraction";
 import Notification from "../Notification";
 import Icon from "../../img/symbols/GOMapSymbol.png";
 import ImgUploader from "./ImgUploader";
@@ -145,7 +145,7 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
                     >
 
                             <Image property={VCARD.hasPhoto.iri.value} width={65}/>
-                            {checkPhoto("photoDivMarkerPanel")}
+
 
                     </Avatar>
                 </CombinedDataProvider>
