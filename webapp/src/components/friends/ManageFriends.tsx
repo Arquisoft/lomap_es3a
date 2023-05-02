@@ -121,7 +121,7 @@ function ManageFriends() {
                             <input type="text" id="inputNameFriend" placeholder={t("placesNamePlaceholder") ?? ""}></input>
                         </div>
                         <div id="buttonAddFriendToPod">
-                            <button onClick={() => void Promise.resolve(addFriend)}>{t("buttonAddFriend")}</button>
+                            <button onClick={() => void addFriend()}>{t("buttonAddFriend")}</button>
                         </div>
                     </div>
                 )
@@ -163,11 +163,11 @@ function ManageFriends() {
                                             </th>
                                             <td>
                                                 <button id="buttonPermissions"
-                                                        onClick={() => givePermissions(friend.webId).catch(error => console.log(error))}>{t("buttonGivePermissions")}</button>
+                                                        onClick={() => void givePermissions(friend.webId)}>{t("buttonGivePermissions")}</button>
                                             </td>
                                             <td>
                                                 <button id="buttonDelete"
-                                                        onClick={() => removeFriend(friend.webId).catch(error => console.log(error))}>{t("buttonRemoveFriend")}</button>
+                                                        onClick={() => void removeFriend(friend.webId)}>{t("buttonRemoveFriend")}</button>
                                             </td>
                                         </tr>
                                     ))
