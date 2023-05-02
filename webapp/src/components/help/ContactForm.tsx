@@ -29,7 +29,7 @@ function ContactForm() {
         try {
             console.log(email);
             await emailjs.send(
-                "service_tpdbggk",
+                "service_stc5l45",
                 "template_xtu75gd",
                 emailData
             );
