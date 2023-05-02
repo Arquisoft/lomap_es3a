@@ -200,7 +200,7 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
                     <div id="addReview">
                         <Mark/>
                         <textarea id="reviewComment" placeholder={t("addReview") ?? ""}/>
-                        <button id="reviewButton" onClick={handleClick}>{t("add")}</button>
+                        <button id="reviewButton" onClick={() => void handleClick}>{t("add")}</button>
                     </div>
                     <div id="image-upload-container">
                         <div id="container_upload">
@@ -216,7 +216,7 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
                                 {imageUploadUrl && <img src={imageUploadUrl} alt="Uploaded" width="100%" height="100%"
                                                         id="upload_image" />}
                             </Container>
-                            <Button variant="contained" color="primary" onClick={handleClickImage} id="buttonAddImageToPod">
+                            <Button variant="contained" color="primary" onClick={() => void handleClickImage} id="buttonAddImageToPod">
                                 {t("confirm")}
                             </Button>
                         </div>

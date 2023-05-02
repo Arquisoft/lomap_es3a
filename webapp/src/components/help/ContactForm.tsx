@@ -51,7 +51,7 @@ function ContactForm() {
     return (
         <div>
             <h1>{t("contactUs")}</h1>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={() => void handleSubmit}>
                 <h2>
                     <label htmlFor="name">{t("name")}</label>
                 </h2>
