@@ -51,7 +51,7 @@ function UserProfile() {
             }
         }
 
-        loadPersonData()
+        loadPersonData().then(() => {})
     }, [webId, session])
 
     useEffect(() => {
@@ -65,7 +65,7 @@ function UserProfile() {
 
         }
 
-        fetchFriends()
+        fetchFriends().then(() => {})
     }, [personData.friends, session])
 
     function handleButtonClick() {

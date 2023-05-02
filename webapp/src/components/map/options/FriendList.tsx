@@ -38,7 +38,7 @@ function FriendList(props: { setItem: Function,setSelectedMap:Function }) {
             }
         }
 
-        loadPersonData()
+        loadPersonData().then(() => {})
     }, [webId, session])
 
     useEffect(() => {
@@ -57,11 +57,11 @@ function FriendList(props: { setItem: Function,setSelectedMap:Function }) {
                 const names = await Promise.all(
                     personData.friends.map((friend) => findPersonData(session, friend))
                 );
-                fetchFriendsMaps(names);
+                await fetchFriendsMaps(names);
             }
         }
 
-        fetchFriends()
+        fetchFriends().then(() => {})
     }, [personData.friends, session])
 
 

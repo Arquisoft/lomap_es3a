@@ -66,8 +66,8 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
                              webId={[getRoute()]}/>);
     }
 
-    function handleClick(): void {
-        uploadComment(getRoute(), props.data, props.data?.mapName + ".jsonld", session).then((result) => {
+    async function handleClick() {
+        await uploadComment(getRoute(), props.data, props.data?.mapName + ".jsonld", session).then((result) => {
             createNotification();
             if (result) {
                 closeMenu();
@@ -79,8 +79,8 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
         })
     }
 
-    function handleClickImage(): void {
-        uploadImage(getRoute(), props.data, props.data?.mapName + ".jsonld", imageUploadUrl, session).then((result) => {
+    async function handleClickImage() {
+        await uploadImage(getRoute(), props.data, props.data?.mapName + ".jsonld", imageUploadUrl, session).then((result) => {
             createNotificationImage();
             if (result) {
                 closeMenu();
