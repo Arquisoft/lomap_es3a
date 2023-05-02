@@ -17,7 +17,7 @@ function OptionsPanel(props: { setItem: Function }) {
                 <h1>{t("optionsMenu")}</h1>
                 <MapSelector setItem={props.setItem} setSelectedMap={setSelectedMap} selectedMap={selectedMap}/>
                 <div id="filterDiv">
-                    <Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={[]}
+                    <Filter nameFilter={"option"} usersWebId={[]}
                             setItem={props.setItem}/>
                 </div>
                 <div id="friendDiv">

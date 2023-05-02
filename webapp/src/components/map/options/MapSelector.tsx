@@ -51,7 +51,7 @@ function MapSelector(props: { setItem: Function,setSelectedMap:Function,selected
     function render(route: string, element: string) {
         if (element === "filter") {
             ReactDOM.createRoot(document.getElementById("filterDiv") as HTMLElement)
-                .render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={[route]}
+                .render(<Filter nameFilter={"option"} usersWebId={[route]}
                                 setItem={props.setItem}/>);
         } else if (element === "mapView") {
             ReactDOM.createRoot(document.getElementById("mapView") as HTMLElement)

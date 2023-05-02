@@ -53,6 +53,11 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
     function removeContent(){
         (document.getElementById("namePlace") as HTMLInputElement).value="";
         (document.getElementById("comment") as HTMLTextAreaElement).value="";
+        const root = ReactDOM.createRoot(document.getElementById("addMarkerToPODButton") as HTMLDivElement);
+        root.render(<ButtonAddPod idName={idName} idCategory={idCategory} idComment={idComment}
+                                  idScore={idScore}
+                                  idLatitude={idLatitude} idLongitude={idLongitude} setItem={setItem}/>)
+
     }
 
     async function handleClick() {
@@ -79,7 +84,7 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
                     });
 
                 const rootFilter = ReactDOM.createRoot(document.getElementById("filterDiv") as HTMLElement);
-                rootFilter.render(<Filter titleFilter={t("category")} nameFilter={"option"} usersWebId={[route]}
+                rootFilter.render(<Filter nameFilter={"option"} usersWebId={[route]}
                                           setItem={setItem}/>);
                 let optionsMenu = document.getElementById("markersMenu");
                 if (optionsMenu !== null) {
@@ -95,6 +100,7 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
                     addMarkerPanel.style.width = "0";
                 }
                 removeContent()
+
             }
         }
     };
@@ -109,7 +115,7 @@ function ButtonAddPod({idName, idCategory, idComment, idScore, idLatitude, idLon
 
     return (
         <div id="addPanel">
-            <div>
+            <div id="renderImgUploader">
                 <ImgUploader
                     apiKey="7e17d052e1f665b83d3addfe291f8047"
                     onUploadSuccess={handleUploadSuccess}

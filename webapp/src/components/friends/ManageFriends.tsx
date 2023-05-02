@@ -44,8 +44,7 @@ function ManageFriends() {
                 }
             }
         }
-
-        loadPersonData()
+        loadPersonData().catch(error => console.log(error))
     }, [session])
 
     useEffect(() => {
@@ -58,7 +57,7 @@ function ManageFriends() {
             }
         }
 
-        fetchFriends()
+        fetchFriends().catch(error => console.log(error))
     }, [personData, session])
 
     function showFormAddFriend() {
@@ -122,7 +121,7 @@ function ManageFriends() {
                             <input type="text" id="inputNameFriend" placeholder={t("placesNamePlaceholder") ?? ""}></input>
                         </div>
                         <div id="buttonAddFriendToPod">
-                            <button onClick={addFriend}>{t("buttonAddFriend")}</button>
+                            <button onClick={() => void addFriend()}>{t("buttonAddFriend")}</button>
                         </div>
                     </div>
                 )
@@ -164,11 +163,11 @@ function ManageFriends() {
                                             </th>
                                             <td>
                                                 <button id="buttonPermissions"
-                                                        onClick={() => givePermissions(friend.webId)}>{t("buttonGivePermissions")}</button>
+                                                        onClick={() => void givePermissions(friend.webId)}>{t("buttonGivePermissions")}</button>
                                             </td>
                                             <td>
                                                 <button id="buttonDelete"
-                                                        onClick={() => removeFriend(friend.webId)}>{t("buttonRemoveFriend")}</button>
+                                                        onClick={() => void removeFriend(friend.webId)}>{t("buttonRemoveFriend")}</button>
                                             </td>
                                         </tr>
                                     ))

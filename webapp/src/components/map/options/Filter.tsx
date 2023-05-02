@@ -7,13 +7,12 @@ import MapView from "../MapView";
 i18n.use(initReactI18next)
 
 interface IProps {
-    titleFilter: string,
     nameFilter: string,
     usersWebId: string[],
     setItem: Function
 }
 
-function Filter({titleFilter, nameFilter, usersWebId, setItem}: IProps) {
+function Filter({nameFilter, usersWebId, setItem}: IProps) {
     const {t} = useTranslation();
 
     let categories = [];
@@ -61,7 +60,7 @@ function Filter({titleFilter, nameFilter, usersWebId, setItem}: IProps) {
 
     return (
         <div>
-            <h2>{titleFilter}</h2>
+            <h2>{t("category")}</h2>
             <select id={id} onChange={updateMarkers}>
                 {categories.map((option, index) => (
                     <option key={option.value} value={option.value}>

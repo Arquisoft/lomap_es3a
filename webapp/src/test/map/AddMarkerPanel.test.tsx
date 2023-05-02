@@ -38,7 +38,7 @@ describe("AddMarkerPanel component", () => {
         expect(component.getByText("Place's name")).toBeInTheDocument();
         expect(component.getByText("Category")).toBeInTheDocument();
         expect(component.getByText("Description")).toBeInTheDocument();
-        expect(component.getByText("Upload the image")).toBeInTheDocument();
+        expect(component.getByText("Upload image")).toBeInTheDocument();
     });
 
     it("change category", () => {

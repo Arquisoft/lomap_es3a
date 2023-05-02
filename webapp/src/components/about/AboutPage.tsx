@@ -14,46 +14,49 @@ import i18n from "../../i18n";
 
 i18n.use(initReactI18next);
 
-const DeveloperBox = styled(Box)({
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "stretch",
-    justifyContent: "space-around",
-    flexWrap: "wrap",
-    gap: "10px",
-});
-
-const Carlos = {
-    name: "Carlos Diez Fernández",
-    image: CarlosImg,
-    description: "I am a 21-year-old boy who studies computer engineering at the University of Oviedo. That's why I love programming.",
-    github: "uo284373",
-};
-
-const Raul = {
-    name: "Raúl Fernández España",
-    image: RaulImg,
-    description: "I am a 22-year-old software engineering student who has a particular interest in front-end development and video games. Over the past few months, I have been focusing on developing my skills in React.",
-    github: "UO278036",
-};
-
-const Omar = {
-    name: "Omar Teixeira González",
-    image: OmarImg,
-    description: "I'm a 21 yo, currently studying software engineerig who is very interested in everything related to Technology, I love learning new things about software (or hardware, which I'm tend to learn for myself).",
-    github: "Omitg24",
-};
-
-const David = {
-    name: "David Warzynski Abril",
-    image: DavidImg,
-    description: "I am a 21-year-old male studying computer engineering at the University of Oviedo, and as such, I have developed a passion for programming.",
-    github: "UO278968",
-};
 
 
-const AboutPage = () => {
+
+function AboutPage() {
     const {t} = useTranslation();
+
+    const DeveloperBox = styled(Box)({
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "stretch",
+        justifyContent: "space-around",
+        flexWrap: "wrap",
+        gap: "10px",
+    });
+
+    const Carlos = {
+        name: "Carlos Diez Fernández",
+        image: CarlosImg,
+        description: t("descriptionCarlos"),
+        github: "uo284373",
+    };
+
+    const Raul = {
+        name: "Raúl Fernández España",
+        image: RaulImg,
+        description: t("descriptionRaul"),
+        github: "UO278036",
+    };
+
+    const Omar = {
+        name: "Omar Teixeira González",
+        image: OmarImg,
+        description: t("descriptionOmar"),
+        github: "Omitg24",
+    };
+
+    const David = {
+        name: "David Warzynski Abril",
+        image: DavidImg,
+        description: t("descriptionDavid"),
+        github: "UO278968",
+    };
+
     return (
         <Box
             sx={{mx: "auto", maxWidth: "80%", px: 2, py: 0}}>

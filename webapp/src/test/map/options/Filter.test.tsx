@@ -16,7 +16,6 @@ describe('Filter', () => {
 
     it('renders correctly', () => {
         const props = {
-            titleFilter: 'testTitle',
             nameFilter: 'testName',
             usersWebId: [],
             setItem: jest.fn(),
@@ -24,12 +23,11 @@ describe('Filter', () => {
 
         const { getByText } = render(<Filter {...props} />);
 
-        expect(getByText('testTitle')).toBeInTheDocument();
+        expect(getByText('Category')).toBeInTheDocument();
     });
 
     it('updates markers when category is changed', () => {
         const props = {
-            titleFilter: 'testTitle',
             nameFilter: 'testName',
             usersWebId: [],
             setItem: jest.fn(),
