@@ -386,3 +386,7 @@ select, option {
     justify-content: center;
     margin-bottom: 2.5em;
 }
+
+#buttonAddImageToPod{
+    margin-top: 1em;
+}

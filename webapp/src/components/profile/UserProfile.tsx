@@ -44,14 +44,13 @@ function UserProfile() {
     useEffect(() => {
         async function loadPersonData() {
             if (webId !== undefined) {
-                const data = await findPersonData(session, webId)
+                const data = await findPersonData(session, webId);
                 if (data) {
-                    setPersonData(data)
+                    setPersonData(data);
                 }
             }
         }
-
-        loadPersonData()
+        loadPersonData().catch(error => console.log(error))
     }, [webId, session])
 
     useEffect(() => {
@@ -64,7 +63,7 @@ function UserProfile() {
             }
         }
 
-        fetchFriends()
+        fetchFriends().catch(error => console.log(error))
     }, [personData.friends, session])
 
     function handleButtonClick() {
@@ -75,8 +74,9 @@ function UserProfile() {
         <div id="friends-configuration">
             <Box id="box">
                 <CombinedDataProvider datasetUrl={webId} thingUrl={webId}>
-                    <Avatar sx={{width: 200, height: 200, mb: 2}}>
+                    <Avatar id="photoUser" sx={{width: 200, height: 200, mb: 2}}>
                         <Image property={VCARD.hasPhoto.iri.value} width={200} alt="Profile image"/>
+
                     </Avatar>
                     <IconButton onClick={handleButtonClick}>
                         <ContactEmergencyIcon/>{t("pod-profile")}

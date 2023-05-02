@@ -34,7 +34,7 @@ function AddMarkerPanel(props: { setItem: Function }) {
                     <h2 hidden={true}>{t("longitude")}</h2>
                     <input type="text" id="longitude" readOnly={true} hidden={true}/>
                 </div>
-                <Filter titleFilter={t("category")} nameFilter={"edit"} usersWebId={user} setItem={props.setItem}/>
+                <Filter  nameFilter={"edit"} usersWebId={user} setItem={props.setItem}/>
                 <div>
                     <h2>{t("description")}</h2>
                     <textarea id="comment" placeholder={t("descriptionPlaceholder") ?? ""}></textarea>

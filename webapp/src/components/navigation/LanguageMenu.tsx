@@ -16,8 +16,8 @@ function LanguageMenu() {
 
     const {t} = useTranslation();
 
-    function handleLanguageChange(language: string)  {
-        i18n.changeLanguage(language).then(() => {
+    async function handleLanguageChange(language: string)  {
+        await i18n.changeLanguage(language).then(() => {
             console.log("Language changed correctly");
         });
         setSelectedLanguage(language);
@@ -30,37 +30,37 @@ function LanguageMenu() {
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-                <div className="dropdown-item" onClick={() => handleLanguageChange('en')}>
+                <div className="dropdown-item" onClick={() => void handleLanguageChange('en')}>
                     <img src={UKFlag} alt="Flag of UK" width="24"/>
                     <Dropdown.Item active={selectedLanguage === 'en'}>
                         {t("english")}
                     </Dropdown.Item>
                 </div>
-                <div className="dropdown-item" onClick={() => handleLanguageChange('es')}>
+                <div className="dropdown-item" onClick={() => void handleLanguageChange('es')}>
                     <img src={SpainFlag} alt="Flag of Spain" width="24"/>
                     <Dropdown.Item active={selectedLanguage === 'es'}>
                         {t("spanish")}
                     </Dropdown.Item>
                 </div>
-                <div className="dropdown-item" onClick={() => handleLanguageChange('fr')}>
+                <div className="dropdown-item" onClick={() => void handleLanguageChange('fr')}>
                     <img src={FranceFlag} alt="Flag of France" width="24"/>
                     <Dropdown.Item active={selectedLanguage === 'fr'}>
                         {t("french")}
                     </Dropdown.Item>
                 </div>
-                <div className="dropdown-item" onClick={() => handleLanguageChange('deu')}>
+                <div className="dropdown-item" onClick={() => void handleLanguageChange('deu')}>
                     <img src={GermanyFlag} alt="Flag of Germany" width="24"/>
                     <Dropdown.Item active={selectedLanguage === 'deu'}>
                         {t("german")}
                     </Dropdown.Item>
                 </div>
-                <div className="dropdown-item" onClick={() => handleLanguageChange('chn')}>
+                <div className="dropdown-item" onClick={() => void handleLanguageChange('chn')}>
                     <img src={ChinaFlag} alt="Flag of China" width="24"/>
                     <Dropdown.Item active={selectedLanguage === 'chn'}>
                         {t("chinese")}
                     </Dropdown.Item>
                 </div>
-                <div className="dropdown-item" onClick={() => handleLanguageChange('ast')}>
+                <div className="dropdown-item" onClick={() => void handleLanguageChange('ast')}>
                     <img src={AsturiasFlag} alt="Flag of Asturias" width="24"/>
                     <Dropdown.Item active={selectedLanguage === 'ast'}>
                         {t("asturian")}

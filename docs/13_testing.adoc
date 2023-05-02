@@ -50,3 +50,9 @@ Feature: Login to an account
 
 === Load testing
 
+Load testing is a process of testing the performance of a system by simulating a large number of users accessing the system. This tests are important to ensure the performance quality goal defined previously. In our case, to perform this test we used Gatling tool. This tool allows to record an action in the website and later simulate this actions but with a large number of users. Finally, we can see the results of the test and the average time of all the requests and a more complete report of the test.
+
+In our case, we managed to achieve a load test of the app with a 3 users per second and a total duration of 15 seconds. The results obtained reflect that the average time of the requests was above 1200 ms. This is because our application makes multiple calls to the PODs, so the response time is less. The complete results can be seen in the following image in which we can see how 572 requests have been made, of which 65 took less than 800 ms, 46 took between 800 and 1200 ms, 396 took more than 1200 ms and 65 failed due to reasons of the connection with the PODs which is foreign to us.
+
+:imagesdir: ./images
+image::LoadTest.png[Load Test]

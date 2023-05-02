@@ -28,6 +28,7 @@ import {v4 as uuidv4} from "uuid";
 import {ImageMarker, Point, Review} from "./Point";
 
 
+
 export interface PersonData {
     webId: string
     photo: string
@@ -235,7 +236,7 @@ export async function createData(url: string, file: File, session: Session) {
 export async function createMarker(idName: string, idCategory: string, idComment: string, idScore: string,
                                    idLatitude: string, idLongitude: string, fileURL: string, session: Session) {
     let name = (document.getElementById(idName) as HTMLInputElement).value;
-    let identifier = fileURL.split("lomap")[0] + "profile/card#me"
+    let identifier = fileURL.split("/").slice(0, 3).join("/").concat("/profile/card#me")
     let category = (document.getElementById(
         idCategory
     ) as HTMLInputElement).value;
@@ -415,4 +416,6 @@ export async function uploadImage(fileURL: string, item: Point | undefined, name
         }
     );
 }
+
+
 
