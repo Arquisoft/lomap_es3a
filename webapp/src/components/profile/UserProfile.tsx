@@ -44,28 +44,33 @@ function UserProfile() {
     useEffect(() => {
         async function loadPersonData() {
             if (webId !== undefined) {
-                const data = await findPersonData(session, webId)
-                if (data) {
-                    setPersonData(data)
+                try {
+                    const data = await findPersonData(session, webId);
+                    if (data) {
+                        setPersonData(data);
+                    }
+                } catch (error) {
+                    console.log(error);
                 }
             }
         }
-
-        loadPersonData().then(() => {})
+        loadPersonData()
     }, [webId, session])
 
     useEffect(() => {
         async function fetchFriends() {
             if (personData.friends.length > 0) {
-                const names = await Promise.all(
-                    personData.friends.map((friend: string) => findPersonData(session, friend))
-                );
-                setFriendList(names);
+                try {
+                    const names = await Promise.all(
+                        personData.friends.map((friend: string) => findPersonData(session, friend))
+                    );
+                    setFriendList(names);
+                }catch(error){
+                    console.log(error)
+                }
             }
-
         }
-
-        fetchFriends().then(() => {})
+        fetchFriends()
     }, [personData.friends, session])
 
     function handleButtonClick() {
