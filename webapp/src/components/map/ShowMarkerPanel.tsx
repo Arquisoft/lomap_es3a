@@ -9,10 +9,9 @@ import {v4 as uuidv4} from "uuid";
 import {CombinedDataProvider, Image, Text, useSession} from "@inrupt/solid-ui-react";
 import {Avatar, Button, Container} from "@mui/material";
 import {FOAF, VCARD} from "@inrupt/lit-generated-vocab-common";
-import profilePhoto from "../../img/profile.png";
 import MapView from "./MapView";
 import ReactDOM from "react-dom/client";
-import {uploadComment, uploadImage} from "../pod/PODsInteraction";
+import {checkPhoto, uploadComment, uploadImage} from "../pod/PODsInteraction";
 import Notification from "../Notification";
 import Icon from "../../img/symbols/GOMapSymbol.png";
 import ImgUploader from "./ImgUploader";
@@ -91,6 +90,7 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
                 setErrorImage(true);
             }
         })
+
     }
 
     function closeMenu() {
@@ -140,15 +140,13 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
                 <CombinedDataProvider datasetUrl={props.data.author} thingUrl={props.data.author}>
                     <Avatar
                         alt="Profile picture"
-                        sx={{width: 65, height: 65, mb: 2, margin: 0}}>
-                        {
-                            VCARD.hasPhoto.iri.value !== '' &&
+                        sx={{width: 65, height: 65, mb: 2, margin: 0}}
+                        id="photoDivMarkerPanel"
+                    >
+
                             <Image property={VCARD.hasPhoto.iri.value} width={65}/>
-                        }
-                        {
-                            VCARD.hasPhoto.iri.value === '' &&
-                            <img src={profilePhoto} width={65} alt={props.data.author}/>
-                        }
+                            {checkPhoto("photoDivMarkerPanel")}
+
                     </Avatar>
                 </CombinedDataProvider>
                 <div id="profileMarkerData">
@@ -206,17 +204,19 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
                     </div>
                     <div id="image-upload-container">
                         <div id="container_upload">
-                            <ImgUploader
-                                apiKey="7e17d052e1f665b83d3addfe291f8047"
-                                onUploadSuccess={handleUploadSuccessImage}
-                                onUploadFailure={handleUploadFailureImage}
-                                buttonId={"uploadMarkerButton"}
-                            />
-                            <Container id="imgContainer">
+                            <div id="photoShowMarkerPanelDiv">
+                                <ImgUploader
+                                    apiKey="7e17d052e1f665b83d3addfe291f8047"
+                                    onUploadSuccess={handleUploadSuccessImage}
+                                    onUploadFailure={handleUploadFailureImage}
+                                    buttonId={"uploadMarkerButton"}
+                                />
+                            </div>
+                            <Container id="imgContainer" hidden={true}>
                                 {imageUploadUrl && <img src={imageUploadUrl} alt="Uploaded" width="100%" height="100%"
-                                                        id="upload_image"/>}
+                                                        id="upload_image" />}
                             </Container>
-                            <Button variant="contained" color="primary" onClick={handleClickImage}>
+                            <Button variant="contained" color="primary" onClick={handleClickImage} id="buttonAddImageToPod">
                                 {t("confirm")}
                             </Button>
                         </div>
@@ -229,12 +229,14 @@ function ShowMarkerPanel(props: { data: Point | undefined, setItem: Function }) 
                                         <Avatar
                                             alt="Profile picture"
                                             sx={{width: 65, height: 65, mb: 2, margin: 0}}
+                                            id="photoReviewMarkerPanel"
                                         >
                                             <Image property={VCARD.hasPhoto.iri.value} width={65}/>
+
                                         </Avatar>
                                     </CombinedDataProvider>
                                     <div id="nameAndDate">
-                                        <h5>@{reviewItem.author.slice(8, -27)}</h5>
+                                        <h5>@{reviewItem.author.split("/").slice(1, 3)[1].split('.')[0]}</h5>
                                         <p>{new Date(reviewItem.datePublished).toLocaleDateString(sessionStorage.getItem("language") || "en")}</p>
                                     </div>
                                 </div>
