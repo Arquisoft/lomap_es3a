@@ -29,35 +29,33 @@ Once this is done, the user will have completed the 3 tasks and the test will ha
   
 |      Age          |      Percentage      |
 |:-----------------:|:--------------------:|
-|    From 18 to 25  |                      |
-|    From 25 to 50  |                      |
-|    From 50 to 75  |                      |
-|     75 or more    |                      |
+|    From 18 to 25  |         25%          |
+|    From 25 to 50  |         25%          |
+|    From 50 to 75  |         25%          |
+|     75 or more    |         25%          |
 
   ##### *Gender distribution*
   
 |      Gender    |      Percentage      |
 |:--------------:|:--------------------:|
-|       Men      |                      |
-|      Women     |                      |
+|       Men      |         50%          |
+|      Women     |         50%          |
 
   ##### *Average time*    
   
 |   Tasks   |        Results       |
 |:---------:|:--------------------:|
-|     1     |                      |
-|     2     |                      |
-|     3     |                      |
-|   Media   |                      |
+|     1     |        186,89        |
+|     2     |        138,44        |
+|     3     |        169,09        |
     
   ##### *Average completion rate*
   
 |   Tasks   |      Results         |
 |:---------:|:--------------------:|
-|     1     |                      |
-|     2     |                      |
-|     3     |                      |
-|   Media   |                      |
+|     1     |        100%          |
+|     2     |        100%          |
+|     3     |        100%          |
 
   ##### 📊 Graphics
 
@@ -67,35 +65,33 @@ Once this is done, the user will have completed the 3 tasks and the test will ha
   
 |      Age          |      Percentage      |
 |:-----------------:|:--------------------:|
-|    From 18 to 25  |                      |
-|    From 25 to 50  |                      |
-|    From 50 to 75  |                      |
-|     75 or more    |                      |
+|    From 18 to 25  |         50%          |
+|    From 25 to 50  |         25%          |
+|    From 50 to 75  |         25%          |
+|     75 or more    |         0%           |
 
   ##### *Gender distribution*
   
 |      Gender    |      Percentage      |
 |:--------------:|:--------------------:|
-|       Men      |                      |
-|      Women     |                      |
+|       Men      |         75%          |
+|      Women     |         25%          |
 
   ##### *Average time*    
   
 |   Tasks   |        Results       |
 |:---------:|:--------------------:|
-|     1     |                      |
-|     2     |                      |
-|     3     |                      |
-|   Media   |                      |
+|     1     |         162,03       |
+|     2     |         142,80       |
+|     3     |         160,41       |
     
   ##### *Average completion rate*
   
 |   Tasks   |      Results         |
 |:---------:|:--------------------:|
-|     1     |                      |
-|     2     |                      |
-|     3     |                      |
-|   Media   |                      |
+|     1     |        100%          |
+|     2     |        100%          |
+|     3     |        100%          |
 
   ##### 📊 Graphics
 
@@ -105,34 +101,32 @@ Once this is done, the user will have completed the 3 tasks and the test will ha
   
 |      Age          |      Percentage      |
 |:-----------------:|:--------------------:|
-|    From 18 to 25  |                      |
-|    From 25 to 50  |                      |
-|    From 50 to 75  |                      |
-|     75 or more    |                      |
+|    From 18 to 25  |         25%          |
+|    From 25 to 50  |         50%          |
+|    From 50 to 75  |         25%          |
+|     75 or more    |         0%           |
 
   ##### *Gender distribution*
   
 |      Gender    |      Percentage      |
 |:--------------:|:--------------------:|
-|       Men      |                      |
-|      Women     |                      |
+|       Men      |          75%         |
+|      Women     |          25%         |
 
   ##### *Average time*    
   
 |   Tasks   |        Results       |
 |:---------:|:--------------------:|
-|     1     |                      |
-|     2     |                      |
-|     3     |                      |
-|   Media   |                      |
+|     1     |        147,40        |
+|     2     |        134,80        |
+|     3     |        155,58        |
     
   ##### *Average completion rate*
   
 |   Tasks   |      Results         |
 |:---------:|:--------------------:|
-|     1     |                      |
-|     2     |                      |
-|     3     |                      |
-|   Media   |                      |
+|     1     |        100%          |
+|     2     |        100%          |
+|     3     |        100%          |
 
   ##### 📊 Graphics

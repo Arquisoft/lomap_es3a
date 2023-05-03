@@ -6,14 +6,13 @@
 
 |             Categories              |                      Results                      |
 |:-----------------------------------:|:-------------------------------------------------:|
-|                 Age                 |                                                   |
-|                Gender               |                                                   |
-|     Level of computer expertise     |                                                   |
-|         Time spent on Task 1        |                                                   |
-|         Time spent on Task 2        |                                                   |
-|         Time spent on Task 3        |                                                   |
-|          Average time spent         |                                                   |
-|       Correct tasks completion      |                                                   |
-|          User's comments            |                                                   |
-|      User's requested changes       |                                                   |
-|          User's evaluation          |                                                   |
+|                 Age                 |                        20                         |
+|                Gender               |                       Male                        |
+|     Level of computer expertise     |                        10                         |
+|         Time spent on Task 1        |                      112,13                       |
+|         Time spent on Task 2        |                      103,86                       |
+|         Time spent on Task 3        |                      121,34                       |
+|          Average time spent         |                      112,44                       |
+|       Correct tasks completion      |                       100%                        |
+|      User's requested changes       | Give the user the possibility of adding videos to markers |
+|          User's evaluation          |                        6                          |

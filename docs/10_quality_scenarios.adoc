@@ -69,7 +69,7 @@ Change scenarios describe modifications to the system or its environment that co
 | As we have maintainable code, we will have to add little code to modify the view of the maps reusing components that we have already created.
 |===
 
-===== Escalability
+===== Scalability
 
 |===
 | *_Scenario_* | *_Stimulus_* | *_Response_*

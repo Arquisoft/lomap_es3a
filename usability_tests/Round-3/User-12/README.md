@@ -6,14 +6,13 @@
 
 |             Categories              |                      Results                      |
 |:-----------------------------------:|:-------------------------------------------------:|
-|                 Age                 |                                                   |
-|                Gender               |                                                   |
-|     Level of computer expertise     |                                                   |
-|         Time spent on Task 1        |                                                   |
-|         Time spent on Task 2        |                                                   |
-|         Time spent on Task 3        |                                                   |
-|          Average time spent         |                                                   |
-|       Correct tasks completion      |                                                   |
-|          User's comments            |                                                   |
-|      User's requested changes       |                                                   |
-|          User's evaluation          |                                                   |
+|                 Age                 |                        54                         |
+|                Gender               |                       Male                        |
+|     Level of computer expertise     |                        5                          |
+|         Time spent on Task 1        |                      167,89                       |
+|         Time spent on Task 2        |                      166,43                       |
+|         Time spent on Task 3        |                      178,42                       |
+|          Average time spent         |                      170,91                       |
+|       Correct tasks completion      |                       100%                        |
+|      User's requested changes       | Add a feature where the user can see its near markers |
+|          User's evaluation          |                        10                          |

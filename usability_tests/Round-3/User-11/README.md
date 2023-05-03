@@ -6,14 +6,13 @@
 
 |             Categories              |                      Results                      |
 |:-----------------------------------:|:-------------------------------------------------:|
-|                 Age                 |                                                   |
-|                Gender               |                                                   |
-|     Level of computer expertise     |                                                   |
-|         Time spent on Task 1        |                                                   |
-|         Time spent on Task 2        |                                                   |
-|         Time spent on Task 3        |                                                   |
-|          Average time spent         |                                                   |
-|       Correct tasks completion      |                                                   |
-|          User's comments            |                                                   |
-|      User's requested changes       |                                                   |
-|          User's evaluation          |                                                   |
+|                 Age                 |                         38                        |
+|                Gender               |                       Female                      |
+|     Level of computer expertise     |                         6                         |
+|         Time spent on Task 1        |                       145,32                      |
+|         Time spent on Task 2        |                       134,67                      |
+|         Time spent on Task 3        |                       164,78                      |
+|          Average time spent         |                       148,25                      |
+|       Correct tasks completion      |                        100%                       |
+|      User's requested changes       | The user would like to have the optional functionality of routes |
+|          User's evaluation          |                         9                         |
