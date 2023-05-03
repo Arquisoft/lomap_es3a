@@ -18,9 +18,4 @@
 | Utilizing a framework can greatly reduce the time and effort dedicated to coding and design. The challenge lies in learning how to use the framework and understanding its capabilities. 
 | *_React_*
 | We chose React due to its high compatibility with the SOLID project, its alignment with agile methodologies, and its ease of developing graphical interfaces using a single window with dynamic fragments. 
-
-| *_Architectural Model_* 
-| Several architectural models were considered to achieve principles such as single responsibility, open-closed principle, and dependency inversion principle. 
-| *_MVC_*
-| We decided to use MVC as we are familiar with them and they meet our needs.
 |===

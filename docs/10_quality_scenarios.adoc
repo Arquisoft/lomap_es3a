@@ -34,11 +34,11 @@ Usage scenarios, also known as application or use case scenarios, describe how t
 |===
 | *_Scenario_* | *_Stimulus_* | *_Response_*
  
-| User logs into the app and adds personal information.
+| The user will log in to our application and will enter personal information such as the places they have visited, comments about those places, personal photos they have taken....
 
-| A user adds information that he only wants to be shown to himself.
+| The user adds information to our application wants it to be safe and secure from other people to see. In other words, the user only wants him to be able to access that information and her friends in the event that he gives them reading permissions.
 
-| The system adds that info into the private area of the user's POD (so no one can see it).
+| Our application will save all the bookmarks that the user adds along with all the comments and photos that they include, in the lomap folder of their pod. Only the user and his friends have access to this folder if he gives them read permissions.
 |===
 
 ===== Usability
@@ -46,11 +46,11 @@ Usage scenarios, also known as application or use case scenarios, describe how t
 |===
 | *_Scenario_* | *_Stimulus_* | *_Response_*
  
-| User finds the application easy to use, so his experience with the app is faster.
+| A new user who has never used our application starts using it and due to the usability aids that we have introduced, they know how to use it and it is easy for them to navigate the app.
 
-| A user is satisfied with how the app is designed.
+| The user wants to use our app to generate maps with the places they have visited and since it is usable they can navigate through the app without problem and share their bookmarks.
 
-| The system is correctly designed for a large number of users.
+| The application is designed with usability in mind with easily understandable designs and notifications every time the user performs an action.
 |===
 
 ==== Change Scenarios
@@ -62,14 +62,14 @@ Change scenarios describe modifications to the system or its environment that co
 |===
 | *_Scenario_* | *_Stimulus_* | *_Response_*
 
-| Additional Functionality is Implemented
+| You want to introduce new functionalities in the application or modify some that we already have implemented.
 
-| The system is updated to include additional functionality, such as the ability to filter markers by category
+| Users ask us to introduce a functionality that allows you to create routes.
 
-| The system adds the new functionality and displays the filtered results within five seconds of the user's request.
+| As we have maintainable code, we will have to add little code to modify the view of the maps reusing components that we have already created.
 |===
 
-===== Escalability
+===== Scalability
 
 |===
 | *_Scenario_* | *_Stimulus_* | *_Response_*
@@ -86,9 +86,9 @@ Change scenarios describe modifications to the system or its environment that co
 |===
 | *_Scenario_* | *_Stimulus_* | *_Response_*
  
-| A functionality is not working properly.
+| The application has a functionality that does not work correctly. For example, the markers are not filtered well when searching for them by category.
 
-| Tests are required to check the correct implementation.
+| The users of the application report a bug that they are finding when filtering the markers by category because there are times when markers of a non-selected category are shown.
 
-| The developers implement tests, in order to detect why the app was failing, so that funcionality is fixed as soon as possible.
+| As we have developed tests for all the functionalities, we would have to create tests that would check exactly that functionality to detect the failure and fix it. Due to the previously implemented tests, it would not be difficult to generate this new test and the problem would be solved quickly.
 |===

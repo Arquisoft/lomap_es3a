@@ -12,14 +12,17 @@ image::HomeView.png[Home View]
 ===== Main
 image::MapView.png[Map View]
 
-===== Options
-image::MapViewWithOptions.png[Map View with Options]
-
 ===== Add Marker
 image::MapViewAddMarker.png[Map View Add Marker]
 
 ===== Show Marker
 image::MapViewShowMarker.png[Map View Show Marker]
+
+==== Help View
+image::HelpView.png[Help View]
+
+==== About View
+image::AboutView.png[About View]
 
 === Domain model 
 [plantuml, "domainmodel", png] 
@@ -73,3 +76,29 @@ Also, we added security in the _back-end_ to prevent unauthorized requests to th
 In order to ensure the correct functioning of the system, we decided to implement _unit tests_ for most of the components and will also check the functionality of the whole app itself, so the user experience is at its best.  
 
 We have decided to create a branch for it, named *_testing_*, so when we need to do tests, we use that branch.
+
+
+=== Maintainability
+
+The maintainability of the application is an important section because it is necessary for the code to be easily modifiable in case in the future we are asked for new functionalities to implement.
+
+To achieve this, we have implemented a number of practices and techniques throughout the application development lifecycle.
+
+First of all, we have used a modular approach to the design of the application, dividing the functionality into small independent modules that are easy to maintain and update. Each module has been designed trying to make the code easily understandable and modifiable.
+
+In addition, we have exported all the functions that PODs use so that when they are needed, they only have to be called
+
+Finally, by using parameters in the elements that are rendered, we have allowed the reuse of those elements in different parts of the code.
+
+
+=== Usability
+
+Usability is a fundamental aspect of any application, since it determines the ease and efficiency with which users can interact with it. To ensure the usability of our application, we have followed a series of specific practices and techniques.
+
+First of all, we have done extensive research on the needs and expectations of users, which has allowed us to design an intuitive and easy-to-use user interface.
+
+In addition, we have used a user-centric approach at all times during the development of the application. We have designed the user interface with a focus on the user experience, which has allowed for easy and intuitive navigation. We have also incorporated user feedback and suggestions into each phase of development to improve usability.
+
+In addition, we have carried out usability tests with real users to evaluate the ease of use of the application and improve it.
+
+Lastly, we have used notifications to inform the user when they perform an action in our application.

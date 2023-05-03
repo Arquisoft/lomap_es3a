@@ -13,7 +13,4 @@
 
 | SOLID's current implementation results in slower data gathering than desired, which is a known deficiency with no solution yet.
 | There are only a limited number of RDF libraries available, and they can be challenging to use, which may result in messy code. However, new libraries may emerge in the future to address this deficiency.
-
-| If a user takes down their POD, any other users who had conversations with that user would lose half the conversation as information is decentralized and stored in each POD.
-| If a POD becomes temporarily inaccessible due to server issues or faulty connections, users can only see their part of the conversation with the affected POD's user.
 |===
