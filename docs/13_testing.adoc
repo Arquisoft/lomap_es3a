@@ -6,7 +6,7 @@ We used _Jest_ and _Testing Library_ by React for testing our webapp, we followe
 
 We created separate tests for each component, in order to test isolated parts and check if every aspect of our app worked, but we faced some problems in the process, as it ended up being almost impossible to check everything, mostly due to compatibility issues with libraries and problems with the react testing library itself (which is not suited to test the useState hook).
 
-We reached a total coverage of 58.2% (at the momment of writing this document) with 106 tests in 25 suites, we had to mock the session and functions that interact with the PODs, but sometimes it wasn't enought, due to the reasons we commented before.
+We reached a total coverage of 72.1% (at the momment of writing this document) with 106 tests in 25 suites, we had to mock the session and functions that interact with the PODs, but sometimes it wasn't enought, due to the reasons we commented before.
 
 === Integration testing (BDD)
 
