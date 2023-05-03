@@ -497,6 +497,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_domain_model">8.2. Domain model</a></li>
 <li><a href="#_security">8.3. Security</a></li>
 <li><a href="#_testability">8.4. Testability</a></li>
+<li><a href="#_maintainability">8.5. Maintainability</a></li>
+<li><a href="#_usability">8.6. Usability</a></li>
 </ul>
 </li>
 <li><a href="#section-design-decisions">9. Design Decisions</a></li>
@@ -629,7 +631,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>4</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Escalability</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Scalability</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The application must be adaptable and responsive with respect to performance as the number of users of the application increases.</p></td>
 </tr>
 <tr>
@@ -1348,14 +1350,6 @@ Firstly, we had chosen <em>IntelliJ</em>, also from JetBrains, but after knowing
 </div>
 </div>
 <div class="sect4">
-<h5 id="_options">Options</h5>
-<div class="imageblock">
-<div class="content">
-<img src="./images/MapViewWithOptions.png" alt="Map View with Options">
-</div>
-</div>
-</div>
-<div class="sect4">
 <h5 id="_add_marker">Add Marker</h5>
 <div class="imageblock">
 <div class="content">
@@ -1369,6 +1363,22 @@ Firstly, we had chosen <em>IntelliJ</em>, also from JetBrains, but after knowing
 <div class="content">
 <img src="./images/MapViewShowMarker.png" alt="Map View Show Marker">
 </div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_help_view">8.1.3. Help View</h4>
+<div class="imageblock">
+<div class="content">
+<img src="./images/HelpView.png" alt="Help View">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_about_view">8.1.4. About View</h4>
+<div class="imageblock">
+<div class="content">
+<img src="./images/AboutView.png" alt="About View">
 </div>
 </div>
 </div>
@@ -1397,6 +1407,42 @@ Firstly, we had chosen <em>IntelliJ</em>, also from JetBrains, but after knowing
 </div>
 <div class="paragraph">
 <p>We have decided to create a branch for it, named <strong><em>testing</em></strong>, so when we need to do tests, we use that branch.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_maintainability">8.5. Maintainability</h3>
+<div class="paragraph">
+<p>The maintainability of the application is an important section because it is necessary for the code to be easily modifiable in case in the future we are asked for new functionalities to implement.</p>
+</div>
+<div class="paragraph">
+<p>To achieve this, we have implemented a number of practices and techniques throughout the application development lifecycle.</p>
+</div>
+<div class="paragraph">
+<p>First of all, we have used a modular approach to the design of the application, dividing the functionality into small independent modules that are easy to maintain and update. Each module has been designed trying to make the code easily understandable and modifiable.</p>
+</div>
+<div class="paragraph">
+<p>In addition, we have exported all the functions that PODs use so that when they are needed, they only have to be called</p>
+</div>
+<div class="paragraph">
+<p>Finally, by using parameters in the elements that are rendered, we have allowed the reuse of those elements in different parts of the code.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_usability">8.6. Usability</h3>
+<div class="paragraph">
+<p>Usability is a fundamental aspect of any application, since it determines the ease and efficiency with which users can interact with it. To ensure the usability of our application, we have followed a series of specific practices and techniques.</p>
+</div>
+<div class="paragraph">
+<p>First of all, we have done extensive research on the needs and expectations of users, which has allowed us to design an intuitive and easy-to-use user interface.</p>
+</div>
+<div class="paragraph">
+<p>In addition, we have used a user-centric approach at all times during the development of the application. We have designed the user interface with a focus on the user experience, which has allowed for easy and intuitive navigation. We have also incorporated user feedback and suggestions into each phase of development to improve usability.</p>
+</div>
+<div class="paragraph">
+<p>In addition, we have carried out usability tests with real users to evaluate the ease of use of the application and improve it.</p>
+</div>
+<div class="paragraph">
+<p>Lastly, we have used notifications to inform the user when they perform an action in our application.</p>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
@@ -1480,15 +1526,15 @@ Firstly, we had chosen <em>IntelliJ</em>, also from JetBrains, but after knowing
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">User logs into the app and adds personal information.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A user adds information that he only wants to be shown to himself.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The system adds that info into the private area of the user&#8217;s POD (so no one can see it).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The user will log in to our application and will enter personal information such as the places they have visited, comments about those places, personal photos they have taken&#8230;&#8203;.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The user adds information to our application wants it to be safe and secure from other people to see. In other words, the user only wants him to be able to access that information and her friends in the event that he gives them reading permissions.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Our application will save all the bookmarks that the user adds along with all the comments and photos that they include, in the lomap folder of their pod. Only the user and his friends have access to this folder if he gives them read permissions.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_usability">Usability</h5>
+<h5 id="_usability_2">Usability</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1504,9 +1550,9 @@ Firstly, we had chosen <em>IntelliJ</em>, also from JetBrains, but after knowing
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">User finds the application easy to use, so his experience with the app is faster.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A user is satisfied with how the app is designed.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The system is correctly designed for a large number of users.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A new user who has never used our application starts using it and due to the usability aids that we have introduced, they know how to use it and it is easy for them to navigate the app.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The user wants to use our app to generate maps with the places they have visited and since it is usable they can navigate through the app without problem and share their bookmarks.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The application is designed with usability in mind with easily understandable designs and notifications every time the user performs an action.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1518,7 +1564,7 @@ Firstly, we had chosen <em>IntelliJ</em>, also from JetBrains, but after knowing
 <p>Change scenarios describe modifications to the system or its environment that could impact its quality attributes. For example, if additional functionality is implemented or there is a change in quality requirements, the system may need to be modified. An example of a change scenario for the map service is:</p>
 </div>
 <div class="sect4">
-<h5 id="_maintainability">Maintainability</h5>
+<h5 id="_maintainability_2">Maintainability</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1534,15 +1580,15 @@ Firstly, we had chosen <em>IntelliJ</em>, also from JetBrains, but after knowing
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Additional Functionality is Implemented</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The system is updated to include additional functionality, such as the ability to filter markers by category</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The system adds the new functionality and displays the filtered results within five seconds of the user&#8217;s request.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">You want to introduce new functionalities in the application or modify some that we already have implemented.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Users ask us to introduce a functionality that allows you to create routes.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As we have maintainable code, we will have to add little code to modify the view of the maps reusing components that we have already created.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_escalability">Escalability</h5>
+<h5 id="_scalability">Scalability</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1582,9 +1628,9 @@ Firstly, we had chosen <em>IntelliJ</em>, also from JetBrains, but after knowing
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A functionality is not working properly.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Tests are required to check the correct implementation.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The developers implement tests, in order to detect why the app was failing, so that funcionality is fixed as soon as possible.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The application has a functionality that does not work correctly. For example, the markers are not filtered well when searching for them by category.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The users of the application report a bug that they are finding when filtering the markers by category because there are times when markers of a non-selected category are shown.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As we have developed tests for all the functionalities, we would have to create tests that would check exactly that functionality to detect the failure and fix it. Due to the previously implemented tests, it would not be difficult to generate this new test and the problem would be solved quickly.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1718,7 +1764,7 @@ Firstly, we had chosen <em>IntelliJ</em>, also from JetBrains, but after knowing
 <p>We created separate tests for each component, in order to test isolated parts and check if every aspect of our app worked, but we faced some problems in the process, as it ended up being almost impossible to check everything, mostly due to compatibility issues with libraries and problems with the react testing library itself (which is not suited to test the useState hook).</p>
 </div>
 <div class="paragraph">
-<p>We reached a total coverage of 58.2% (at the momment of writing this document) with 106 tests in 25 suites, we had to mock the session and functions that interact with the PODs, but sometimes it wasn&#8217;t enought, due to the reasons we commented before.</p>
+<p>We reached a total coverage of 72.1% (at the momment of writing this document) with 106 tests in 25 suites, we had to mock the session and functions that interact with the PODs, but sometimes it wasn&#8217;t enought, due to the reasons we commented before.</p>
 </div>
 </div>
 <div class="sect2">
