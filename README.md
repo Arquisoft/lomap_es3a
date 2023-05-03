@@ -13,8 +13,20 @@
 <h1 align="center"><img src="https://user-images.githubusercontent.com/91057639/218590043-d4243147-e5c0-4f7b-8fed-12ed8d290490.png" width="1024" height="512"></h1>
 
 <p align="center">
+   <a href="https://github.com/Arquisoft/lomap_es3a/wiki/Video-Promocional">
+      Video promocional
+   </a>
+   ·
+   <a href="https://github.com/Arquisoft/lomap_es3a/wiki/Video-Demo">
+      Video demostración
+   </a>
+   ·
    <a href="https://arquisoft.github.io/lomap_es3a/">
       Documentación
+   </a>
+   ·
+   <a href="https://lomapes3a.azurewebsites.net">
+      Acceder a la web
    </a>
    ·
    <a href="https://github.com/Arquisoft/lomap_es3a/discussions">
@@ -36,6 +48,10 @@
    <a href="https://github.com/Arquisoft/lomap_es3a/projects?query=is%3Aopen">
       Proyectos
    </a>
+   ·
+   <a href="https://github.com/Arquisoft/lomap_es3a/tree/master/usability_tests">
+      Pruebas de usabilidad
+   </a>   
 </p>
 
 <details>
@@ -63,11 +79,6 @@
          Instrucciones de despliegue.
       </a>
       <ol>
-         <li>
-            <a href="#despliegue-utilizando-docker">
-               Despliegue con Docker.
-            </a>
-         </li>
          <li>
             <a href="#despliegue-nativo-(node)">
                Despliegue nativo (Node).
@@ -116,9 +127,6 @@ La lista completa de las tecnologías empleadas, junto con sus decisiones arquit
 
 ## 📑 Instrucciones de despliegue:
 <p align="justify">
-   En primer lugar, se debe instalar <a href="https://nodejs.org/en">Node</a>. En caso de que ya esté instalado, debe asegurarse que se tiene la última versión del mismo.
-</p>
-<p align="justify">
    Para ejecutar el proyecto, será necesario clonarlo primero, por lo que es necesario tener git (accede a través del siguiente <a href="https://git-scm.com/downloads">enlace</a>), y posteriormente, clonar este respositorio en un directorio local, ya sea descargándo el repositoio en formato <em>.zip</em> o de la siguiente manera:
 </p>
 <img align="right" width="150" height="150" src="designs/customer-service.gif">
@@ -132,23 +140,14 @@ La lista completa de las tecnologías empleadas, junto con sus decisiones arquit
    git clone https://github.com/Arquisoft/lomap_es3a.git
 ```
 <p align="justify">
-   Una vez hecho esto, puede lanzarse de dos maneras, usando docker, o lanzando la aplicación en 2 partes.
-</p>
-
-### Despliegue utilizando Docker
-<p align="justify">
-   En caso de que se decida emplear docker, se debe situar en la raiz del directorio del proyecto y ejecutar la siguiente orden mediante consola:
-</p>
-
-```shell
-docker-compose up --build
-```
-
-<p align="justify">
-   Esto creará una imagen docker en tu sistema.
+   Una vez hecho esto, la aplicación puede lanzarse de la siguiente manera.
 </p>
 
 ### Despliegue nativo (Node)
+#### Requisitos utilizando node
+<p align="justify">
+   En primer lugar, se debe instalar <a href="https://nodejs.org/en">Node</a>. En caso de que ya esté instalado, debe asegurarse que se tiene la última versión del mismo.
+</p>
 <p align="justify">
    En caso de que se quiera lanzar sin emplear docker, se debe compilar el proyecto y posteriormente, a través de la raíz del directorio, ejecutar las siguientes órdenes en consola:
 </p>
