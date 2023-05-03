@@ -59,6 +59,11 @@ Once this is done, the user will have completed the 3 tasks and the test will ha
 
   ##### 📊 Graphics
 
+![imagen](https://user-images.githubusercontent.com/91057639/235819635-80663e69-1ac7-4a06-8f1e-89918fc6d499.png)
+![imagen](https://user-images.githubusercontent.com/91057639/235819640-fb9d6b81-a210-4197-94ba-fabaf5064705.png)
+![imagen](https://user-images.githubusercontent.com/91057639/235819643-f4897c19-5889-4277-998e-b52d0de3e5db.png)
+![imagen](https://user-images.githubusercontent.com/91057639/235819648-d41d0cce-9839-445d-8327-cd678698c8bb.png)
+
 #### Round 2
 
   ##### *Age distribution*
@@ -95,6 +100,11 @@ Once this is done, the user will have completed the 3 tasks and the test will ha
 
   ##### 📊 Graphics
 
+![imagen](https://user-images.githubusercontent.com/91057639/235819679-64847af5-c35b-4554-bcc0-97f27fa85c9d.png)
+![imagen](https://user-images.githubusercontent.com/91057639/235819684-ef3f0289-26da-4607-bdec-9506a93a64c6.png)
+![imagen](https://user-images.githubusercontent.com/91057639/235819690-9272395c-78a7-40ab-b4bc-9029922e23b8.png)
+![imagen](https://user-images.githubusercontent.com/91057639/235819699-b83d5cb4-a9e5-436d-b8cc-c988b1b49e9d.png)
+
 #### Round 3
 
   ##### *Age distribution*
@@ -130,3 +140,11 @@ Once this is done, the user will have completed the 3 tasks and the test will ha
 |     3     |        100%          |
 
   ##### 📊 Graphics
+  
+![imagen](https://user-images.githubusercontent.com/91057639/235819715-727c7938-6513-40e8-80d6-eca9dcfeb12e.png)
+![imagen](https://user-images.githubusercontent.com/91057639/235819742-ccc708a6-a05a-455e-a771-bf09924d6f33.png)
+![imagen](https://user-images.githubusercontent.com/91057639/235819748-3c43f6c2-c2e9-4285-94c4-1f59513b6ce2.png)
+![imagen](https://user-images.githubusercontent.com/91057639/235819753-ade78c2d-9d2d-44d7-aeb4-6d5f61c091fa.png)
+
+
+
