@@ -6,13 +6,13 @@
 
 |             Categories              |                      Results                      |
 |:-----------------------------------:|:-------------------------------------------------:|
-|                 Age                 |                                                   |
-|                Gender               |                                                   |
-|     Level of computer expertise     |                                                   |
-|         Time spent on Task 1        |                                                   |
-|         Time spent on Task 2        |                                                   |
-|         Time spent on Task 3        |                                                   |
-|          Average time spent         |                                                   |
-|       Correct tasks completion      |                                                   |
-|      User's requested changes       |                                                   |
-|          User's evaluation          |                                                   |
+|                 Age                 |                        75                         |
+|                Gender               |                       Male                        |
+|     Level of computer expertise     |                         2                         |
+|         Time spent on Task 1        |                      245,48                       |
+|         Time spent on Task 2        |                      193,45                       |
+|         Time spent on Task 3        |                      223,67                       |
+|          Average time spent         |                      220,87                       |
+|       Correct tasks completion      |                       100%                        |
+|      User's requested changes       |        Add more info about requests state         |
+|          User's evaluation          |                        8                          |

@@ -6,14 +6,13 @@
 
 |             Categories              |                      Results                      |
 |:-----------------------------------:|:-------------------------------------------------:|
-|                 Age                 |                                                   |
-|                Gender               |                                                   |
-|     Level of computer expertise     |                                                   |
-|         Time spent on Task 1        |                                                   |
-|         Time spent on Task 2        |                                                   |
-|         Time spent on Task 3        |                                                   |
-|          Average time spent         |                                                   |
-|       Correct tasks completion      |                                                   |
-|          User's comments            |                                                   |
-|      User's requested changes       |                                                   |
-|          User's evaluation          |                                                   |
+|                 Age                 |                        23                         |
+|                Gender               |                       Male                        |
+|     Level of computer expertise     |                        8                          |
+|         Time spent on Task 1        |                      156,46                       |
+|         Time spent on Task 2        |                      123,34                       |
+|         Time spent on Task 3        |                      145,30                       |
+|          Average time spent         |                      141,70                       |
+|       Correct tasks completion      |                       100%                        |
+|      User's requested changes       |               No changes requested                |
+|          User's evaluation          |                        9                          |

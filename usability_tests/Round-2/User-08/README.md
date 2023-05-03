@@ -6,14 +6,13 @@
 
 |             Categories              |                      Results                      |
 |:-----------------------------------:|:-------------------------------------------------:|
-|                 Age                 |                                                   |
-|                Gender               |                                                   |
-|     Level of computer expertise     |                                                   |
-|         Time spent on Task 1        |                                                   |
-|         Time spent on Task 2        |                                                   |
-|         Time spent on Task 3        |                                                   |
-|          Average time spent         |                                                   |
-|       Correct tasks completion      |                                                   |
-|          User's comments            |                                                   |
-|      User's requested changes       |                                                   |
-|          User's evaluation          |                                                   |
+|                 Age                 |                        55                         |
+|                Gender               |                      Female                       |
+|     Level of computer expertise     |                        6                          |
+|         Time spent on Task 1        |                      166,89                       |
+|         Time spent on Task 2        |                      166,43                       |
+|         Time spent on Task 3        |                      175,35                       |
+|          Average time spent         |                      169,89                       |
+|       Correct tasks completion      |                       100%                        |
+|      User's requested changes       |      Possibility of deleting markers and maps     |
+|          User's evaluation          |                         9                         |

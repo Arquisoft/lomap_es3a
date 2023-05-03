@@ -6,14 +6,13 @@
 
 |             Categories              |                      Results                      |
 |:-----------------------------------:|:-------------------------------------------------:|
-|                 Age                 |                                                   |
-|                Gender               |                                                   |
-|     Level of computer expertise     |                                                   |
-|         Time spent on Task 1        |                                                   |
-|         Time spent on Task 2        |                                                   |
-|         Time spent on Task 3        |                                                   |
-|          Average time spent         |                                                   |
-|       Correct tasks completion      |                                                   |
-|          User's comments            |                                                   |
-|      User's requested changes       |                                                   |
-|          User's evaluation          |                                                   |
+|                 Age                 |                        27                         |
+|                Gender               |                       Male                        |
+|     Level of computer expertise     |                        4                          |
+|         Time spent on Task 1        |                      164,24                       |
+|         Time spent on Task 2        |                      134,25                       |
+|         Time spent on Task 3        |                      157,78                       |
+|          Average time spent         |                      152,09                       |
+|       Correct tasks completion      |                       100%                        |
+|      User's requested changes       |   Possibility of uploading more than one photo    |
+|          User's evaluation          |                        9                          |

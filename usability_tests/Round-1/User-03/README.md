@@ -6,14 +6,13 @@
 
 |             Categories              |                      Results                      |
 |:-----------------------------------:|:-------------------------------------------------:|
-|                 Age                 |                                                   |
-|                Gender               |                                                   |
-|     Level of computer expertise     |                                                   |
-|         Time spent on Task 1        |                                                   |
-|         Time spent on Task 2        |                                                   |
-|         Time spent on Task 3        |                                                   |
-|          Average time spent         |                                                   |
-|       Correct tasks completion      |                                                   |
-|          User's comments            |                                                   |
-|      User's requested changes       |                                                   |
-|          User's evaluation          |                                                   |
+|                 Age                 |                        27                         |
+|                Gender               |                       Male                        |
+|     Level of computer expertise     |                        5                          |
+|         Time spent on Task 1        |                      167,23                       |
+|         Time spent on Task 2        |                      123,15                       |
+|         Time spent on Task 3        |                      154,60                       |
+|          Average time spent         |                      148,33                       |
+|       Correct tasks completion      |                       100%                        |
+|      User's requested changes       |      When adding a photo, refresh the component   |
+|          User's evaluation          |                         6                         |
