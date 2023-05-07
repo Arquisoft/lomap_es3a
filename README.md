@@ -144,7 +144,7 @@ The complete list of technologies used, along with their architectural decisions
 </p>
 
 ### Native deployment (Node)
-#### Requisitos utilizando node
+#### Requirements using node
 <p align="justify">
    Firstly, you need to install <a href="https://nodejs.org/en">Node</a>. In case it is already installed, you should make sure that you have the latest version of it.
 </p>

@@ -1,18 +1,47 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App - LOMapES3A
+name: CI, Build and Deploy for LOMapES3A
 
 on:
   push:
-    branches:
-      - master
+    branches: [master, develop, testing]
+  pull_request:
+    branches: [master, develop, testing]
   workflow_dispatch:
 
 jobs:
-  build:
+  unit-tests:
+    name: Run unit tests
     runs-on: ubuntu-latest
-
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm --prefix webapp ci
+      - run: npm --prefix webapp test --coverage --watchAll
+      - name: Analyze with SonarCloud
+        uses: sonarsource/sonarcloud-github-action@v1.8
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  e2e-tests:
+    name: Run end-to-end tests
+    needs: [ unit-tests ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm --prefix webapp install
+      - run: npm --prefix webapp run build
+      - run: npm --prefix webapp run test:e2e --coverage --watchAll -v
+  build:
+    name: Build packages for deployment
+    needs: [e2e-tests]
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
@@ -34,6 +63,7 @@ jobs:
           path: ./webapp/build
 
   deploy:
+    name: Deploy to Azure Web App
     runs-on: ubuntu-latest
     needs: build
     environment:
