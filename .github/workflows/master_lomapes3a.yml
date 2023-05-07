@@ -1,14 +1,13 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: CI, Build and Deploy for LOMapES3A
+name: CI for LOMapES3A
 
 on:
   push:
     branches: [master, develop, testing]
   pull_request:
     branches: [master, develop, testing]
-  workflow_dispatch:
 
 jobs:
   unit-tests:
