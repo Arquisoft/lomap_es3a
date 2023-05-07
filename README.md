@@ -1,5 +1,5 @@
 <p align="center">
-   <a href="https://github.com/Arquisoft/lomap_es3a/actions/workflows/lomap_es3a.yml">
+   <a href="https://github.com/Arquisoft/lomap_es3a/actions/workflows/master_lomapes3a.yml">
       <img alt="CI for LOMAP ES3A" src="https://github.com/Arquisoft/lomap_es3a/actions/workflows/lomap_es3a.yml/badge.svg">
    </a>
    <a href="https://sonarcloud.io/summary/new_code?id=Arquisoft_lomap_es3a">
