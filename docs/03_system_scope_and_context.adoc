@@ -6,14 +6,13 @@
 
 [plantuml, "businesscontext", png]
 ----
-database "User's POD" as Pod
-component "WebApp" as WApp
-component "OpenStreetMaps" as Map
-:User: --> [Pod]: Creates
-:User: --> [WApp]: Interacts
-[WApp] --> [Pod]: Request permissions
-[Pod] --> [WApp]: User's information
-[WApp] --> [Map]: Show markers
+component "GOMap!" as go
+:User: --> [go]: Add marker
+:Hall: --> [go]: Add review
+:Bussiness: --> [go]: Create map
+[go] .-> User: Load markers
+[go] .-> Bussiness: Load maps
+[go] .-> Hall: Load reviews
 ----
 
 [options="header",cols="1,4,4"] 
