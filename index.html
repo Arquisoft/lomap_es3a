@@ -517,6 +517,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_load_testing">13.3. Load testing</a></li>
 </ul>
 </li>
+<li><a href="#_usability_tests">14. Usability Tests</a>
+<ul class="sectlevel2">
+<li><a href="#_tasks_description">14.1. Tasks description</a></li>
+<li><a href="#_obtained_results">14.2. Obtained results</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -835,24 +841,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>User</em></strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The user&#8217;s input will be the interface provided by the webapp.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The user will create the pod and store there their information and also, he can customize the map by adding places.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>GOMap!</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Users interaction with the graphic interface.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Response to the users' inputs obtained from the PODs (place to store information)</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>POD</em></strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The POD will receive petitions from WebApp to get information about the users of the app.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">It will provide users' information (places registered by users) needed by the webapp.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>WebApp</em></strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The user will be able to add markers and to access the information about their markers.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The information that provides to the user logged like the added markers and their details.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>OpenStreetMaps</em></strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">It allows us to create markers with different information about places.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">It allows us to view in the map the different markers created by users</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>User, Hall &amp; Bussiness</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All users' input will be the interface provided by the webapp.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Users will create the POD, store there their information and also, he can customize the map by adding places, changing between different maps, or even add reviews or info to other users markers.</p></td>
 </tr>
 </tbody>
 </table>
@@ -974,7 +970,7 @@ Firstly, we had chosen <em>IntelliJ</em>, also from JetBrains, but after knowing
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Privacy and Security</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Privacy</em></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The users will feel safe while using our app, knowing that their data will be treated safely and privately.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">We will use SOLID PODs in order to achieve this by managing the information that the user wants to share in his POD. We will aim to solve problems that may compromise the robustness and security of the application.</p></td>
 </tr>
@@ -1839,6 +1835,748 @@ Firstly, we had chosen <em>IntelliJ</em>, also from JetBrains, but after knowing
 </div>
 </div>
 <div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_usability_tests">14. Usability Tests</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_tasks_description">14.1. Tasks description</h3>
+<div class="paragraph">
+<p>To carry out the usability tests, the user will have to perform three medium-sized tasks so that the developers can check the performance of the app with users of all kinds.</p>
+</div>
+<div class="paragraph">
+<p>The tasks are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The user must change the language to their own, access the project documentation, and return to the home page.
+Subsequently, they must log in, being able to select a provider (or leave the default one), and access the login panel of the chosen provider.
+Once there, the user must enter the following data, User: lomapes3aUser, Password: @lomapes3a_Passwd.
+Once this is done, the user will be redirected to the map window, where they must create a new map (with the name they choose)
+and try to add a marker, with the data they want, but they must add a photo. Once this is done, the user must see the marker they have added.</p>
+</li>
+<li>
+<p>The user starts from the previous point, currently, the user will have 3 friends already added (formed by the group members).
+They must be able to access one of the shared maps of one of those friends (whichever they want) and subsequently try to apply various
+filters to it so that they can check that the selected categories correspond to the displayed markers. After this, the user must go to
+their personal profile and change the username to their own. Subsequently, they must access the friends panel and add a fourth friend,
+with the username: "omitg".</p>
+</li>
+<li>
+<p>The user must access the About panel and access the GitHub profile of any of the 4 developers. Subsequently, they will go through
+the help window, where they must enter their name, email address: <a href="mailto:uo281847@uniovi.es">uo281847@uniovi.es</a>, and any message, and then send it.
+To finish, the user will return to the map and try to create a new map, again with the name they want, and try to switch
+between this and the previous one. In the first map, where they had created a marker in the first task, the user must add a review,
+with the rating and comment they prefer.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Once this is done, the user will have completed the 3 tasks and the test will have ended.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_obtained_results">14.2. Obtained results</h3>
+<div class="paragraph">
+<p><em>* Every time measurement is in seconds</em></p>
+</div>
+<div class="sect3">
+<h4 id="_round_1">14.2.1. Round 1</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Categories</th>
+<th class="tableblock halign-left valign-top">User 1</th>
+<th class="tableblock halign-left valign-top">User 2</th>
+<th class="tableblock halign-left valign-top">User 3</th>
+<th class="tableblock halign-left valign-top">User 4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Age</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">51</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">27</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">75</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Gender</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Female</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Female</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Male</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Male</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Level of computer expertise</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Time spent on Task 1</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">189,23</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">145,60</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">167,23</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">245,48</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Time spent on Task 2</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">134,93</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">102,23</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">123,15</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">193,45</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Time spent on Task 3</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">163,45</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">134,64</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">154,60</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">223,67</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Average time spent</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">162,54</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">127,49</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">148,33</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">220,87</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Correct tasks completion</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>User&#8217;s requested changes</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add more options to filter the selected map</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Size of the app should adapt to the screen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">When adding a photo, refresh the component</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add more info about requests state</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>User&#8217;s evaluation</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect4">
+<h5 id="_general_results">General results</h5>
+<div class="sect5">
+<h6 id="_age_distribution">Age distribution</h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Age</th>
+<th class="tableblock halign-left valign-top">Percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>From 18 to 25</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">25%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>From 25 to 50</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">25%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>From 50 to 75</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">25%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>75 or more</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">25%</p></td>
+</tr>
+</tbody>
+</table>
+<div class="imageblock">
+<div class="content">
+<img src="./images/round1_age.png" alt="Age distribution">
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_gender_distribution">Gender distribution</h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Gender</th>
+<th class="tableblock halign-left valign-top">Percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Men</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">50%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Women</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">50%</p></td>
+</tr>
+</tbody>
+</table>
+<div class="imageblock">
+<div class="content">
+<img src="./images/round1_gender.png" alt="Gender distribution">
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_average_time">Average time</h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Tasks</th>
+<th class="tableblock halign-left valign-top">Results</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>1</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">186,89</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>2</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">138,44</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>3</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">169,09</p></td>
+</tr>
+</tbody>
+</table>
+<div class="imageblock">
+<div class="content">
+<img src="./images/round1_time.png" alt="Average time">
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_average_completion_rate">Average completion rate</h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Tasks</th>
+<th class="tableblock halign-left valign-top">Results</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>1</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>2</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>3</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100%</p></td>
+</tr>
+</tbody>
+</table>
+<div class="imageblock">
+<div class="content">
+<img src="./images/round1_completion.png" alt="Completion rate">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_round_2">14.2.2. Round 2</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Categories</th>
+<th class="tableblock halign-left valign-top">User 5</th>
+<th class="tableblock halign-left valign-top">User 6</th>
+<th class="tableblock halign-left valign-top">User 7</th>
+<th class="tableblock halign-left valign-top">User 8</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Age</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">23</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">50</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">25</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">55</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Gender</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Male</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Male</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Male</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Female</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Level of computer expertise</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Time spent on Task 1</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">156,46</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">178,45</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">145,32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">166,89</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Time spent on Task 2</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">123,34</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">146,76</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">134,67</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">166,43</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Time spent on Task 3</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">145,30</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">175,34</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">145,65</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">175,35</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Average time spent</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">141,70</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">166,85</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">141,88</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">169,89</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Correct tasks completion</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>User&#8217;s requested changes</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No changes requested</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Giving the user the possibility of sharing its markers</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">More options to customize your profile from the website instead of navigating to you SOLID Profile</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Possibility of deleting markers and maps</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>User&#8217;s evaluation</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect4">
+<h5 id="_general_results_2">General results</h5>
+<div class="sect5">
+<h6 id="_age_distribution_2">Age distribution</h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Age</th>
+<th class="tableblock halign-left valign-top">Percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>From 18 to 25</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">50%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>From 25 to 50</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">25%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>From 50 to 75</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">25%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>75 or more</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0%</p></td>
+</tr>
+</tbody>
+</table>
+<div class="imageblock">
+<div class="content">
+<img src="./images/round2_age.png" alt="Age distribution">
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_gender_distribution_2">Gender distribution</h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Gender</th>
+<th class="tableblock halign-left valign-top">Percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Men</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">75%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Women</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">25%</p></td>
+</tr>
+</tbody>
+</table>
+<div class="imageblock">
+<div class="content">
+<img src="./images/round2_gender.png" alt="Gender distribution">
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_average_time_2">Average time</h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Tasks</th>
+<th class="tableblock halign-left valign-top">Results</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>1</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">162,03</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>2</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">142,80</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>3</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">160,41</p></td>
+</tr>
+</tbody>
+</table>
+<div class="imageblock">
+<div class="content">
+<img src="./images/round2_time.png" alt="Average time">
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_average_completion_rate_2">Average completion rate</h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Tasks</th>
+<th class="tableblock halign-left valign-top">Results</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>1</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>2</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>3</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100%</p></td>
+</tr>
+</tbody>
+</table>
+<div class="imageblock">
+<div class="content">
+<img src="./images/round2_completion.png" alt="Completion rate">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_round_3">14.2.3. Round 3</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Categories</th>
+<th class="tableblock halign-left valign-top">User 9</th>
+<th class="tableblock halign-left valign-top">User 10</th>
+<th class="tableblock halign-left valign-top">User 11</th>
+<th class="tableblock halign-left valign-top">User 12</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Age</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">27</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">38</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">54</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Gender</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Male</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Male</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Female</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Male</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Level of computer expertise</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Time spent on Task 1</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">164,24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">112,13</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">145,32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">167,89</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Time spent on Task 2</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">134,25</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">103,86</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">134,67</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">166,43</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Time spent on Task 3</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">157,78</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">121,34</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">164,78</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">178,42</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Average time spent</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">152,09</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">112,44</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">148,25</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">170,91</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Correct tasks completion</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>User&#8217;s requested changes</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Possibility of uploading more than one photo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Give the user the possibility of adding videos to markers</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The user would like to have the optional functionality of routes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add a feature where the user can see its near markers</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>User&#8217;s evaluation</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect4">
+<h5 id="_general_results_3">General results</h5>
+<div class="sect5">
+<h6 id="_age_distribution_3">Age distribution</h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Age</th>
+<th class="tableblock halign-left valign-top">Percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>From 18 to 25</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">25%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>From 25 to 50</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">50%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>From 50 to 75</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">25%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>75 or more</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0%</p></td>
+</tr>
+</tbody>
+</table>
+<div class="imageblock">
+<div class="content">
+<img src="./images/round3_age.png" alt="Age distribution">
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_gender_distribution_3">Gender distribution</h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Gender</th>
+<th class="tableblock halign-left valign-top">Percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Men</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">75%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>Women</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">25%</p></td>
+</tr>
+</tbody>
+</table>
+<div class="imageblock">
+<div class="content">
+<img src="./images/round3_gender.png" alt="Gender distribution">
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_average_time_3">Average time</h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Tasks</th>
+<th class="tableblock halign-left valign-top">Results</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>1</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">147,40</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>2</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">134,80</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>3</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">155,58</p></td>
+</tr>
+</tbody>
+</table>
+<div class="imageblock">
+<div class="content">
+<img src="./images/round3_time.png" alt="Average time">
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_average_completion_rate_3">Average completion rate</h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Tasks</th>
+<th class="tableblock halign-left valign-top">Results</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>1</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>2</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>3</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100%</p></td>
+</tr>
+</tbody>
+</table>
+<div class="imageblock">
+<div class="content">
+<img src="./images/round3_completion.png" alt="Completion rate">
+</div>
+</div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p><strong>About arc42</strong></p>
 </div>
@@ -1862,9 +2600,12 @@ Created by Dr. Peter Hruschka &amp; Dr. Gernot Starke.</p>
 </div>
 </div>
 </div>
+</div>
+</div>
+</div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-05-02 03:46:46 +0200
+Last updated 2023-05-08 17:39:24 +0200
 </div>
 </div>
 </body>
