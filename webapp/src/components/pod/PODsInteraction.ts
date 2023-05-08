@@ -168,7 +168,7 @@ export async function getMaps(webId: string, session: Session) {
     let uri = webId.split("/").slice(0, 3).join("/").concat("/lomap/");
     try {
         let dataset = await getSolidDataset(uri, {fetch: session.fetch});
-        return getContainedResourceUrlAll(dataset);
+        return getContainedResourceUrlAll(dataset).filter(file => file.includes(".jsonld"));
     } catch (e) {
         return ["User Unauthorized"]
     }
