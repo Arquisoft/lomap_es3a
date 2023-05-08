@@ -29,14 +29,11 @@
 | *_ReactJS_* 
 | Open-source _JavaScript_ library that is used for building user interfaces. 
 
-| *_Ruby_* 
-| Ruby is an interpreted, high-level, general-purpose programming language which supports multiple programming paradigms 
-
 | *_Node_* 
 | An asynchronous event-driven JavaScript runtime, Node.js is designed to build scalable network applications 
   
 | *_SOLID Specification_* 
-|Proposed set of conventions and tools for building decentralized social applications. 
+| Proposed set of conventions and tools for building decentralized social applications.
  
 | *_TypeScript_* 
 | A syntactical superset of _JavaScript_ which adds optional static typing to the language. 

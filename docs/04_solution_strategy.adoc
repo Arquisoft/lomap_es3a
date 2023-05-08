@@ -38,7 +38,7 @@ We are using _PlantUML_ and _draw.io_ for creating the diagrams of the documenta
  
 | Quality goal | Scenario | Solution approach 
  
-| *_Privacy and Security_*  
+| *_Privacy_*
 | The users will feel safe while using our app, knowing that their data will be treated safely and privately.  
 | We will use SOLID PODs in order to achieve this by managing the information that the user wants to share in his POD. We will aim to solve problems that may compromise the robustness and security of the application. 
  

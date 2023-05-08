@@ -17,23 +17,17 @@ component "GOMap!" as go
 
 [options="header",cols="1,4,4"] 
 |===  
-|Entity |Inputs | Outputs  
+|Entity |Inputs | Outputs
 
-| *_User_*
-| The user's input will be the interface provided by the webapp.
-| The user will create the pod and store there their information and also, he can customize the map by adding places.
 
-| *_POD_*
-| The POD will receive petitions from WebApp to get information about the users of the app.  
-| It will provide users' information (places registered by users) needed by the webapp. 
+| *_GOMap!_*
+| Users interaction with the graphic interface.
+| Response to the users' inputs obtained from the PODs (place to store information)
 
-| *_WebApp_*
-| The user will be able to add markers and to access the information about their markers.
-| The information that provides to the user logged like the added markers and their details.
+| *_User, Hall & Bussiness_*
+| All users' input will be the interface provided by the webapp.
+| Users will create the POD, store there their information and also, he can customize the map by adding places, changing between different maps, or even add reviews or info to other users markers.
 
-| *_OpenStreetMaps_*
-| It allows us to create markers with different information about places.
-| It allows us to view in the map the different markers created by users
 
 |===    
 

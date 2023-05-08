@@ -1,0 +1,417 @@
+== Usability Tests
+
+=== Tasks description
+
+To carry out the usability tests, the user will have to perform three medium-sized tasks so that the developers can check the performance of the app with users of all kinds.
+
+The tasks are:
+
+* The user must change the language to their own, access the project documentation, and return to the home page.
+Subsequently, they must log in, being able to select a provider (or leave the default one), and access the login panel of the chosen provider.
+Once there, the user must enter the following data, User: lomapes3aUser, Password: @lomapes3a_Passwd.
+Once this is done, the user will be redirected to the map window, where they must create a new map (with the name they choose)
+and try to add a marker, with the data they want, but they must add a photo. Once this is done, the user must see the marker they have added.
+
+* The user starts from the previous point, currently, the user will have 3 friends already added (formed by the group members).
+They must be able to access one of the shared maps of one of those friends (whichever they want) and subsequently try to apply various
+filters to it so that they can check that the selected categories correspond to the displayed markers. After this, the user must go to
+their personal profile and change the username to their own. Subsequently, they must access the friends panel and add a fourth friend,
+with the username: "omitg".
+
+* The user must access the About panel and access the GitHub profile of any of the 4 developers. Subsequently, they will go through
+the help window, where they must enter their name, email address: uo281847@uniovi.es, and any message, and then send it.
+To finish, the user will return to the map and try to create a new map, again with the name they want, and try to switch
+between this and the previous one. In the first map, where they had created a marker in the first task, the user must add a review,
+with the rating and comment they prefer.
+
+Once this is done, the user will have completed the 3 tasks and the test will have ended.
+
+=== Obtained results
+_* Every time measurement is in seconds_
+
+==== Round 1
+
+|===
+| Categories | User 1 | User 2 | User 3 | User 4
+
+| *_Age_*
+| 51
+| 20
+| 27
+| 75
+
+| *_Gender_*
+| Female
+| Female
+| Male
+| Male
+
+| *_Level of computer expertise_*
+| 6
+| 8
+| 5
+| 2
+
+| *_Time spent on Task 1_*
+| 189,23
+| 145,60
+| 167,23
+| 245,48
+
+| *_Time spent on Task 2_*
+| 134,93
+| 102,23
+| 123,15
+| 193,45
+
+| *_Time spent on Task 3_*
+| 163,45
+| 134,64
+| 154,60
+| 223,67
+
+| *_Average time spent_*
+| 162,54
+| 127,49
+| 148,33
+| 220,87
+
+| *_Correct tasks completion_*
+| 100%
+| 100%
+| 100%
+| 100%
+
+| *_User's requested changes_*
+| Add more options to filter the selected map
+| Size of the app should adapt to the screen
+| When adding a photo, refresh the component
+| Add more info about requests state
+
+| *_User's evaluation_*
+| 7
+| 8
+| 6
+| 8
+|===
+
+===== General results
+
+====== Age distribution
+|===
+| Age | Percentage
+
+| *_From 18 to 25_*
+| 25%
+
+| *_From 25 to 50_*
+| 25%
+
+| *_From 50 to 75_*
+| 25%
+
+| *_75 or more_*
+| 25%
+|===
+:imagesdir: ./images
+image::round1_age.png[Age distribution]
+
+====== Gender distribution
+|===
+| Gender | Percentage
+
+| *_Men_*
+| 50%
+
+| *_Women_*
+| 50%
+|===
+image::round1_gender.png[Gender distribution]
+
+====== Average time
+|===
+| Tasks | Results
+
+| *_1_*
+| 186,89
+
+| *_2_*
+| 138,44
+
+| *_3_*
+| 169,09
+|===
+image::round1_time.png[Average time]
+
+====== Average completion rate
+|===
+| Tasks | Results
+
+| *_1_*
+| 100%
+
+| *_2_*
+| 100%
+
+| *_3_*
+| 100%
+|===
+image::round1_completion.png[Completion rate]
+
+==== Round 2
+
+|===
+| Categories | User 5 | User 6 | User 7 | User 8
+
+| *_Age_*
+| 23
+| 50
+| 25
+| 55
+
+| *_Gender_*
+| Male
+| Male
+| Male
+| Female
+
+| *_Level of computer expertise_*
+| 8
+| 6
+| 6
+| 6
+
+| *_Time spent on Task 1_*
+| 156,46
+| 178,45
+| 145,32
+| 166,89
+
+| *_Time spent on Task 2_*
+| 123,34
+| 146,76
+| 134,67
+| 166,43
+
+| *_Time spent on Task 3_*
+| 145,30
+| 175,34
+| 145,65
+| 175,35
+
+| *_Average time spent_*
+| 141,70
+| 166,85
+| 141,88
+| 169,89
+
+| *_Correct tasks completion_*
+| 100%
+| 100%
+| 100%
+| 100%
+
+| *_User's requested changes_*
+| No changes requested
+| Giving the user the possibility of sharing its markers
+| More options to customize your profile from the website instead of navigating to you SOLID Profile
+| Possibility of deleting markers and maps
+
+| *_User's evaluation_*
+| 9
+| 6
+| 8
+| 9
+|===
+
+===== General results
+
+====== Age distribution
+|===
+| Age | Percentage
+
+| *_From 18 to 25_*
+| 50%
+
+| *_From 25 to 50_*
+| 25%
+
+| *_From 50 to 75_*
+| 25%
+
+| *_75 or more_*
+| 0%
+|===
+:imagesdir: ./images
+image::round2_age.png[Age distribution]
+
+====== Gender distribution
+|===
+| Gender | Percentage
+
+| *_Men_*
+| 75%
+
+| *_Women_*
+| 25%
+|===
+image::round2_gender.png[Gender distribution]
+
+====== Average time
+|===
+| Tasks | Results
+
+| *_1_*
+| 162,03
+
+| *_2_*
+| 142,80
+
+| *_3_*
+| 160,41
+|===
+image::round2_time.png[Average time]
+
+====== Average completion rate
+|===
+| Tasks | Results
+
+| *_1_*
+| 100%
+
+| *_2_*
+| 100%
+
+| *_3_*
+| 100%
+|===
+image::round2_completion.png[Completion rate]
+
+==== Round 3
+
+|===
+| Categories | User 9 | User 10 | User 11 | User 12
+
+| *_Age_*
+| 27
+| 20
+| 38
+| 54
+
+| *_Gender_*
+| Male
+| Male
+| Female
+| Male
+
+| *_Level of computer expertise_*
+| 4
+| 10
+| 6
+| 5
+
+| *_Time spent on Task 1_*
+| 164,24
+| 112,13
+| 145,32
+| 167,89
+
+| *_Time spent on Task 2_*
+| 134,25
+| 103,86
+| 134,67
+| 166,43
+
+| *_Time spent on Task 3_*
+| 157,78
+| 121,34
+| 164,78
+| 178,42
+
+| *_Average time spent_*
+| 152,09
+| 112,44
+| 148,25
+| 170,91
+
+| *_Correct tasks completion_*
+| 100%
+| 100%
+| 100%
+| 100%
+
+| *_User's requested changes_*
+| Possibility of uploading more than one photo
+| Give the user the possibility of adding videos to markers
+| The user would like to have the optional functionality of routes
+| Add a feature where the user can see its near markers
+
+| *_User's evaluation_*
+| 9
+| 6
+| 9
+| 10
+|===
+
+===== General results
+
+====== Age distribution
+|===
+| Age | Percentage
+
+| *_From 18 to 25_*
+| 25%
+
+| *_From 25 to 50_*
+| 50%
+
+| *_From 50 to 75_*
+| 25%
+
+| *_75 or more_*
+| 0%
+|===
+:imagesdir: ./images
+image::round3_age.png[Age distribution]
+
+====== Gender distribution
+|===
+| Gender | Percentage
+
+| *_Men_*
+| 75%
+
+| *_Women_*
+| 25%
+|===
+image::round3_gender.png[Gender distribution]
+
+====== Average time
+|===
+| Tasks | Results
+
+| *_1_*
+| 147,40
+
+| *_2_*
+| 134,80
+
+| *_3_*
+| 155,58
+|===
+image::round3_time.png[Average time]
+
+====== Average completion rate
+|===
+| Tasks | Results
+
+| *_1_*
+| 100%
+
+| *_2_*
+| 100%
+
+| *_3_*
+| 100%
+|===
+image::round3_completion.png[Completion rate]
