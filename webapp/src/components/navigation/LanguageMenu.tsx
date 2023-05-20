@@ -2,12 +2,6 @@ import React, {useState} from 'react';
 import {Dropdown} from 'react-bootstrap';
 import {initReactI18next, useTranslation} from 'react-i18next';
 import i18n from '../../i18n';
-import UKFlag from "../../img/flags/UKFlag.png";
-import SpainFlag from "../../img/flags/SpainFlag.png";
-import FranceFlag from "../../img/flags/FranceFlag.png";
-import GermanyFlag from "../../img/flags/GermanyFlag.png";
-import ChinaFlag from "../../img/flags/ChinaFlag.png";
-import AsturiasFlag from "../../img/flags/AsturiasFlag.png";
 
 i18n.use(initReactI18next)
 
@@ -31,37 +25,31 @@ function LanguageMenu() {
 
             <Dropdown.Menu>
                 <div className="dropdown-item" onClick={() => void handleLanguageChange('en')}>
-                    <img src={UKFlag} alt="Flag of UK" width="24"/>
                     <Dropdown.Item active={selectedLanguage === 'en'}>
                         {t("english")}
                     </Dropdown.Item>
                 </div>
                 <div className="dropdown-item" onClick={() => void handleLanguageChange('es')}>
-                    <img src={SpainFlag} alt="Flag of Spain" width="24"/>
                     <Dropdown.Item active={selectedLanguage === 'es'}>
                         {t("spanish")}
                     </Dropdown.Item>
                 </div>
                 <div className="dropdown-item" onClick={() => void handleLanguageChange('fr')}>
-                    <img src={FranceFlag} alt="Flag of France" width="24"/>
                     <Dropdown.Item active={selectedLanguage === 'fr'}>
                         {t("french")}
                     </Dropdown.Item>
                 </div>
                 <div className="dropdown-item" onClick={() => void handleLanguageChange('deu')}>
-                    <img src={GermanyFlag} alt="Flag of Germany" width="24"/>
                     <Dropdown.Item active={selectedLanguage === 'deu'}>
                         {t("german")}
                     </Dropdown.Item>
                 </div>
                 <div className="dropdown-item" onClick={() => void handleLanguageChange('chn')}>
-                    <img src={ChinaFlag} alt="Flag of China" width="24"/>
                     <Dropdown.Item active={selectedLanguage === 'chn'}>
                         {t("chinese")}
                     </Dropdown.Item>
                 </div>
                 <div className="dropdown-item" onClick={() => void handleLanguageChange('ast')}>
-                    <img src={AsturiasFlag} alt="Flag of Asturias" width="24"/>
                     <Dropdown.Item active={selectedLanguage === 'ast'}>
                         {t("asturian")}
                     </Dropdown.Item>
